@@ -3,6 +3,24 @@
   max-width: 1200px;
   margin: 0 auto;
   text-align: center;
+  position: relative;
+}
+
+.about::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 600px 400px at 20% 50%, rgba(0, 212, 255, 0.06), transparent),
+    radial-gradient(ellipse 500px 350px at 80% 30%, rgba(139, 92, 246, 0.05), transparent),
+    radial-gradient(ellipse 400px 300px at 50% 80%, rgba(0, 212, 255, 0.04), transparent);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.about > * {
+  position: relative;
+  z-index: 1;
 }
 
 .about-title {
@@ -12,6 +30,20 @@
   color: var(--text);
   margin-bottom: 1.5rem;
   letter-spacing: 0.04em;
+  position: relative;
+  display: inline-block;
+}
+
+.about-title::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  border-radius: 2px;
 }
 
 .about-description {
@@ -20,21 +52,33 @@
   color: var(--text-muted);
   max-width: 640px;
   margin: 0 auto 3.5rem;
-  line-height: 1.7;
+  line-height: 1.8;
 }
 
 .about-counters {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  gap: 4rem;
+  gap: 2rem;
 }
 
 .about-counter {
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 220px;
+  max-width: 240px;
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  padding: 32px;
+  transition: all 0.3s ease;
+}
+
+.about-counter:hover {
+  border-color: rgba(0, 212, 255, 0.25);
+  box-shadow: 0 0 30px rgba(0, 212, 255, 0.1);
 }
 
 .about-counter-value {
@@ -47,6 +91,8 @@
   background-clip: text;
   line-height: 1.1;
   margin-bottom: 0.5rem;
+  text-shadow: 0 0 30px rgba(0, 212, 255, 0.4);
+  filter: drop-shadow(0 0 20px rgba(0, 212, 255, 0.3));
 }
 
 .about-counter-label {
@@ -72,7 +118,11 @@
   }
 
   .about-counters {
-    gap: 2rem;
+    gap: 1.5rem;
+  }
+
+  .about-counter {
+    padding: 24px;
   }
 
   .about-counter-value {
@@ -97,7 +147,12 @@
   .about-counters {
     flex-direction: column;
     align-items: center;
-    gap: 2.5rem;
+    gap: 1.5rem;
+  }
+
+  .about-counter {
+    width: 100%;
+    max-width: 280px;
   }
 
   .about-counter-value {

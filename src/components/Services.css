@@ -1,7 +1,42 @@
+@property --angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes rotate-gradient {
+  to {
+    --angle: 360deg;
+  }
+}
+
+@keyframes float-orb {
+  0%, 100% { transform: translate(0, 0); }
+  33% { transform: translate(30px, -20px); }
+  66% { transform: translate(-20px, 20px); }
+}
+
 .services {
   padding: 120px 2rem 80px;
   max-width: 1200px;
   margin: 0 auto;
+  position: relative;
+}
+
+.services-bg-orb {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #7B2FFF, #00D4FF);
+  filter: blur(100px);
+  opacity: 0.05;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  pointer-events: none;
+  animation: float-orb 12s ease-in-out infinite;
+  z-index: 0;
 }
 
 .services-title {
@@ -12,12 +47,28 @@
   color: #fff;
   margin-bottom: 3.5rem;
   letter-spacing: 0.04em;
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+.services-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #00D4FF, #7B2FFF);
+  border-radius: 2px;
 }
 
 .services-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
+  position: relative;
+  z-index: 1;
 }
 
 .service-card {
@@ -29,18 +80,65 @@
   padding: 32px;
   transition: all 0.3s ease;
   cursor: default;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Inner glow at top */
+.service-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: linear-gradient(to bottom, rgba(0, 212, 255, 0.05), transparent);
+  pointer-events: none;
+  border-radius: 16px 16px 0 0;
+}
+
+/* Animated gradient border */
+.service-card::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: conic-gradient(from var(--angle), #00D4FF, #7B2FFF, #FF2D78, #00D4FF);
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  animation: rotate-gradient 3s linear infinite;
+}
+
+.service-card:hover::before {
+  opacity: 1;
 }
 
 .service-card:hover {
-  box-shadow: 0 0 30px rgba(0, 212, 255, 0.3);
+  box-shadow:
+    0 0 30px rgba(0, 212, 255, 0.2),
+    0 8px 32px rgba(0, 0, 0, 0.3);
   transform: scale(1.03);
-  border-color: rgba(0, 212, 255, 0.4);
+  border-color: transparent;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.service-icon-wrapper {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: rgba(0, 212, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
 }
 
 .service-icon {
-  font-size: 48px;
+  font-size: 32px;
   display: block;
-  margin-bottom: 1rem;
   line-height: 1;
 }
 
@@ -51,6 +149,8 @@
   color: #fff;
   margin: 0 0 0.6rem;
   letter-spacing: 0.02em;
+  position: relative;
+  z-index: 1;
 }
 
 .service-card-desc {
@@ -59,6 +159,8 @@
   color: #8892A4;
   margin: 0;
   line-height: 1.55;
+  position: relative;
+  z-index: 1;
 }
 
 /* Tablet: 2 columns */
@@ -75,6 +177,11 @@
   .services-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 1.25rem;
+  }
+
+  .services-bg-orb {
+    width: 250px;
+    height: 250px;
   }
 }
 

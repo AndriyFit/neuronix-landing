@@ -21,21 +21,44 @@
 }
 
 .case-card {
-  background: rgba(255, 255, 255, 0.04);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(0, 212, 255, 0.15);
-  border-radius: 16px;
+  border-radius: 20px;
   padding: 36px 32px;
-  transition: all 0.3s ease;
+  transition: all 0.35s ease;
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Decorative left accent line */
+.case-card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 20%;
+  height: 60%;
+  width: 3px;
+  background: linear-gradient(to bottom, #00D4FF, #7B2FFF);
+  border-radius: 0 3px 3px 0;
+  opacity: 0.6;
+  transition: opacity 0.35s ease;
+}
+
+.case-card:hover::before {
+  opacity: 1;
 }
 
 .case-card:hover {
-  box-shadow: 0 0 30px rgba(0, 212, 255, 0.25);
-  border-color: rgba(0, 212, 255, 0.35);
+  box-shadow:
+    0 0 30px rgba(0, 212, 255, 0.2),
+    0 8px 32px rgba(0, 0, 0, 0.3);
+  border-color: rgba(0, 212, 255, 0.45);
+  transform: translateY(-4px);
 }
 
 .case-tag {
@@ -75,7 +98,7 @@
 }
 
 .case-label {
-  color: #fff;
+  color: #00D4FF;
   font-weight: 600;
 }
 
@@ -100,11 +123,12 @@
   font-size: 2.4rem;
   font-weight: 700;
   line-height: 1.1;
-  background: linear-gradient(135deg, #00D4FF, #7B2FFF);
+  background: linear-gradient(135deg, #00D4FF 0%, #7B2FFF 50%, #FF2D78 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   margin-bottom: 0.35rem;
+  filter: drop-shadow(0 0 20px rgba(0, 212, 255, 0.4));
 }
 
 .case-metric-label {

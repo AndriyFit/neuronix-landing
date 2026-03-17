@@ -79,8 +79,11 @@ export default function Testimonials() {
               <span className="testimonial-quote">&laquo;&raquo;</span>
               <p className="testimonial-text">{item.text}</p>
               <div className="testimonial-author">
-              <div className="testimonial-name">{item.name}</div>
-              <div className="testimonial-role">{item.role}</div>
+              <div className="testimonial-avatar">{item.name.charAt(0)}</div>
+              <div className="testimonial-author-info">
+                <div className="testimonial-name">{item.name}</div>
+                <div className="testimonial-role">{item.role}</div>
+              </div>
             </div>
             </div>
           ))}
@@ -93,8 +96,11 @@ export default function Testimonials() {
             <span className="testimonial-quote">&laquo;&raquo;</span>
             <p className="testimonial-text">{item.text}</p>
             <div className="testimonial-author">
-              <div className="testimonial-name">{item.name}</div>
-              <div className="testimonial-role">{item.role}</div>
+              <div className="testimonial-avatar">{item.name.charAt(0)}</div>
+              <div className="testimonial-author-info">
+                <div className="testimonial-name">{item.name}</div>
+                <div className="testimonial-role">{item.role}</div>
+              </div>
             </div>
           </div>
         ))}

@@ -74,11 +74,14 @@ export default function Services() {
 
   return (
     <section id="services" className="services" ref={sectionRef}>
+      <div className="services-bg-orb" aria-hidden="true" />
       <h2 className="services-title">Наші послуги</h2>
       <div className="services-grid">
         {SERVICES.map((service) => (
           <div className="service-card" key={service.title}>
-            <span className="service-icon">{service.icon}</span>
+            <div className="service-icon-wrapper">
+              <span className="service-icon">{service.icon}</span>
+            </div>
             <h3 className="service-card-title">{service.title}</h3>
             <p className="service-card-desc">{service.desc}</p>
           </div>

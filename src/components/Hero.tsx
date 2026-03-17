@@ -121,7 +121,13 @@ export default function Hero() {
         >
           <ParticleField />
         </Canvas>
+        <div className="hero-canvas-overlay" />
       </div>
+
+      {/* Floating decorative orbs */}
+      <div className="hero-orb hero-orb--1" />
+      <div className="hero-orb hero-orb--2" />
+      <div className="hero-orb hero-orb--3" />
 
       <div className="hero-content">
         <h1 ref={titleRef} className="hero-title">

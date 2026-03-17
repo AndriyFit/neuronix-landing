@@ -169,6 +169,7 @@ export default function Cases() {
                 background: `${caseItem.tagColor}20`,
                 color: caseItem.tagColor,
                 borderColor: `${caseItem.tagColor}40`,
+                boxShadow: `0 0 12px ${caseItem.tagColor}4D`,
               }}
             >
               {caseItem.tag}
