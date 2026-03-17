@@ -7,16 +7,19 @@ gsap.registerPlugin(ScrollTrigger)
 
 const TESTIMONIALS = [
   {
-    name: 'Abertime',
-    text: 'Час додавання товару скоротився з 5 хвилин до 30 секунд. Реально вражає.',
+    name: 'Abertime — інтернет-магазин годинників',
+    role: 'Власник',
+    text: 'Час додавання товару скоротився з 5 хвилин до 30 секунд. 15 кроків — від фото до 1С — повністю автоматизовані. Оператори працюють у 10 разів швидше.',
   },
   {
-    name: 'E-Commerce клієнт',
-    text: 'Голосовий агент окупився за перший місяць. Менеджери тепер займаються продажами.',
+    name: 'SportVida — спортивні товари',
+    role: 'Керівник відділу продажів',
+    text: 'Голосовий AI-агент обдзвонює замовлення автоматично. 90% підтверджень — без менеджера. Окупився за перший місяць роботи.',
   },
   {
-    name: 'Власник магазину',
-    text: 'Сайт + автоматизація за тиждень. Якість набагато вища ніж очікував.',
+    name: 'WaterDelivery — доставка води',
+    role: 'Власник',
+    text: 'Dashboard замінив Excel і блокнот. Замовлення з двох сайтів падають автоматично, кур\'єри призначаються одразу. Економимо 3 години на день.',
   },
 ]
 
@@ -75,7 +78,10 @@ export default function Testimonials() {
             <div className="testimonial-card" key={item.name}>
               <span className="testimonial-quote">&laquo;&raquo;</span>
               <p className="testimonial-text">{item.text}</p>
+              <div className="testimonial-author">
               <div className="testimonial-name">{item.name}</div>
+              <div className="testimonial-role">{item.role}</div>
+            </div>
             </div>
           ))}
         </div>
@@ -86,7 +92,10 @@ export default function Testimonials() {
           <div className="testimonial-card" key={item.name}>
             <span className="testimonial-quote">&laquo;&raquo;</span>
             <p className="testimonial-text">{item.text}</p>
-            <div className="testimonial-name">{item.name}</div>
+            <div className="testimonial-author">
+              <div className="testimonial-name">{item.name}</div>
+              <div className="testimonial-role">{item.role}</div>
+            </div>
           </div>
         ))}
       </div>

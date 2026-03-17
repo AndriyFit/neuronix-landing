@@ -73,12 +73,24 @@
   margin: 0 0 1.25rem;
 }
 
+.testimonial-author {
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding-top: 1rem;
+}
+
 .testimonial-name {
   font-family: var(--font-display);
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   color: var(--primary);
   font-weight: 600;
   letter-spacing: 0.02em;
+}
+
+.testimonial-role {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-top: 0.25rem;
 }
 
 /* Dots */
