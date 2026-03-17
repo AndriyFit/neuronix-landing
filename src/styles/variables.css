@@ -5,9 +5,9 @@
   --accent: #FF2D78;
   --text: #FFFFFF;
   --text-muted: #8892A4;
-  --glass-bg: rgba(255, 255, 255, 0.04);
-  --glass-border: rgba(0, 212, 255, 0.15);
-  --glass-blur: blur(12px);
+  --glass-bg: rgba(10, 10, 30, 0.6);
+  --glass-border: rgba(0, 212, 255, 0.2);
+  --glass-blur: blur(20px);
   --font-display: 'Orbitron', sans-serif;
   --font-body: 'Syne', sans-serif;
 
@@ -21,8 +21,8 @@
   --gradient-accent: linear-gradient(135deg, #FF2D78, #7B2FFF);
 
   /* Enhanced glass */
-  --glass-bg-strong: rgba(255, 255, 255, 0.07);
-  --glass-border-strong: rgba(0, 212, 255, 0.25);
+  --glass-bg-strong: rgba(10, 10, 30, 0.75);
+  --glass-border-strong: rgba(0, 212, 255, 0.3);
 
   /* Shadows */
   --shadow-elevated: 0 8px 32px rgba(0, 0, 0, 0.4), 0 2px 8px rgba(0, 0, 0, 0.2);

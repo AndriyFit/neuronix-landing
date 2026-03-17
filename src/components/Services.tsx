@@ -1,9 +1,5 @@
 import { useEffect, useRef } from 'react'
-import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import './Services.css'
-
-gsap.registerPlugin(ScrollTrigger)
 
 const SERVICES = [
   {
@@ -42,43 +38,32 @@ export default function Services() {
   const sectionRef = useRef<HTMLElement>(null)
 
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.from('.service-card', {
-        scrollTrigger: {
-          trigger: '.services-grid',
-          start: 'top 85%',
-          once: true,
-        },
-        y: 60,
-        opacity: 0,
-        duration: 0.7,
-        ease: 'power3.out',
-        stagger: 0.1,
-      })
-
-      gsap.from('.services-title', {
-        scrollTrigger: {
-          trigger: '.services-title',
-          start: 'top 90%',
-          once: true,
-        },
-        y: 30,
-        opacity: 0,
-        duration: 0.6,
-        ease: 'power3.out',
-      })
-    }, sectionRef)
-
-    return () => ctx.revert()
+    if (!sectionRef.current) return
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible')
+            observer.unobserve(entry.target)
+          }
+        })
+      },
+      { threshold: 0.1 }
+    )
+    sectionRef.current.querySelectorAll('.animate-in').forEach((el) => observer.observe(el))
+    return () => observer.disconnect()
   }, [])
 
   return (
     <section id="services" className="services" ref={sectionRef}>
-      <div className="services-bg-orb" aria-hidden="true" />
-      <h2 className="services-title">Наші послуги</h2>
+      <h2 className="services-title animate-in">Наші послуги</h2>
       <div className="services-grid">
-        {SERVICES.map((service) => (
-          <div className="service-card" key={service.title}>
+        {SERVICES.map((service, i) => (
+          <div
+            className="service-card animate-in"
+            key={service.title}
+            style={{ transitionDelay: `${i * 0.1}s` }}
+          >
             <div className="service-icon-wrapper">
               <span className="service-icon">{service.icon}</span>
             </div>

@@ -1,10 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { useForm } from 'react-hook-form'
-import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import './Contact.css'
-
-gsap.registerPlugin(ScrollTrigger)
 
 interface FormData {
   name: string
@@ -25,33 +21,20 @@ export default function Contact() {
   } = useForm<FormData>()
 
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.from('.contact-title', {
-        scrollTrigger: {
-          trigger: '.contact-title',
-          start: 'top 90%',
-          once: true,
-        },
-        y: 30,
-        opacity: 0,
-        duration: 0.6,
-        ease: 'power3.out',
-      })
-
-      gsap.from('.contact-form', {
-        scrollTrigger: {
-          trigger: '.contact-form',
-          start: 'top 85%',
-          once: true,
-        },
-        y: 60,
-        opacity: 0,
-        duration: 0.7,
-        ease: 'power3.out',
-      })
-    }, sectionRef)
-
-    return () => ctx.revert()
+    if (!sectionRef.current) return
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible')
+            observer.unobserve(entry.target)
+          }
+        })
+      },
+      { threshold: 0.1 }
+    )
+    sectionRef.current.querySelectorAll('.animate-in').forEach((el) => observer.observe(el))
+    return () => observer.disconnect()
   }, [])
 
   const onSubmit = async (data: FormData) => {
@@ -81,12 +64,12 @@ export default function Contact() {
 
   return (
     <section id="contact" className="contact" ref={sectionRef}>
-      <h2 className="contact-title">Готові автоматизувати ваш бізнес?</h2>
-      <p className="contact-subtitle">
+      <h2 className="contact-title animate-in">Готові автоматизувати ваш бізнес?</h2>
+      <p className="contact-subtitle animate-in">
         Залиште заявку і ми зв'яжемось з вами протягом 24 годин
       </p>
 
-      <form className="contact-form" onSubmit={handleSubmit(onSubmit)} noValidate>
+      <form className="contact-form animate-in" onSubmit={handleSubmit(onSubmit)} noValidate>
         <div className="contact-field">
           <input
             type="text"
@@ -139,7 +122,7 @@ export default function Contact() {
         {submitError && <div className="contact-error-msg">{submitError}</div>}
       </form>
 
-      <div className="contact-info">
+      <div className="contact-info animate-in">
         <a href="tel:+380632131323" className="contact-link">
           +380 63 213 13 23
         </a>

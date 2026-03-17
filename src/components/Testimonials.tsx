@@ -1,9 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import './Testimonials.css'
-
-gsap.registerPlugin(ScrollTrigger)
 
 const TESTIMONIALS = [
   {
@@ -35,41 +31,27 @@ export default function Testimonials() {
   }, [])
 
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.from('.testimonials-title', {
-        scrollTrigger: {
-          trigger: '.testimonials-title',
-          start: 'top 90%',
-          once: true,
-        },
-        y: 30,
-        opacity: 0,
-        duration: 0.6,
-        ease: 'power3.out',
-      })
-
-      gsap.from('.testimonial-card', {
-        scrollTrigger: {
-          trigger: '.testimonials-track',
-          start: 'top 85%',
-          once: true,
-        },
-        y: 60,
-        opacity: 0,
-        duration: 0.7,
-        ease: 'power3.out',
-        stagger: 0.15,
-      })
-    }, sectionRef)
-
-    return () => ctx.revert()
+    if (!sectionRef.current) return
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible')
+            observer.unobserve(entry.target)
+          }
+        })
+      },
+      { threshold: 0.1 }
+    )
+    sectionRef.current.querySelectorAll('.animate-in').forEach((el) => observer.observe(el))
+    return () => observer.disconnect()
   }, [])
 
   return (
     <section id="testimonials" className="testimonials" ref={sectionRef}>
-      <h2 className="testimonials-title">Відгуки клієнтів</h2>
+      <h2 className="testimonials-title animate-in">Відгуки клієнтів</h2>
 
-      <div className="testimonials-slider">
+      <div className="testimonials-slider animate-in">
         <div
           className="testimonials-track"
           style={{ transform: `translateX(-${activeIndex * 100}%)` }}
@@ -79,20 +61,24 @@ export default function Testimonials() {
               <span className="testimonial-quote">&laquo;&raquo;</span>
               <p className="testimonial-text">{item.text}</p>
               <div className="testimonial-author">
-              <div className="testimonial-avatar">{item.name.charAt(0)}</div>
-              <div className="testimonial-author-info">
-                <div className="testimonial-name">{item.name}</div>
-                <div className="testimonial-role">{item.role}</div>
+                <div className="testimonial-avatar">{item.name.charAt(0)}</div>
+                <div className="testimonial-author-info">
+                  <div className="testimonial-name">{item.name}</div>
+                  <div className="testimonial-role">{item.role}</div>
+                </div>
               </div>
-            </div>
             </div>
           ))}
         </div>
       </div>
 
       <div className="testimonials-desktop">
-        {TESTIMONIALS.map((item) => (
-          <div className="testimonial-card" key={item.name}>
+        {TESTIMONIALS.map((item, i) => (
+          <div
+            className="testimonial-card animate-in"
+            key={item.name}
+            style={{ transitionDelay: `${i * 0.15}s` }}
+          >
             <span className="testimonial-quote">&laquo;&raquo;</span>
             <p className="testimonial-text">{item.text}</p>
             <div className="testimonial-author">
