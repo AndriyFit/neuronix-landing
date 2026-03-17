@@ -1,0 +1,13 @@
+:root {
+  --bg: #050510;
+  --primary: #00D4FF;
+  --secondary: #7B2FFF;
+  --accent: #FF2D78;
+  --text: #FFFFFF;
+  --text-muted: #8892A4;
+  --glass-bg: rgba(255, 255, 255, 0.04);
+  --glass-border: rgba(0, 212, 255, 0.15);
+  --glass-blur: blur(12px);
+  --font-display: 'Orbitron', sans-serif;
+  --font-body: 'Syne', sans-serif;
+}

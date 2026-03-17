@@ -1,0 +1,158 @@
+.testimonials {
+  padding: 120px 2rem 80px;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.testimonials-title {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 3.5rem;
+  letter-spacing: 0.04em;
+}
+
+/* Desktop: show all 3 cards in a row */
+.testimonials-desktop {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+/* Mobile slider: hidden on desktop */
+.testimonials-slider {
+  display: none;
+  overflow: hidden;
+}
+
+.testimonials-track {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.testimonials-track .testimonial-card {
+  min-width: 100%;
+  flex-shrink: 0;
+}
+
+/* Card styles */
+.testimonial-card {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  padding: 32px;
+  flex: 1;
+  text-align: left;
+  transition: all 0.3s ease;
+}
+
+.testimonial-card:hover {
+  box-shadow: 0 0 30px rgba(0, 212, 255, 0.15);
+  border-color: rgba(0, 212, 255, 0.3);
+}
+
+.testimonial-quote {
+  font-size: 48px;
+  line-height: 1;
+  color: var(--primary);
+  opacity: 0.4;
+  display: block;
+  margin-bottom: 0.5rem;
+  font-family: var(--font-display);
+}
+
+.testimonial-text {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--text);
+  line-height: 1.65;
+  margin: 0 0 1.25rem;
+}
+
+.testimonial-name {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  color: var(--primary);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+/* Dots */
+.testimonials-dots {
+  display: none;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 1.5rem;
+}
+
+.testimonials-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1px solid var(--primary);
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.3s ease;
+}
+
+.testimonials-dot.active {
+  background: var(--primary);
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  .testimonials {
+    padding: 80px 1.5rem 60px;
+  }
+
+  .testimonials-title {
+    font-size: 2rem;
+    margin-bottom: 2.5rem;
+  }
+
+  /* Hide desktop grid, show slider */
+  .testimonials-desktop {
+    display: none;
+  }
+
+  .testimonials-slider {
+    display: block;
+  }
+
+  .testimonials-dots {
+    display: flex;
+  }
+
+  .testimonial-card {
+    padding: 28px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .testimonials {
+    padding: 60px 1rem 40px;
+  }
+
+  .testimonials-title {
+    font-size: 1.6rem;
+    margin-bottom: 2rem;
+  }
+
+  .testimonial-card {
+    padding: 24px;
+  }
+
+  .testimonial-quote {
+    font-size: 36px;
+  }
+
+  .testimonial-text {
+    font-size: 0.95rem;
+  }
+}
