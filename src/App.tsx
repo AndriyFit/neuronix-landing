@@ -8,6 +8,7 @@ import Cases from './components/Cases'
 import About from './components/About'
 import Testimonials from './components/Testimonials'
 import Contact from './components/Contact'
+import './styles/sections-video.css'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -22,11 +23,27 @@ function App() {
       <Navbar />
       <main>
         <Hero />
-        <Services />
-        <Cases />
-        <About />
-        <Testimonials />
-        <Contact />
+        <div className="sections-video-wrapper">
+          <video
+            className="sections-video-bg"
+            autoPlay
+            loop
+            muted
+            playsInline
+            poster="/sections-bg-poster.jpg"
+          >
+            <source src="/sections-bg.mp4" type="video/mp4" />
+          </video>
+          <div className="sections-video-overlay" />
+          <div className="sections-video-fade-top" />
+          <div className="sections-content">
+            <Services />
+            <Cases />
+            <About />
+            <Testimonials />
+            <Contact />
+          </div>
+        </div>
       </main>
     </>
   )

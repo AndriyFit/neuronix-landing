@@ -48,7 +48,7 @@ const CASES: CaseData[] = [
     tagColor: '#00D4FF',
     title: 'Abertime — автоматизація каталогу годинників',
     problem: 'Оператори витрачали 5+ хвилин на додавання кожного товару: ручне заповнення OpenCart, 1С, FTP, написання описів двома мовами.',
-    solution: 'Next.js адмін-панель + n8n (34 ноди) + AI-описи (OpenRouter) + MySQL + 1С API + FTP автозавантаження фото',
+    solution: 'Next.js адмін-панель + Fastify API (15 кроків) + AI-описи UA/RU (OpenRouter) + MySQL + 1С API + FTP автозавантаження фото',
     metrics: [
       parseMetric('30', 'сек замість 5 хв'),
       parseMetric('15', 'кроків автоматично'),
@@ -58,9 +58,9 @@ const CASES: CaseData[] = [
   {
     tag: 'Voice AI',
     tagColor: '#7B2FFF',
-    title: 'AI-агент підтвердження замовлень',
-    problem: 'Менеджери вручну обдзвонювали кожне замовлення для підтвердження — до 100+ дзвінків на день, пропуски у вихідні.',
-    solution: 'Vapi голосовий агент + Cloudflare Workers + KeyCRM/SalesDrive API + автоматичне оновлення статусів',
+    title: 'Голосовий AI-агент для e-commerce',
+    problem: 'Менеджери вручну обдзвонювали кожне замовлення для підтвердження — до 100+ дзвінків на день, пропуски у вихідні та ранковий час.',
+    solution: 'Vapi голосовий агент з українською мовою + Cloudflare Workers + KeyCRM/SalesDrive API + автооновлення статусів + Telegram нотифікації',
     metrics: [
       parseMetric('90%', 'дзвінків без людей'),
       parseMetric('2', 'хв замість 15'),
@@ -72,11 +72,47 @@ const CASES: CaseData[] = [
     tagColor: '#FF2D78',
     title: 'AI-аналітика якості дзвінків',
     problem: 'Контроль якості дзвінків — вручну, вибірково. Менеджери не дотримувались скриптів, проблеми виявлялись із запізненням.',
-    solution: 'Cloudflare Workers + Deepgram транскрипція + 3 AI-агенти (класифікатор → методолог → суддя) + React дашборд',
+    solution: 'Cloudflare Workers + Deepgram транскрипція + 3 AI-агенти (класифікатор → методолог → суддя) + React дашборд з графіками',
     metrics: [
       parseMetric('100%', 'дзвінків аналізуються'),
       parseMetric('3', 'AI-агенти в pipeline'),
       parseMetric('0', 'пропущених порушень'),
+    ],
+  },
+  {
+    tag: 'CRM',
+    tagColor: '#00E5FF',
+    title: 'WaterDelivery — CRM для доставки води',
+    problem: 'Замовлення з двох сайтів записувались в Excel і блокнот. Кур\'єри призначались вручну, баланс бутлів рахувався на папері.',
+    solution: 'Next.js дашборд + Supabase + Horoshop webhook інтеграція (2 сайти) + авто-призначення кур\'єрів + баланси клієнтів',
+    metrics: [
+      parseMetric('3', 'год економії щодня'),
+      parseMetric('2', 'сайти в одному вікні'),
+      parseMetric('0', 'втрачених замовлень'),
+    ],
+  },
+  {
+    tag: 'AI Content',
+    tagColor: '#FF6B35',
+    title: 'Banner Automation — генерація акційних банерів',
+    problem: 'Дизайнер витрачав 30+ хвилин на кожен банер: вирізав фото годинників, верстав ціни, знижки, терміни акцій вручну.',
+    solution: 'Python + Pillow (auto-trim, компоновка) + FastAPI + n8n оркестрація + Telegram Bot для доставки готових банерів',
+    metrics: [
+      parseMetric('10', 'сек замість 30 хв'),
+      parseMetric('0', 'роботи дизайнера'),
+      parseMetric('100%', 'авто-генерація'),
+    ],
+  },
+  {
+    tag: 'Mini App',
+    tagColor: '#9B59B6',
+    title: 'WOD Champ — CrossFit трекер',
+    problem: 'Тренери записували результати WOD у блокноти та Google Sheets. Атлети не бачили свого прогресу та особистих рекордів.',
+    solution: 'Telegram Mini App (React + TypeScript) + Supabase + спільноти тренерів + PR трекінг + серії тренувань + calendar heatmap',
+    metrics: [
+      parseMetric('6', 'спільнот тренерів'),
+      parseMetric('100%', 'історія результатів'),
+      parseMetric('0', 'втрачених даних'),
     ],
   },
 ]

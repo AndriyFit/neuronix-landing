@@ -6,24 +6,30 @@
   background: #050510;
 }
 
-/* Shader nebula background */
-.hero-shader-canvas {
+/* Video background */
+.hero-video-bg {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
   z-index: 1;
+  object-fit: cover;
 }
 
-/* Neural network overlay */
-.hero-neural-canvas {
+/* Dark overlay on video for text readability */
+.hero-video-overlay {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   z-index: 2;
+  background:
+    radial-gradient(ellipse at center, rgba(5, 5, 16, 0.3) 0%, rgba(5, 5, 16, 0.6) 70%, rgba(5, 5, 16, 0.85) 100%);
   pointer-events: none;
 }
 
@@ -186,61 +192,6 @@
   50% { transform: translateX(-50%) translateY(10px); }
 }
 
-/* Floating orbs */
-.hero-orb {
-  position: absolute;
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 2;
-}
-
-.hero-orb--1 {
-  width: 300px;
-  height: 300px;
-  background: radial-gradient(circle, rgba(0, 212, 255, 0.15) 0%, transparent 70%);
-  top: 15%;
-  left: -5%;
-  filter: blur(40px);
-  animation: heroFloat1 8s ease-in-out infinite;
-}
-
-.hero-orb--2 {
-  width: 250px;
-  height: 250px;
-  background: radial-gradient(circle, rgba(123, 47, 255, 0.12) 0%, transparent 70%);
-  top: 60%;
-  right: -3%;
-  filter: blur(50px);
-  animation: heroFloat2 10s ease-in-out infinite;
-}
-
-.hero-orb--3 {
-  width: 180px;
-  height: 180px;
-  background: radial-gradient(circle, rgba(255, 45, 120, 0.1) 0%, transparent 70%);
-  top: 25%;
-  right: 15%;
-  filter: blur(35px);
-  animation: heroFloat3 12s ease-in-out infinite;
-}
-
-@keyframes heroFloat1 {
-  0%, 100% { transform: translate(0, 0); }
-  33% { transform: translate(20px, -30px); }
-  66% { transform: translate(-15px, 15px); }
-}
-
-@keyframes heroFloat2 {
-  0%, 100% { transform: translate(0, 0); }
-  33% { transform: translate(-25px, 20px); }
-  66% { transform: translate(15px, -25px); }
-}
-
-@keyframes heroFloat3 {
-  0%, 100% { transform: translate(0, 0); }
-  50% { transform: translate(-20px, -20px); }
-}
-
 @media (max-width: 768px) {
   .hero-content {
     padding: 0 1.5rem;
@@ -250,8 +201,4 @@
     font-size: 1rem;
     padding: 0.9rem 2rem;
   }
-
-  .hero-orb--1 { width: 200px; height: 200px; }
-  .hero-orb--2 { width: 150px; height: 150px; }
-  .hero-orb--3 { display: none; }
 }

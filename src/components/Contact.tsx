@@ -154,7 +154,7 @@ export default function Contact() {
       </div>
 
       <footer className="contact-footer">
-        &copy; 2024 Neuronix AI. Всі права захищені.
+        &copy; 2025 Neuronix AI. Всі права захищені.
       </footer>
     </section>
   )

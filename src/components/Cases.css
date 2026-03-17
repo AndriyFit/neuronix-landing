@@ -141,14 +141,21 @@
 /* Tablet */
 @media (max-width: 1024px) {
   .cases-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-    max-width: 600px;
-    margin: 0 auto;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
   }
 
   .case-metric-value {
     font-size: 2rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .cases-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    max-width: 500px;
+    margin: 0 auto;
   }
 }
 

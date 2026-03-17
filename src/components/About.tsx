@@ -80,18 +80,18 @@ export default function About() {
     <section id="about" className="about" ref={sectionRef}>
       <h2 className="about-title">Про нас</h2>
       <p className="about-description">
-        Neuronix — команда інженерів, яка будує AI-рішення для бізнесу від ідеї до продакшну.
-        Голосові агенти, автоматизація процесів, веб-додатки, інтеграції з CRM та обліковими системами.
+        Neuronix — команда AI-інженерів, яка будує рішення для бізнесу від ідеї до продакшну.
+        Голосові агенти, автоматизація e-commerce, CRM-дашборди, Telegram Mini Apps, інтеграції з 1С, KeyCRM, SalesDrive, Binotel та Horoshop.
         Ми не робимо «красиві презентації» — ми запускаємо те, що працює і заробляє.
       </p>
       <div className="about-counters">
-        <Counter target={9} suffix="+" label="реалізованих проєктів" />
+        <Counter target={12} suffix="+" label="реалізованих проєктів" />
         <Counter
-          target={200}
+          target={300}
           suffix="+"
           label="годин зекономлено клієнтам щомісяця"
         />
-        <Counter target={8} label="технологій у стеку" />
+        <Counter target={15} suffix="+" label="технологій у стеку" />
       </div>
     </section>
   )
