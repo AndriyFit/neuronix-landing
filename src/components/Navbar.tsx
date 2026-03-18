@@ -1,16 +1,21 @@
-import { useState, useEffect, useCallback } from 'react'
-import gsap from 'gsap'
-import './Navbar.css'
+'use client'
 
-const NAV_ITEMS = [
-  { label: 'Послуги', href: '#services' },
-  { label: 'Кейси', href: '#cases' },
-  { label: 'Про нас', href: '#about' },
-  { label: 'Відгуки', href: '#testimonials' },
-  { label: 'Контакти', href: '#contact' },
-]
+import { useState, useEffect, useCallback } from 'react'
+import { useTranslations } from 'next-intl'
+import gsap from 'gsap'
+import LanguageSwitcher from './LanguageSwitcher'
+import './css/Navbar.css'
 
 export default function Navbar() {
+  const t = useTranslations('nav')
+  const NAV_ITEMS = [
+    { label: t('services'), id: 'services' },
+    { label: t('cases'), id: 'cases' },
+    { label: t('about'), id: 'about' },
+    { label: t('testimonials'), id: 'testimonials' },
+    { label: t('contact'), id: 'contact' },
+  ]
+
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
 
@@ -40,9 +45,9 @@ export default function Navbar() {
     return () => { document.body.style.overflow = '' }
   }, [mobileOpen])
 
-  const scrollTo = useCallback((href: string) => {
+  const scrollTo = useCallback((id: string) => {
     setMobileOpen(false)
-    const el = document.querySelector(href)
+    const el = document.querySelector(`#${id}`)
     el?.scrollIntoView({ behavior: 'smooth' })
   }, [])
 
@@ -55,8 +60,8 @@ export default function Navbar() {
 
         <ul className="navbar-links">
           {NAV_ITEMS.map((item) => (
-            <li key={item.href}>
-              <a href={item.href} onClick={(e) => { e.preventDefault(); scrollTo(item.href) }}>
+            <li key={item.id}>
+              <a href={`#${item.id}`} onClick={(e) => { e.preventDefault(); scrollTo(item.id) }}>
                 {item.label}
               </a>
             </li>
@@ -65,10 +70,11 @@ export default function Navbar() {
 
         <button
           className="navbar-cta navbar-cta-desktop"
-          onClick={() => scrollTo('#contact')}
+          onClick={() => scrollTo('contact')}
         >
-          Консультація
+          {t('cta')}
         </button>
+        <LanguageSwitcher />
 
         <button
           className={`navbar-burger${mobileOpen ? ' open' : ''}`}
@@ -83,16 +89,19 @@ export default function Navbar() {
 
       <ul className={`navbar-mobile${mobileOpen ? ' open' : ''}`}>
         {NAV_ITEMS.map((item) => (
-          <li key={item.href}>
-            <a href={item.href} onClick={(e) => { e.preventDefault(); scrollTo(item.href) }}>
+          <li key={item.id}>
+            <a href={`#${item.id}`} onClick={(e) => { e.preventDefault(); scrollTo(item.id) }}>
               {item.label}
             </a>
           </li>
         ))}
         <li>
-          <button className="navbar-cta" onClick={() => scrollTo('#contact')}>
-            Консультація
+          <button className="navbar-cta" onClick={() => scrollTo('contact')}>
+            {t('cta')}
           </button>
+        </li>
+        <li>
+          <LanguageSwitcher />
         </li>
       </ul>
     </>

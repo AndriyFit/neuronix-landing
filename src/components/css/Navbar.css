@@ -202,3 +202,35 @@
     display: flex;
   }
 }
+
+.lang-switcher {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: 12px;
+}
+
+.lang-btn {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  cursor: pointer;
+  padding: 4px 6px;
+  transition: color 0.3s;
+}
+
+.lang-btn:hover {
+  color: var(--text);
+}
+
+.lang-btn-active {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.lang-divider {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
