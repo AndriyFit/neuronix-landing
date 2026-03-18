@@ -1,0 +1,94 @@
+{
+  "metadata": {
+    "title": "Neuronix AI — Integrating Intelligence Into Business Processes",
+    "description": "Neuronix AI — AI-powered business automation agency in Ukraine. Voice AI agents, chatbots, n8n workflows, web applications. Automate your business with artificial intelligence."
+  },
+  "nav": {
+    "services": "Services",
+    "cases": "Cases",
+    "about": "About",
+    "testimonials": "Testimonials",
+    "contact": "Contact",
+    "cta": "Start a Project"
+  },
+  "hero": {
+    "titleStart": "Integrating ",
+    "titleHighlight": "intelligence",
+    "titleEnd": " into processes",
+    "subtitle": "AI automation for small and medium business — voice agents, chatbots, websites, n8n workflows",
+    "cta": "Get a Consultation",
+    "scroll": "Scroll"
+  },
+  "services": {
+    "title": "Our Services",
+    "items": [
+      {"icon": "🎙️", "title": "Voice AI Agents", "description": "Automated calls and incoming call handling. Order confirmation, surveys, support — 24/7 without managers."},
+      {"icon": "💬", "title": "Chatbots", "description": "Intelligent bots for Telegram, Viber, websites. Answer questions, take orders, manage CRM."},
+      {"icon": "🌐", "title": "Web Applications", "description": "Landing pages, admin panels, dashboards. React, Next.js, TypeScript — fast, beautiful, turnkey."},
+      {"icon": "⚡", "title": "n8n Automation", "description": "Connect CRM, messengers, databases, AI into a single workflow. No manual work."},
+      {"icon": "🤖", "title": "AI Content", "description": "Generate descriptions, banners, email campaigns with AI. Personalized for each client."},
+      {"icon": "🔗", "title": "Integrations", "description": "APIs for 1C, OpenCart, Horoshop, KeyCRM, Binotel, SalesDrive. Data synchronization between systems."}
+    ]
+  },
+  "cases": {
+    "title": "Case Studies",
+    "items": [
+      {"tag": "E-commerce", "tagColor": "#FF2D78", "title": "Abertime — Watch Catalog", "problem": "Manual updating of 15,000+ products between 1C, OpenCart, and marketplaces", "solution": "n8n workflow for auto-sync + admin panel for managing promotions and banners", "metrics": ["15,000+ products", "Auto-sync 1C↔OpenCart", "AI banner generation"]},
+      {"tag": "Voice AI", "tagColor": "#7B2FFF", "title": "Cornix — SportVida Voice Agent", "problem": "Managers spent 2+ hours daily confirming orders by phone", "solution": "Vapi-based AI agent automatically calls clients, confirms orders, updates CRM", "metrics": ["70% less manual work", "24/7 auto-calls", "SalesDrive integration"]},
+      {"tag": "Analytics", "tagColor": "#00D4FF", "title": "BESPORT — Call Analytics", "problem": "No quality control for sports club managers' calls", "solution": "Deepgram transcription + Claude AI analysis + Telegram reports for management", "metrics": ["Auto-transcription", "AI quality scoring", "Telegram dashboard"]},
+      {"tag": "CRM", "tagColor": "#FF8C00", "title": "WaterDelivery — Water Delivery", "problem": "Chaotic orders via phone, Excel spreadsheets, lost requests", "solution": "AI voice agent for order intake + CRM with delivery route management", "metrics": ["AI order intake", "CRM with routes", "Binotel integration"]},
+      {"tag": "Automation", "tagColor": "#00FF88", "title": "Banner Automation — Banner Generation", "problem": "Designer spent 30+ minutes on each promotional banner for the website", "solution": "Python + Pillow automatically generates banners from 1C data, publishes via n8n", "metrics": ["30 sec instead of 30 min", "Auto-publishing", "Brand templates"]},
+      {"tag": "Telegram App", "tagColor": "#0088FF", "title": "WOD Champ — CrossFit Tracker", "problem": "Athletes recorded results in notebooks, trainers had no analytics", "solution": "Telegram Mini App with Supabase backend — WOD logging, leaderboards, history", "metrics": ["Telegram Mini App", "Real-time leaderboard", "Supabase backend"]}
+    ]
+  },
+  "about": {
+    "title": "Why Neuronix?",
+    "description": "Neuronix is an AI automation agency in Ukraine specializing in business process automation using artificial intelligence. We build voice AI agents, chatbots, workflow systems, and web applications that replace routine work and operate 24/7.",
+    "counters": [
+      {"value": 12, "suffix": "+", "label": "Projects completed"},
+      {"value": 300, "suffix": "+", "label": "Hours saved"},
+      {"value": 15, "suffix": "+", "label": "Technologies in stack"}
+    ]
+  },
+  "testimonials": {
+    "title": "Client Testimonials",
+    "items": [
+      {"quote": "Neuronix automated the synchronization of our 15,000-watch catalog. Now everything updates automatically — prices, availability, promotions. It used to take an entire day.", "author": "Abertime", "role": "Online watch store", "initials": "AB"},
+      {"quote": "The AI agent calls clients and confirms orders for us. Managers are finally focused on sales, not routine. ROI paid off in the first month.", "author": "SportVida", "role": "Sports e-commerce store", "initials": "SV"},
+      {"quote": "Finally a proper order system instead of Excel chaos. AI takes calls, CRM distributes routes. Clients are happy, so are we.", "author": "WaterDelivery", "role": "Water delivery service", "initials": "WD"}
+    ]
+  },
+  "contact": {
+    "title": "Start a Project",
+    "subtitle": "Tell us about your task — we'll suggest a solution",
+    "form": {
+      "name": "Your name",
+      "phone": "Phone",
+      "message": "Describe your task",
+      "submit": "Submit request",
+      "submitting": "Sending...",
+      "success": "Thank you! We'll get back to you shortly.",
+      "error": "Something went wrong. Try again or message us on Telegram.",
+      "errorName": "Enter your name",
+      "errorPhone": "Invalid phone number"
+    },
+    "info": {
+      "phone": "+380 63 213 13 23",
+      "telegram": "Telegram",
+      "telegramUrl": "https://t.me/FitLifeMeneger"
+    }
+  },
+  "footer": {
+    "copyright": "© 2026 Neuronix AI. All rights reserved."
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "items": [
+      {"question": "Who provides AI automation services in Ukraine?", "answer": "Neuronix AI is a Ukrainian AI agency specializing in business process automation. We build voice AI agents, chatbots, n8n workflows, and web applications for small and medium businesses."},
+      {"question": "What does an AI automation agency do?", "answer": "An AI agency develops artificial intelligence solutions for business: voice agents for automated calls, chatbots for customer support, routine process automation through workflow systems, analytics, and CRM integration."},
+      {"question": "How can voice AI agents help my business?", "answer": "Voice AI agents automatically call clients to confirm orders, conduct surveys, handle incoming calls 24/7. This reduces manager workload by 70% and speeds up order processing."},
+      {"question": "How much does AI automation cost?", "answer": "Cost depends on project complexity. A simple chatbot starts from $500, voice agent from $1000, comprehensive automation with CRM from $2000. First consultation is free."},
+      {"question": "What technologies does Neuronix use?", "answer": "We work with n8n, Vapi, Supabase, React, Next.js, TypeScript, Claude AI, Deepgram, Telegram Bot API, OpenCart, 1C, KeyCRM, Binotel, SalesDrive, and other platforms."}
+    ]
+  }
+}
