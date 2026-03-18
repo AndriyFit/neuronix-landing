@@ -1,5 +1,7 @@
+'use client'
 import { useEffect, useRef } from 'react'
-import './About.css'
+import { useTranslations } from 'next-intl'
+import './css/About.css'
 
 interface CounterProps {
   target: number
@@ -48,6 +50,8 @@ function Counter({ target, suffix = '', label }: CounterProps) {
 
 export default function About() {
   const sectionRef = useRef<HTMLElement>(null)
+  const t = useTranslations('about')
+  const counters = t.raw('counters') as Array<{ value: number; suffix: string; label: string }>
 
   useEffect(() => {
     if (!sectionRef.current) return
@@ -68,16 +72,14 @@ export default function About() {
 
   return (
     <section id="about" className="about" ref={sectionRef}>
-      <h2 className="about-title animate-in">Про нас</h2>
+      <h2 className="about-title animate-in">{t('title')}</h2>
       <p className="about-description animate-in">
-        Neuronix — команда AI-інженерів, яка будує рішення для бізнесу від ідеї до продакшну.
-        Голосові агенти, автоматизація e-commerce, CRM-дашборди, Telegram Mini Apps, інтеграції з 1С, KeyCRM, SalesDrive, Binotel та Horoshop.
-        Ми не робимо «красиві презентації» — ми запускаємо те, що працює і заробляє.
+        {t('description')}
       </p>
       <div className="about-counters">
-        <Counter target={12} suffix="+" label="реалізованих проєктів" />
-        <Counter target={300} suffix="+" label="годин зекономлено клієнтам щомісяця" />
-        <Counter target={15} suffix="+" label="технологій у стеку" />
+        {counters.map((c, i) => (
+          <Counter key={i} target={c.value} suffix={c.suffix} label={c.label} />
+        ))}
       </div>
     </section>
   )
