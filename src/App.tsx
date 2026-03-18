@@ -9,47 +9,18 @@ import Contact from './components/Contact'
 import './styles/sections-video.css'
 
 function App() {
-  const videoARef = useRef<HTMLVideoElement>(null)
-  const videoBRef = useRef<HTMLVideoElement>(null)
+  const videoRef = useRef<HTMLVideoElement>(null)
 
   useEffect(() => {
-    const a = videoARef.current
-    const b = videoBRef.current
-    if (!a || !b) return
+    const video = videoRef.current
+    if (!video) return
 
-    let activeVideo = a
-    let standbyVideo = b
-    let swapping = false
     let rafId: number
 
-    const CROSSFADE_AT = 0.4 // секунд до кінця
-
-    // Preload standby
-    b.load()
-
     const tick = () => {
-      if (
-        !swapping &&
-        activeVideo.duration &&
-        activeVideo.duration - activeVideo.currentTime <= CROSSFADE_AT
-      ) {
-        swapping = true
-        standbyVideo.currentTime = 0
-        standbyVideo.play().catch(() => {})
-        standbyVideo.style.opacity = '1'
-        activeVideo.style.opacity = '0'
-
-        // Після crossfade — swap ролі
-        const prev = activeVideo
-        activeVideo = standbyVideo
-        standbyVideo = prev
-
-        setTimeout(() => {
-          prev.pause()
-          prev.currentTime = 0
-          prev.load() // preload для наступного циклу
-          swapping = false
-        }, 500)
+      // За 0.15с до кінця — миттєво перемотуємо на початок без зупинки
+      if (video.duration && video.duration - video.currentTime < 0.15) {
+        video.currentTime = 0
       }
       rafId = requestAnimationFrame(tick)
     }
@@ -65,20 +36,12 @@ function App() {
         <Hero />
         <div className="sections-video-wrapper">
           <video
-            ref={videoARef}
-            className="sections-video-bg sections-video-a"
+            ref={videoRef}
+            className="sections-video-bg"
             autoPlay
             muted
             playsInline
             poster="/sections-bg-poster.jpg"
-          >
-            <source src="/sections-bg.mp4" type="video/mp4" />
-          </video>
-          <video
-            ref={videoBRef}
-            className="sections-video-bg sections-video-b"
-            muted
-            playsInline
           >
             <source src="/sections-bg.mp4" type="video/mp4" />
           </video>

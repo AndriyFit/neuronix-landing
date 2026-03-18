@@ -12,15 +12,6 @@
   z-index: 0;
   object-fit: cover;
   pointer-events: none;
-  transition: opacity 0.5s ease;
-}
-
-.sections-video-a {
-  opacity: 1;
-}
-
-.sections-video-b {
-  opacity: 0;
 }
 
 /* Dark overlay for text readability */
