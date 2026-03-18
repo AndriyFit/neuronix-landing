@@ -1,11 +1,15 @@
+'use client'
 import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
-import './Hero.css'
+import { useTranslations } from 'next-intl'
+import './css/Hero.css'
 
 export default function Hero() {
   const titleRef = useRef<HTMLHeadingElement>(null)
   const subtitleRef = useRef<HTMLParagraphElement>(null)
   const ctaRef = useRef<HTMLButtonElement>(null)
+
+  const t = useTranslations('hero')
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -46,19 +50,18 @@ export default function Hero() {
 
       <div className="hero-content">
         <h1 ref={titleRef} className="hero-title">
-          Інтегруємо <span className="hero-title-gradient">інтелект</span> у процеси
+          {t('titleStart')}<span className="hero-title-gradient">{t('titleHighlight')}</span>{t('titleEnd')}
         </h1>
         <p ref={subtitleRef} className="hero-subtitle">
-          AI автоматизація для малого і середнього бізнесу — голосові агенти,
-          чат-боти, сайти, n8n workflow
+          {t('subtitle')}
         </p>
         <button ref={ctaRef} className="hero-cta" onClick={scrollToContact}>
-          Отримати консультацію
+          {t('cta')}
         </button>
       </div>
 
       <div className="hero-scroll-indicator">
-        <span>Scroll</span>
+        <span>{t('scroll')}</span>
         <div className="hero-scroll-arrow" />
       </div>
     </section>
