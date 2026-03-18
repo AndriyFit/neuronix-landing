@@ -43,17 +43,18 @@ src/
     metadata.ts            # generateMetadata() factory per locale
     structured-data.ts     # JSON-LD generators
   middleware.ts            # locale detection & redirect
+  next.config.ts               # next-intl plugin, Vercel output config
 ```
 
 ### Rendering Strategy
 
 - **Static Site Generation (SSG)** — pages pre-rendered at build time for both locales
 - No runtime SSR needed — this is a static landing page
-- `generateStaticParams()` returns `[{locale: 'uk'}, {locale: 'en'}]`
+- `generateStaticParams()` exported from `src/app/[locale]/layout.tsx` — returns `[{locale: 'uk'}, {locale: 'en'}]`
 
 ### Deploy
 
-- Vercel (already configured)
+- Vercel with default output mode (not `output: 'export'`). Middleware handles locale detection at the edge. This is compatible with SSG — pages are still pre-rendered, but middleware runs on Vercel Edge for redirect logic.
 - No infrastructure changes needed
 
 ## SEO Foundation
@@ -86,7 +87,7 @@ Embedded in `[locale]/layout.tsx`:
 ### Technical SEO
 
 - `sitemap.xml` — auto-generated, includes `/uk` and `/en` URLs
-- `robots.txt` — explicitly allows: Googlebot, Bingbot, GPTBot, ClaudeBot-Web, PerplexityBot, Google-Extended, CCBot
+- `robots.txt` — explicitly allows: Googlebot, Bingbot, GPTBot, ClaudeBot, PerplexityBot, Google-Extended, CCBot
 - Canonical URLs: `neuronix.work/uk`, `neuronix.work/en`
 - Semantic HTML: `<main>`, `<article>`, `<section>`, `<header>`, `<nav>`, `<footer>`
 - Heading hierarchy: single `<h1>` per page, logical `<h2>` → `<h3>` nesting
@@ -151,6 +152,8 @@ Lightweight, App Router native.
 - GSAP animations — work as Client Components (`"use client"`)
 - Video loop logic from `App.tsx` → dedicated `VideoBackground` Client Component
 - `react-hook-form` in Contact → Client Component
+- Footer markup currently embedded in `Contact.tsx` — extract into standalone `Footer` Server Component
+- Contact form webhook URL (currently hardcoded Railway URL) → `NEXT_PUBLIC_WEBHOOK_URL` environment variable
 
 ### New Components
 
@@ -164,7 +167,7 @@ Lightweight, App Router native.
 |-----------|------|--------|
 | Root Layout | Server | fonts, global styles |
 | Locale Layout | Server | metadata, JSON-LD, Navbar, Footer |
-| Navbar (shell) | Server | SEO links |
+| Navbar | Client | scroll detection, GSAP animations, mobile menu state, scroll-to handlers |
 | LanguageSwitcher | Client | interactivity |
 | Hero | Client | GSAP, video |
 | VideoBackground | Client | video loop logic |
@@ -188,9 +191,14 @@ Lightweight, App Router native.
 - `gsap`, `@gsap/react` — animations
 - `react-hook-form` — contact form
 
+### Add (version notes)
+- `next-intl` v4+ required for Next.js 15 App Router compatibility
+
 ### Remove
 - `vite`, `@vitejs/plugin-react` — replaced by Next.js
-- `vite.config.ts`, `tsconfig.node.json` — Next.js has own config
+- `@types/three` — orphaned dependency, Three.js not used
+- `eslint-plugin-react-refresh` — Vite-specific, replace with `eslint-config-next`
+- `vite.config.ts`, `tsconfig.node.json`, `eslint.config.js` — Next.js has own config
 
 ## Out of Scope
 
