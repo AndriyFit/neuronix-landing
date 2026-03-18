@@ -32,6 +32,8 @@
   },
   "cases": {
     "title": "Case Studies",
+    "problemLabel": "Problem:",
+    "solutionLabel": "Solution:",
     "items": [
       {"tag": "E-commerce", "tagColor": "#FF2D78", "title": "Abertime — Watch Catalog", "problem": "Manual updating of 15,000+ products between 1C, OpenCart, and marketplaces", "solution": "n8n workflow for auto-sync + admin panel for managing promotions and banners", "metrics": ["15,000+ products", "Auto-sync 1C↔OpenCart", "AI banner generation"]},
       {"tag": "Voice AI", "tagColor": "#7B2FFF", "title": "Cornix — SportVida Voice Agent", "problem": "Managers spent 2+ hours daily confirming orders by phone", "solution": "Vapi-based AI agent automatically calls clients, confirms orders, updates CRM", "metrics": ["70% less manual work", "24/7 auto-calls", "SalesDrive integration"]},

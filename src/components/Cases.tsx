@@ -58,10 +58,10 @@ export default function Cases() {
 
             <div className="case-info">
               <p className="case-paragraph">
-                <span className="case-label">Проблема:</span> {caseItem.problem}
+                <span className="case-label">{t('problemLabel')}</span> {caseItem.problem}
               </p>
               <p className="case-paragraph">
-                <span className="case-label">Рішення:</span> {caseItem.solution}
+                <span className="case-label">{t('solutionLabel')}</span> {caseItem.solution}
               </p>
             </div>
 

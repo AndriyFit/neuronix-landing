@@ -49,7 +49,7 @@
 .navbar-links a {
   font-family: 'Syne', sans-serif;
   font-size: 0.95rem;
-  color: #8892A4;
+  color: #A0ABB8;
   text-decoration: none;
   transition: color 0.3s ease;
   position: relative;
@@ -161,7 +161,7 @@
 .navbar-mobile a {
   font-family: 'Syne', sans-serif;
   font-size: 1.4rem;
-  color: #8892A4;
+  color: #A0ABB8;
   text-decoration: none;
   transition: color 0.3s ease;
   padding-bottom: 1rem;
