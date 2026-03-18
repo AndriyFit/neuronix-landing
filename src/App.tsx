@@ -1,4 +1,4 @@
-import { useRef, useEffect, useCallback } from 'react'
+import { useRef, useEffect } from 'react'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import Services from './components/Services'
@@ -12,57 +12,51 @@ function App() {
   const videoARef = useRef<HTMLVideoElement>(null)
   const videoBRef = useRef<HTMLVideoElement>(null)
 
-  const handleTimeUpdate = useCallback(() => {
-    const active = videoARef.current
-    const standby = videoBRef.current
-    if (!active || !standby) return
-
-    // За 0.5с до кінця — запускаємо standby і робимо crossfade
-    if (active.duration - active.currentTime < 0.5 && standby.paused) {
-      standby.currentTime = 0
-      standby.play().catch(() => {})
-      standby.style.opacity = '1'
-      active.style.opacity = '0'
-
-      // Коли active закінчиться — перезапускаємо його як standby
-      setTimeout(() => {
-        active.currentTime = 0
-        active.pause()
-      }, 600)
-    }
-  }, [])
-
-  const handleTimeUpdateB = useCallback(() => {
-    const active = videoBRef.current
-    const standby = videoARef.current
-    if (!active || !standby) return
-
-    if (active.duration - active.currentTime < 0.5 && standby.paused) {
-      standby.currentTime = 0
-      standby.play().catch(() => {})
-      standby.style.opacity = '1'
-      active.style.opacity = '0'
-
-      setTimeout(() => {
-        active.currentTime = 0
-        active.pause()
-      }, 600)
-    }
-  }, [])
-
   useEffect(() => {
     const a = videoARef.current
     const b = videoBRef.current
     if (!a || !b) return
 
-    a.addEventListener('timeupdate', handleTimeUpdate)
-    b.addEventListener('timeupdate', handleTimeUpdateB)
+    let activeVideo = a
+    let standbyVideo = b
+    let swapping = false
+    let rafId: number
 
-    return () => {
-      a.removeEventListener('timeupdate', handleTimeUpdate)
-      b.removeEventListener('timeupdate', handleTimeUpdateB)
+    const CROSSFADE_AT = 0.4 // секунд до кінця
+
+    // Preload standby
+    b.load()
+
+    const tick = () => {
+      if (
+        !swapping &&
+        activeVideo.duration &&
+        activeVideo.duration - activeVideo.currentTime <= CROSSFADE_AT
+      ) {
+        swapping = true
+        standbyVideo.currentTime = 0
+        standbyVideo.play().catch(() => {})
+        standbyVideo.style.opacity = '1'
+        activeVideo.style.opacity = '0'
+
+        // Після crossfade — swap ролі
+        const prev = activeVideo
+        activeVideo = standbyVideo
+        standbyVideo = prev
+
+        setTimeout(() => {
+          prev.pause()
+          prev.currentTime = 0
+          prev.load() // preload для наступного циклу
+          swapping = false
+        }, 500)
+      }
+      rafId = requestAnimationFrame(tick)
     }
-  }, [handleTimeUpdate, handleTimeUpdateB])
+
+    rafId = requestAnimationFrame(tick)
+    return () => cancelAnimationFrame(rafId)
+  }, [])
 
   return (
     <>
