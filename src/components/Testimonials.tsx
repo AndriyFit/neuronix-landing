@@ -1,34 +1,20 @@
+'use client'
 import { useEffect, useRef, useState } from 'react'
-import './Testimonials.css'
-
-const TESTIMONIALS = [
-  {
-    name: 'Abertime',
-    role: 'Віктор, власник інтернет-магазину годинників',
-    text: 'Час додавання товару скоротився з 5 хвилин до 30 секунд. 15 кроків — від фото до 1С — повністю автоматизовані. AI генерує описи двома мовами, оператори працюють у 10 разів швидше.',
-  },
-  {
-    name: 'SportVida',
-    role: 'Керівник відділу продажів, спортивні товари',
-    text: 'Голосовий AI-агент обдзвонює замовлення автоматично українською. 90% підтверджень — без менеджера. Працює 24/7, оновлює статуси в CRM і надсилає звіти в Telegram.',
-  },
-  {
-    name: 'WaterDelivery',
-    role: 'Макс, власник служби доставки води',
-    text: 'Dashboard замінив Excel і блокнот. Замовлення з двох сайтів падають автоматично, кур\'єри призначаються одразу. Економимо 3 години на день і жодне замовлення не губиться.',
-  },
-]
+import { useTranslations } from 'next-intl'
+import './css/Testimonials.css'
 
 export default function Testimonials() {
   const sectionRef = useRef<HTMLElement>(null)
   const [activeIndex, setActiveIndex] = useState(0)
+  const t = useTranslations('testimonials')
+  const items = t.raw('items') as Array<{ quote: string; author: string; role: string; initials: string }>
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setActiveIndex((prev) => (prev + 1) % TESTIMONIALS.length)
+      setActiveIndex((prev) => (prev + 1) % items.length)
     }, 5000)
     return () => clearInterval(interval)
-  }, [])
+  }, [items.length])
 
   useEffect(() => {
     if (!sectionRef.current) return
@@ -49,21 +35,21 @@ export default function Testimonials() {
 
   return (
     <section id="testimonials" className="testimonials" ref={sectionRef}>
-      <h2 className="testimonials-title animate-in">Відгуки клієнтів</h2>
+      <h2 className="testimonials-title animate-in">{t('title')}</h2>
 
       <div className="testimonials-slider animate-in">
         <div
           className="testimonials-track"
           style={{ transform: `translateX(-${activeIndex * 100}%)` }}
         >
-          {TESTIMONIALS.map((item) => (
-            <div className="testimonial-card" key={item.name}>
+          {items.map((item) => (
+            <div className="testimonial-card" key={item.author}>
               <span className="testimonial-quote">&laquo;&raquo;</span>
-              <p className="testimonial-text">{item.text}</p>
+              <p className="testimonial-text">{item.quote}</p>
               <div className="testimonial-author">
-                <div className="testimonial-avatar">{item.name.charAt(0)}</div>
+                <div className="testimonial-avatar">{item.initials}</div>
                 <div className="testimonial-author-info">
-                  <div className="testimonial-name">{item.name}</div>
+                  <div className="testimonial-name">{item.author}</div>
                   <div className="testimonial-role">{item.role}</div>
                 </div>
               </div>
@@ -73,18 +59,18 @@ export default function Testimonials() {
       </div>
 
       <div className="testimonials-desktop">
-        {TESTIMONIALS.map((item, i) => (
+        {items.map((item, i) => (
           <div
             className="testimonial-card animate-in"
-            key={item.name}
+            key={item.author}
             style={{ transitionDelay: `${i * 0.15}s` }}
           >
             <span className="testimonial-quote">&laquo;&raquo;</span>
-            <p className="testimonial-text">{item.text}</p>
+            <p className="testimonial-text">{item.quote}</p>
             <div className="testimonial-author">
-              <div className="testimonial-avatar">{item.name.charAt(0)}</div>
+              <div className="testimonial-avatar">{item.initials}</div>
               <div className="testimonial-author-info">
-                <div className="testimonial-name">{item.name}</div>
+                <div className="testimonial-name">{item.author}</div>
                 <div className="testimonial-role">{item.role}</div>
               </div>
             </div>
@@ -93,7 +79,7 @@ export default function Testimonials() {
       </div>
 
       <div className="testimonials-dots">
-        {TESTIMONIALS.map((_, i) => (
+        {items.map((_, i) => (
           <button
             key={i}
             className={`testimonials-dot${i === activeIndex ? ' active' : ''}`}
