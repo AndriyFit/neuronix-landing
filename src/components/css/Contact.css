@@ -224,27 +224,6 @@
   height: 24px;
 }
 
-/* Footer */
-.contact-footer {
-  font-family: var(--font-body);
-  font-size: 0.85rem;
-  color: var(--text-muted);
-  padding-top: 2rem;
-  border-top: none;
-  position: relative;
-}
-
-.contact-footer::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 200px;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--primary), var(--secondary), transparent);
-}
-
 /* Tablet */
 @media (max-width: 768px) {
   .contact {
