@@ -212,6 +212,18 @@
   transform: translateY(-2px);
 }
 
+.contact-link-tg {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 20px;
+}
+
+.contact-tg-icon {
+  width: 24px;
+  height: 24px;
+}
+
 /* Footer */
 .contact-footer {
   font-family: var(--font-body);
