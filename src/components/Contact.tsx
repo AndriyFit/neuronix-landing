@@ -44,12 +44,10 @@ export default function Contact() {
   const onSubmit = async (data: FormData) => {
     setSubmitError(null)
     try {
-      const webhookUrl = process.env.NEXT_PUBLIC_WEBHOOK_URL
-      if (!webhookUrl) throw new Error('Webhook not configured')
-      const res = await fetch(webhookUrl, {
+      const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...data, source: 'landing_v3' }),
+        body: JSON.stringify(data),
       })
       if (!res.ok) throw new Error('Server error')
       setSubmitted(true)
