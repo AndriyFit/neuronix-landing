@@ -13,7 +13,6 @@ import {
   getFAQSchema,
 } from '@/lib/structured-data'
 import Navbar from '@/components/Navbar'
-import Footer from '@/components/Footer'
 import '@/styles/variables.css'
 import '@/styles/global.css'
 
@@ -78,7 +77,6 @@ export default async function LocaleLayout({
         <NextIntlClientProvider messages={messages}>
           <Navbar />
           <main>{children}</main>
-          <Footer />
         </NextIntlClientProvider>
       </body>
     </html>
