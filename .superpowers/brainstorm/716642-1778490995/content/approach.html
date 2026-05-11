@@ -1,0 +1,40 @@
+<h2>Який підхід до редизайну?</h2>
+<p class="subtitle">Вибір стратегії визначає обсяг роботи і ризики для поточного трафіку</p>
+
+<div class="options">
+  <div class="option" data-choice="a" onclick="toggleSelect(this)">
+    <div class="letter">A</div>
+    <div class="content">
+      <h3>Повний редизайн головної</h3>
+      <p>Переписуємо всю головну сторінку — білий фон, новий Hero, нова структура послуг (OpenCart / Horoshop / Landing), нові кейси під ці ніші. Поточний контент про AI-автоматизацію прибираємо або переносимо вниз.</p>
+      <div class="pros-cons" style="margin-top:12px">
+        <div class="pros"><h4>За</h4><ul><li>Максимальна конверсія під рекламний трафік</li><li>Чіткий messaging для клієнта з OpenCart/Horoshop</li></ul></div>
+        <div class="cons"><h4>Проти</h4><ul><li>Більше роботи (~3-4 дні)</li><li>Ризик зіпсувати поточний органічний трафік</li></ul></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="option" data-choice="b" onclick="toggleSelect(this)">
+    <div class="letter">B</div>
+    <div class="content">
+      <h3>Рефреш поточної сторінки</h3>
+      <p>Залишаємо структуру (Hero, Services, Cases, About, Contact), але: міняємо тему на білу, переписуємо тексти під конкретні послуги, додаємо OpenCart/Horoshop/Landing в секцію послуг, оновлюємо кейси.</p>
+      <div class="pros-cons" style="margin-top:12px">
+        <div class="pros"><h4>За</h4><ul><li>Менше ризику (~1-2 дні)</li><li>Зберігаємо структуру яка вже є</li></ul></div>
+        <div class="cons"><h4>Проти</h4><ul><li>Компроміс — не ідеальний landing для реклами</li><li>AI-messaging буде конфліктувати з ecom-messaging</li></ul></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="option" data-choice="c" onclick="toggleSelect(this)">
+    <div class="letter">C</div>
+    <div class="content">
+      <h3>Окремий рекламний лендінг</h3>
+      <p>Головна сторінка залишається без змін. Робимо окрему сторінку <code>/uk/ads</code> або <code>/uk/opencart</code> виключно під Google Ads трафік — ніяких відволікань, тільки конверсія.</p>
+      <div class="pros-cons" style="margin-top:12px">
+        <div class="pros"><h4>За</h4><ul><li>Нульовий ризик для поточного сайту</li><li>Можна A/B тестувати варіанти</li><li>Ідеально під конкретний search intent</li></ul></div>
+        <div class="cons"><h4>Проти</h4><ul><li>Дублювання контенту</li><li>Потрібен окремий маршрут в Next.js</li></ul></div>
+      </div>
+    </div>
+  </div>
+</div>

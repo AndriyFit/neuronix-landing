@@ -14,6 +14,7 @@ import {
 } from '@/lib/structured-data'
 import Navbar from '@/components/Navbar'
 import AnimatedBackground from '@/components/AnimatedBackground'
+import CookieConsent from '@/components/CookieConsent'
 import '@/styles/variables.css'
 import '@/styles/global.css'
 
@@ -79,6 +80,7 @@ export default async function LocaleLayout({
           <AnimatedBackground />
           <Navbar />
           <main>{children}</main>
+          <CookieConsent />
         </NextIntlClientProvider>
       </body>
     </html>
