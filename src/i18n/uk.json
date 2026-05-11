@@ -10,7 +10,7 @@
     "faq": "FAQ",
     "contact": "Контакт",
     "cta": "Написати в Telegram",
-    "telegramUrl": "https://t.me/neuronix_ua"
+    "telegramUrl": "https://t.me/angordien"
   },
   "hero": {
     "titleStart": "Сайти, магазини та ",
@@ -19,7 +19,7 @@
     "subtitle": "OpenCart, Horoshop, лендінги з нуля — від $150. Консультація безкоштовно.",
     "ctaPrimary": "Написати в Telegram",
     "ctaSecondary": "Залишити заявку",
-    "telegramUrl": "https://t.me/neuronix_ua"
+    "telegramUrl": "https://t.me/angordien"
   },
   "services": {
     "title": "Наші послуги",
@@ -131,7 +131,7 @@
     "title": "Розкажіть про задачу",
     "subtitle": "Відповідаємо протягом години в робочий час",
     "telegramLabel": "Написати в Telegram",
-    "telegramUrl": "https://t.me/neuronix_ua",
+    "telegramUrl": "https://t.me/angordien",
     "orLabel": "або заповніть форму",
     "form": {
       "name": "Ваше ім'я",

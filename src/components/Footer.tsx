@@ -8,7 +8,7 @@ export default function Footer() {
       <div className="footer-inner">
         <span className="footer-logo">NEURONIX</span>
         <span className="footer-copy">{t('copy')}</span>
-        <a href="https://t.me/neuronix_ua" className="footer-tg" target="_blank" rel="noopener noreferrer">
+        <a href="https://t.me/angordien" className="footer-tg" target="_blank" rel="noopener noreferrer">
           {t('telegram')}
         </a>
       </div>
