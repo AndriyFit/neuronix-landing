@@ -16,7 +16,6 @@ import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import '@/styles/variables.css'
 import '@/styles/global.css'
-import '@/styles/sections-video.css'
 
 type Props = { params: Promise<{ locale: string }> }
 

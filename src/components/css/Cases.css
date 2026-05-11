@@ -1,197 +1,72 @@
-.cases {
-  padding: 120px 2rem 80px;
-  max-width: 1200px;
+.results {
+  background: var(--bg-secondary);
+  padding: 5rem 2rem;
+}
+
+.results-inner {
+  max-width: 1100px;
   margin: 0 auto;
 }
 
-.cases-title {
-  font-family: 'Orbitron', sans-serif;
-  font-size: 2.5rem;
-  font-weight: 700;
+.results-title {
   text-align: center;
-  color: #fff;
-  margin-bottom: 3.5rem;
-  letter-spacing: 0.04em;
-  position: relative;
-  padding-bottom: 1rem;
+  margin-bottom: 3rem;
+  color: var(--text);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s, transform 0.6s;
 }
 
-.cases-title::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 60px;
-  height: 3px;
-  background: linear-gradient(90deg, #00D4FF, #7B2FFF);
-  border-radius: 2px;
-}
+.results-title.visible { opacity: 1; transform: none; }
 
-.cases-grid {
+.results-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
 }
 
-.case-card {
-  background: rgba(10, 10, 30, 0.6);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(0, 212, 255, 0.2);
-  border-radius: 20px;
-  padding: 36px 32px;
-  transition: all 0.35s ease;
+.result-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 2rem;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-card);
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
-  position: relative;
-  overflow: hidden;
+  gap: 0.5rem;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.5s, transform 0.5s;
 }
 
-/* Decorative left accent line */
-.case-card::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 20%;
-  height: 60%;
-  width: 3px;
-  background: linear-gradient(to bottom, #00D4FF, #7B2FFF);
-  border-radius: 0 3px 3px 0;
-  opacity: 0.6;
-  transition: opacity 0.35s ease;
-}
+.result-card.visible { opacity: 1; transform: none; }
 
-.case-card:hover::before {
-  opacity: 1;
-}
-
-.case-card:hover {
-  box-shadow:
-    0 0 30px rgba(0, 212, 255, 0.2),
-    0 8px 32px rgba(0, 0, 0, 0.3);
-  border-color: rgba(0, 212, 255, 0.45);
-  transform: translateY(-4px);
-}
-
-.case-tag {
-  display: inline-block;
-  width: fit-content;
-  font-family: 'Syne', sans-serif;
-  font-size: 0.8rem;
+.result-label {
+  font-size: 0.75rem;
   font-weight: 600;
-  padding: 0.3rem 0.9rem;
-  border-radius: 50px;
-  border: 1px solid;
-  letter-spacing: 0.03em;
   text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--primary);
+  opacity: 0.8;
 }
 
-.case-card-title {
-  font-family: 'Orbitron', sans-serif;
-  font-size: 1.15rem;
-  font-weight: 600;
-  color: #fff;
-  margin: 0;
-  letter-spacing: 0.02em;
+.result-metric {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--text);
+  line-height: 1.1;
 }
 
-.case-info {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+.result-desc {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  line-height: 1.5;
 }
 
-.case-paragraph {
-  font-family: 'Syne', sans-serif;
-  font-size: 0.95rem;
-  color: #A0ABB8;
-  margin: 0;
-  line-height: 1.55;
-}
-
-.case-label {
-  color: #00D4FF;
-  font-weight: 600;
-}
-
-.case-metrics {
-  display: flex;
-  gap: 0.5rem;
-  margin-top: 0.5rem;
-  flex-wrap: wrap;
-}
-
-.case-metric {
-  display: inline-flex;
-  align-items: center;
-}
-
-.case-metric-value {
-  font-family: 'Syne', sans-serif;
-  font-size: 0.8rem;
-  font-weight: 600;
-  line-height: 1.3;
-  color: #00D4FF;
-  background: rgba(0, 212, 255, 0.08);
-  border: 1px solid rgba(0, 212, 255, 0.2);
-  border-radius: 50px;
-  padding: 0.3rem 0.75rem;
-  white-space: nowrap;
-}
-
-/* Tablet */
-@media (max-width: 1024px) {
-  .cases-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.25rem;
-  }
-}
-
-@media (max-width: 640px) {
-  .cases-grid {
-    grid-template-columns: 1fr;
-    gap: 1.25rem;
-    max-width: 500px;
-    margin: 0 auto;
-  }
-}
-
-/* Mobile */
 @media (max-width: 768px) {
-  .cases {
-    padding: 80px 1.5rem 60px;
-  }
-
-  .cases-title {
-    font-size: 2rem;
-    margin-bottom: 2.5rem;
-  }
-
-  .case-card {
-    padding: 28px 24px;
-  }
-
-  .case-metrics {
-    gap: 0.4rem;
-  }
-
-  .case-metric-value {
-    font-size: 0.75rem;
-  }
+  .results-grid { grid-template-columns: 1fr; }
 }
 
-@media (max-width: 375px) {
-  .cases {
-    padding: 60px 1rem 40px;
-  }
-
-  .cases-title {
-    font-size: 1.6rem;
-  }
-
-  .case-card {
-    padding: 24px 20px;
-  }
+@media (min-width: 580px) and (max-width: 768px) {
+  .results-grid { grid-template-columns: repeat(2, 1fr); }
 }

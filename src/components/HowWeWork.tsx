@@ -1,12 +1,12 @@
 'use client'
 import { useEffect, useRef } from 'react'
 import { useTranslations } from 'next-intl'
-import './css/Cases.css'
+import './css/HowWeWork.css'
 
-export default function Cases() {
+export default function HowWeWork() {
   const sectionRef = useRef<HTMLElement>(null)
-  const t = useTranslations('results')
-  const items = t.raw('items') as Array<{ label: string; metric: string; description: string }>
+  const t = useTranslations('howWeWork')
+  const steps = t.raw('steps') as Array<{ number: string; title: string; description: string }>
 
   useEffect(() => {
     if (!sectionRef.current) return
@@ -26,19 +26,19 @@ export default function Cases() {
   }, [])
 
   return (
-    <section id="results" className="results" ref={sectionRef}>
-      <div className="results-inner">
-        <h2 className="results-title animate-in">{t('title')}</h2>
-        <div className="results-grid">
-          {items.map((item, i) => (
+    <section id="how-we-work" className="how-we-work" ref={sectionRef}>
+      <div className="how-we-work-inner">
+        <h2 className="how-we-work-title animate-in">{t('title')}</h2>
+        <div className="steps-grid">
+          {steps.map((step, i) => (
             <div
-              className="result-card animate-in"
-              key={item.label}
+              className="step-card animate-in"
+              key={step.number}
               style={{ transitionDelay: `${i * 0.1}s` }}
             >
-              <span className="result-label">{item.label}</span>
-              <span className="result-metric">{item.metric}</span>
-              <p className="result-desc">{item.description}</p>
+              <span className="step-number">{step.number}</span>
+              <h3 className="step-title">{step.title}</h3>
+              <p className="step-desc">{step.description}</p>
             </div>
           ))}
         </div>

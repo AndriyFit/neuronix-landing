@@ -5,28 +5,20 @@ import { useTranslations } from 'next-intl'
 import './css/Hero.css'
 
 export default function Hero() {
-  const titleRef = useRef<HTMLHeadingElement>(null)
-  const subtitleRef = useRef<HTMLParagraphElement>(null)
-  const ctaRef = useRef<HTMLButtonElement>(null)
-
+  const contentRef = useRef<HTMLDivElement>(null)
   const t = useTranslations('hero')
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      const tl = gsap.timeline({ defaults: { ease: 'power3.out' } })
-
-      tl.from(titleRef.current, {
-        y: 60, opacity: 0, duration: 1, delay: 0.4,
+      gsap.from('.hero-badge, .hero-title, .hero-subtitle, .hero-actions', {
+        y: 30,
+        opacity: 0,
+        duration: 0.7,
+        stagger: 0.12,
+        ease: 'power3.out',
+        delay: 0.2,
       })
-      .from(subtitleRef.current, {
-        y: 40, opacity: 0, duration: 0.8,
-      }, '-=0.4')
-      .from(ctaRef.current, {
-        y: 30, opacity: 0, duration: 0.7,
-        onComplete: () => { ctaRef.current?.classList.add('hero-cta-glow') },
-      }, '-=0.3')
-    })
-
+    }, contentRef)
     return () => ctx.revert()
   }, [])
 
@@ -36,33 +28,51 @@ export default function Hero() {
 
   return (
     <section className="hero" id="hero">
-      <video
-        className="hero-video-bg"
-        autoPlay
-        loop
-        muted
-        playsInline
-        poster="/hero-bg-poster.jpg"
-      >
-        <source src="/hero-bg.mp4" type="video/mp4" />
-      </video>
-      <div className="hero-video-overlay" />
-
-      <div className="hero-content">
-        <h1 ref={titleRef} className="hero-title">
-          {t('titleStart')}<span className="hero-title-gradient">{t('titleHighlight')}</span>{t('titleEnd')}
+      <div className="hero-content" ref={contentRef}>
+        <span className="hero-badge">neuronix.work</span>
+        <h1 className="hero-title">
+          {t('titleStart')}
+          <span className="hero-title-highlight">{t('titleHighlight')}</span>
+          {t('titleEnd')}
         </h1>
-        <p ref={subtitleRef} className="hero-subtitle">
-          {t('subtitle')}
-        </p>
-        <button ref={ctaRef} className="hero-cta" onClick={scrollToContact}>
-          {t('cta')}
-        </button>
+        <p className="hero-subtitle">{t('subtitle')}</p>
+        <div className="hero-actions">
+          <a
+            href={t('telegramUrl')}
+            className="hero-cta-primary"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {t('ctaPrimary')}
+          </a>
+          <button className="hero-cta-secondary" onClick={scrollToContact}>
+            {t('ctaSecondary')}
+          </button>
+        </div>
       </div>
 
-      <div className="hero-scroll-indicator">
-        <span>{t('scroll')}</span>
-        <div className="hero-scroll-arrow" />
+      <div className="hero-visual">
+        <div className="hero-mockup">
+          <div className="mockup-bar">
+            <span className="mockup-dot" />
+            <span className="mockup-dot" />
+            <span className="mockup-dot" />
+            <span className="mockup-url">neuronics.work</span>
+          </div>
+          <div className="mockup-body">
+            <div className="mockup-nav-line" />
+            <div className="mockup-hero-block">
+              <div className="mockup-line wide" />
+              <div className="mockup-line medium" />
+              <div className="mockup-btn-mock" />
+            </div>
+            <div className="mockup-cards">
+              <div className="mockup-card-item" />
+              <div className="mockup-card-item" />
+              <div className="mockup-card-item" />
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   )

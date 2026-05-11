@@ -10,9 +10,9 @@ export default function Navbar() {
   const t = useTranslations('nav')
   const NAV_ITEMS = [
     { label: t('services'), id: 'services' },
-    { label: t('cases'), id: 'cases' },
-    { label: t('about'), id: 'about' },
-    { label: t('testimonials'), id: 'testimonials' },
+    { label: t('results'), id: 'results' },
+    { label: t('pricing'), id: 'pricing' },
+    { label: t('faq'), id: 'faq' },
     { label: t('contact'), id: 'contact' },
   ]
 
@@ -25,21 +25,13 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  // GSAP entrance
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.from('.navbar', {
-        y: -60,
-        opacity: 0,
-        duration: 0.8,
-        ease: 'power3.out',
-        delay: 0.2,
-      })
+      gsap.from('.navbar', { y: -60, opacity: 0, duration: 0.8, ease: 'power3.out', delay: 0.2 })
     })
     return () => ctx.revert()
   }, [])
 
-  // Lock body scroll when mobile menu open
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? 'hidden' : ''
     return () => { document.body.style.overflow = '' }
@@ -47,8 +39,7 @@ export default function Navbar() {
 
   const scrollTo = useCallback((id: string) => {
     setMobileOpen(false)
-    const el = document.querySelector(`#${id}`)
-    el?.scrollIntoView({ behavior: 'smooth' })
+    document.querySelector(`#${id}`)?.scrollIntoView({ behavior: 'smooth' })
   }, [])
 
   return (
@@ -68,12 +59,14 @@ export default function Navbar() {
           ))}
         </ul>
 
-        <button
+        <a
+          href={t('telegramUrl')}
           className="navbar-cta navbar-cta-desktop"
-          onClick={() => scrollTo('contact')}
+          target="_blank"
+          rel="noopener noreferrer"
         >
           {t('cta')}
-        </button>
+        </a>
         <LanguageSwitcher />
 
         <button
@@ -81,9 +74,7 @@ export default function Navbar() {
           onClick={() => setMobileOpen((v) => !v)}
           aria-label="Menu"
         >
-          <span />
-          <span />
-          <span />
+          <span /><span /><span />
         </button>
       </nav>
 
@@ -96,13 +87,11 @@ export default function Navbar() {
           </li>
         ))}
         <li>
-          <button className="navbar-cta" onClick={() => scrollTo('contact')}>
+          <a href={t('telegramUrl')} className="navbar-cta" target="_blank" rel="noopener noreferrer">
             {t('cta')}
-          </button>
+          </a>
         </li>
-        <li>
-          <LanguageSwitcher />
-        </li>
+        <li><LanguageSwitcher /></li>
       </ul>
     </>
   )

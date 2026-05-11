@@ -1,24 +1,23 @@
 import Hero from '@/components/Hero'
 import Services from '@/components/Services'
+import HowWeWork from '@/components/HowWeWork'
 import Cases from '@/components/Cases'
-import About from '@/components/About'
+import Pricing from '@/components/Pricing'
 import FAQ from '@/components/FAQ'
-import Testimonials from '@/components/Testimonials'
 import Contact from '@/components/Contact'
-import VideoBackground from '@/components/VideoBackground'
+import Footer from '@/components/Footer'
 
 export default function HomePage() {
   return (
     <>
       <Hero />
-      <VideoBackground>
-        <Services />
-        <Cases />
-        <About />
-        <Testimonials />
-        <FAQ />
-        <Contact />
-      </VideoBackground>
+      <Services />
+      <HowWeWork />
+      <Cases />
+      <Pricing />
+      <FAQ />
+      <Contact />
+      <Footer />
     </>
   )
 }
