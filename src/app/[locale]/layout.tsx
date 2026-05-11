@@ -13,6 +13,7 @@ import {
   getFAQSchema,
 } from '@/lib/structured-data'
 import Navbar from '@/components/Navbar'
+import AnimatedBackground from '@/components/AnimatedBackground'
 import '@/styles/variables.css'
 import '@/styles/global.css'
 
@@ -75,6 +76,7 @@ export default async function LocaleLayout({
       </head>
       <body>
         <NextIntlClientProvider messages={messages}>
+          <AnimatedBackground />
           <Navbar />
           <main>{children}</main>
         </NextIntlClientProvider>
