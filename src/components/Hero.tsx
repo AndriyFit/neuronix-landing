@@ -2,6 +2,7 @@
 import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { useTranslations } from 'next-intl'
+import AnimatedTerminal from './AnimatedTerminal'
 import './css/Hero.css'
 
 export default function Hero() {
@@ -52,27 +53,7 @@ export default function Hero() {
       </div>
 
       <div className="hero-visual">
-        <div className="hero-mockup">
-          <div className="mockup-bar">
-            <span className="mockup-dot" />
-            <span className="mockup-dot" />
-            <span className="mockup-dot" />
-            <span className="mockup-url">neuronics.work</span>
-          </div>
-          <div className="mockup-body">
-            <div className="mockup-nav-line" />
-            <div className="mockup-hero-block">
-              <div className="mockup-line wide" />
-              <div className="mockup-line medium" />
-              <div className="mockup-btn-mock" />
-            </div>
-            <div className="mockup-cards">
-              <div className="mockup-card-item" />
-              <div className="mockup-card-item" />
-              <div className="mockup-card-item" />
-            </div>
-          </div>
-        </div>
+        <AnimatedTerminal />
       </div>
     </section>
   )
