@@ -12,6 +12,7 @@ import {
   getWebSiteSchema,
   getServicesSchema,
   getFAQSchema,
+  getLocalBusinessSchema,
 } from '@/lib/structured-data'
 import Navbar from '@/components/Navbar'
 import AnimatedBackground from '@/components/AnimatedBackground'
@@ -68,6 +69,7 @@ export default async function LocaleLayout({
 
   const schemas = [
     getOrganizationSchema(),
+    getLocalBusinessSchema(),
     getWebSiteSchema(),
     ...getServicesSchema(msg.services.items),
     getFAQSchema(msg.faq.items),

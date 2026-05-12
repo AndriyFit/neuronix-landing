@@ -1,12 +1,18 @@
 'use client'
 
 import { useState, useEffect, useCallback } from 'react'
-import { useTranslations } from 'next-intl'
+import { useTranslations, useLocale } from 'next-intl'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import LanguageSwitcher from './LanguageSwitcher'
 import './css/Navbar.css'
 
 export default function Navbar() {
   const t = useTranslations('nav')
+  const locale = useLocale()
+  const pathname = usePathname()
+  const isHome = pathname === `/${locale}` || pathname === `/${locale}/`
+
   const NAV_ITEMS = [
     { label: t('services'), id: 'services' },
     { label: t('results'), id: 'results' },
@@ -34,10 +40,17 @@ export default function Navbar() {
     }
   }, [mobileOpen])
 
-  const scrollTo = useCallback((id: string) => {
-    setMobileOpen(false)
-    document.querySelector(`#${id}`)?.scrollIntoView({ behavior: 'smooth' })
-  }, [])
+  const scrollTo = useCallback(
+    (id: string) => {
+      setMobileOpen(false)
+      if (!isHome) {
+        window.location.href = `/${locale}#${id}`
+        return
+      }
+      document.querySelector(`#${id}`)?.scrollIntoView({ behavior: 'smooth' })
+    },
+    [isHome, locale],
+  )
 
   const scrollToTop = useCallback(() => {
     document.getElementById('page-scroll')?.scrollTo({ top: 0, behavior: 'smooth' })
@@ -58,6 +71,11 @@ export default function Navbar() {
               </a>
             </li>
           ))}
+          <li>
+            <Link href={`/${locale}/blog`} onClick={() => setMobileOpen(false)}>
+              {locale === 'uk' ? 'Блог' : 'Blog'}
+            </Link>
+          </li>
         </ul>
 
         <a
@@ -87,6 +105,11 @@ export default function Navbar() {
             </a>
           </li>
         ))}
+        <li>
+          <Link href={`/${locale}/blog`} onClick={() => setMobileOpen(false)}>
+            {locale === 'uk' ? 'Блог' : 'Blog'}
+          </Link>
+        </li>
         <li>
           <a href={t('telegramUrl')} className="navbar-cta" target="_blank" rel="noopener noreferrer">
             {t('cta')}
