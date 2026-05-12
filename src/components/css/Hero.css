@@ -1,5 +1,6 @@
 .hero {
   min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -7,6 +8,25 @@
   padding: 96px 2rem 4rem;
   max-width: 1200px;
   margin: 0 auto;
+}
+
+@keyframes heroFadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: none; }
+}
+
+.hero-anim {
+  opacity: 0;
+  animation: heroFadeUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.hero-anim-1 { animation-delay: 0.2s; }
+.hero-anim-2 { animation-delay: 0.32s; }
+.hero-anim-3 { animation-delay: 0.44s; }
+.hero-anim-4 { animation-delay: 0.56s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-anim { animation: none; opacity: 1; }
 }
 
 .hero-content {

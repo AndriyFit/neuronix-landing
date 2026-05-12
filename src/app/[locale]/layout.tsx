@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react'
 import type { Metadata, Viewport } from 'next'
+import { Syne } from 'next/font/google'
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages, setRequestLocale } from 'next-intl/server'
 import { notFound } from 'next/navigation'
@@ -16,6 +17,14 @@ import Navbar from '@/components/Navbar'
 import AnimatedBackground from '@/components/AnimatedBackground'
 import '@/styles/variables.css'
 import '@/styles/global.css'
+
+const syne = Syne({
+  subsets: ['latin', 'latin-ext'],
+  weight: ['400', '500', '600', '700', '800'],
+  display: 'swap',
+  variable: '--font-syne',
+  preload: true,
+})
 
 type Props = { params: Promise<{ locale: string }> }
 
@@ -65,15 +74,9 @@ export default async function LocaleLayout({
   ]
 
   return (
-    <html lang={locale}>
+    <html lang={locale} className={syne.variable}>
       <head>
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Syne:wght@400;500;600;700;800&display=swap"
-          rel="stylesheet"
-        />
         {schemas.map((schema, i) => (
           <script
             key={i}

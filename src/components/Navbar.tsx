@@ -2,7 +2,6 @@
 
 import { useState, useEffect, useCallback } from 'react'
 import { useTranslations } from 'next-intl'
-import gsap from 'gsap'
 import LanguageSwitcher from './LanguageSwitcher'
 import './css/Navbar.css'
 
@@ -23,13 +22,6 @@ export default function Navbar() {
     const onScroll = () => setScrolled(window.scrollY > 50)
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
-  }, [])
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.from('.navbar', { y: -60, opacity: 0, duration: 0.8, ease: 'power3.out', delay: 0.2 })
-    })
-    return () => ctx.revert()
   }, [])
 
   useEffect(() => {
