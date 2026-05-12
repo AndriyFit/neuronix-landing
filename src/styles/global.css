@@ -322,6 +322,26 @@ section .container {
   .container {
     padding: 0 16px;
   }
+
+  /* On mobile, scroll-reveal animations are perceived as jumps
+     (cards/elements visibly pop up by 20-40px when the IntersectionObserver
+     fires). We keep a subtle fade but kill all entrance translates. */
+  .animate-in,
+  .service-card,
+  .result-card,
+  .step-card,
+  .pricing-table,
+  .pricing-cta,
+  .services-extra,
+  .services-title,
+  .results-title,
+  .pricing-title,
+  .contact-title,
+  .contact-telegram,
+  .contact-form {
+    transform: none !important;
+    transition: opacity 0.4s ease !important;
+  }
 }
 
 @media (max-width: 480px) {
