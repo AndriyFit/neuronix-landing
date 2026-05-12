@@ -40,10 +40,13 @@ export default function AnimatedBackground() {
     const resize = () => {
       const dpr = Math.min(window.devicePixelRatio || 1, isMobile() ? 1.5 : 2)
       width = window.innerWidth
-      // Use a stable height to avoid jumps when iOS Safari toolbar collapses/expands.
-      // We pick the larger of window.innerHeight and documentElement.clientHeight,
-      // then add a small buffer so the canvas covers the viewport in any state.
-      height = Math.max(window.innerHeight, document.documentElement.clientHeight) + 200
+      // Use device screen height so canvas always covers viewport regardless of
+      // iOS toolbar state. screen.height never changes during scroll.
+      height = Math.max(
+        window.screen.height,
+        window.innerHeight,
+        document.documentElement.clientHeight,
+      )
       canvas.width = width * dpr
       canvas.height = height * dpr
       canvas.style.width = `${width}px`
