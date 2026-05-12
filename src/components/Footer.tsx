@@ -15,6 +15,7 @@ export default function Footer() {
         <span className="footer-logo">NEURONIX</span>
         <span className="footer-copy">{t('copy')}</span>
         <span className="footer-fop">{t('fop')}</span>
+        <span className="footer-address">{t('address')}</span>
         <Link href={`/${locale}/privacy-policy`} className="footer-privacy">
           {t('privacy')}
         </Link>

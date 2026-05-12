@@ -53,7 +53,13 @@ function PrivacyUk() {
       </p>
       <ul style={{ paddingLeft: '1.5rem', lineHeight: 1.8 }}>
         <li>
-          <strong>Найменування:</strong> ФОП Гордієн Андрій
+          <strong>Найменування:</strong> ФОП Удич Євген
+        </li>
+        <li>
+          <strong>ЄДРПОУ (ІПН):</strong> 3214711093
+        </li>
+        <li>
+          <strong>Адреса:</strong> с.Ременів, вул.С.Куземського 1, Львівська обл., Україна
         </li>
         <li>
           <strong>Веб-сайт:</strong> neuronix.work
@@ -255,7 +261,13 @@ function PrivacyEn() {
       <p>This Privacy Policy applies to personal data processed by:</p>
       <ul style={{ paddingLeft: '1.5rem', lineHeight: 1.8 }}>
         <li>
-          <strong>Name:</strong> FOP Gordien Andrii (sole proprietor)
+          <strong>Name:</strong> FOP Udych Yevhen (sole proprietor)
+        </li>
+        <li>
+          <strong>USREOU (ЄДРПОУ):</strong> 3214711093
+        </li>
+        <li>
+          <strong>Address:</strong> Remeniv village, Kuzemskoho St. 1, Lviv region, Ukraine
         </li>
         <li>
           <strong>Website:</strong> neuronix.work
@@ -432,7 +444,7 @@ function PrivacyEn() {
       </p>
 
       <p style={{ marginTop: '3rem', color: 'var(--text-muted)', fontSize: '0.85rem' }}>
-        FOP Gordien Andrii · neuronix.work · Date: 11.05.2026
+        FOP Udych Yevhen · neuronix.work · Date: 11.05.2026
       </p>
     </article>
   )

@@ -40,6 +40,11 @@
   color: var(--text-muted);
 }
 
+.footer-address {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
 .footer-privacy {
   font-size: 0.8rem;
   color: var(--text-muted);
