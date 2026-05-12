@@ -70,3 +70,16 @@
 @media (min-width: 580px) and (max-width: 768px) {
   .results-grid { grid-template-columns: repeat(2, 1fr); }
 }
+
+@media (max-width: 600px) {
+  .results {
+    padding: 3.5rem 1rem;
+  }
+  .result-card {
+    padding: 1.5rem;
+    border-radius: 14px;
+  }
+  .result-metric {
+    font-size: 2.1rem;
+  }
+}

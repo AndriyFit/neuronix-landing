@@ -11,8 +11,6 @@ interface Particle {
   radius: number
 }
 
-const COUNT = 75
-const CONNECT_DIST = 130
 const SPEED = 0.28
 const RGB = '124, 58, 237' // #7C3AED
 
@@ -22,7 +20,7 @@ export default function AnimatedBackground() {
   useEffect(() => {
     const canvas = canvasRef.current
     if (!canvas) return
-    const ctx = canvas.getContext('2d')
+    const ctx = canvas.getContext('2d', { alpha: true })
     if (!ctx) return
 
     // Respect prefers-reduced-motion
@@ -30,21 +28,42 @@ export default function AnimatedBackground() {
 
     let animId: number
     let particles: Particle[] = []
+    let width = 0
+    let height = 0
+    let resizeTimer: number | null = null
+
+    const isMobile = () => window.innerWidth < 768
+    const getCount = () => (isMobile() ? 32 : 75)
+    const getConnectDist = () => (isMobile() ? 100 : 130)
 
     const resize = () => {
-      canvas.width = window.innerWidth
-      canvas.height = window.innerHeight
-      particles = Array.from({ length: COUNT }, () => ({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
+      const dpr = Math.min(window.devicePixelRatio || 1, isMobile() ? 1.5 : 2)
+      width = window.innerWidth
+      height = window.innerHeight
+      canvas.width = width * dpr
+      canvas.height = height * dpr
+      canvas.style.width = `${width}px`
+      canvas.style.height = `${height}px`
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0)
+
+      const count = getCount()
+      particles = Array.from({ length: count }, () => ({
+        x: Math.random() * width,
+        y: Math.random() * height,
         vx: (Math.random() - 0.5) * SPEED,
         vy: (Math.random() - 0.5) * SPEED,
         radius: Math.random() * 1.5 + 0.8,
       }))
     }
 
+    const onResize = () => {
+      if (resizeTimer !== null) window.clearTimeout(resizeTimer)
+      resizeTimer = window.setTimeout(resize, 150)
+    }
+
     const draw = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height)
+      ctx.clearRect(0, 0, width, height)
+      const connectDist = getConnectDist()
 
       for (let i = 0; i < particles.length; i++) {
         const a = particles[i]
@@ -55,8 +74,8 @@ export default function AnimatedBackground() {
           const dy = a.y - b.y
           const dist = Math.sqrt(dx * dx + dy * dy)
 
-          if (dist < CONNECT_DIST) {
-            const alpha = 0.12 * (1 - dist / CONNECT_DIST)
+          if (dist < connectDist) {
+            const alpha = 0.12 * (1 - dist / connectDist)
             ctx.beginPath()
             ctx.strokeStyle = `rgba(${RGB}, ${alpha})`
             ctx.lineWidth = 0.7
@@ -73,20 +92,32 @@ export default function AnimatedBackground() {
 
         a.x += a.vx
         a.y += a.vy
-        if (a.x < 0 || a.x > canvas.width) a.vx *= -1
-        if (a.y < 0 || a.y > canvas.height) a.vy *= -1
+        if (a.x < 0 || a.x > width) a.vx *= -1
+        if (a.y < 0 || a.y > height) a.vy *= -1
       }
 
       animId = requestAnimationFrame(draw)
     }
 
+    const handleVisibility = () => {
+      if (document.hidden) {
+        cancelAnimationFrame(animId)
+      } else {
+        animId = requestAnimationFrame(draw)
+      }
+    }
+
     resize()
     draw()
 
-    window.addEventListener('resize', resize)
+    window.addEventListener('resize', onResize)
+    document.addEventListener('visibilitychange', handleVisibility)
+
     return () => {
       cancelAnimationFrame(animId)
-      window.removeEventListener('resize', resize)
+      if (resizeTimer !== null) window.clearTimeout(resizeTimer)
+      window.removeEventListener('resize', onResize)
+      document.removeEventListener('visibilitychange', handleVisibility)
     }
   }, [])
 

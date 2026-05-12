@@ -94,3 +94,36 @@
   background: #6D28D9;
   transform: translateY(-2px);
 }
+
+@media (max-width: 600px) {
+  .pricing {
+    padding: 3.5rem 1rem;
+  }
+  .pricing-row {
+    padding: 1rem 1.25rem;
+    gap: 0.75rem;
+  }
+  .pricing-service {
+    font-size: 0.875rem;
+    line-height: 1.4;
+  }
+  .pricing-price {
+    font-size: 0.9rem;
+  }
+  .pricing-cta-btn {
+    width: 100%;
+    padding: 1rem;
+    min-height: 48px;
+  }
+}
+
+@media (max-width: 380px) {
+  .pricing-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+  .pricing-price {
+    font-size: 0.95rem;
+  }
+}

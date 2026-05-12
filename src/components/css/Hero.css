@@ -185,9 +185,55 @@
   .hero {
     flex-direction: column;
     min-height: auto;
-    padding-top: 80px;
+    padding: 88px 1.5rem 3rem;
     text-align: center;
+    gap: 2.5rem;
   }
   .hero-actions { justify-content: center; }
   .hero-visual { width: 100%; }
+}
+
+@media (max-width: 600px) {
+  .hero {
+    padding: 84px 1rem 2.5rem;
+    gap: 2rem;
+  }
+
+  .hero-content {
+    max-width: 100%;
+  }
+
+  .hero-title {
+    font-size: clamp(1.85rem, 7vw, 2.4rem);
+    line-height: 1.2;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    gap: 0.625rem;
+    align-items: stretch;
+  }
+
+  .hero-cta-primary,
+  .hero-cta-secondary {
+    justify-content: center;
+    width: 100%;
+    padding: 0.95rem 1.25rem;
+    min-height: 48px;
+  }
+
+  .hero-visual {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 380px) {
+  .hero {
+    padding: 80px 0.875rem 2rem;
+  }
+  .hero-badge { font-size: 0.72rem; }
 }

@@ -50,3 +50,22 @@
   line-height: 1.7;
   font-size: 0.95rem;
 }
+
+@media (max-width: 600px) {
+  .faq {
+    padding: 3.5rem 1rem;
+  }
+  .faq-item {
+    padding: 1rem 1.1rem;
+    border-radius: 10px;
+  }
+  .faq-question {
+    font-size: 0.98rem;
+    line-height: 1.4;
+    padding-right: 1.5rem;
+    position: relative;
+  }
+  .faq-answer {
+    font-size: 0.9rem;
+  }
+}

@@ -39,6 +39,7 @@
 .contact-telegram-btn {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.625rem;
   padding: 1rem 2rem;
   background: var(--primary);
@@ -48,6 +49,7 @@
   border-radius: 12px;
   text-decoration: none;
   transition: background 0.2s, transform 0.15s;
+  min-height: 52px;
 }
 
 .contact-telegram-btn:hover {
@@ -94,8 +96,8 @@
 
 .contact-input {
   width: 100%;
-  padding: 0.875rem 1rem;
-  font-size: 0.95rem;
+  padding: 0.95rem 1rem;
+  font-size: 1rem;
   font-family: var(--font-body);
   color: var(--text);
   background: #fff;
@@ -103,6 +105,9 @@
   border-radius: 10px;
   outline: none;
   transition: border-color 0.2s;
+  -webkit-appearance: none;
+  appearance: none;
+  min-height: 48px;
 }
 
 .contact-input:focus { border-color: var(--primary); }
@@ -117,7 +122,7 @@
 }
 
 .contact-submit {
-  padding: 0.875rem;
+  padding: 0.95rem;
   background: var(--primary);
   color: #fff;
   font-size: 1rem;
@@ -126,6 +131,7 @@
   border-radius: 10px;
   cursor: pointer;
   transition: background 0.2s;
+  min-height: 48px;
 }
 
 .contact-submit:hover:not(:disabled) { background: #6D28D9; }
@@ -149,4 +155,16 @@
   font-size: 0.9rem;
   text-align: center;
   border: 1px solid #FECACA;
+}
+
+@media (max-width: 600px) {
+  .contact {
+    padding: 3.5rem 1rem;
+  }
+  .contact-telegram-btn {
+    width: 100%;
+    padding: 1rem 1.5rem;
+  }
+  .contact-or::before,
+  .contact-or::after { width: 30%; }
 }

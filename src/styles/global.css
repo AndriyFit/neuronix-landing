@@ -17,13 +17,31 @@ html {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: rgba(124, 58, 237, 0.15);
+  text-rendering: optimizeLegibility;
 }
 
 body {
   overflow-x: hidden;
   min-height: 100vh;
+  min-height: 100dvh;
   background: var(--bg);
   position: relative;
+  overscroll-behavior-y: none;
+}
+
+/* Prevent iOS Safari zooming inputs (font-size must be >= 16px) */
+input,
+textarea,
+select {
+  font-size: 16px;
+}
+
+/* Minimum tap target for accessibility on mobile */
+button,
+a {
+  touch-action: manipulation;
 }
 
 
@@ -306,17 +324,23 @@ section .container {
   }
 }
 
+@media (max-width: 480px) {
+  section {
+    padding: 48px 0;
+  }
+}
+
 @media (max-width: 375px) {
   html {
-    font-size: 14px;
+    font-size: 15px;
   }
 
   h1 {
-    font-size: 1.8rem;
+    font-size: 1.9rem;
   }
 
   h2 {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
   }
 
   h3 {
