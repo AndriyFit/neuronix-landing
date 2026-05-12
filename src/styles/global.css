@@ -25,7 +25,7 @@ html {
 body {
   overflow-x: hidden;
   min-height: 100vh;
-  min-height: 100dvh;
+  min-height: 100svh;
   background: var(--bg);
   position: relative;
   overscroll-behavior-y: none;

@@ -30,6 +30,7 @@ export default function AnimatedBackground() {
     let particles: Particle[] = []
     let width = 0
     let height = 0
+    let lastWidth = 0
     let resizeTimer: number | null = null
 
     const isMobile = () => window.innerWidth < 768
@@ -39,7 +40,10 @@ export default function AnimatedBackground() {
     const resize = () => {
       const dpr = Math.min(window.devicePixelRatio || 1, isMobile() ? 1.5 : 2)
       width = window.innerWidth
-      height = window.innerHeight
+      // Use a stable height to avoid jumps when iOS Safari toolbar collapses/expands.
+      // We pick the larger of window.innerHeight and documentElement.clientHeight,
+      // then add a small buffer so the canvas covers the viewport in any state.
+      height = Math.max(window.innerHeight, document.documentElement.clientHeight) + 200
       canvas.width = width * dpr
       canvas.height = height * dpr
       canvas.style.width = `${width}px`
@@ -54,11 +58,15 @@ export default function AnimatedBackground() {
         vy: (Math.random() - 0.5) * SPEED,
         radius: Math.random() * 1.5 + 0.8,
       }))
+      lastWidth = width
     }
 
     const onResize = () => {
+      // Ignore height-only resizes on mobile (iOS Safari toolbar show/hide).
+      // Only react when the width actually changes (rotation, true layout change).
+      if (window.innerWidth === lastWidth) return
       if (resizeTimer !== null) window.clearTimeout(resizeTimer)
-      resizeTimer = window.setTimeout(resize, 150)
+      resizeTimer = window.setTimeout(resize, 200)
     }
 
     const draw = () => {
