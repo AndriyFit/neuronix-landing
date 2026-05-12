@@ -19,14 +19,19 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 50)
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
+    const root = document.getElementById('page-scroll')
+    if (!root) return
+    const onScroll = () => setScrolled(root.scrollTop > 50)
+    root.addEventListener('scroll', onScroll, { passive: true })
+    return () => root.removeEventListener('scroll', onScroll)
   }, [])
 
   useEffect(() => {
-    document.body.style.overflow = mobileOpen ? 'hidden' : ''
-    return () => { document.body.style.overflow = '' }
+    const root = document.getElementById('page-scroll')
+    if (root) root.style.overflow = mobileOpen ? 'hidden' : ''
+    return () => {
+      if (root) root.style.overflow = ''
+    }
   }, [mobileOpen])
 
   const scrollTo = useCallback((id: string) => {
@@ -34,10 +39,14 @@ export default function Navbar() {
     document.querySelector(`#${id}`)?.scrollIntoView({ behavior: 'smooth' })
   }, [])
 
+  const scrollToTop = useCallback(() => {
+    document.getElementById('page-scroll')?.scrollTo({ top: 0, behavior: 'smooth' })
+  }, [])
+
   return (
     <>
       <nav className={`navbar${scrolled ? ' scrolled' : ''}`}>
-        <div className="navbar-logo" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+        <div className="navbar-logo" onClick={scrollToTop}>
           NEURONIX
         </div>
 

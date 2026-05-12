@@ -9,7 +9,6 @@
 
 /* ===== Base ===== */
 html {
-  scroll-behavior: smooth;
   background: var(--bg);
   color: var(--text);
   font-family: var(--font-body);
@@ -20,15 +19,30 @@ html {
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(124, 58, 237, 0.15);
   text-rendering: optimizeLegibility;
+  height: 100%;
+  overflow: hidden;
 }
 
 body {
-  overflow-x: hidden;
-  min-height: 100vh;
-  min-height: 100svh;
   background: var(--bg);
   position: relative;
-  overscroll-behavior-y: none;
+  height: 100%;
+  overflow: hidden;
+  margin: 0;
+}
+
+/* Custom scroll container — eliminates iOS Safari URL bar collapse/expand
+   jump because the page is no longer scrolling the window itself.
+   The toolbar stays static, content scrolls inside this div. */
+.page-scroll {
+  height: 100%;
+  width: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-y: contain;
+  scroll-behavior: smooth;
+  position: relative;
 }
 
 /* Prevent iOS Safari zooming inputs (font-size must be >= 16px) */

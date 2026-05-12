@@ -32,7 +32,7 @@ function Counter({ target, suffix = '', label }: CounterProps) {
           observer.disconnect()
         }
       },
-      { threshold: 0.3 }
+      { threshold: 0.3, root: document.getElementById('page-scroll') }
     )
     observer.observe(ref.current)
     return () => observer.disconnect()
@@ -64,7 +64,7 @@ export default function About() {
           }
         })
       },
-      { threshold: 0.1 }
+      { threshold: 0.1, root: document.getElementById('page-scroll') }
     )
     sectionRef.current.querySelectorAll('.animate-in').forEach((el) => observer.observe(el))
     return () => observer.disconnect()

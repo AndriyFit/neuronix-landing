@@ -89,7 +89,9 @@ export default async function LocaleLayout({
         <NextIntlClientProvider messages={messages}>
           <AnimatedBackground />
           <Navbar />
-          <main>{children}</main>
+          <div id="page-scroll" className="page-scroll">
+            <main>{children}</main>
+          </div>
         </NextIntlClientProvider>
       </body>
     </html>

@@ -19,7 +19,7 @@ export default function Cases() {
           }
         })
       },
-      { threshold: 0.1 }
+      { threshold: 0.1, root: document.getElementById('page-scroll') }
     )
     sectionRef.current.querySelectorAll('.animate-in').forEach((el) => observer.observe(el))
     return () => observer.disconnect()
