@@ -16,6 +16,8 @@ import {
 } from '@/lib/structured-data'
 import Navbar from '@/components/Navbar'
 import AnimatedBackground from '@/components/AnimatedBackground'
+import StickyCta from '@/components/StickyCta'
+import Clarity from '@/components/Clarity'
 import '@/styles/variables.css'
 import '@/styles/global.css'
 
@@ -94,7 +96,9 @@ export default async function LocaleLayout({
           <div id="page-scroll" className="page-scroll">
             <main>{children}</main>
           </div>
+          <StickyCta />
         </NextIntlClientProvider>
+        <Clarity />
       </body>
     </html>
   )

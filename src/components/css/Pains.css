@@ -1,0 +1,100 @@
+.pains {
+  background: var(--bg);
+  padding: 5rem 2rem;
+}
+
+.pains-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Headings stay left-aligned to match the rest of the page: the global h2 is
+   inline-block (so its accent underline centres inside the text width), which
+   makes text-align on the heading itself a no-op. */
+.pains-title {
+  color: var(--text);
+  margin-bottom: 0.75rem;
+}
+
+.pains-subtitle {
+  color: var(--text-muted);
+  font-size: 1rem;
+  margin-bottom: 3rem;
+}
+
+.pains-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.pain-card {
+  position: relative;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--primary);
+  border-radius: 12px;
+  padding: 1.5rem 1.5rem 1.5rem 1.75rem;
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  color: var(--text);
+}
+
+.pain-card::before { content: '«'; }
+.pain-card::after { content: '»'; }
+
+.pains-answer {
+  margin-top: 2.5rem;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1.75rem 2rem;
+  box-shadow: var(--shadow-card);
+}
+
+.pains-answer-title {
+  color: var(--primary);
+  margin: 0 0 1rem;
+}
+
+.pains-answer-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem 2rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.pains-answer-list li {
+  position: relative;
+  padding-left: 1.75rem;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: var(--text);
+}
+
+.pains-answer-list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--primary);
+  font-weight: 700;
+}
+
+@media (max-width: 900px) {
+  .pains-grid { grid-template-columns: repeat(2, 1fr); }
+  .pains-answer-list { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 600px) {
+  .pains { padding: 3.5rem 1rem; }
+  .pains-grid { grid-template-columns: 1fr; gap: 1rem; }
+  .pains-subtitle { margin-bottom: 2rem; }
+  .pain-card { padding: 1.25rem 1.25rem 1.25rem 1.5rem; }
+  .pains-answer { padding: 1.5rem 1.25rem; margin-top: 2rem; border-radius: 14px; }
+}

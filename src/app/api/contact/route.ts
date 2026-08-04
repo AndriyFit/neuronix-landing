@@ -2,9 +2,11 @@ import { NextRequest, NextResponse } from 'next/server'
 
 export async function POST(req: NextRequest) {
   try {
-    const { name, phone, message } = await req.json()
+    const { name, phone, message, url, source } = await req.json()
+    const isAudit = source === 'audit'
 
-    if (!name || !phone) {
+    // Audit requests come from a 2-field form: site URL + a way to reach back.
+    if (!phone || (isAudit ? !url : !name)) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 })
     }
 
@@ -16,10 +18,11 @@ export async function POST(req: NextRequest) {
     }
 
     const text = [
-      '🔔 *Нова заявка з neuronix.work*',
+      isAudit ? '🔍 *Запит на аудит з neuronix.work*' : '🔔 *Нова заявка з neuronix.work*',
       '',
-      `👤 *Ім'я:* ${name}`,
-      `📞 *Телефон:* ${phone}`,
+      url ? `🌐 *Сайт:* ${url}` : null,
+      name ? `👤 *Ім'я:* ${name}` : null,
+      `📞 *Контакт:* ${phone}`,
       message ? `💬 *Повідомлення:* ${message}` : null,
     ]
       .filter(Boolean)
