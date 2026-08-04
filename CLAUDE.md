@@ -76,8 +76,20 @@ Next.js 16 (App Router) · TypeScript · next-intl (uk/en) · React 19 · react-
 Data Export API не приймає id проєкту — проєкт визначає сам токен. Тому tracking ID через API
 не дізнатись, тільки з дашборда.
 
-Vault: `neuronix/clarity_data_export_token` (API, ліміт 10 запитів/добу, дані за 1–3 дні),
-`neuronix/clarity_project_sub`.
+Наш tracking ID — **`xx4u0gbnw4`** (не секрет, видно у вихідному коді сторінки).
+Дашборд: `clarity.microsoft.com/projects/view/xx4u0gbnw4`.
+Заведено у Vercel як `NEXT_PUBLIC_CLARITY_ID` для Production і Preview.
+
+Vault: `neuronix/clarity_tracking_id`, `neuronix/clarity_data_export_token`
+(API, ліміт 10 запитів/добу, дані за 1–3 дні), `neuronix/clarity_project_sub`.
+
+**Чому скрипт не в `<head>`, хоча Clarity так радить:** використовуємо `next/script` зі
+стратегією `afterInteractive` — вантажиться після гідратації, не блокує перший рендер.
+Швидкість мобільної сторінки впливає і на конверсію, і на Quality Score у Google Ads, тому
+блокувати рендер заради кількох сотень мілісекунд раннього трекінгу невигідно. Офіційний
+пакет `@microsoft/clarity` для React ініціалізується ще пізніше (в `useEffect`), тож наш
+варіант навіть агресивніший. Перевірено: `clarity.ms/tag/xx4u0gbnw4` → 200,
+`r.clarity.ms/collect` → 204.
 
 **Google Search Console** — верифікація в `src/lib/metadata.ts` + `public/google*.html`.
 
