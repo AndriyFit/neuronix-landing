@@ -31,5 +31,8 @@ export function generateLocaleMetadata(
       title: meta.title,
       description: meta.description,
     },
+    verification: {
+      google: 'DFEtIntDI958Wl1GxZsFE4Rllrp53lu_Y8AMLW-CHUA',
+    },
   }
 }
