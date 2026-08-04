@@ -38,12 +38,19 @@
     "title": "Sound familiar?",
     "subtitle": "If at least two of these ring true, we should talk",
     "items": [
-      "I copy orders from the site into the CRM by hand. Every single day",
-      "The site says in stock, the warehouse says otherwise. We call to apologise",
+      "I paid for the first stage, they never finished it — and they're already asking for the second",
       "They built the site and vanished. Now there's nobody to even swap a banner",
       "One month, they promised — six months in, and the budget has doubled",
-      "A request came at 11pm. We answered in the morning. The client was already gone",
-      "Site from one vendor, CRM from another, phone system from a third. None of them talk"
+      "The site runs on their platform: changing the smallest thing means paying them again",
+      "I copy orders from the site into the CRM by hand. Every single day",
+      "The site says in stock, the warehouse says otherwise. We call to apologise"
+    ],
+    "answerTitle": "That won't happen here",
+    "answers": [
+      "You only pay for the next stage once you've accepted the previous one",
+      "Budget and deadline are fixed in the contract. Scope changes are agreed before the work, not after",
+      "Access is yours from day one: site, domain, hosting, analytics",
+      "12-month warranty and post-launch support — not deliver-and-run"
     ]
   },
   "ecosystem": {
@@ -176,7 +183,7 @@
       },
       {
         "question": "How does payment work?",
-        "answer": "50% upfront, 50% on delivery. For larger projects — staged payment by milestone."
+        "answer": "50% upfront, 50% on delivery. For larger projects — staged, with each stage's deliverable fixed in the contract. The next payment only comes after you've accepted the previous stage. We don't ask for money for the next step until the current one is closed."
       },
       {
         "question": "What if I need something non-standard?",

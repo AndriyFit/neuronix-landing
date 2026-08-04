@@ -6,6 +6,7 @@ import './css/Pains.css'
 export default function Pains() {
   const t = useTranslations('pains')
   const items = t.raw('items') as string[]
+  const answers = t.raw('answers') as string[]
   const ref = useScrollReveal<HTMLElement>()
 
   return (
@@ -24,6 +25,15 @@ export default function Pains() {
             </li>
           ))}
         </ul>
+
+        <div className="pains-answer animate-in">
+          <h3 className="pains-answer-title">{t('answerTitle')}</h3>
+          <ul className="pains-answer-list">
+            {answers.map((answer, i) => (
+              <li key={i}>{answer}</li>
+            ))}
+          </ul>
+        </div>
       </div>
     </section>
   )
