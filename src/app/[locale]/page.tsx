@@ -2,8 +2,9 @@ import Hero from '@/components/Hero'
 import TrustBar from '@/components/TrustBar'
 import Pains from '@/components/Pains'
 import Ecosystem from '@/components/Ecosystem'
+import CaseStudy from '@/components/CaseStudy'
+import AuditForm from '@/components/AuditForm'
 import Services from '@/components/Services'
-import Cases from '@/components/Cases'
 import HowWeWork from '@/components/HowWeWork'
 import Pricing from '@/components/Pricing'
 import FAQ from '@/components/FAQ'
@@ -17,8 +18,9 @@ export default function HomePage() {
       <TrustBar />
       <Pains />
       <Ecosystem />
+      <CaseStudy />
+      <AuditForm />
       <Services />
-      <Cases />
       <HowWeWork />
       <Pricing />
       <FAQ />

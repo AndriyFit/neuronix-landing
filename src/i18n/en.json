@@ -122,25 +122,41 @@
       }
     ]
   },
-  "results": {
-    "title": "Results",
-    "items": [
+  "caseStudy": {
+    "title": "What this looks like in practice",
+    "client": "Abertime — online watch store",
+    "beforeLabel": "Before",
+    "before": "15,000+ items lived in the accounting system. The site was updated by hand, stock drifted away from reality, and every new arrival needed its banner drawn separately.",
+    "afterLabel": "After",
+    "chain": ["Accounting", "Website", "Marketplaces"],
+    "chainNote": "Plus automated banner generation for new arrivals.",
+    "metrics": [
       {
-        "label": "E-commerce",
         "metric": "15,000+",
-        "description": "products synced between accounting, site and marketplaces for Abertime"
+        "label": "products moving between accounting, site and marketplaces with no manual work"
       },
       {
-        "label": "Landing page",
-        "metric": "5 days",
-        "description": "from brief to launch of an ad landing page for BC Trembita"
-      },
-      {
-        "label": "Automation",
         "metric": "30 sec",
-        "description": "instead of 30 minutes — automated banner generation for Abertime"
+        "label": "instead of 30 minutes for a new arrival's banner"
+      },
+      {
+        "metric": "5 days",
+        "label": "from brief to landing page launch — another project of ours, BC Trembita"
       }
     ]
+  },
+  "audit": {
+    "title": "Not ready for a big project?",
+    "subtitle": "Send us your site's URL — we'll look at it and tell you what can be automated and where you're losing leads. Free, no strings attached.",
+    "urlPlaceholder": "Link to your site",
+    "contactPlaceholder": "Phone, email or Telegram",
+    "submit": "Get the audit",
+    "submitting": "Sending...",
+    "success": "Thank you! We'll take a look and come back with our findings.",
+    "error": "Something went wrong. Message us directly on Telegram.",
+    "errorUrl": "Enter a link to your site",
+    "errorContact": "Tell us how to reach you",
+    "note": "We reply within one business day"
   },
   "pricing": {
     "title": "Pricing",
