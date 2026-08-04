@@ -63,9 +63,23 @@ Next.js 16 (App Router) · TypeScript · next-intl (uk/en) · React 19 · react-
 
 ## Аналітика
 
-- **Microsoft Clarity** — `src/components/Clarity.tsx`, вмикається змінною
-  `NEXT_PUBLIC_CLARITY_ID` у Vercel. Порожня змінна = скрипт не вантажиться взагалі.
-- Google Search Console — верифікація в `src/lib/metadata.ts` + `public/google*.html`.
+**Microsoft Clarity** — `src/components/Clarity.tsx`, вмикається змінною `NEXT_PUBLIC_CLARITY_ID`
+у Vercel. Порожня змінна = скрипт не вантажиться взагалі.
+
+⚠️ **Два різні ID, які легко переплутати:**
+
+| Що | Вигляд | Де взяти | Навіщо |
+|---|---|---|---|
+| Tracking ID | 10 символів (`3t0wlogvdz`) | URL дашборда `clarity.microsoft.com/projects/view/<ID>/dashboard` | `NEXT_PUBLIC_CLARITY_ID` для снипета |
+| `sub` з Data Export JWT | 16 цифр | payload токена | внутрішній id акаунта, **для снипета не годиться** |
+
+Data Export API не приймає id проєкту — проєкт визначає сам токен. Тому tracking ID через API
+не дізнатись, тільки з дашборда.
+
+Vault: `neuronix/clarity_data_export_token` (API, ліміт 10 запитів/добу, дані за 1–3 дні),
+`neuronix/clarity_project_sub`.
+
+**Google Search Console** — верифікація в `src/lib/metadata.ts` + `public/google*.html`.
 
 ## Позиціонування (не «веб-студія»)
 
