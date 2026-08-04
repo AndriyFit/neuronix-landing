@@ -1,0 +1,62 @@
+.sticky-cta {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .sticky-cta {
+    display: flex;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 90;
+    gap: 0.6rem;
+    padding: 0.7rem 1rem calc(0.7rem + env(safe-area-inset-bottom));
+    /* Solid, NOT backdrop-filter: iOS Safari repaints position:fixed elements
+       with a blur when scroll momentum ends, which reads as a jump. Same
+       reason Navbar drops its blur below 900px (386d95d). */
+    background: #fff;
+    border-top: 1px solid var(--border);
+    box-shadow: 0 -2px 16px rgba(15, 23, 42, 0.08);
+    transform: translateY(110%);
+    transition: transform 0.25s ease;
+    will-change: transform;
+    backface-visibility: hidden;
+  }
+
+  .sticky-cta.shown {
+    transform: none;
+  }
+
+  .sticky-cta-form,
+  .sticky-cta-tg {
+    flex: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.8rem 1rem;
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .sticky-cta-form {
+    flex: 1.6;
+    border: none;
+    background: var(--primary);
+    color: #fff;
+  }
+
+  .sticky-cta-tg {
+    background: transparent;
+    border: 1.5px solid var(--border);
+    color: var(--text);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sticky-cta { transition: none; }
+}

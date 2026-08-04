@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "title": "Neuronix — Website Development, OpenCart, Horoshop, Landing Pages",
-    "description": "E-commerce development on OpenCart and Horoshop, landing pages from scratch. From $150. Free consultation. Kyiv, Ukraine."
+    "title": "Website & E-commerce Development — Neuronix",
+    "description": "Websites, online stores and business automation. Your store, CRM, accounting and marketplaces exchange data on their own. From 15,000 UAH, launch in 10 days."
   },
   "nav": {
     "services": "Services",
@@ -13,35 +13,80 @@
     "telegramUrl": "https://t.me/angordien"
   },
   "hero": {
-    "titleStart": "Websites, stores and ",
-    "titleHighlight": "automation",
-    "titleEnd": " for business",
-    "subtitle": "OpenCart, Horoshop, landing pages from scratch — from $150. Free consultation.",
-    "ctaPrimary": "Message on Telegram",
-    "ctaSecondary": "Leave a request",
-    "telegramUrl": "https://t.me/angordien"
+    "titleStart": "Websites and ",
+    "titleHighlight": "online stores",
+    "titleEnd": " built end to end",
+    "subtitle": "From 15,000 UAH, launch in 10 days. Not a standalone site — a system where your store, CRM, accounting and marketplaces exchange data on their own.",
+    "ctaPrimary": "Get a quote",
+    "ctaSecondary": "Message on Telegram",
+    "telegramUrl": "https://t.me/angordien",
+    "trust": [
+      "We reply within an hour",
+      "Written contract",
+      "12-month warranty"
+    ]
+  },
+  "trustBar": {
+    "items": [
+      { "metric": "100+", "label": "projects since 2023" },
+      { "metric": "15,000+", "label": "products moving between accounting, site and marketplaces" },
+      { "metric": "5 days", "label": "from brief to landing page launch" },
+      { "metric": "12 mo", "label": "warranty on every project" }
+    ]
+  },
+  "pains": {
+    "title": "Sound familiar?",
+    "subtitle": "If at least two of these ring true, we should talk",
+    "items": [
+      "I copy orders from the site into the CRM by hand. Every single day",
+      "The site says in stock, the warehouse says otherwise. We call to apologise",
+      "They built the site and vanished. Now there's nobody to even swap a banner",
+      "One month, they promised — six months in, and the budget has doubled",
+      "A request came at 11pm. We answered in the morning. The client was already gone",
+      "Site from one vendor, CRM from another, phone system from a third. None of them talk"
+    ]
+  },
+  "ecosystem": {
+    "title": "Most vendors will hand you one more isolated island",
+    "subtitle": "We connect what you already run into a single loop — and the data starts moving on its own",
+    "hubLabel": "Your loop",
+    "nodes": [
+      { "icon": "🛒", "label": "Website / store" },
+      { "icon": "📇", "label": "CRM" },
+      { "icon": "📦", "label": "Accounting" },
+      { "icon": "🏬", "label": "Marketplaces" },
+      { "icon": "📞", "label": "Phone system" },
+      { "icon": "🚚", "label": "Shipping & receipts" }
+    ],
+    "benefits": [
+      "An order from the site lands in the CRM by itself, and the waybill is created without you",
+      "Prices, stock and products flow from accounting to the site and marketplaces automatically",
+      "A call you missed still becomes a lead",
+      "A bot answers routine questions and qualifies the client before you pick up",
+      "Reports build themselves instead of waiting for someone to export them"
+    ]
   },
   "services": {
-    "title": "Our services",
-    "extra": "Also: voice agents, chatbots, n8n automation →",
+    "title": "What we do",
+    "extra": "We also work with: OpenCart, WordPress, KeyCRM, SalesDrive, Nova Poshta, Rozetka, Prom, Checkbox",
     "items": [
       {
-        "icon": "🛒",
-        "title": "OpenCart",
-        "description": "Module development, customization, stores from scratch. Integration with 1C, Rozetka, Prom, marketplaces.",
-        "price": "from $250"
+        "icon": "🌐",
+        "title": "Websites & online stores",
+        "description": "Landing pages, corporate sites, stores. Design, development, analytics and launch, end to end.",
+        "price": "from 15,000 UAH"
+      },
+      {
+        "icon": "⚙️",
+        "title": "Automation & integrations",
+        "description": "Accounting, CRM, marketplaces, telephony, shipping, receipts. Lead handling and bots that run without you.",
+        "price": "from 30,000 UAH"
       },
       {
         "icon": "🏪",
         "title": "Horoshop",
-        "description": "Store setup, custom solutions, integrations with CRM, 1C and delivery services.",
-        "price": "from $500"
-      },
-      {
-        "icon": "🚀",
-        "title": "Landing pages",
-        "description": "From simple to complex — with calculators, animations and lead capture forms.",
-        "price": "from $150"
+        "description": "Store launch, custom work, integrations with accounting, CRM and delivery services.",
+        "price": "from 25,000 UAH"
       }
     ]
   },
@@ -51,22 +96,22 @@
       {
         "number": "01",
         "title": "Request",
-        "description": "Describe the task in Telegram or via the form — no unnecessary questions"
+        "description": "Describe the task on Telegram or through the form — no runaround"
       },
       {
         "number": "02",
-        "title": "Estimate in 24h",
-        "description": "Call or chat, we fix the budget and timeline. No surprises later"
+        "title": "Quote in 24h",
+        "description": "A call or chat. Budget and deadline fixed in the contract — no surprises later"
       },
       {
         "number": "03",
         "title": "Development",
-        "description": "Regular updates, access to test environment at every stage"
+        "description": "Regular updates and access to a staging environment at every stage"
       },
       {
         "number": "04",
-        "title": "Delivery + support",
-        "description": "We deliver with documentation and don't disappear — post-launch support included"
+        "title": "Handover + support",
+        "description": "Delivered with documentation, and we don't disappear — post-launch support included"
       }
     ]
   },
@@ -76,80 +121,97 @@
       {
         "label": "E-commerce",
         "metric": "15,000+",
-        "description": "products synced between 1C and OpenCart for Abertime"
+        "description": "products synced between accounting, site and marketplaces for Abertime"
       },
       {
         "label": "Landing page",
         "metric": "5 days",
-        "description": "from brief to launch of an ad landing page for Trembita"
+        "description": "from brief to launch of an ad landing page for BC Trembita"
       },
       {
         "label": "Automation",
         "metric": "30 sec",
-        "description": "instead of 30 minutes — automatic banner generation for Abertime"
+        "description": "instead of 30 minutes — automated banner generation for Abertime"
       }
     ]
   },
   "pricing": {
     "title": "Pricing",
-    "note": "Exact cost after discussing the task",
-    "cta": "Discuss the task",
+    "note": "Exact cost after the brief. Estimates are free and take 24 hours.",
+    "cta": "Discuss your project",
     "items": [
-      { "service": "OpenCart — module or fixes", "price": "from $250" },
-      { "service": "OpenCart — store from scratch", "price": "from $700" },
-      { "service": "Horoshop — setup and integration", "price": "from $500" },
-      { "service": "Simple landing page", "price": "from $150" },
-      { "service": "Landing page with calculator / animation", "price": "from $400" }
+      { "service": "Landing page", "price": "from 15,000 UAH" },
+      { "service": "Corporate website", "price": "from 30,000 UAH" },
+      { "service": "Online store", "price": "from 60,000 UAH" },
+      { "service": "Horoshop — launch & integrations", "price": "from 25,000 UAH" },
+      { "service": "Automation & integrations", "price": "from 30,000 UAH" }
     ]
   },
   "faq": {
-    "title": "FAQ",
+    "title": "Questions & answers",
     "items": [
       {
         "question": "How long does development take?",
-        "answer": "Simple landing page — 3–5 days. OpenCart module — 3–7 days. Store from scratch on OpenCart/Horoshop — from 2 weeks. Exact timelines discussed after the brief."
+        "answer": "Landing page — 5–10 days. Corporate site — from 3 weeks. Online store with integrations — from 4 weeks. Exact deadlines go into the contract after the brief."
       },
       {
-        "question": "What's included in post-launch support?",
-        "answer": "First month — free fixes and consultations. After that — by agreement. We don't disappear after payment."
+        "question": "We already have a site and a CRM, but they don't talk. Is that your job?",
+        "answer": "Yes, that's our core work. We don't rebuild everything from scratch — we connect what already runs: site, CRM, accounting, marketplaces, telephony, shipping."
       },
       {
-        "question": "Do you work with existing OpenCart/Horoshop stores?",
-        "answer": "Yes, that's most of our work. We take a store in any condition — finalize, fix, integrate."
+        "question": "Why more expensive than a freelancer?",
+        "answer": "Because the price includes a contract, a 12-month warranty, configured analytics and support. A freelancer is cheaper right up until they disappear — then you pay twice for the same thing."
+      },
+      {
+        "question": "What does post-launch support include?",
+        "answer": "First month — free fixes and consulting. After that, by agreement. We don't disappear once we're paid."
+      },
+      {
+        "question": "Do you hand over access?",
+        "answer": "Yes, all of it, immediately. Site, domain, hosting, analytics — they're yours. We don't hold clients hostage."
+      },
+      {
+        "question": "Do you work with existing sites?",
+        "answer": "Yes, that's most of our work. We take a site in any condition — extend it, fix it, integrate it with everything else."
       },
       {
         "question": "How does payment work?",
-        "answer": "50% upfront, 50% after delivery. For large projects — milestone-based payments."
+        "answer": "50% upfront, 50% on delivery. For larger projects — staged payment by milestone."
       },
       {
         "question": "What if I need something non-standard?",
-        "answer": "Write on Telegram — we'll discuss. We've done integrations with Vapi, Binotel, SalesDrive, KeyCRM. Most likely we already know how."
+        "answer": "Message us on Telegram and we'll talk it through. We've built integrations with Vapi, Binotel, SalesDrive, KeyCRM, Checkbox and Nova Poshta. Chances are we've done it already."
       }
     ]
   },
   "contact": {
-    "title": "Tell us about your task",
-    "subtitle": "We respond within an hour during business hours",
+    "title": "Tell us about your project",
+    "subtitle": "We reply within an hour during business hours. The consultation is free — if we're not the right fit, we'll point you to someone who is.",
     "telegramLabel": "Message on Telegram",
     "telegramUrl": "https://t.me/angordien",
-    "orLabel": "or fill out the form",
+    "orLabel": "or fill in the form",
     "form": {
       "name": "Your name",
       "phone": "Phone or email",
-      "message": "Briefly about the task",
+      "message": "Briefly about the project",
       "submit": "Send request",
       "submitting": "Sending...",
-      "success": "Thank you! We will contact you within an hour.",
-      "error": "Error. Please write to us directly on Telegram.",
+      "success": "Thank you! We'll get back to you within an hour.",
+      "error": "Something went wrong. Message us directly on Telegram.",
       "errorName": "Enter your name",
-      "errorPhone": "Enter phone or email"
+      "errorPhone": "Enter a phone or email"
     }
+  },
+  "stickyCta": {
+    "form": "Get a quote",
+    "telegram": "Telegram",
+    "telegramUrl": "https://t.me/angordien"
   },
   "footer": {
     "copy": "© 2026 Neuronix. All rights reserved.",
     "telegram": "Telegram",
     "privacy": "Privacy Policy",
     "fop": "FOP Udych Yevhen",
-    "address": "Remeniv village, Kuzemskoho St. 1, Lviv region"
+    "address": "Remeniv, S. Kuzemskoho St. 1, Lviv region"
   }
 }
