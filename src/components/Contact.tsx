@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useTranslations } from 'next-intl'
+import { sendGTMEvent } from '@next/third-parties/google'
 import './css/Contact.css'
 
 interface FormData {
@@ -50,6 +51,7 @@ export default function Contact() {
         body: JSON.stringify(data),
       })
       if (!res.ok) throw new Error('Server error')
+      sendGTMEvent({ event: 'generate_lead', form_type: 'contact' })
       setSubmitted(true)
       reset()
       setTimeout(() => setSubmitted(false), 5000)

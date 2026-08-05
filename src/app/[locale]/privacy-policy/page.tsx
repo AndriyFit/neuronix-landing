@@ -127,6 +127,31 @@ function PrivacyUk() {
           </a>
           .
         </li>
+        <li>
+          <strong>Постачальники аналітики та реклами</strong> — Microsoft Clarity,
+          Google Analytics, Google Ads і Google Tag Manager. Їм передаються
+          знеособлені дані про поведінку на сайті (перегляди сторінок, кліки,
+          джерело переходу, тип пристрою), а не вміст форм зворотного зв'язку.
+          Обробка здійснюється відповідно до{' '}
+          <a
+            href="https://privacy.microsoft.com/privacystatement"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: 'var(--primary)' }}
+          >
+            Заяви Microsoft про конфіденційність
+          </a>{' '}
+          та{' '}
+          <a
+            href="https://policies.google.com/privacy"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: 'var(--primary)' }}
+          >
+            Політики конфіденційності Google
+          </a>
+          .
+        </li>
       </ul>
       <p style={{ marginTop: '0.75rem' }}>
         Будь-яка інша передача даних здійснюється лише за вашою явною згодою або
@@ -144,14 +169,17 @@ function PrivacyUk() {
           автоматично без вашої згоди, оскільки є технічно обов'язковими.
         </li>
         <li>
-          <strong>Аналітичні cookie</strong> — збираються лише за вашою явною
-          згодою (через банер Cookie Consent). Призначені для розуміння того, як
-          відвідувачі використовують сайт.
+          <strong>Аналітичні та рекламні cookie</strong> — призначені для
+          розуміння того, як відвідувачі використовують сайт, і для оцінки
+          ефективності реклами. Для відвідувачів з ЄЕЗ, Великої Британії та
+          Швейцарії вони встановлюються <strong>лише після вашої явної згоди</strong>{' '}
+          через банер на сайті. Для решти відвідувачів вони встановлюються за
+          замовчуванням, і ви можете відмовитись від них тим самим банером.
         </li>
       </ul>
       <p style={{ marginTop: '0.75rem' }}>
-        Ви можете будь-коли відкликати свою згоду на аналітичні cookie,
-        очистивши localStorage у вашому браузері або через налаштування браузера.
+        Ви можете будь-коли змінити свій вибір, очистивши localStorage у вашому
+        браузері — банер з'явиться знову — або через налаштування браузера.
       </p>
 
       <h2 style={{ fontSize: '1.25rem', fontWeight: 600, marginTop: '2rem', marginBottom: '0.75rem' }}>
@@ -334,6 +362,31 @@ function PrivacyEn() {
           </a>
           .
         </li>
+        <li>
+          <strong>Analytics and advertising providers</strong> — Microsoft Clarity,
+          Google Analytics, Google Ads and Google Tag Manager. They receive
+          de-identified behavioural data (page views, clicks, referral source,
+          device type), not the contents of your contact form submissions.
+          Processing is governed by the{' '}
+          <a
+            href="https://privacy.microsoft.com/privacystatement"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: 'var(--primary)' }}
+          >
+            Microsoft Privacy Statement
+          </a>{' '}
+          and the{' '}
+          <a
+            href="https://policies.google.com/privacy"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: 'var(--primary)' }}
+          >
+            Google Privacy Policy
+          </a>
+          .
+        </li>
       </ul>
       <p style={{ marginTop: '0.75rem' }}>
         Any other data transfer occurs only with your explicit consent or as
@@ -352,14 +405,17 @@ function PrivacyEn() {
           required.
         </li>
         <li>
-          <strong>Analytics cookies</strong> — collected only with your explicit
-          consent (via the Cookie Consent banner), intended to help us understand
-          how visitors use the site.
+          <strong>Analytics and advertising cookies</strong> — used to understand
+          how visitors use the site and to measure advertising performance. For
+          visitors from the EEA, the United Kingdom and Switzerland they are set{' '}
+          <strong>only after your explicit consent</strong> via the banner on the
+          site. For all other visitors they are set by default, and you can opt out
+          using the same banner.
         </li>
       </ul>
       <p style={{ marginTop: '0.75rem' }}>
-        You may withdraw your consent to analytics cookies at any time by clearing
-        your browser's localStorage or through your browser settings.
+        You may change your choice at any time by clearing your browser's
+        localStorage — the banner will reappear — or through your browser settings.
       </p>
 
       <h2 style={{ fontSize: '1.25rem', fontWeight: 600, marginTop: '2rem', marginBottom: '0.75rem' }}>

@@ -1,0 +1,96 @@
+/* Суцільний фон, без backdrop-filter: на position:fixed він ламає скрол в iOS Safari
+   (див. CLAUDE.md, коміт 386d95d). */
+.cookie-banner {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  background: var(--bg);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: var(--shadow-elevated);
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  max-width: 680px;
+  width: calc(100% - 48px);
+}
+
+.cookie-text {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  flex: 1;
+  min-width: 0;
+}
+
+.cookie-text a {
+  color: var(--primary);
+  text-decoration: underline;
+}
+
+.cookie-actions {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.cookie-accept,
+.cookie-decline {
+  border-radius: 8px;
+  padding: 8px 18px;
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.cookie-accept {
+  background: var(--primary);
+  color: #ffffff;
+  border: none;
+  font-weight: 600;
+  transition: opacity 0.15s;
+}
+
+.cookie-accept:hover {
+  opacity: 0.85;
+}
+
+.cookie-decline {
+  background: transparent;
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  font-weight: 500;
+  transition: background 0.15s;
+}
+
+.cookie-decline:hover {
+  background: var(--bg-secondary);
+}
+
+/* Під 900px знизу з'являється StickyCta (fixed, bottom:0) — піднімаємо банер над ним. */
+@media (max-width: 900px) {
+  .cookie-banner {
+    bottom: calc(4.5rem + env(safe-area-inset-bottom));
+  }
+}
+
+@media (max-width: 560px) {
+  .cookie-banner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .cookie-actions {
+    width: 100%;
+  }
+
+  .cookie-accept,
+  .cookie-decline {
+    flex: 1;
+    text-align: center;
+  }
+}
