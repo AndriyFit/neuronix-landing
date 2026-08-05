@@ -2,7 +2,6 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { setRequestLocale } from 'next-intl/server'
-import { routing } from '@/i18n/routing'
 import { getAllPosts, getPostBySlug } from '@/content/blog'
 import { getBlogPostingSchema, getBreadcrumbSchema } from '@/lib/structured-data'
 import Footer from '@/components/Footer'
@@ -12,11 +11,9 @@ import { SITE_URL } from '@/lib/site'
 
 type Props = { params: Promise<{ locale: string; slug: string }> }
 
+// Лише uk: статті існують тільки українською, /en/blog/* редіректить (next.config.ts).
 export function generateStaticParams() {
-  const posts = getAllPosts()
-  return routing.locales.flatMap((locale) =>
-    posts.map((post) => ({ locale, slug: post.slug })),
-  )
+  return getAllPosts().map((post) => ({ locale: 'uk', slug: post.slug }))
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -28,11 +25,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: post.metaDescription,
     keywords: post.keywords,
     alternates: {
-      canonical: `${SITE_URL}/${locale}/blog/${slug}`,
-      languages: {
-        uk: `${SITE_URL}/uk/blog/${slug}`,
-        en: `${SITE_URL}/en/blog/${slug}`,
-      },
+      canonical: `${SITE_URL}/uk/blog/${slug}`,
     },
     openGraph: {
       title: post.metaTitle,

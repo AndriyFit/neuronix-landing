@@ -19,35 +19,27 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
       alternates: { languages: altLangs('') },
     })
-
-    entries.push({
-      url: `${SITE_URL}/${locale}/privacy-policy`,
-      lastModified: now,
-      changeFrequency: 'yearly',
-      priority: 0.3,
-      alternates: { languages: altLangs('/privacy-policy') },
-    })
-
-    entries.push({
-      url: `${SITE_URL}/${locale}/blog`,
-      lastModified: now,
-      changeFrequency: 'weekly',
-      priority: 0.8,
-      alternates: { languages: altLangs('/blog') },
-    })
   }
 
-  const posts = getAllPosts()
-  for (const post of posts) {
-    for (const locale of locales) {
-      entries.push({
-        url: `${SITE_URL}/${locale}/blog/${post.slug}`,
-        lastModified: new Date(post.updatedAt),
-        changeFrequency: 'monthly',
-        priority: 0.7,
-        alternates: { languages: altLangs(`/blog/${post.slug}`) },
-      })
-    }
+  // privacy-policy свідомо відсутня: сторінка robots:{index:false}, а noindex у sitemap
+  // Google рапортує як помилку «Submitted URL marked noindex».
+
+  // Блог — лише українською. Англійських версій статей не існує, /en/blog/* редіректить
+  // на /uk (див. next.config.ts), тож у sitemap їм робити нічого.
+  entries.push({
+    url: `${SITE_URL}/uk/blog`,
+    lastModified: now,
+    changeFrequency: 'weekly',
+    priority: 0.8,
+  })
+
+  for (const post of getAllPosts()) {
+    entries.push({
+      url: `${SITE_URL}/uk/blog/${post.slug}`,
+      lastModified: new Date(post.updatedAt),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    })
   }
 
   return entries

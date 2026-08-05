@@ -21,3 +21,7 @@ Append-only. Найновіше зверху.
 - 2026-08-05: Підключив Google-обв'язку під Ads — GTM як єдиний завантажувач (`NEXT_PUBLIC_GTM_ID`), подія `generate_lead` з обох форм, клік у Telegram ловиться тригером GTM без коду. Consent Mode v2 region-scoped + повернутий банер згоди, політика приведена у відповідність. Лишилось за Андрієм: створити контейнер GTM, property GA4, акаунт Ads під Fit-Life MCC
 - 2026-08-05 15:29: Налаштував GTM, Consent Mode v2, конверсії форм — браузер-перевірено, GA4/Ads готові до підключення
 - 2026-08-05 15:39: Настроїв GTM (консент v2, конверсії форм/Telegram, GA4) — браузер-тестовано, чекає env var
+- 2026-08-05: SEO-аудит перед підключенням Search Console. Знайшов і виправив три речі: 14 дублів блогу (/en/blog/* віддавав український текст із власним canonical — 308 на /uk, hreflang прибрано, sitemap почищено), privacy-policy була одночасно noindex і в sitemap, і повну відсутність og:image при оголошеному summary_large_image. Картинка тепер генерується через next/og
+- 2026-08-05 15:50: Вибрав GTM-N4MBTL2W для neuronics.work, push в прод — GTM активується після env змінної у Vercel
+- 2026-08-05 15:55: Розгорнув GTM-N4MBTL2W на neuronics.work — события generate_lead прийняті, потрібні теги в контейнері
+- 2026-08-05 16:09: Розгорнув GTM контейнер (GA4 + consent mode + region-scoping) — generate_lead + telegram_click з form_type реально долітають в GA4

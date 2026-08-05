@@ -9,6 +9,9 @@ export function generateLocaleMetadata(
 ): Metadata {
   const meta = messages.metadata
   return {
+    // Робить усі відносні URL у метаданих абсолютними від канонічного домену.
+    // Без цього Next бере хост із запиту — і og:image міг би поїхати з чужим хостом.
+    metadataBase: new URL(SITE_URL),
     title: meta.title,
     description: meta.description,
     alternates: {
