@@ -62,7 +62,7 @@ function PrivacyUk() {
           <strong>Адреса:</strong> с.Ременів, вул.С.Куземського 1, Львівська обл., Україна
         </li>
         <li>
-          <strong>Веб-сайт:</strong> neuronix.work
+          <strong>Веб-сайт:</strong> neuronics.work
         </li>
         <li>
           <strong>Контакт DPO:</strong>{' '}
@@ -136,7 +136,7 @@ function PrivacyUk() {
       <h2 style={{ fontSize: '1.25rem', fontWeight: 600, marginTop: '2rem', marginBottom: '0.75rem' }}>
         5. Файли cookie
       </h2>
-      <p>Сайт neuronix.work використовує два типи файлів cookie:</p>
+      <p>Сайт neuronics.work використовує два типи файлів cookie:</p>
       <ul style={{ paddingLeft: '1.5rem', lineHeight: 1.8 }}>
         <li>
           <strong>Технічні (сесійні) cookie</strong> — необхідні для коректної
@@ -239,7 +239,7 @@ function PrivacyUk() {
       </p>
 
       <p style={{ marginTop: '3rem', color: 'var(--text-muted)', fontSize: '0.85rem' }}>
-        ФОП Гордієн Андрій · neuronix.work · Дата: 11.05.2026
+        ФОП Гордієн Андрій · neuronics.work · Дата: 11.05.2026
       </p>
     </article>
   )
@@ -270,7 +270,7 @@ function PrivacyEn() {
           <strong>Address:</strong> Remeniv village, Kuzemskoho St. 1, Lviv region, Ukraine
         </li>
         <li>
-          <strong>Website:</strong> neuronix.work
+          <strong>Website:</strong> neuronics.work
         </li>
         <li>
           <strong>DPO contact:</strong>{' '}
@@ -343,7 +343,7 @@ function PrivacyEn() {
       <h2 style={{ fontSize: '1.25rem', fontWeight: 600, marginTop: '2rem', marginBottom: '0.75rem' }}>
         5. Cookies
       </h2>
-      <p>The neuronix.work website uses two types of cookies:</p>
+      <p>The neuronics.work website uses two types of cookies:</p>
       <ul style={{ paddingLeft: '1.5rem', lineHeight: 1.8 }}>
         <li>
           <strong>Technical (session) cookies</strong> — necessary for the proper
@@ -444,7 +444,7 @@ function PrivacyEn() {
       </p>
 
       <p style={{ marginTop: '3rem', color: 'var(--text-muted)', fontSize: '0.85rem' }}>
-        FOP Udych Yevhen · neuronix.work · Date: 11.05.2026
+        FOP Udych Yevhen · neuronics.work · Date: 11.05.2026
       </p>
     </article>
   )

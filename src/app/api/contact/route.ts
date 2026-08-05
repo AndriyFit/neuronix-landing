@@ -18,7 +18,7 @@ export async function POST(req: NextRequest) {
     }
 
     const text = [
-      isAudit ? '🔍 *Запит на аудит з neuronix.work*' : '🔔 *Нова заявка з neuronix.work*',
+      isAudit ? '🔍 *Запит на аудит з neuronics.work*' : '🔔 *Нова заявка з neuronics.work*',
       '',
       url ? `🌐 *Сайт:* ${url}` : null,
       name ? `👤 *Ім'я:* ${name}` : null,

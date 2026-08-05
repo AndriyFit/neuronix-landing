@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { type Locale } from '@/i18n/config'
+import { SITE_URL } from '@/lib/site'
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://neuronix.work'
 
 export function generateLocaleMetadata(
   locale: Locale,

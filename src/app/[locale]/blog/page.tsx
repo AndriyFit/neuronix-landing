@@ -5,8 +5,8 @@ import { routing } from '@/i18n/routing'
 import { getAllPosts, getAllCategories } from '@/content/blog'
 import Footer from '@/components/Footer'
 import './blog.css'
+import { SITE_URL } from '@/lib/site'
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://neuronix.work'
 
 type Props = { params: Promise<{ locale: string }> }
 

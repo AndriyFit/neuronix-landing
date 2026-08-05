@@ -7,8 +7,8 @@ import { getAllPosts, getPostBySlug } from '@/content/blog'
 import { getBlogPostingSchema, getBreadcrumbSchema } from '@/lib/structured-data'
 import Footer from '@/components/Footer'
 import '../blog.css'
+import { SITE_URL } from '@/lib/site'
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://neuronix.work'
 
 type Props = { params: Promise<{ locale: string; slug: string }> }
 
