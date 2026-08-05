@@ -25,3 +25,6 @@ Append-only. Найновіше зверху.
 - 2026-08-05 15:50: Вибрав GTM-N4MBTL2W для neuronics.work, push в прод — GTM активується після env змінної у Vercel
 - 2026-08-05 15:55: Розгорнув GTM-N4MBTL2W на neuronics.work — события generate_lead прийняті, потрібні теги в контейнері
 - 2026-08-05 16:09: Розгорнув GTM контейнер (GA4 + consent mode + region-scoping) — generate_lead + telegram_click з form_type реально долітають в GA4
+- 2026-08-05 16:26: Видалив дублі блогу й додав og:image — 308→/uk, sitemap 34→17
+- 2026-08-05 16:27: Виправив дублі блогу (308→/uk), og:image, sitemap (34→17) — SEO готовий до Search Console
+- 2026-08-05 16:33: Усунув SEO проблеми: дублювання блогу, og:image, noindex — готово до GSC
