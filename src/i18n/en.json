@@ -97,6 +97,37 @@
       }
     ]
   },
+  "team": {
+    "title": "Who will actually do it",
+    "subtitle": "A small team with no layers in between. Whoever you speak to at the start runs your project to the end — nobody gets handed off to a manager after signing.",
+    "members": [
+      {
+        "name": "Andriy Hordiienko",
+        "role": "Founder, CEO",
+        "note": "Runs the conversations and owns the outcome of your project",
+        "initials": "AH"
+      },
+      {
+        "name": "Tech Lead",
+        "role": "Architecture and integrations",
+        "note": "Accounting, CRM, marketplaces, telephony — everything that has to meet in one loop",
+        "initials": "TL"
+      },
+      {
+        "name": "Delivery",
+        "role": "Deadlines and communication",
+        "note": "Keeps stages, updates and handover inside what was agreed",
+        "initials": "DM"
+      },
+      {
+        "name": "Team",
+        "role": "Design, frontend, QA",
+        "note": "Assembled per project — from a landing page to a complex integration",
+        "initials": "+",
+        "collective": true
+      }
+    ]
+  },
   "howWeWork": {
     "title": "How we work",
     "steps": [
