@@ -34,7 +34,30 @@ export const CONSENT_DEFAULT_SNIPPET = [
   `{gtag('consent','update',${JSON.stringify(signals('denied'))})}}catch(e){}`,
 ].join('')
 
+// Clarity, consentv2. Капіталізація ad_Storage / analytics_Storage саме така в
+// офіційній доці — виглядає як помилка, але це реальні імена полів, не чіпати.
+// Старий clarity('consent', bool) задепрекейчено.
+const clarityConsent = (granted: boolean) => {
+  const value = granted ? 'granted' : 'denied'
+  return { ad_Storage: value, analytics_Storage: value }
+}
+
 export function updateConsent(granted: boolean) {
   window.gtag?.('consent', 'update', signals(granted ? 'granted' : 'denied'))
-  window.clarity?.('consent', granted)
+  window.clarity?.('consentv2', clarityConsent(granted))
 }
+
+/**
+ * Повторює збережений вибір при кожному завантаженні сторінки. Без цього сигнал
+ * ішов би лише в ту сесію, де людина клікнула банер: повторні відвідувачі банера
+ * не бачать, тож Clarity не дізнавався б про їхню згоду ніколи.
+ *
+ * Якщо вибору ще немає — не шлемо нічого свідомо. Clarity сам тримає ЄЕЗ/UK/CH у
+ * режимі без згоди (з 31.10.2025), і надіслати туди 'granted' за людину, яка
+ * нічого не натискала, було б брехнею.
+ */
+export const CLARITY_CONSENT_REPLAY_SNIPPET = [
+  `try{var c=localStorage.getItem('${CONSENT_STORAGE_KEY}');`,
+  `if(c==='accepted'||c==='declined'){var v=c==='accepted'?'granted':'denied';`,
+  `clarity('consentv2',{ad_Storage:v,analytics_Storage:v})}}catch(e){}`,
+].join('')
