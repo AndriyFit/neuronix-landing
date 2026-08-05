@@ -97,6 +97,36 @@
       }
     ]
   },
+  "team": {
+    "title": "Who will actually do it",
+    "subtitle": "A small team with no layers in between. Whoever you speak to at the start runs your project to the end — nobody gets handed off to a manager after signing.",
+    "members": [
+      {
+        "role": "Founder",
+        "name": "Andriy",
+        "note": "First contact, scoping, contract. Answers to you for the outcome of the project.",
+        "initials": "A"
+      },
+      {
+        "role": "Tech Lead",
+        "name": "Oleh",
+        "note": "Solution architecture and integrations: accounting, CRM, marketplaces, telephony, shipping.",
+        "initials": "O"
+      },
+      {
+        "role": "Delivery",
+        "name": "Marta",
+        "note": "Stages, regular updates, staging environment, handover with documentation.",
+        "initials": "M"
+      },
+      {
+        "role": "Team",
+        "note": "Design, frontend, QA. Assembled per project — from a landing page to a complex integration.",
+        "initials": "+",
+        "collective": true
+      }
+    ]
+  },
   "howWeWork": {
     "title": "How we work",
     "steps": [
