@@ -276,5 +276,12 @@
     "privacy": "Privacy Policy",
     "fop": "FOP Udych Yevhen",
     "address": "Remeniv, S. Kuzemskoho St. 1, Lviv region"
+  },
+  "cookie": {
+    "label": "Cookie consent",
+    "text": "We use cookies to run the site and for analytics.",
+    "more": "Learn more",
+    "accept": "Accept",
+    "decline": "Decline"
   }
 }

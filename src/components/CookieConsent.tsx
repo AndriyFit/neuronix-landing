@@ -1,45 +1,42 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import { useLocale, useTranslations } from 'next-intl'
 import Link from 'next/link'
-import styles from './CookieConsent.module.css'
-
-const STORAGE_KEY = 'cookie_consent'
+import { CONSENT_STORAGE_KEY, updateConsent } from '@/lib/consent'
+import './css/CookieConsent.css'
 
 export default function CookieConsent() {
+  const t = useTranslations('cookie')
+  const locale = useLocale()
   const [visible, setVisible] = useState(false)
 
   useEffect(() => {
-    const stored = localStorage.getItem(STORAGE_KEY)
-    if (!stored) {
+    if (!localStorage.getItem(CONSENT_STORAGE_KEY)) {
       setVisible(true)
     }
   }, [])
 
-  function handleAccept() {
-    localStorage.setItem(STORAGE_KEY, 'accepted')
-    setVisible(false)
-  }
-
-  function handleDecline() {
-    localStorage.setItem(STORAGE_KEY, 'declined')
+  function choose(granted: boolean) {
+    localStorage.setItem(CONSENT_STORAGE_KEY, granted ? 'accepted' : 'declined')
+    updateConsent(granted)
     setVisible(false)
   }
 
   if (!visible) return null
 
   return (
-    <div className={styles.banner} role="dialog" aria-label="Cookie consent">
-      <p className={styles.text}>
-        Ми використовуємо cookie для коректної роботи сайту.{' '}
-        <Link href="/uk/privacy-policy">Детальніше</Link>
+    <div className="cookie-banner" role="dialog" aria-label={t('label')}>
+      <p className="cookie-text">
+        {t('text')}{' '}
+        <Link href={`/${locale}/privacy-policy`}>{t('more')}</Link>
       </p>
-      <div className={styles.actions}>
-        <button className={styles.accept} onClick={handleAccept}>
-          Прийняти
+      <div className="cookie-actions">
+        <button className="cookie-accept" onClick={() => choose(true)}>
+          {t('accept')}
         </button>
-        <button className={styles.decline} onClick={handleDecline}>
-          Відхилити
+        <button className="cookie-decline" onClick={() => choose(false)}>
+          {t('decline')}
         </button>
       </div>
     </div>

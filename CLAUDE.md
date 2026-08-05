@@ -92,6 +92,65 @@ Vault: `neuronix/clarity_tracking_id`, `neuronix/clarity_data_export_token`
 `r.clarity.ms/collect` → 204.
 
 **Google Search Console** — верифікація в `src/lib/metadata.ts` + `public/google*.html`.
+Токени там **різні** — це два різні property, залишок від зміни домену. Обидва нешкідливі.
+
+### Google: GTM — єдиний завантажувач
+
+`@next/third-parties` → `<GoogleTagManager>` у `src/app/[locale]/layout.tsx`, змінна
+`NEXT_PUBLIC_GTM_ID`. Порожня = ні GTM, ні Consent Mode не вантажаться (як у Clarity).
+
+| Що | Значення |
+|---|---|
+| GTM container | `GTM-N4MBTL2W` |
+| GA4 measurement ID | `G-FNZ46Q88EW` |
+| GA4 property | `neuronics.work`, акаунт `fit-life.com.ua` (252827951), stream `15385523381` |
+
+⚠️ **Не вставляй снипет GTM із інструкції Google вручну.** `<GoogleTagManager>` рендерить
+той самий інлайн-ініт (`gtm.start`) і той самий `gtm.js?id=`. Ручна вставка = контейнер
+вантажиться двічі й хіти подвоюються. Єдина дія для підключення — змінна у Vercel.
+
+`<noscript>`-iframe з інструкції теж свідомо **не додаємо**: він вантажить теги в обхід
+Consent Mode (той на JS), тобто для відвідувачів з ЄЕЗ це запис без згоди. А без JS форми
+на сайті все одно не працюють, ловити там нічого.
+
+⚠️ У GTM є ще контейнери `GTM-NPMP4JRV` (акаунт «Neuronix», назва neuronix.top) і
+`GTM-TGJ3Q7XK` (fit-life). Наш — **тільки N4MBTL2W**. Станом на 2026-08-05 перевірено:
+`neuronix.top` — окремий живий сайт на іншому хостингу (185.158.133.1) з прямим gtag
+`G-9PM90ZJMD2`, GTM не вантажить узагалі.
+
+⚠️ **Не додавай другий gtag.** GA4 і Google Ads живуть **усередині контейнера GTM**, не в коді.
+Другий лічильник у коді = подвійний облік сесій і конверсій. Змінити теги = зайти в GTM,
+не деплоїти сайт.
+
+**Події, які шле сайт:**
+
+| Подія | Звідки | Payload |
+|---|---|---|
+| `generate_lead` | `Contact.tsx`, `AuditForm.tsx` — після `res.ok` | `form_type: 'contact' \| 'audit'` |
+| клік у Telegram | **коду немає** | тригер GTM «Click - Just Links», `Click URL contains t.me` |
+
+Посилань на `t.me` на сайті ~15, частина захардкоджена в блозі й політиці. Тому клік ловиться
+вбудованим тригером GTM, а не обробниками в коді — нових посилань це теж стосується автоматично.
+
+Дзвінки як конверсія **неможливі**: у коді немає жодного `tel:`-посилання.
+
+### Consent Mode v2
+
+`src/lib/consent.ts` → інлайн-скрипт у `<head>` (`layout.tsx`), **не `next/script`**:
+дефолти згоди мусять виконатись синхронно до `gtm.js`, а `beforeInteractive` в App Router
+працює лише в root layout, яким тут є pass-through `src/app/layout.tsx` без `<head>`.
+
+Режим **region-scoped**: ЄЕЗ + GB + CH — `denied` до згоди; решта світу (Україна — основний
+ринок) — `granted` за замовчуванням з можливістю відмовитись. Глобальний deny-by-default
+знищив би вимірювання конверсій саме там, де крутиться бюджет.
+
+Банер — `src/components/CookieConsent.tsx`, вибір у `localStorage.cookie_consent`.
+`updateConsent()` шле і `gtag('consent','update')`, і `clarity('consent', bool)`.
+Щоб Clarity реально слухався — у налаштуваннях проєкту Clarity має бути увімкнений
+«Cookie consent», інакше він трекає незалежно від банера.
+
+Політика конфіденційності описує саме цю модель (розділи 4 і 5). **Міняєш логіку згоди —
+став і текст політики**, інакше сайт знову обіцяє одне, а робить інше.
 
 ## ⏳ Відкритий борг
 

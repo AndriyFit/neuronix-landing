@@ -2,6 +2,7 @@
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useTranslations } from 'next-intl'
+import { sendGTMEvent } from '@next/third-parties/google'
 import { useScrollReveal } from '@/lib/useScrollReveal'
 import './css/AuditForm.css'
 
@@ -32,6 +33,7 @@ export default function AuditForm() {
         body: JSON.stringify({ ...data, source: 'audit' }),
       })
       if (!res.ok) throw new Error('Server error')
+      sendGTMEvent({ event: 'generate_lead', form_type: 'audit' })
       setSubmitted(true)
       reset()
       setTimeout(() => setSubmitted(false), 6000)
