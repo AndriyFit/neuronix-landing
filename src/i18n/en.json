@@ -102,27 +102,26 @@
     "subtitle": "A small team with no layers in between. Whoever you speak to at the start runs your project to the end — nobody gets handed off to a manager after signing.",
     "members": [
       {
-        "name": "Andriy Hordiienko",
-        "role": "Founder, CEO",
-        "note": "Runs the conversations and owns the outcome of your project",
-        "initials": "AH"
+        "role": "Founder",
+        "name": "Andriy",
+        "note": "First contact, scoping, contract. Answers to you for the outcome of the project.",
+        "initials": "A"
       },
       {
-        "name": "Tech Lead",
-        "role": "Architecture and integrations",
-        "note": "Accounting, CRM, marketplaces, telephony — everything that has to meet in one loop",
-        "initials": "TL"
+        "role": "Tech Lead",
+        "name": "Oleh",
+        "note": "Solution architecture and integrations: accounting, CRM, marketplaces, telephony, shipping.",
+        "initials": "O"
       },
       {
-        "name": "Delivery",
-        "role": "Deadlines and communication",
-        "note": "Keeps stages, updates and handover inside what was agreed",
-        "initials": "DM"
+        "role": "Delivery",
+        "name": "Marta",
+        "note": "Stages, regular updates, staging environment, handover with documentation.",
+        "initials": "M"
       },
       {
-        "name": "Team",
-        "role": "Design, frontend, QA",
-        "note": "Assembled per project — from a landing page to a complex integration",
+        "role": "Team",
+        "note": "Design, frontend, QA. Assembled per project — from a landing page to a complex integration.",
         "initials": "+",
         "collective": true
       }

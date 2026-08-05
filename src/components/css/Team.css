@@ -68,16 +68,16 @@
   border-color: var(--glass-border);
 }
 
-.team-name {
+.team-position {
   font-size: 1.0625rem;
   font-weight: 700;
   color: var(--text);
-  margin: 0 0 0.35rem;
+  margin: 0 0 0.3rem;
   text-transform: uppercase;
   letter-spacing: 0.02em;
 }
 
-.team-role {
+.team-person {
   font-size: 0.875rem;
   color: var(--primary);
   font-weight: 500;
@@ -98,6 +98,6 @@
   .team-grid { grid-template-columns: repeat(2, 1fr); gap: 1.75rem 1rem; }
   .team-avatar { width: 120px; height: 120px; margin-bottom: 1rem; }
   .team-initials { font-size: 2rem; }
-  .team-name { font-size: 0.9375rem; }
+  .team-position { font-size: 0.9375rem; }
   .team-note { font-size: 0.75rem; }
 }
