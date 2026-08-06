@@ -13,6 +13,11 @@ dist-ssr
 .next
 .vercel
 *.local
+.env
+venv
+__pycache__
+*.pem
+*.key
 
 # Editor directories and files
 .vscode/*
