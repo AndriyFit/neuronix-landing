@@ -1,14 +1,13 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { useLocale, useTranslations } from 'next-intl'
-import Link from 'next/link'
+import { useTranslations } from 'next-intl'
+import { Link } from '@/i18n/navigation'
 import { CONSENT_STORAGE_KEY, updateConsent } from '@/lib/consent'
 import './css/CookieConsent.css'
 
 export default function CookieConsent() {
   const t = useTranslations('cookie')
-  const locale = useLocale()
   const [visible, setVisible] = useState(false)
 
   useEffect(() => {
@@ -29,7 +28,7 @@ export default function CookieConsent() {
     <div className="cookie-banner" role="dialog" aria-label={t('label')}>
       <p className="cookie-text">
         {t('text')}{' '}
-        <Link href={`/${locale}/privacy-policy`}>{t('more')}</Link>
+        <Link href="/privacy-policy">{t('more')}</Link>
       </p>
       <div className="cookie-actions">
         <button className="cookie-accept" onClick={() => choose(true)}>

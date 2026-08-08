@@ -1,7 +1,7 @@
 import type { MetadataRoute } from 'next'
 import { locales } from '@/i18n/config'
 import { getAllPosts } from '@/content/blog'
-import { SITE_URL } from '@/lib/site'
+import { localeUrl } from '@/lib/site'
 
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -9,11 +9,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const entries: MetadataRoute.Sitemap = []
 
   const altLangs = (path: string) =>
-    Object.fromEntries(locales.map((l) => [l, `${SITE_URL}/${l}${path}`]))
+    Object.fromEntries(locales.map((l) => [l, localeUrl(l, path)]))
 
   for (const locale of locales) {
     entries.push({
-      url: `${SITE_URL}/${locale}`,
+      url: localeUrl(locale),
       lastModified: now,
       changeFrequency: 'weekly',
       priority: 1,
@@ -25,9 +25,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Google рапортує як помилку «Submitted URL marked noindex».
 
   // Блог — лише українською. Англійських версій статей не існує, /en/blog/* редіректить
-  // на /uk (див. next.config.ts), тож у sitemap їм робити нічого.
+  // на безпрефіксний шлях (див. next.config.ts), тож у sitemap їм робити нічого.
   entries.push({
-    url: `${SITE_URL}/uk/blog`,
+    url: localeUrl('uk', '/blog'),
     lastModified: now,
     changeFrequency: 'weekly',
     priority: 0.8,
@@ -35,7 +35,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   for (const post of getAllPosts()) {
     entries.push({
-      url: `${SITE_URL}/uk/blog/${post.slug}`,
+      url: localeUrl('uk', `/blog/${post.slug}`),
       lastModified: new Date(post.updatedAt),
       changeFrequency: 'monthly',
       priority: 0.7,

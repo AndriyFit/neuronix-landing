@@ -1,10 +1,10 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
 import { setRequestLocale } from 'next-intl/server'
 import { getAllPosts, getAllCategories } from '@/content/blog'
+import { Link } from '@/i18n/navigation'
 import Footer from '@/components/Footer'
 import './blog.css'
-import { SITE_URL } from '@/lib/site'
+import { localeUrl } from '@/lib/site'
 
 
 type Props = { params: Promise<{ locale: string }> }
@@ -27,12 +27,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title,
     description,
     alternates: {
-      canonical: `${SITE_URL}/uk/blog`,
+      canonical: localeUrl('uk', '/blog'),
     },
     openGraph: {
       title,
       description,
-      url: `${SITE_URL}/${locale}/blog`,
+      url: localeUrl(locale, '/blog'),
       type: 'website',
     },
   }
@@ -48,12 +48,12 @@ export default async function BlogIndexPage({ params }: Props) {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Neuronix', item: `${SITE_URL}/${locale}` },
+      { '@type': 'ListItem', position: 1, name: 'Neuronix', item: localeUrl(locale) },
       {
         '@type': 'ListItem',
         position: 2,
         name: 'Блог',
-        item: `${SITE_URL}/${locale}/blog`,
+        item: localeUrl(locale, '/blog'),
       },
     ],
   }
@@ -62,12 +62,12 @@ export default async function BlogIndexPage({ params }: Props) {
     '@context': 'https://schema.org',
     '@type': 'Blog',
     name: 'Neuronix Blog',
-    url: `${SITE_URL}/${locale}/blog`,
+    url: localeUrl(locale, '/blog'),
     blogPost: posts.map((p) => ({
       '@type': 'BlogPosting',
       headline: p.title,
       description: p.description,
-      url: `${SITE_URL}/${locale}/blog/${p.slug}`,
+      url: localeUrl(locale, `/blog/${p.slug}`),
       datePublished: p.publishedAt,
       dateModified: p.updatedAt,
       author: { '@type': 'Organization', name: 'Neuronix' },
@@ -87,7 +87,7 @@ export default async function BlogIndexPage({ params }: Props) {
       <article className="blog-index">
         <header className="blog-index-header">
           <nav className="blog-breadcrumbs" aria-label="breadcrumbs">
-            <Link href={`/${locale}`}>Головна</Link>
+            <Link href="/">Головна</Link>
             <span>/</span>
             <span aria-current="page">Блог</span>
           </nav>
@@ -108,7 +108,7 @@ export default async function BlogIndexPage({ params }: Props) {
         <ul className="blog-list">
           {posts.map((post) => (
             <li key={post.slug} className="blog-card">
-              <Link href={`/${locale}/blog/${post.slug}`} className="blog-card-link">
+              <Link href={`/blog/${post.slug}`} className="blog-card-link">
                 <div className="blog-card-meta">
                   <span className="blog-card-category">{post.category}</span>
                   <span className="blog-card-date">

@@ -1,4 +1,4 @@
-import { SITE_URL } from '@/lib/site'
+import { SITE_URL, localeUrl } from '@/lib/site'
 
 export function getOrganizationSchema() {
   return {
@@ -86,7 +86,7 @@ export function getBlogPostingSchema(opts: {
   updatedAt: string
   keywords: string[]
 }) {
-  const url = `${SITE_URL}/${opts.locale}/blog/${opts.slug}`
+  const url = localeUrl(opts.locale, `/blog/${opts.slug}`)
   return {
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
