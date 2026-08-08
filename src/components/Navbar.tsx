@@ -2,16 +2,22 @@
 
 import { useState, useEffect, useCallback } from 'react'
 import { useTranslations, useLocale } from 'next-intl'
+// Link саме з next/link, а не з @/i18n/navigation: єдине посилання тут веде на блог,
+// який існує лише українською, тож потрібен літеральний безпрефіксний шлях. Link з
+// next-intl підставив би поточну локаль (`/en/blog`), а з явним `locale="uk"` — навпаки,
+// завжди префікс (`/uk/blog`). Обидва варіанти дали б 308 на кожному кліку й префетчі.
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
+import { usePathname } from '@/i18n/navigation'
+import { defaultLocale } from '@/i18n/config'
 import LanguageSwitcher from './LanguageSwitcher'
 import './css/Navbar.css'
 
 export default function Navbar() {
   const t = useTranslations('nav')
   const locale = useLocale()
+  // usePathname із @/i18n/navigation віддає шлях БЕЗ локалі: і на `/`, і на `/en` тут `/`.
   const pathname = usePathname()
-  const isHome = pathname === `/${locale}` || pathname === `/${locale}/`
+  const isHome = pathname === '/'
 
   const NAV_ITEMS = [
     { label: t('services'), id: 'services' },
@@ -44,7 +50,9 @@ export default function Navbar() {
     (id: string) => {
       setMobileOpen(false)
       if (!isHome) {
-        window.location.href = `/${locale}#${id}`
+        // Повне перезавантаження навмисно: секції живуть у контейнері #page-scroll,
+        // тож клієнтський перехід не дав би браузеру доскролити до якоря.
+        window.location.href = `${locale === defaultLocale ? '/' : `/${locale}`}#${id}`
         return
       }
       document.querySelector(`#${id}`)?.scrollIntoView({ behavior: 'smooth' })
@@ -72,7 +80,7 @@ export default function Navbar() {
             </li>
           ))}
           <li>
-            <Link href={`/${locale}/blog`} onClick={() => setMobileOpen(false)}>
+            <Link href="/blog" onClick={() => setMobileOpen(false)}>
               {locale === 'uk' ? 'Блог' : 'Blog'}
             </Link>
           </li>
@@ -106,7 +114,7 @@ export default function Navbar() {
           </li>
         ))}
         <li>
-          <Link href={`/${locale}/blog`} onClick={() => setMobileOpen(false)}>
+          <Link href="/blog" onClick={() => setMobileOpen(false)}>
             {locale === 'uk' ? 'Блог' : 'Blog'}
           </Link>
         </li>

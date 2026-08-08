@@ -1,12 +1,12 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { setRequestLocale } from 'next-intl/server'
 import { getAllPosts, getPostBySlug } from '@/content/blog'
 import { getBlogPostingSchema, getBreadcrumbSchema } from '@/lib/structured-data'
+import { Link } from '@/i18n/navigation'
 import Footer from '@/components/Footer'
 import '../blog.css'
-import { SITE_URL } from '@/lib/site'
+import { localeUrl } from '@/lib/site'
 
 
 type Props = { params: Promise<{ locale: string; slug: string }> }
@@ -25,12 +25,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: post.metaDescription,
     keywords: post.keywords,
     alternates: {
-      canonical: `${SITE_URL}/uk/blog/${slug}`,
+      canonical: localeUrl('uk', `/blog/${slug}`),
     },
     openGraph: {
       title: post.metaTitle,
       description: post.metaDescription,
-      url: `${SITE_URL}/${locale}/blog/${slug}`,
+      url: localeUrl(locale, `/blog/${slug}`),
       type: 'article',
       publishedTime: post.publishedAt,
       modifiedTime: post.updatedAt,
@@ -51,9 +51,9 @@ export default async function BlogPostPage({ params }: Props) {
   if (!post) notFound()
 
   const breadcrumbSchema = getBreadcrumbSchema([
-    { name: 'Головна', url: `${SITE_URL}/${locale}` },
-    { name: 'Блог', url: `${SITE_URL}/${locale}/blog` },
-    { name: post.title, url: `${SITE_URL}/${locale}/blog/${slug}` },
+    { name: 'Головна', url: localeUrl(locale) },
+    { name: 'Блог', url: localeUrl(locale, '/blog') },
+    { name: post.title, url: localeUrl(locale, `/blog/${slug}`) },
   ])
 
   const articleSchema = getBlogPostingSchema({
@@ -102,9 +102,9 @@ export default async function BlogPostPage({ params }: Props) {
 
       <article className="blog-post">
         <nav className="blog-breadcrumbs" aria-label="breadcrumbs">
-          <Link href={`/${locale}`}>Головна</Link>
+          <Link href="/">Головна</Link>
           <span>/</span>
-          <Link href={`/${locale}/blog`}>Блог</Link>
+          <Link href="/blog">Блог</Link>
           <span>/</span>
           <span aria-current="page">{post.category}</span>
         </nav>
@@ -190,7 +190,7 @@ export default async function BlogPostPage({ params }: Props) {
             <ul>
               {related.map((rel) => (
                 <li key={rel.slug}>
-                  <Link href={`/${locale}/blog/${rel.slug}`}>
+                  <Link href={`/blog/${rel.slug}`}>
                     <span className="blog-related-category">{rel.category}</span>
                     <span className="blog-related-title">{rel.title}</span>
                   </Link>

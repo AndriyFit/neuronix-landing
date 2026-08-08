@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { type Locale } from '@/i18n/config'
-import { SITE_URL } from '@/lib/site'
+import { SITE_URL, localeUrl } from '@/lib/site'
 
 
 export function generateLocaleMetadata(
@@ -15,18 +15,23 @@ export function generateLocaleMetadata(
     title: meta.title,
     description: meta.description,
     alternates: {
-      canonical: `${SITE_URL}/${locale}`,
+      canonical: localeUrl(locale),
       languages: {
-        uk: `${SITE_URL}/uk`,
-        en: `${SITE_URL}/en`,
+        uk: localeUrl('uk'),
+        en: localeUrl('en'),
+        // Без x-default Google складав /en і /uk в одну групу й лишав /en поза індексом
+        // як «альтернативну сторінку з належним тегом канонічної». x-default каже,
+        // яку версію показувати всім, чия мова не збіглася, — і розводить сторінки.
+        'x-default': localeUrl('uk'),
       },
     },
     openGraph: {
       title: meta.title,
       description: meta.description,
-      url: `${SITE_URL}/${locale}`,
+      url: localeUrl(locale),
       siteName: 'Neuronix AI',
       locale: locale === 'uk' ? 'uk_UA' : 'en_US',
+      alternateLocale: locale === 'uk' ? 'en_US' : 'uk_UA',
       type: 'website',
     },
     twitter: {
