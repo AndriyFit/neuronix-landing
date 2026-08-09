@@ -27,6 +27,24 @@ Next.js 16 (App Router) · TypeScript · next-intl (uk/en) · React 19 · react-
 Структуровані дані (schema.org) генеруються з тих самих json у `src/lib/structured-data.ts` —
 **якщо міняєш `services.items` чи `faq.items`, schema оновлюється сама**, чіпати не треба.
 
+## Сторінка /ai — AI-автоматизація (2026-08-09)
+
+Окрема посадкова `/{locale}/ai` під AI-напрямок (чат-боти, голосові агенти, CRM-автоматизація,
+AI-розробка сайтів). Побудована під реальні пошукові запити UA — дослідження і мапа
+запит→біль→оффер: `docs/keyword-research-2026-08.md`.
+
+- Контент — namespace `ai.*` в `uk.json`/`en.json` (hero/pains/solutions/stats/security/faq + metadata).
+- Реюз компонентів через опційний проп `namespace` (дефолт = старий): `Pains`, `Services`, `FAQ`.
+  На головній нічого не змінилось — дефолтні пропси.
+- Нові компоненти без власного CSS: `AiHero` (Hero.css), `AiStats` (CaseStudy.css),
+  `AiSecurity` (Pains.css).
+- `Services` items підтримують опційний `href` → картка-лінк замість скролу до контакту
+  (так картка «AI-боти та автоматизація» на головній веде на /ai).
+- FAQPage schema для ai.faq інжектиться в `ai/page.tsx` (глобальні схеми layout не чіпались).
+- Цифри в `ai.stats` — галузеві бенчмарки З ДЖЕРЕЛАМИ в note (Baymard, MIT/InsideSales, HBR,
+  Klarna). НЕ видавати за наші результати; наші метрики — тільки в CaseStudy.
+- В навбарі пункт `nav.ai` (перед Блогом), в sitemap — обидві локалі з hreflang.
+
 ## Пастки, на які вже наступали
 
 ### Скрол іде не в `document`, а в `#page-scroll`
