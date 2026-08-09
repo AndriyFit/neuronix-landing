@@ -1,16 +1,19 @@
 'use client'
 import { useEffect, useRef } from 'react'
-import { useTranslations } from 'next-intl'
+import { useTranslations, useLocale } from 'next-intl'
+import Link from 'next/link'
 import './css/Services.css'
 
-export default function Services() {
+export default function Services({ namespace = 'services' }: { namespace?: string }) {
   const sectionRef = useRef<HTMLElement>(null)
-  const t = useTranslations('services')
+  const t = useTranslations(namespace)
+  const locale = useLocale()
   const items = t.raw('items') as Array<{
     icon: string
     title: string
     description: string
     price: string
+    href?: string
   }>
 
   useEffect(() => {
@@ -50,9 +53,15 @@ export default function Services() {
               <p className="service-card-desc">{item.description}</p>
               <div className="service-card-footer">
                 <span className="service-price">{item.price}</span>
-                <button className="service-cta" onClick={scrollToContact}>
-                  Дізнатись більше
-                </button>
+                {item.href ? (
+                  <Link className="service-cta" href={`/${locale}${item.href}`}>
+                    Дізнатись більше
+                  </Link>
+                ) : (
+                  <button className="service-cta" onClick={scrollToContact}>
+                    Дізнатись більше
+                  </button>
+                )}
               </div>
             </div>
           ))}

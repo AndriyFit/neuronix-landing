@@ -10,7 +10,8 @@
     "faq": "FAQ",
     "contact": "Contact",
     "cta": "Message on Telegram",
-    "telegramUrl": "https://t.me/angordien"
+    "telegramUrl": "https://t.me/angordien",
+    "ai": "AI automation"
   },
   "hero": {
     "titleStart": "Websites and ",
@@ -28,10 +29,22 @@
   },
   "trustBar": {
     "items": [
-      { "metric": "100+", "label": "projects since 2023" },
-      { "metric": "15,000+", "label": "products moving between accounting, site and marketplaces" },
-      { "metric": "5 days", "label": "from brief to landing page launch" },
-      { "metric": "12 mo", "label": "warranty on every project" }
+      {
+        "metric": "100+",
+        "label": "projects since 2023"
+      },
+      {
+        "metric": "15,000+",
+        "label": "products moving between accounting, site and marketplaces"
+      },
+      {
+        "metric": "5 days",
+        "label": "from brief to landing page launch"
+      },
+      {
+        "metric": "12 mo",
+        "label": "warranty on every project"
+      }
     ]
   },
   "pains": {
@@ -58,12 +71,30 @@
     "subtitle": "We connect what you already run into a single loop — and the data starts moving on its own",
     "hubLabel": "Your loop",
     "nodes": [
-      { "icon": "🛒", "label": "Website / store" },
-      { "icon": "📇", "label": "CRM" },
-      { "icon": "📦", "label": "Accounting" },
-      { "icon": "🏬", "label": "Marketplaces" },
-      { "icon": "📞", "label": "Phone system" },
-      { "icon": "🚚", "label": "Shipping & receipts" }
+      {
+        "icon": "🛒",
+        "label": "Website / store"
+      },
+      {
+        "icon": "📇",
+        "label": "CRM"
+      },
+      {
+        "icon": "📦",
+        "label": "Accounting"
+      },
+      {
+        "icon": "🏬",
+        "label": "Marketplaces"
+      },
+      {
+        "icon": "📞",
+        "label": "Phone system"
+      },
+      {
+        "icon": "🚚",
+        "label": "Shipping & receipts"
+      }
     ],
     "benefits": [
       "An order from the site lands in the CRM by itself, and the waybill is created without you",
@@ -82,6 +113,13 @@
         "title": "Websites & online stores",
         "description": "Landing pages, corporate sites, stores. Design, development, analytics and launch, end to end.",
         "price": "from 15,000 UAH"
+      },
+      {
+        "icon": "🤖",
+        "title": "AI bots & automation",
+        "description": "Chatbots for your website and Instagram, voice agents for calls, orders flowing into your CRM hands-free. AI that works 24/7.",
+        "price": "from 30,000 UAH",
+        "href": "/ai"
       },
       {
         "icon": "⚙️",
@@ -158,7 +196,11 @@
     "beforeLabel": "Before",
     "before": "15,000+ items lived in the accounting system. The site was updated by hand, stock drifted away from reality, and every new arrival needed its banner drawn separately.",
     "afterLabel": "After",
-    "chain": ["Accounting", "Website", "Marketplaces"],
+    "chain": [
+      "Accounting",
+      "Website",
+      "Marketplaces"
+    ],
     "chainNote": "Plus automated banner generation for new arrivals.",
     "metrics": [
       {
@@ -193,11 +235,26 @@
     "note": "Exact cost after the brief. Estimates are free and take 24 hours.",
     "cta": "Discuss your project",
     "items": [
-      { "service": "Landing page", "price": "from 15,000 UAH" },
-      { "service": "Corporate website", "price": "from 30,000 UAH" },
-      { "service": "Online store", "price": "from 60,000 UAH" },
-      { "service": "Horoshop — launch & integrations", "price": "from 25,000 UAH" },
-      { "service": "Automation & integrations", "price": "from 30,000 UAH" }
+      {
+        "service": "Landing page",
+        "price": "from 15,000 UAH"
+      },
+      {
+        "service": "Corporate website",
+        "price": "from 30,000 UAH"
+      },
+      {
+        "service": "Online store",
+        "price": "from 60,000 UAH"
+      },
+      {
+        "service": "Horoshop — launch & integrations",
+        "price": "from 25,000 UAH"
+      },
+      {
+        "service": "Automation & integrations",
+        "price": "from 30,000 UAH"
+      }
     ]
   },
   "faq": {
@@ -273,5 +330,133 @@
     "more": "Learn more",
     "accept": "Accept",
     "decline": "Decline"
+  },
+  "ai": {
+    "metadata": {
+      "title": "AI Automation for Business: Chatbots, Voice Agents, CRM — Neuronix",
+      "description": "We implement AI for business: chatbots for websites and Instagram, voice bots for calls, automated order processing and CRM integrations (KeyCRM, SalesDrive). Free AI audit."
+    },
+    "hero": {
+      "titleStart": "Artificial intelligence that ",
+      "titleHighlight": "works instead of you",
+      "titleEnd": " — 24/7",
+      "subtitle": "Chatbots for your website and Instagram, voice agents for calls, CRM automation. Customers get answers in seconds, orders land in your CRM hands-free, no call goes missed.",
+      "ctaPrimary": "Get a free AI audit",
+      "ctaSecondary": "Message on Telegram",
+      "telegramUrl": "https://t.me/angordien",
+      "trust": [
+        "We work with KeyCRM, SalesDrive, accounting systems",
+        "Timeline and budget fixed in the contract",
+        "12-month warranty"
+      ]
+    },
+    "pains": {
+      "title": "Sound familiar?",
+      "subtitle": "The most common reasons businesses come to us for automation",
+      "items": [
+        "A lead comes in at 11:40 PM — the reply goes out at 9:30 AM. The customer already bought from whoever answered first",
+        "A manager copies orders into the CRM by hand. Every day, an hour or two",
+        "Half of support's day is the same questions: “how much”, “where is my order”, “is it in stock”",
+        "Nobody calls back missed calls. Nobody even knows how many there were",
+        "Another order-processing manager is 25,000+ UAH a month — and they still need training",
+        "You've heard AI “delivers results”, but where to start in your business is unclear"
+      ],
+      "answerTitle": "What AI does about it",
+      "answers": [
+        "A chatbot replies in seconds at any hour — not with templates, but from your catalog, prices and stock",
+        "Orders from the website, Instagram and Telegram land in your CRM with every field filled — no manual copying",
+        "A voice agent calls back missed calls, confirms orders and sends payment reminders",
+        "We start with a free audit: we show you the 2-3 places where automation pays off fastest"
+      ]
+    },
+    "solutions": {
+      "title": "What we implement",
+      "extra": "We integrate with what you already have: KeyCRM, SalesDrive, accounting, OpenCart, Horoshop, Nova Poshta, Binotel, Checkbox",
+      "items": [
+        {
+          "icon": "💬",
+          "title": "AI chatbot for website & social media",
+          "description": "Knows your catalog, prices and stock. Consults, places orders, hands complex questions to a manager. Website, Instagram, Telegram.",
+          "price": "from 30,000 UAH"
+        },
+        {
+          "icon": "📞",
+          "title": "Voice AI agents",
+          "description": "Confirm orders, call back missed calls, send payment reminders, collect feedback. Natural-sounding Ukrainian speech.",
+          "price": "quoted after audit"
+        },
+        {
+          "icon": "⚙️",
+          "title": "CRM & order automation",
+          "description": "Orders from every channel go straight into KeyCRM or SalesDrive — with tracking number, receipt and status. Managers sell instead of copying.",
+          "price": "from 30,000 UAH"
+        },
+        {
+          "icon": "🚀",
+          "title": "AI-powered web development",
+          "description": "We build websites and landing pages with AI several times faster than classic development: a landing page in 5 days — proven on a real project.",
+          "price": "from 15,000 UAH"
+        }
+      ]
+    },
+    "stats": {
+      "title": "Why it works",
+      "items": [
+        {
+          "metric": "70%",
+          "label": "of shoppers abandon their cart before checkout. A bot recovers part of that revenue — with a reminder or help at the right moment"
+        },
+        {
+          "metric": "21×",
+          "label": "higher chance to qualify a lead when you reply within 5 minutes instead of 30. AI replies in seconds"
+        },
+        {
+          "metric": "23%",
+          "label": "of companies never reply to leads at all. Some of your competitors are among them"
+        },
+        {
+          "metric": "⅔",
+          "label": "of customer chats Klarna's AI assistant resolved without humans — the workload of ~700 agents"
+        }
+      ],
+      "note": "Sources: Baymard Institute (meta-analysis of 50 studies, 2025), Lead Response Management Study (MIT / InsideSales), Harvard Business Review (audit of 2,241 companies), Klarna public case study (2024). Industry statistics, not a guarantee — we'll estimate your numbers during the audit."
+    },
+    "security": {
+      "title": "Security is not optional",
+      "items": [
+        "AI writes code fast — we make sure it's safe: checks for SQL injection, leaked keys, excessive permissions",
+        "Customer data stays in your systems. The bot reads only what it needs to answer; API keys never live in code",
+        "GDPR and consent: cookie banner, privacy policy, access control"
+      ]
+    },
+    "faq": {
+      "title": "AI automation FAQ",
+      "items": [
+        {
+          "question": "How much does a website chatbot cost?",
+          "answer": "From 30,000 UAH end to end: scenarios, catalog and CRM integration, training on your data. The exact price depends on channels and integrations — we quote it after a free audit."
+        },
+        {
+          "question": "What can a voice AI bot do?",
+          "answer": "Take a call or make one: confirm an order, answer common questions, remind about payment — and log the result in your CRM. It speaks natural Ukrainian and hands complex conversations to a human."
+        },
+        {
+          "question": "Will a bot replace my manager?",
+          "answer": "No — it removes the routine: common questions, order confirmations, copying data into the CRM. Managers sell instead of copy-pasting."
+        },
+        {
+          "question": "Which CRMs and services do you work with?",
+          "answer": "KeyCRM, SalesDrive, accounting systems, OpenCart, Horoshop, Nova Poshta, Binotel, Checkbox — and any system with an API."
+        },
+        {
+          "question": "Where do we start with AI in my business?",
+          "answer": "With a free audit: we look at your processes and show the 2-3 places where automation pays off fastest. No strings attached."
+        },
+        {
+          "question": "How fast will I see results?",
+          "answer": "Depends on scope: a simple chatbot takes weeks, not months. The exact timeline is fixed in the contract after the audit; payment is per accepted stage."
+        }
+      ]
+    }
   }
 }

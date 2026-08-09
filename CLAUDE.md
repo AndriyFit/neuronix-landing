@@ -40,7 +40,9 @@ AI-розробка сайтів). Побудована під реальні п
   `AiSecurity` (Pains.css).
 - `Services` items підтримують опційний `href` → картка-лінк замість скролу до контакту
   (так картка «AI-боти та автоматизація» на головній веде на /ai).
-- FAQPage schema для ai.faq інжектиться в `ai/page.tsx` (глобальні схеми layout не чіпались).
+- FAQPage schema живе НА сторінці, де FAQ видно: ai.faq — в `ai/page.tsx`, faq головної — в
+  `[locale]/page.tsx` (з layout прибрано 2026-08-09: був дубль FAQPage на /ai і нерелевантна
+  схема на blog). og:image для /ai — ре-експорт `../opengraph-image` (не копія, як у blog).
 - Цифри в `ai.stats` — галузеві бенчмарки З ДЖЕРЕЛАМИ в note (Baymard, MIT/InsideSales, HBR,
   Klarna). НЕ видавати за наші результати; наші метрики — тільки в CaseStudy.
 - В навбарі пункт `nav.ai` (перед Блогом), в sitemap — обидві локалі з hreflang.

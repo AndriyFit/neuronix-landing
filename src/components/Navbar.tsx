@@ -72,6 +72,11 @@ export default function Navbar() {
             </li>
           ))}
           <li>
+            <Link href={`/${locale}/ai`} onClick={() => setMobileOpen(false)}>
+              {t('ai')}
+            </Link>
+          </li>
+          <li>
             <Link href={`/${locale}/blog`} onClick={() => setMobileOpen(false)}>
               {locale === 'uk' ? 'Блог' : 'Blog'}
             </Link>
@@ -105,6 +110,11 @@ export default function Navbar() {
             </a>
           </li>
         ))}
+        <li>
+          <Link href={`/${locale}/ai`} onClick={() => setMobileOpen(false)}>
+            {t('ai')}
+          </Link>
+        </li>
         <li>
           <Link href={`/${locale}/blog`} onClick={() => setMobileOpen(false)}>
             {locale === 'uk' ? 'Блог' : 'Blog'}

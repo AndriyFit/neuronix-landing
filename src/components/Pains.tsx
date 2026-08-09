@@ -3,8 +3,8 @@ import { useTranslations } from 'next-intl'
 import { useScrollReveal } from '@/lib/useScrollReveal'
 import './css/Pains.css'
 
-export default function Pains() {
-  const t = useTranslations('pains')
+export default function Pains({ namespace = 'pains' }: { namespace?: string }) {
+  const t = useTranslations(namespace)
   const items = t.raw('items') as string[]
   const answers = t.raw('answers') as string[]
   const ref = useScrollReveal<HTMLElement>()

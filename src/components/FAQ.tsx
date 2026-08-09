@@ -2,10 +2,10 @@ import { useTranslations, useLocale } from 'next-intl'
 import { setRequestLocale } from 'next-intl/server'
 import './css/FAQ.css'
 
-export default function FAQ() {
+export default function FAQ({ namespace = 'faq' }: { namespace?: string }) {
   const locale = useLocale()
   setRequestLocale(locale)
-  const t = useTranslations('faq')
+  const t = useTranslations(namespace)
   const items = t.raw('items') as Array<{ question: string; answer: string }>
 
   return (

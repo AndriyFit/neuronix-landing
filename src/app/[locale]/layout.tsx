@@ -13,7 +13,6 @@ import {
   getOrganizationSchema,
   getWebSiteSchema,
   getServicesSchema,
-  getFAQSchema,
   getLocalBusinessSchema,
 } from '@/lib/structured-data'
 import Navbar from '@/components/Navbar'
@@ -79,7 +78,6 @@ export default async function LocaleLayout({
     getLocalBusinessSchema(),
     getWebSiteSchema(),
     ...getServicesSchema(msg.services.items),
-    getFAQSchema(msg.faq.items),
   ]
 
   return (

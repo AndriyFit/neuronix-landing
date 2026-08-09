@@ -21,6 +21,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })
   }
 
+  for (const locale of locales) {
+    entries.push({
+      url: `${SITE_URL}/${locale}/ai`,
+      lastModified: now,
+      changeFrequency: 'weekly',
+      priority: 0.9,
+      alternates: { languages: altLangs('/ai') },
+    })
+  }
+
   // privacy-policy свідомо відсутня: сторінка robots:{index:false}, а noindex у sitemap
   // Google рапортує як помилку «Submitted URL marked noindex».
 
