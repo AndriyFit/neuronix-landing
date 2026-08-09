@@ -47,6 +47,18 @@ AI-розробка сайтів). Побудована під реальні п
   Klarna). НЕ видавати за наші результати; наші метрики — тільки в CaseStudy.
 - В навбарі пункт `nav.ai` (перед Блогом), в sitemap — обидві локалі з hreflang.
 
+## Платформені сторінки /opencart /horoshop /keycrm (2026-08-09)
+
+Спільний шаблон `src/app/[locale]/[platform]/page.tsx` (SSG, `dynamicParams=false`,
+слаги в константі PLATFORMS). Контент — `platforms.{slug}.*` в i18n + спільний
+`platforms.shared.contentEngine` (оффер «контент-система 24/7» на всіх трьох).
+Інтент з дослідження: бренд-запити платформ — здебільшого НЕ ЦА; сторінки цілять
+у хвіст «інтеграція/автоматизація/під ключ/наповнення». Реюз: AiHero/Pains/Services/
+AiSecurity/FAQ через namespace-проп; кейс Abertime (CaseStudy без пропа) — лише на opencart.
+Перелінковка: футер `footer-services` (усі сторінки), Horoshop-картка головної → /horoshop,
+голосовий агент на /keycrm → /ai. Додаючи платформу: слаг у PLATFORMS + namespace в
+обох json + слаг у sitemap.ts.
+
 ## Пастки, на які вже наступали
 
 ### Скрол іде не в `document`, а в `#page-scroll`
