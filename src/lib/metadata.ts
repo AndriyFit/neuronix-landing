@@ -19,6 +19,8 @@ export function generateLocaleMetadata(
       languages: {
         uk: `${SITE_URL}/uk`,
         en: `${SITE_URL}/en`,
+        // Для країн/мов поза uk|en Google має знати дефолт — інакше обирає сам і помиляється.
+        'x-default': `${SITE_URL}/uk`,
       },
     },
     openGraph: {

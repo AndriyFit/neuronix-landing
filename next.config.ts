@@ -11,6 +11,10 @@ const nextConfig = {
   // 301 замість 404, щоб не втратити сигнали з уже проіндексованих URL.
   async redirects() {
     return [
+      // Корінь віддавав 307 (тимчасовий) від next-intl middleware — GSC показував це
+      // як «Сторінка з переспрямуванням» і не консолідував сигнали на /uk.
+      // 308 = постійний: вага зовнішніх посилань на neuronics.work іде на /uk.
+      { source: '/', destination: '/uk', permanent: true },
       { source: '/en/blog', destination: '/uk/blog', permanent: true },
       { source: '/en/blog/:slug', destination: '/uk/blog/:slug', permanent: true },
     ]

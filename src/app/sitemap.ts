@@ -1,5 +1,5 @@
 import type { MetadataRoute } from 'next'
-import { locales } from '@/i18n/config'
+import { locales, defaultLocale } from '@/i18n/config'
 import { getAllPosts } from '@/content/blog'
 import { SITE_URL } from '@/lib/site'
 
@@ -8,8 +8,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date()
   const entries: MetadataRoute.Sitemap = []
 
-  const altLangs = (path: string) =>
-    Object.fromEntries(locales.map((l) => [l, `${SITE_URL}/${l}${path}`]))
+  const altLangs = (path: string) => ({
+    ...Object.fromEntries(locales.map((l) => [l, `${SITE_URL}/${l}${path}`])),
+    'x-default': `${SITE_URL}/${defaultLocale}${path}`,
+  })
 
   for (const locale of locales) {
     entries.push({
