@@ -11,7 +11,8 @@
     "contact": "Contact",
     "cta": "Message on Telegram",
     "telegramUrl": "https://t.me/angordien",
-    "ai": "AI automation"
+    "ai": "AI automation",
+    "blog": "Blog"
   },
   "hero": {
     "titleStart": "Websites and ",
@@ -756,5 +757,23 @@
         ]
       }
     }
+  },
+  "blog": {
+    "indexTitle": "Neuronix Blog",
+    "indexSubtitle": "Real experience building websites, online stores and business automation. No filler, just specifics.",
+    "metaTitle": "Blog about web development, OpenCart, Horoshop and automation",
+    "metaDescription": "Real studio experience: OpenCart, Horoshop, accounting integrations, KeyCRM, marketplaces. Vapi AI agents, n8n business automation.",
+    "home": "Home",
+    "blog": "Blog",
+    "read": "Read →",
+    "minutes": "min",
+    "readingTime": "min read",
+    "tldr": "In short (TL;DR):",
+    "faqTitle": "Frequently asked questions",
+    "ctaTitle": "Ready to discuss your project?",
+    "ctaText": "A free 15-minute consultation. We will tell you what your case actually needs, with indicative pricing and timelines, no strings attached.",
+    "ctaButton": "Message on Telegram",
+    "relatedTitle": "Read next",
+    "dateLocale": "en-GB"
   }
 }

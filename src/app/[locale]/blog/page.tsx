@@ -1,37 +1,37 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { setRequestLocale } from 'next-intl/server'
+import { getMessages, setRequestLocale } from 'next-intl/server'
+import { routing } from '@/i18n/routing'
 import { getAllPosts, getAllCategories } from '@/content/blog'
 import Footer from '@/components/Footer'
 import './blog.css'
 import { SITE_URL } from '@/lib/site'
 
-
 type Props = { params: Promise<{ locale: string }> }
 
-// Лише uk: статті існують тільки українською, /en/blog редіректить (next.config.ts).
 export function generateStaticParams() {
-  return [{ locale: 'uk' }]
+  return routing.locales.map((locale) => ({ locale }))
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params
-  const isUk = locale === 'uk'
-  const title = isUk
-    ? 'Блог про розробку сайтів, OpenCart, Horoshop та автоматизацію'
-    : 'Blog about web development, OpenCart, Horoshop and automation'
-  const description = isUk
-    ? 'Реальний досвід студії: OpenCart, Horoshop, інтеграції з 1С, KeyCRM, маркетплейсами. AI-агенти Vapi, n8n автоматизація бізнесу.'
-    : 'Real studio experience: OpenCart, Horoshop, 1C integrations, KeyCRM, marketplaces. AI agents Vapi, n8n business automation.'
+  setRequestLocale(locale)
+  const messages = (await getMessages()) as Record<string, any>
+  const t = messages.blog
   return {
-    title,
-    description,
+    title: t.metaTitle,
+    description: t.metaDescription,
     alternates: {
-      canonical: `${SITE_URL}/uk/blog`,
+      canonical: `${SITE_URL}/${locale}/blog`,
+      languages: {
+        uk: `${SITE_URL}/uk/blog`,
+        en: `${SITE_URL}/en/blog`,
+        'x-default': `${SITE_URL}/uk/blog`,
+      },
     },
     openGraph: {
-      title,
-      description,
+      title: t.metaTitle,
+      description: t.metaDescription,
       url: `${SITE_URL}/${locale}/blog`,
       type: 'website',
     },
@@ -41,8 +41,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function BlogIndexPage({ params }: Props) {
   const { locale } = await params
   setRequestLocale(locale)
-  const posts = getAllPosts()
-  const categories = getAllCategories()
+  const messages = (await getMessages()) as Record<string, any>
+  const t = messages.blog
+  const posts = getAllPosts(locale)
+  const categories = getAllCategories(locale)
 
   const breadcrumbSchema = {
     '@context': 'https://schema.org',
@@ -52,7 +54,7 @@ export default async function BlogIndexPage({ params }: Props) {
       {
         '@type': 'ListItem',
         position: 2,
-        name: 'Блог',
+        name: t.blog,
         item: `${SITE_URL}/${locale}/blog`,
       },
     ],
@@ -87,15 +89,12 @@ export default async function BlogIndexPage({ params }: Props) {
       <article className="blog-index">
         <header className="blog-index-header">
           <nav className="blog-breadcrumbs" aria-label="breadcrumbs">
-            <Link href={`/${locale}`}>Головна</Link>
+            <Link href={`/${locale}`}>{t.home}</Link>
             <span>/</span>
-            <span aria-current="page">Блог</span>
+            <span aria-current="page">{t.blog}</span>
           </nav>
-          <h1 className="blog-index-title">Блог Neuronix</h1>
-          <p className="blog-index-subtitle">
-            Реальний досвід розробки сайтів, інтернет-магазинів і автоматизації бізнесу.
-            Без води, з конкретикою.
-          </p>
+          <h1 className="blog-index-title">{t.indexTitle}</h1>
+          <p className="blog-index-subtitle">{t.indexSubtitle}</p>
           <div className="blog-categories">
             {categories.map((cat) => (
               <span key={cat} className="blog-category-pill">
@@ -112,17 +111,17 @@ export default async function BlogIndexPage({ params }: Props) {
                 <div className="blog-card-meta">
                   <span className="blog-card-category">{post.category}</span>
                   <span className="blog-card-date">
-                    {new Date(post.publishedAt).toLocaleDateString('uk-UA', {
+                    {new Date(post.publishedAt).toLocaleDateString(t.dateLocale, {
                       day: '2-digit',
                       month: 'long',
                       year: 'numeric',
                     })}
                   </span>
-                  <span className="blog-card-time">· {post.readingTimeMin} хв</span>
+                  <span className="blog-card-time">· {post.readingTimeMin} {t.minutes}</span>
                 </div>
                 <h2 className="blog-card-title">{post.title}</h2>
                 <p className="blog-card-desc">{post.description}</p>
-                <span className="blog-card-cta">Читати →</span>
+                <span className="blog-card-cta">{t.read}</span>
               </Link>
             </li>
           ))}

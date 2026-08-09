@@ -6,17 +6,14 @@ const withNextIntl = createNextIntlPlugin('./src/i18n/request.ts')
 const nextConfig = {
   // Vercel default output — compatible with middleware
 
-  // Блог існує лише українською: getPostBySlug локаль ігнорує, тож /en/blog/* віддавав
-  // той самий український текст із власним canonical — чистий дубль для Google.
-  // 301 замість 404, щоб не втратити сигнали з уже проіндексованих URL.
+  // Редіректи /en/blog → /uk/blog прибрано 2026-08-09: англійські статті тепер існують
+  // (src/content/blog/en/), тож /en/blog/* віддає власний контент із власним canonical.
   async redirects() {
     return [
       // Корінь віддавав 307 (тимчасовий) від next-intl middleware — GSC показував це
       // як «Сторінка з переспрямуванням» і не консолідував сигнали на /uk.
       // 308 = постійний: вага зовнішніх посилань на neuronics.work іде на /uk.
       { source: '/', destination: '/uk', permanent: true },
-      { source: '/en/blog', destination: '/uk/blog', permanent: true },
-      { source: '/en/blog/:slug', destination: '/uk/blog/:slug', permanent: true },
     ]
   },
 }

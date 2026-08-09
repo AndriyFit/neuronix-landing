@@ -1,7 +1,8 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { setRequestLocale } from 'next-intl/server'
+import { getMessages, setRequestLocale } from 'next-intl/server'
+import { routing } from '@/i18n/routing'
 import { getAllPosts, getPostBySlug } from '@/content/blog'
 import { getBlogPostingSchema, getBreadcrumbSchema } from '@/lib/structured-data'
 import Footer from '@/components/Footer'
@@ -11,21 +12,28 @@ import { SITE_URL } from '@/lib/site'
 
 type Props = { params: Promise<{ locale: string; slug: string }> }
 
-// Лише uk: статті існують тільки українською, /en/blog/* редіректить (next.config.ts).
+// Статті дзеркальні в обох мовах (див. src/content/blog/index.ts).
 export function generateStaticParams() {
-  return getAllPosts().map((post) => ({ locale: 'uk', slug: post.slug }))
+  return routing.locales.flatMap((locale) =>
+    getAllPosts(locale).map((post) => ({ locale, slug: post.slug })),
+  )
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, slug } = await params
-  const post = getPostBySlug(slug)
+  const post = getPostBySlug(slug, locale)
   if (!post) return {}
   return {
     title: post.metaTitle,
     description: post.metaDescription,
     keywords: post.keywords,
     alternates: {
-      canonical: `${SITE_URL}/uk/blog/${slug}`,
+      canonical: `${SITE_URL}/${locale}/blog/${slug}`,
+      languages: {
+        uk: `${SITE_URL}/uk/blog/${slug}`,
+        en: `${SITE_URL}/en/blog/${slug}`,
+        'x-default': `${SITE_URL}/uk/blog/${slug}`,
+      },
     },
     openGraph: {
       title: post.metaTitle,
@@ -47,12 +55,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function BlogPostPage({ params }: Props) {
   const { locale, slug } = await params
   setRequestLocale(locale)
-  const post = getPostBySlug(slug)
+  const messages = (await getMessages()) as Record<string, any>
+  const t = messages.blog
+  const post = getPostBySlug(slug, locale)
   if (!post) notFound()
 
   const breadcrumbSchema = getBreadcrumbSchema([
-    { name: 'Головна', url: `${SITE_URL}/${locale}` },
-    { name: 'Блог', url: `${SITE_URL}/${locale}/blog` },
+    { name: t.home, url: `${SITE_URL}/${locale}` },
+    { name: t.blog, url: `${SITE_URL}/${locale}/blog` },
     { name: post.title, url: `${SITE_URL}/${locale}/blog/${slug}` },
   ])
 
@@ -80,7 +90,7 @@ export default async function BlogPostPage({ params }: Props) {
       : null
 
   const related = (post.related || [])
-    .map((relSlug) => getPostBySlug(relSlug))
+    .map((relSlug) => getPostBySlug(relSlug, locale))
     .filter((p): p is NonNullable<typeof p> => Boolean(p))
 
   return (
@@ -102,9 +112,9 @@ export default async function BlogPostPage({ params }: Props) {
 
       <article className="blog-post">
         <nav className="blog-breadcrumbs" aria-label="breadcrumbs">
-          <Link href={`/${locale}`}>Головна</Link>
+          <Link href={`/${locale}`}>{t.home}</Link>
           <span>/</span>
-          <Link href={`/${locale}/blog`}>Блог</Link>
+          <Link href={`/${locale}/blog`}>{t.blog}</Link>
           <span>/</span>
           <span aria-current="page">{post.category}</span>
         </nav>
@@ -115,19 +125,19 @@ export default async function BlogPostPage({ params }: Props) {
           <p className="blog-post-description">{post.description}</p>
           <div className="blog-post-meta">
             <time dateTime={post.publishedAt}>
-              {new Date(post.publishedAt).toLocaleDateString('uk-UA', {
+              {new Date(post.publishedAt).toLocaleDateString(t.dateLocale, {
                 day: '2-digit',
                 month: 'long',
                 year: 'numeric',
               })}
             </time>
             <span>·</span>
-            <span>{post.readingTimeMin} хв читання</span>
+            <span>{post.readingTimeMin} {t.readingTime}</span>
           </div>
         </header>
 
         <aside className="blog-tldr">
-          <strong>Коротко (TL;DR):</strong>
+          <strong>{t.tldr}</strong>
           <p>{post.tldr}</p>
         </aside>
 
@@ -156,7 +166,7 @@ export default async function BlogPostPage({ params }: Props) {
 
         {post.faq && post.faq.length > 0 && (
           <section className="blog-faq">
-            <h2>Часті питання</h2>
+            <h2>{t.faqTitle}</h2>
             <dl>
               {post.faq.map((item, i) => (
                 <div key={i} className="blog-faq-item">
@@ -169,24 +179,21 @@ export default async function BlogPostPage({ params }: Props) {
         )}
 
         <section className="blog-cta">
-          <h2>Готові обговорити проєкт?</h2>
-          <p>
-            Безкоштовна консультація 15 хвилин. Розкажемо, що реально потрібно у вашому
-            випадку, дамо орієнтовну ціну і терміни без зобов&apos;язань.
-          </p>
+          <h2>{t.ctaTitle}</h2>
+          <p>{t.ctaText}</p>
           <a
             href="https://t.me/angordien"
             target="_blank"
             rel="noopener noreferrer"
             className="blog-cta-btn"
           >
-            Написати в Telegram
+            {t.ctaButton}
           </a>
         </section>
 
         {related.length > 0 && (
           <section className="blog-related">
-            <h2>Читайте також</h2>
+            <h2>{t.relatedTitle}</h2>
             <ul>
               {related.map((rel) => (
                 <li key={rel.slug}>
