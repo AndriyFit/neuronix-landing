@@ -13,6 +13,13 @@ export default function Footer() {
     <footer className="footer">
       <div className="footer-inner">
         <span className="footer-logo">NEURONIX</span>
+        <nav className="footer-services">
+          <span>{t('servicesTitle')}:</span>
+          <Link href={`/${locale}/ai`}>AI</Link>
+          <Link href={`/${locale}/opencart`}>OpenCart</Link>
+          <Link href={`/${locale}/horoshop`}>Horoshop</Link>
+          <Link href={`/${locale}/keycrm`}>KeyCRM</Link>
+        </nav>
         <span className="footer-copy">{t('copy')}</span>
         <span className="footer-fop">{t('fop')}</span>
         <span className="footer-address">{t('address')}</span>

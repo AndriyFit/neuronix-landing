@@ -1,0 +1,87 @@
+import type { Metadata } from 'next'
+import { notFound } from 'next/navigation'
+import { getMessages, setRequestLocale } from 'next-intl/server'
+import { routing } from '@/i18n/routing'
+import { SITE_URL } from '@/lib/site'
+import { getFAQSchema } from '@/lib/structured-data'
+import AiHero from '@/components/AiHero'
+import Pains from '@/components/Pains'
+import Services from '@/components/Services'
+import CaseStudy from '@/components/CaseStudy'
+import AiSecurity from '@/components/AiSecurity'
+import AuditForm from '@/components/AuditForm'
+import FAQ from '@/components/FAQ'
+import Contact from '@/components/Contact'
+import Footer from '@/components/Footer'
+
+const PLATFORMS = ['opencart', 'horoshop', 'keycrm'] as const
+type Platform = (typeof PLATFORMS)[number]
+
+type Props = { params: Promise<{ locale: string; platform: string }> }
+
+export const dynamicParams = false
+
+export function generateStaticParams() {
+  return routing.locales.flatMap((locale) =>
+    PLATFORMS.map((platform) => ({ locale, platform }))
+  )
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale, platform } = await params
+  if (!PLATFORMS.includes(platform as Platform)) notFound()
+  setRequestLocale(locale)
+  const messages = (await getMessages()) as Record<string, any>
+  const meta = messages.platforms[platform].metadata
+  return {
+    title: meta.title,
+    description: meta.description,
+    alternates: {
+      canonical: `${SITE_URL}/${locale}/${platform}`,
+      languages: {
+        uk: `${SITE_URL}/uk/${platform}`,
+        en: `${SITE_URL}/en/${platform}`,
+      },
+    },
+    openGraph: {
+      title: meta.title,
+      description: meta.description,
+      url: `${SITE_URL}/${locale}/${platform}`,
+      siteName: 'Neuronix AI',
+      locale: locale === 'uk' ? 'uk_UA' : 'en_US',
+      type: 'website',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: meta.title,
+      description: meta.description,
+    },
+  }
+}
+
+export default async function PlatformPage({ params }: Props) {
+  const { locale, platform } = await params
+  if (!PLATFORMS.includes(platform as Platform)) notFound()
+  setRequestLocale(locale)
+  const messages = (await getMessages()) as Record<string, any>
+  const faqSchema = getFAQSchema(messages.platforms[platform].faq.items)
+  const ns = `platforms.${platform}`
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <AiHero namespace={`${ns}.hero`} />
+      <Pains namespace={`${ns}.pains`} />
+      <Services namespace={`${ns}.solutions`} />
+      {platform === 'opencart' && <CaseStudy />}
+      <AiSecurity namespace="platforms.shared.contentEngine" />
+      <AuditForm />
+      <FAQ namespace={`${ns}.faq`} />
+      <Contact />
+      <Footer />
+    </>
+  )
+}

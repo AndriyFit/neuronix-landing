@@ -3,8 +3,8 @@ import { useTranslations } from 'next-intl'
 import { useScrollReveal } from '@/lib/useScrollReveal'
 import './css/Pains.css'
 
-export default function AiSecurity() {
-  const t = useTranslations('ai.security')
+export default function AiSecurity({ namespace = 'ai.security' }: { namespace?: string }) {
+  const t = useTranslations(namespace)
   const items = t.raw('items') as string[]
   const ref = useScrollReveal<HTMLElement>()
 

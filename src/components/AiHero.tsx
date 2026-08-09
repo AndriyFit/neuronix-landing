@@ -2,8 +2,8 @@
 import { useTranslations } from 'next-intl'
 import './css/Hero.css'
 
-export default function AiHero() {
-  const t = useTranslations('ai.hero')
+export default function AiHero({ namespace = 'ai.hero' }: { namespace?: string }) {
+  const t = useTranslations(namespace)
   const trust = t.raw('trust') as string[]
 
   const scrollToAudit = () => {
