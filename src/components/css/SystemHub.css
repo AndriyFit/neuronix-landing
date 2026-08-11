@@ -1,0 +1,112 @@
+/* Фіксована пропорція від старту: контейнер ніколи не міняє висоту, тож
+   контент під Hero не їде. Те саме правило, через яке сторінка сіпалась
+   на мобільному (див. CLAUDE.md → «Анімації, що накопичують контент»). */
+.hub {
+  width: 100%;
+  max-width: 520px;
+  margin-inline: auto;
+  aspect-ratio: 1;
+}
+
+.hub-svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+/* Зв'язок вузла з ядром. Пунктир їде до центру — дані течуть усередину. */
+.hub-line {
+  stroke: var(--primary);
+  stroke-width: 2;
+  stroke-dasharray: 6 14;
+  stroke-linecap: round;
+  opacity: 0.55;
+  animation: hub-flow 2.4s linear infinite;
+}
+
+@keyframes hub-flow {
+  to {
+    stroke-dashoffset: -40;
+  }
+}
+
+.hub-core {
+  fill: url(#hubCore);
+}
+
+.hub-core-glow {
+  fill: var(--primary);
+  opacity: 0.22;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: hub-pulse 3.2s ease-in-out infinite;
+}
+
+@keyframes hub-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.18;
+  }
+  50% {
+    transform: scale(1.28);
+    opacity: 0.32;
+  }
+}
+
+.hub-core-label {
+  fill: #ffffff;
+  font-family: var(--font-display);
+  font-size: 44px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  text-anchor: middle;
+}
+
+.hub-sphere {
+  fill: url(#hubSphere);
+  stroke: rgba(124, 58, 237, 0.18);
+  stroke-width: 1;
+}
+
+.hub-label {
+  fill: var(--secondary);
+  font-family: var(--font-display);
+  font-size: 19px;
+  font-weight: 600;
+  text-anchor: middle;
+}
+
+/* Легке дихання сфер, зсув мікроскопічний — щоб не читалось як стрибок. */
+.hub-node {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: hub-float 6s ease-in-out infinite;
+}
+
+@keyframes hub-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@media (max-width: 560px) {
+  .hub-label {
+    font-size: 21px;
+  }
+  .hub-core-label {
+    font-size: 48px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hub-line,
+  .hub-core-glow,
+  .hub-node {
+    animation: none;
+  }
+}

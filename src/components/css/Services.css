@@ -19,9 +19,13 @@
 
 .services-title.visible { opacity: 1; transform: none; }
 
+/* Явні 4 і 2 колонки, БЕЗ auto-fit. З auto-fit при контейнері 1100px і
+   minmax(260px) вміщалось рівно 3 колонки, тож четверта картка лишалась
+   самотньою в другому ряду. Три колонки заборонені навмисно: карток чотири,
+   і будь-яка сітка з непарним поділом дає сироту. */
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   gap: 1.5rem;
 }
 
@@ -61,10 +65,15 @@
   flex: 1;
 }
 
+/* wrap + nowrap разом: у вузькій картці (4 колонки) ціна й лінк не влазять
+   в один рядок, і без цього рвались посеред фрази — «від 15 000 / грн».
+   Тепер на наступний рядок переїжджає лінк цілком. */
 .service-card-footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.4rem 0.75rem;
   margin-top: 0.5rem;
   padding-top: 1rem;
   border-top: 1px solid var(--border);
@@ -74,6 +83,7 @@
   font-size: 0.95rem;
   font-weight: 700;
   color: var(--primary);
+  white-space: nowrap;
 }
 
 .service-cta {
@@ -86,6 +96,7 @@
   padding: 0;
   text-decoration: underline;
   text-underline-offset: 2px;
+  white-space: nowrap;
 }
 
 .services-extra {
@@ -100,12 +111,12 @@
 
 .services-extra.visible { opacity: 1; transform: none; }
 
-@media (max-width: 900px) {
-  .services-grid { grid-template-columns: 1fr; }
+@media (max-width: 1024px) {
+  .services-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
-@media (min-width: 600px) and (max-width: 900px) {
-  .services-grid { grid-template-columns: repeat(2, 1fr); }
+@media (max-width: 600px) {
+  .services-grid { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 600px) {

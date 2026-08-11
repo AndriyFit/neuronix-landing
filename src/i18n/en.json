@@ -26,7 +26,19 @@
       "We reply within an hour",
       "Written contract",
       "12-month warranty"
-    ]
+    ],
+    "hub": {
+      "core": "AI",
+      "alt": "An AI core with CRM, OpenCart, voice bot, delivery, receipts and analytics connected around it",
+      "nodes": [
+        "Voice Bot",
+        "OpenCart",
+        "CRM",
+        "Analytics",
+        "Receipts",
+        "Delivery"
+      ]
+    }
   },
   "trustBar": {
     "items": [

@@ -13,6 +13,7 @@ import { post as opencartModules } from './opencart-modules'
 import { post as horoshopVsShopify } from './horoshop-vs-shopify'
 import { post as websiteLaunchChecklist } from './website-launch-checklist'
 import { post as websiteSpeedOptimization } from './website-speed-optimization'
+import { post as aiBusinessAdvantage } from './ai-business-advantage'
 
 export const allPostsEn: BlogPost[] = [
   opencartVsHoroshop,
@@ -29,4 +30,5 @@ export const allPostsEn: BlogPost[] = [
   horoshopVsShopify,
   websiteLaunchChecklist,
   websiteSpeedOptimization,
+  aiBusinessAdvantage,
 ]

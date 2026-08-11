@@ -1,6 +1,6 @@
 'use client'
 import { useTranslations } from 'next-intl'
-import AnimatedTerminal from './AnimatedTerminal'
+import SystemHub from './SystemHub'
 import './css/Hero.css'
 
 export default function Hero() {
@@ -41,7 +41,7 @@ export default function Hero() {
       </div>
 
       <div className="hero-visual">
-        <AnimatedTerminal />
+        <SystemHub />
       </div>
     </section>
   )
