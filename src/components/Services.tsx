@@ -55,11 +55,11 @@ export default function Services({ namespace = 'services' }: { namespace?: strin
                 <span className="service-price">{item.price}</span>
                 {item.href ? (
                   <Link className="service-cta" href={`/${locale}${item.href}`}>
-                    Дізнатись більше
+                    {t('more')}
                   </Link>
                 ) : (
                   <button className="service-cta" onClick={scrollToContact}>
-                    Дізнатись більше
+                    {t('more')}
                   </button>
                 )}
               </div>

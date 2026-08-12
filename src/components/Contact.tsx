@@ -2,7 +2,8 @@
 
 import { useEffect, useRef, useState } from 'react'
 import { useForm } from 'react-hook-form'
-import { useTranslations } from 'next-intl'
+import { useLocale, useTranslations } from 'next-intl'
+import Link from 'next/link'
 import { sendGTMEvent } from '@next/third-parties/google'
 import './css/Contact.css'
 
@@ -17,6 +18,7 @@ export default function Contact() {
   const [submitted, setSubmitted] = useState(false)
   const [submitError, setSubmitError] = useState<string | null>(null)
   const t = useTranslations('contact')
+  const locale = useLocale()
 
   const {
     register,
@@ -115,6 +117,11 @@ export default function Contact() {
           <button type="submit" className="contact-submit" disabled={isSubmitting}>
             {isSubmitting ? t('form.submitting') : t('form.submit')}
           </button>
+
+          <p className="form-consent">
+            {t('consent')}{' '}
+            <Link href={`/${locale}/privacy-policy`}>{t('consentLink')}</Link>
+          </p>
 
           {submitted && <div className="contact-success">{t('form.success')}</div>}
           {submitError && <div className="contact-error-msg">{submitError}</div>}

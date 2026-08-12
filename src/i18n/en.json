@@ -151,7 +151,8 @@
         "price": "from 25,000 UAH",
         "href": "/horoshop"
       }
-    ]
+    ],
+    "more": "Learn more"
   },
   "team": {
     "title": "Who will actually do it",
@@ -246,7 +247,9 @@
     "error": "Something went wrong. Message us directly on Telegram.",
     "errorUrl": "Enter a link to your site",
     "errorContact": "Tell us how to reach you",
-    "note": "We reply within one business day"
+    "note": "We reply within one business day",
+    "consent": "By submitting the form you agree to the processing of your personal data under our",
+    "consentLink": "Privacy Policy"
   },
   "pricing": {
     "title": "Pricing",
@@ -328,7 +331,9 @@
       "error": "Something went wrong. Message us directly on Telegram.",
       "errorName": "Enter your name",
       "errorPhone": "Enter a phone or email"
-    }
+    },
+    "consent": "By submitting the form you agree to the processing of your personal data under our",
+    "consentLink": "Privacy Policy"
   },
   "stickyCta": {
     "form": "Get a quote",

@@ -1,7 +1,8 @@
 'use client'
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
-import { useTranslations } from 'next-intl'
+import { useLocale, useTranslations } from 'next-intl'
+import Link from 'next/link'
 import { sendGTMEvent } from '@next/third-parties/google'
 import { useScrollReveal } from '@/lib/useScrollReveal'
 import './css/AuditForm.css'
@@ -13,6 +14,7 @@ interface AuditData {
 
 export default function AuditForm() {
   const t = useTranslations('audit')
+  const locale = useLocale()
   const ref = useScrollReveal<HTMLElement>()
   const [submitted, setSubmitted] = useState(false)
   const [submitError, setSubmitError] = useState<string | null>(null)
@@ -76,6 +78,11 @@ export default function AuditForm() {
             <button type="submit" className="audit-submit" disabled={isSubmitting}>
               {isSubmitting ? t('submitting') : t('submit')}
             </button>
+
+            <p className="form-consent">
+              {t('consent')}{' '}
+              <Link href={`/${locale}/privacy-policy`}>{t('consentLink')}</Link>
+            </p>
           </form>
         )}
 
