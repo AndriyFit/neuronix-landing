@@ -8,9 +8,8 @@
 - Статуси: 🔲 · 🟡 · ✅ · 🔴.
 
 ## Зараз
-- 🔲 **Андрію (1 клік):** натиснути Start у https://t.me/neuronixjhbot → сказати мені →
-  перемкну `TELEGRAM_BOT_TOKEN` у Vercel на брендований бот і перевірю доставку.
-  Зараз заявки приймає `@claudiybot`. Деталі: CLAUDE.md → «Відкритий борг».
+- ✅ 2026-08-12 Заявки перевів на брендований `@neuronixjhbot` — Vercel Production env
+  оновлено, доставка перевірена. Активується найближчим деплоєм з `main`.
 - 🔲 **Перед запуском Google Ads:** створити рекламний акаунт для neuronics.work
   (у MCC є лише Fit-Life / Trembita / Watermax) і завести conversion action на
   `generate_lead`; імпорт з GA4 (`G-FNZ46Q88EW`) або окремий тег у GTM `GTM-N4MBTL2W`.
