@@ -12,6 +12,8 @@ interface Member {
   note?: string
   /** Initials shown until a real photo exists. */
   icon?: string
+  /** Слот-анімація для збірної картки: відео замість GIF, у ~70 разів легше. */
+  video?: string
   /** Path under /public, e.g. "/team/andriy.jpg". Omit and the role icon is used. */
   photo?: string
   /** Collective card — the people we assemble per project, not one person. */
@@ -37,7 +39,20 @@ export default function Team() {
               style={{ transitionDelay: `${i * 0.08}s` }}
             >
               <div className="team-avatar">
-                {member.photo ? (
+                {member.video ? (
+                  <video
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    preload="none"
+                    poster="/team/slot-poster.webp"
+                    aria-label={member.role}
+                  >
+                    <source src={`${member.video}.webm`} type="video/webm" />
+                    <source src={`${member.video}.mp4`} type="video/mp4" />
+                  </video>
+                ) : member.photo ? (
                   <img
                     src={member.photo}
                     alt={member.name ?? member.role}

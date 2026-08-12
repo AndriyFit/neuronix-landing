@@ -78,7 +78,7 @@ export const post: BlogPost = {
       heading: 'What it costs and when it pays off',
       paragraphs: [
         'The comparison is not against zero, it is against the alternative. The alternative to a machine handling leads is one more manager — from 25,000 UAH every month, plus hiring and training time, plus holidays and sick leave.',
-        'AI bots and automation start at 30,000 UAH with us. That is a one-off implementation cost, not a monthly fee. After that only infrastructure remains, and it is measured in tens of dollars rather than thousands of hryvnias.',
+        'AI bots and automation start at $671 with us. That is a one-off implementation cost, not a monthly fee. After that only infrastructure remains, and it is measured in tens of dollars a month.',
         'Hence the payback maths: if the system covers the workload you would otherwise hire for, it pays back within the first months. If it merely recovers a share of lost leads, count from your average order value how many recovered leads it takes.',
         'On a real project it looks like this. For the watch retailer Abertime we connected accounting, the website and marketplaces: 15,000+ products move between systems with no manual work, and a banner for a new arrival takes 30 seconds instead of 30 minutes. Nobody there "implemented AI" — we closed specific gaps that were eating hours every day.',
       ],
