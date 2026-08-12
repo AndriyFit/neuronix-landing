@@ -8,6 +8,17 @@
 - Статуси: 🔲 · 🟡 · ✅ · 🔴.
 
 ## Зараз
+- 🔲 **Андрію (1 клік):** натиснути Start у https://t.me/neuronixjhbot → сказати мені →
+  перемкну `TELEGRAM_BOT_TOKEN` у Vercel на брендований бот і перевірю доставку.
+  Зараз заявки приймає `@claudiybot`. Деталі: CLAUDE.md → «Відкритий борг».
+- 🔲 **Перед запуском Google Ads:** створити рекламний акаунт для neuronics.work
+  (у MCC є лише Fit-Life / Trembita / Watermax) і завести conversion action на
+  `generate_lead`; імпорт з GA4 (`G-FNZ46Q88EW`) або окремий тег у GTM `GTM-N4MBTL2W`.
+- 🔲 Продуктивність під платний трафік: mobile Lighthouse /uk = 68 (TBT 2820 мс),
+  /uk/ai = 56 (LCP 6.4 с). Вузьке місце — JS, не картинки: власний бандл ~1.9 с скриптингу,
+  GTM+GA4 283 КБ / 992 мс main-thread, Clarity 27 КБ / 513 мс.
+- 🔲 Додати біля обох форм (`Contact.tsx`, `AuditForm.tsx`) рядок зі згодою на обробку
+  персональних даних + лінк на політику — зараз лінк лише у футері.
 - 🔲 **Андрію (в GSC, не код):** перевірити що sitemap.xml поданий у Search Console;
   зробити Request Indexing для /uk, /uk/ai, /uk/opencart, /uk/horoshop, /uk/keycrm
 - 🔲 Замінити заглушкові імена команди (Олег/Марта → реальні люди або прибрати поле `name`)

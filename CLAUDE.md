@@ -276,6 +276,17 @@ API — `clarity('consentv2', {ad_Storage, analytics_Storage})`. Стара фо
 картка «Команда» вже рендериться без нього, тож прибрати = правка лише json, без коду.
 Фото: покласти у `public/team/`, дописати `"photo": "/team/<файл>.jpg"` у той самий обʼєкт.
 
+**Заявки з форм приймає чужий бот.** `TELEGRAM_BOT_TOKEN` у Vercel (Production) — це
+`@claudiybot` (id 8245230678), особистий бот, не бренд. Брендований `@neuronixjhbot`
+(id 7991328566) уже заведено у Vault (`neuronix/telegram_bot_token`, `neuronix/telegram_chat_id`),
+але **env не перемкнуто**: бот не може написати першим, `sendMessage` віддає `chat not found`,
+доки Андрій не натисне Start у https://t.me/neuronixjhbot. Перемикати env лише після того,
+як тест-повідомлення дійде — інакше форми мовчки губитимуть заявки.
+
+Там же: `TELEGRAM_*` заведені **тільки в Production**, тож на preview-деплоях `/api/contact`
+віддає 500 «Not configured». І заявка існує в одному екземплярі — тільки в Telegram,
+без дубля в пошту чи базу.
+
 ## Позиціонування (не «веб-студія»)
 
 Neuronix продає **системи, а не сайти**: сайт + автоматизація + інтеграції, де магазин, CRM,
