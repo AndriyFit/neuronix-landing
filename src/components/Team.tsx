@@ -11,8 +11,8 @@ interface Member {
   /** What this role closes for the client. */
   note?: string
   /** Initials shown until a real photo exists. */
-  initials?: string
-  /** Path under /public, e.g. "/team/andriy.jpg". Omit and initials are used. */
+  icon?: string
+  /** Path under /public, e.g. "/team/andriy.jpg". Omit and the role icon is used. */
   photo?: string
   /** Collective card — the people we assemble per project, not one person. */
   collective?: boolean
@@ -46,8 +46,8 @@ export default function Team() {
                     loading="lazy"
                   />
                 ) : (
-                  <span className="team-initials" aria-hidden="true">
-                    {member.initials ?? member.role.slice(0, 1)}
+                  <span className="team-icon" aria-hidden="true">
+                    {member.icon}
                   </span>
                 )}
               </div>

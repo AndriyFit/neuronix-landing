@@ -162,23 +162,23 @@
         "role": "Founder",
         "name": "Andriy",
         "note": "First contact, scoping, contract. Answers to you for the outcome of the project.",
-        "initials": "A"
+        "icon": "🤝"
       },
       {
         "role": "Tech Lead",
         "note": "Solution architecture and integrations: accounting, CRM, marketplaces, telephony, shipping.",
-        "initials": "O"
+        "icon": "⚙️"
       },
       {
         "role": "Delivery",
         "note": "Stages, regular updates, staging environment, handover with documentation.",
-        "initials": "M"
+        "icon": "📋"
       },
       {
         "role": "Team",
         "note": "Design, frontend, QA. Assembled per project — from a landing page to a complex integration.",
-        "initials": "+",
-        "collective": true
+        "collective": true,
+        "icon": "👥"
       }
     ]
   },

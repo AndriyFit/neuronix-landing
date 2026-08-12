@@ -52,15 +52,11 @@
   filter: grayscale(1);
 }
 
-.team-initials {
-  font-size: 2.5rem;
-  font-weight: 800;
-  letter-spacing: 0.02em;
-  background: var(--gradient-text);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  user-select: none;
+/* Іконка посади замість ініціалів: імен у картках більше немає, тож літери
+   були б від неіснуючих людей. Емодзі — та сама мова, що в services та ecosystem. */
+.team-icon {
+  font-size: 2.25rem;
+  line-height: 1;
 }
 
 .team-card-collective .team-avatar {
@@ -97,7 +93,7 @@
   .team-subtitle { margin-bottom: 2rem; }
   .team-grid { grid-template-columns: repeat(2, 1fr); gap: 1.75rem 1rem; }
   .team-avatar { width: 120px; height: 120px; margin-bottom: 1rem; }
-  .team-initials { font-size: 2rem; }
+  .team-icon { font-size: 1.875rem; }
   .team-position { font-size: 0.9375rem; }
   .team-note { font-size: 0.75rem; }
 }
