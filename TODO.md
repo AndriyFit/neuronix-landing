@@ -10,6 +10,15 @@
 ## Зараз
 - ✅ 2026-08-12 Заявки перевів на брендований `@neuronixjhbot` — Vercel Production env
   оновлено, доставка перевірена. Активується найближчим деплоєм з `main`.
+- ✅ 2026-08-12 Профіль бота: опис, короткий опис, `/start`, кнопка «Сайт» (web_app) —
+  uk+en, виставлено через Bot API.
+- 🔲 **Андрію:** аватар бота — тільки через @BotFather (`/setuserpic` для `@neuronixjhbot`),
+  з API не ставиться.
+- 🔲 **Андрію:** увімкнути дубль заявки поштою — зареєструвати ключ на resend.com,
+  покласти у Vault `neuronix/resend_api_key`, додати у Vercel Production `RESEND_API_KEY`
+  і `LEAD_EMAIL_TO` (своя пошта). Без верифікації домену From лишається
+  `onboarding@resend.dev` і шле лише на пошту власника акаунта — цього достатньо.
+  Код уже готовий: порожні змінні = канал пропускається.
 - 🔲 **Перед запуском Google Ads:** створити рекламний акаунт для neuronics.work
   (у MCC є лише Fit-Life / Trembita / Watermax) і завести conversion action на
   `generate_lead`; імпорт з GA4 (`G-FNZ46Q88EW`) або окремий тег у GTM `GTM-N4MBTL2W`.
