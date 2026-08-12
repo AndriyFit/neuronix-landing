@@ -28,8 +28,8 @@
       "12-month warranty"
     ],
     "hub": {
-      "core": "AI",
-      "alt": "An AI core at the centre of the loop, surrounded by CRM, OpenCart, voice bot, delivery, receipts and analytics",
+      "core": "Neuronix HUB",
+      "alt": "The Neuronix HUB at the centre of the loop, surrounded by CRM, OpenCart, voice bot, delivery, receipts and analytics",
       "hint": "Tap to connect the loop",
       "done": "Loop connected",
       "doneNote": "This is how your systems start exchanging data on their own",

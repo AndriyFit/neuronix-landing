@@ -92,8 +92,14 @@ export default function SystemHub() {
         <circle className="hub-halo" cx={CENTER} cy={CENTER} r={CORE_R * 1.36} />
         <g className={`hub-core${pulse ? ' is-pulsing' : ''}`}>
           <circle className="hub-core-sphere" cx={CENTER} cy={CENTER} r={CORE_R} />
-          <text className="hub-core-label" x={CENTER} y={CENTER} dy="0.36em">
-            {t('core')}
+          <text className="hub-core-label" x={CENTER} y={CENTER} dy="-0.15em">
+            {t('core')
+              .split(' ')
+              .map((word, i) => (
+                <tspan key={i} x={CENTER} dy={i === 0 ? 0 : '1.1em'}>
+                  {word}
+                </tspan>
+              ))}
           </text>
         </g>
 
