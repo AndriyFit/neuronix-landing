@@ -22,6 +22,7 @@ import Clarity from '@/components/Clarity'
 import CookieConsent from '@/components/CookieConsent'
 import '@/styles/variables.css'
 import '@/styles/global.css'
+import '@/styles/effects.css'
 
 const syne = Syne({
   subsets: ['latin', 'latin-ext'],

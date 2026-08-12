@@ -5,11 +5,11 @@ import { sendGTMEvent } from '@next/third-parties/google'
 import './css/SystemHub.css'
 
 /**
- * Контур систем навколо бобра. Тап по ньому збирає контур: звʼязки
- * підсвічуються по черзі. Далі кожен тап — пасхалка з хвостом.
+ * Контур систем навколо AI-ядра. Тап збирає контур: звʼязки підсвічуються
+ * по черзі. Далі кожен тап — пасхалка з пульсацією ядра.
  *
- * Свідомо SVG плюс одна растрова картинка: підписи лишаються справжнім
- * текстом (i18n, індексується, читає скрінрідер), а вага — 21 КБ.
+ * Промінь навколо ядра — border beam, портований з Magic UI у effects.css.
+ * Нуль залежностей: SVG плюс CSS.
  */
 const VIEWBOX = 520
 const CENTER = VIEWBOX / 2
@@ -36,7 +36,7 @@ export default function SystemHub() {
   const nodes = t.raw('nodes') as string[]
   const [linked, setLinked] = useState(0)
   const [taps, setTaps] = useState(0)
-  const [slap, setSlap] = useState(false)
+  const [pulse, setPulse] = useState(false)
 
   const built = linked >= ANGLES.length
 
@@ -44,16 +44,16 @@ export default function SystemHub() {
     setTaps((n) => n + 1)
 
     if (!built) {
-      sendGTMEvent({ event: 'beaver_tap', beaver_action: 'build' })
+      sendGTMEvent({ event: 'hub_tap', hub_action: 'build' })
       ANGLES.forEach((_, i) =>
         window.setTimeout(() => setLinked(i + 1), i * BUILD_STEP_MS),
       )
       return
     }
 
-    sendGTMEvent({ event: 'beaver_tap', beaver_action: 'tail' })
-    setSlap(true)
-    window.setTimeout(() => setSlap(false), 620)
+    sendGTMEvent({ event: 'hub_tap', hub_action: 'pulse' })
+    setPulse(true)
+    window.setTimeout(() => setPulse(false), 700)
   }
 
   return (
@@ -65,12 +65,14 @@ export default function SystemHub() {
             <stop offset="45%" stopColor="#f7f5ff" />
             <stop offset="100%" stopColor="#e4e0f2" />
           </radialGradient>
+          <radialGradient id="hubCore" cx="36%" cy="28%" r="78%">
+            <stop offset="0%" stopColor="#a78bfa" />
+            <stop offset="45%" stopColor="#7C3AED" />
+            <stop offset="100%" stopColor="#5b21b6" />
+          </radialGradient>
           <filter id="hubShadow" x="-40%" y="-40%" width="180%" height="180%">
             <feDropShadow dx="0" dy="6" stdDeviation="10" floodColor="#4F46E5" floodOpacity="0.16" />
           </filter>
-          <clipPath id="hubCoreClip">
-            <circle cx={CENTER} cy={CENTER} r={CORE_R} />
-          </clipPath>
         </defs>
 
         {ANGLES.map((angle, i) => {
@@ -88,17 +90,11 @@ export default function SystemHub() {
         })}
 
         <circle className="hub-halo" cx={CENTER} cy={CENTER} r={CORE_R * 1.36} />
-        <g className={`hub-core${slap ? ' is-slapping' : ''}`}>
-          <circle className="hub-core-ring" cx={CENTER} cy={CENTER} r={CORE_R} />
-          <image
-            href="/beaver/beaver.webp"
-            x={CENTER - CORE_R}
-            y={CENTER - CORE_R}
-            width={CORE_R * 2}
-            height={CORE_R * 2}
-            clipPath="url(#hubCoreClip)"
-            preserveAspectRatio="xMidYMid slice"
-          />
+        <g className={`hub-core${pulse ? ' is-pulsing' : ''}`}>
+          <circle className="hub-core-sphere" cx={CENTER} cy={CENTER} r={CORE_R} />
+          <text className="hub-core-label" x={CENTER} y={CENTER} dy="0.36em">
+            {t('core')}
+          </text>
         </g>
 
         {ANGLES.map((angle, i) => {
@@ -118,6 +114,8 @@ export default function SystemHub() {
           )
         })}
       </svg>
+
+      <span className="hub-core-beam fx-beam" aria-hidden="true" />
 
       <button type="button" className="hub-tap" onClick={handleTap} aria-live="polite">
         {built ? t('done') : t('hint')}

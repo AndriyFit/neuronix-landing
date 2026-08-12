@@ -31,3 +31,6 @@ __pycache__
 *.sw?
 *.tsbuildinfo
 notes.md.lock
+
+# Робочі папки паралельних сесій Claude — не в репозиторій
+.claude/worktrees/

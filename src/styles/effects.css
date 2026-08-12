@@ -1,0 +1,160 @@
+/* =========================================================================
+   Ефекти, портовані з Magic UI (MIT) у наш CSS.
+
+   Magic UI за своєю моделлю — copy-paste, а не залежність. Сам він сидить на
+   Tailwind + motion + framer-motion, яких у нас немає й не буде: у проєкті
+   19 рукописних CSS-файлів і відкритий борг по продуктивності
+   (mobile Lighthouse 68, TBT 2820 мс). Тому беремо самі ефекти, а не стек —
+   усе нижче це чистий CSS, нуль JS і нуль залежностей.
+
+   Правила, яких тут дотримано:
+   - жоден ефект не змінює layout — тільки колір, opacity, filter і transform
+     на псевдоелементах, тож ривків сторінки бути не може;
+   - ніякого backdrop-filter (ламає скрол в iOS на fixed-елементах);
+   - prefers-reduced-motion вимикає все до одного.
+   ========================================================================= */
+
+/* ---- 1. Shine: світловий блік пробігає кнопкою ------------------------- */
+/* Magic UI «Shimmer Button». Тягне око до кнопок, які приносять гроші.      */
+
+.hero-cta-primary,
+.pricing-cta-btn,
+.audit-submit,
+.contact-submit {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.hero-cta-primary::after,
+.pricing-cta-btn::after,
+.audit-submit::after,
+.contact-submit::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    100deg,
+    transparent 20%,
+    rgba(255, 255, 255, 0.42) 50%,
+    transparent 80%
+  );
+  transform: translateX(-100%);
+  animation: fx-shine 4.5s ease-in-out infinite;
+}
+
+@keyframes fx-shine {
+  0%,
+  55% {
+    transform: translateX(-100%);
+  }
+  85%,
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* ---- 2. Border beam: промінь оббігає рамку ----------------------------- */
+/* Magic UI «Border Beam». Обертається conic-градієнт, а mask лишає видимою  */
+/* лише смужку завтовшки з рамку — усередині нічого не перекривається.      */
+
+.fx-beam {
+  position: relative;
+  border-radius: 16px;
+}
+
+.fx-beam::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 2px;
+  background: conic-gradient(
+    from var(--fx-angle, 0deg),
+    transparent 0deg,
+    transparent 300deg,
+    var(--primary) 340deg,
+    #a78bfa 355deg,
+    transparent 360deg
+  );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  animation: fx-beam-spin 6s linear infinite;
+}
+
+@property --fx-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes fx-beam-spin {
+  to {
+    --fx-angle: 360deg;
+  }
+}
+
+/* ---- 3. Blur fade: поява з розмиттям ----------------------------------- */
+/* Magic UI «Blur Fade». Вішається на наявний .animate-in, тож окремого JS   */
+/* не потребує — IntersectionObserver уже є в useScrollReveal.              */
+/* Тільки від 769px: під 768px у global.css transform свідомо вимкнений      */
+/* через підстрибування карток, і blur на слабких телефонах теж дорогий.    */
+
+@media (min-width: 769px) {
+  .animate-in {
+    filter: blur(6px);
+    transition:
+      opacity 0.7s ease,
+      transform 0.7s ease,
+      filter 0.7s ease;
+  }
+
+  .animate-in.visible {
+    filter: blur(0);
+  }
+}
+
+/* ---- 4. Живий градієнт у заголовку ------------------------------------ */
+/* Magic UI «Animated Gradient Text» на ключовому слові в H1.               */
+
+.hero-title-highlight {
+  background: linear-gradient(100deg, #7C3AED, #4F46E5, #a78bfa, #7C3AED);
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: fx-gradient 9s ease infinite;
+}
+
+@keyframes fx-gradient {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-cta-primary::after,
+  .pricing-cta-btn::after,
+  .audit-submit::after,
+  .contact-submit::after,
+  .fx-beam::before,
+  .hero-title-highlight {
+    animation: none;
+  }
+
+  .animate-in {
+    filter: none;
+  }
+}

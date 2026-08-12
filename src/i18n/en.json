@@ -29,8 +29,8 @@
     ],
     "hub": {
       "core": "AI",
-      "alt": "The Neuronix beaver at the centre of the loop, surrounded by CRM, OpenCart, voice bot, delivery, receipts and analytics",
-      "hint": "Tap the beaver to connect the loop",
+      "alt": "An AI core at the centre of the loop, surrounded by CRM, OpenCart, voice bot, delivery, receipts and analytics",
+      "hint": "Tap to connect the loop",
       "done": "Loop connected",
       "doneNote": "This is how your systems start exchanging data on their own",
       "easterEgg": "All right, you are persistent. We like clients like that",

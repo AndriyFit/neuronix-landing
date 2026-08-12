@@ -42,7 +42,7 @@ export default function Pricing() {
           ))}
         </div>
         <p className="pricing-note animate-in">{t('note')}</p>
-        <div className="pricing-cta animate-in">
+        <div className="pricing-cta animate-in fx-beam">
           <button className="pricing-cta-btn" onClick={scrollToContact}>
             {t('cta')}
           </button>

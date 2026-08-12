@@ -44,7 +44,7 @@ export default function AuditForm() {
 
   return (
     <section id="audit" className="audit" ref={ref}>
-      <div className="audit-inner animate-in">
+      <div className="audit-inner animate-in fx-beam">
         <h2 className="audit-title">{t('title')}</h2>
         <p className="audit-subtitle">{t('subtitle')}</p>
 
