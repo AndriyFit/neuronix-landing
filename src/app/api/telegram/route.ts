@@ -60,8 +60,7 @@ export async function POST(req: NextRequest) {
     const username = msg.from?.username ? ` @${msg.from.username}` : ''
     await tg('sendMessage', {
       chat_id: owner,
-      text: `💬 *${who}*${username} · #id${chatId}\n\n${msg.text ?? '_вкладення нижче_'}`,
-      parse_mode: 'Markdown',
+      text: `💬 ${who}${username} · #id${chatId}\n\n${msg.text ?? '[вкладення нижче]'}`,
     })
     if (!msg.text) {
       await tg('copyMessage', { chat_id: owner, from_chat_id: chatId, message_id: msg.message_id })

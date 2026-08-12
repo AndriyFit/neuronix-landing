@@ -18,12 +18,12 @@ export async function POST(req: NextRequest) {
     }
 
     const text = [
-      isAudit ? '🔍 *Запит на аудит з neuronics.work*' : '🔔 *Нова заявка з neuronics.work*',
+      isAudit ? '🔍 Запит на аудит з neuronics.work' : '🔔 Нова заявка з neuronics.work',
       '',
-      url ? `🌐 *Сайт:* ${url}` : null,
-      name ? `👤 *Ім'я:* ${name}` : null,
-      `📞 *Контакт:* ${phone}`,
-      message ? `💬 *Повідомлення:* ${message}` : null,
+      url ? `🌐 Сайт: ${url}` : null,
+      name ? `👤 Ім'я: ${name}` : null,
+      `📞 Контакт: ${phone}`,
+      message ? `💬 Повідомлення: ${message}` : null,
     ]
       .filter(Boolean)
       .join('\n')
@@ -31,7 +31,7 @@ export async function POST(req: NextRequest) {
     const res = await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ chat_id: chatId, text, parse_mode: 'Markdown' }),
+      body: JSON.stringify({ chat_id: chatId, text }),
     })
 
     if (!res.ok) {
