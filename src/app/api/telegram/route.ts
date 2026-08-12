@@ -41,9 +41,13 @@ export async function POST(req: NextRequest) {
       const quoted = msg.reply_to_message
       const target = quoted?.text?.match(/#id(\d+)/)?.[1] ?? quoted?.forward_from?.id
       if (!target) {
+        // Form leads carry no Telegram chat at all — the visitor left a phone or email.
+        const isFormLead = /^[\u{1F514}\u{1F50D}]/u.test(quoted?.text ?? '')
         await tg('sendMessage', {
           chat_id: owner,
-          text: 'Щоб відповісти клієнту, зробіть reply саме на переслане ботом повідомлення.',
+          text: isFormLead
+            ? 'Це заявка з форми — Telegram-чату з цим клієнтом не існує. Пишіть на контакт, указаний у заявці.'
+            : 'Відповісти можна лише на повідомлення з 💬 у першому рядку — це ті, що клієнт написав боту.',
         })
         return NextResponse.json({ ok: true })
       }

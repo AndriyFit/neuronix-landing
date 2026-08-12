@@ -53,7 +53,7 @@ function PrivacyUk() {
       </p>
       <ul style={{ paddingLeft: '1.5rem', lineHeight: 1.8 }}>
         <li>
-          <strong>Найменування:</strong> Neuronix (ФОП Гордієн Андрій)
+          <strong>Найменування:</strong> Neuronix
         </li>
         <li>
           <strong>Веб-сайт:</strong> neuronics.work
@@ -261,7 +261,7 @@ function PrivacyUk() {
       </p>
 
       <p style={{ marginTop: '3rem', color: 'var(--text-muted)', fontSize: '0.85rem' }}>
-        ФОП Гордієн Андрій · neuronics.work · Дата: 11.05.2026
+        Neuronix · neuronics.work · Дата: 11.05.2026
       </p>
     </article>
   )
@@ -283,7 +283,7 @@ function PrivacyEn() {
       <p>This Privacy Policy applies to personal data processed by:</p>
       <ul style={{ paddingLeft: '1.5rem', lineHeight: 1.8 }}>
         <li>
-          <strong>Name:</strong> Neuronix (sole proprietor Andrii Hordiien)
+          <strong>Name:</strong> Neuronix
         </li>
         <li>
           <strong>Website:</strong> neuronics.work
