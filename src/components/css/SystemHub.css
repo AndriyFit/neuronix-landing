@@ -17,10 +17,10 @@
 /* Зв'язок вузла з ядром. Пунктир їде до центру — дані течуть усередину. */
 .hub-line {
   stroke: var(--primary);
-  stroke-width: 2;
-  stroke-dasharray: 6 14;
+  stroke-width: 3;
+  stroke-dasharray: 9 13;
   stroke-linecap: round;
-  opacity: 0.55;
+  opacity: 0.7;
   animation: hub-flow 2.4s linear infinite;
 }
 
@@ -32,6 +32,12 @@
 
 .hub-core {
   fill: url(#hubCore);
+}
+
+/* Світле кільце під ядром: у 3D-еталоні це м'яке гало, тут — просто коло. */
+.hub-halo {
+  fill: #7C3AED;
+  opacity: 0.14;
 }
 
 .hub-core-glow {
@@ -65,15 +71,14 @@
 
 .hub-sphere {
   fill: url(#hubSphere);
-  stroke: rgba(124, 58, 237, 0.18);
-  stroke-width: 1;
+  filter: url(#hubShadow);
 }
 
 .hub-label {
   fill: var(--secondary);
   font-family: var(--font-display);
-  font-size: 19px;
-  font-weight: 600;
+  font-size: 20px;
+  font-weight: 700;
   text-anchor: middle;
 }
 

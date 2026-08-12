@@ -45,16 +45,19 @@ export default function SystemHub() {
         aria-label={t('alt')}
       >
         <defs>
-          <radialGradient id="hubSphere" cx="35%" cy="28%" r="75%">
+          <radialGradient id="hubSphere" cx="34%" cy="24%" r="82%">
             <stop offset="0%" stopColor="#ffffff" />
-            <stop offset="55%" stopColor="#f1eefc" />
-            <stop offset="100%" stopColor="#d9d2f0" />
+            <stop offset="45%" stopColor="#f7f5ff" />
+            <stop offset="100%" stopColor="#e4e0f2" />
           </radialGradient>
-          <radialGradient id="hubCore" cx="40%" cy="32%" r="72%">
-            <stop offset="0%" stopColor="#c4b1fb" />
-            <stop offset="55%" stopColor="#7C3AED" />
-            <stop offset="100%" stopColor="#4F46E5" />
+          <radialGradient id="hubCore" cx="36%" cy="28%" r="78%">
+            <stop offset="0%" stopColor="#a78bfa" />
+            <stop offset="45%" stopColor="#7C3AED" />
+            <stop offset="100%" stopColor="#5b21b6" />
           </radialGradient>
+          <filter id="hubShadow" x="-40%" y="-40%" width="180%" height="180%">
+            <feDropShadow dx="0" dy="6" stdDeviation="10" floodColor="#4F46E5" floodOpacity="0.16" />
+          </filter>
         </defs>
 
         {ANGLES.map((angle, i) => {
@@ -72,6 +75,8 @@ export default function SystemHub() {
           )
         })}
 
+        {/* Гало-кільце навколо ядра — саме воно дає той «об'ємний» вигляд еталона. */}
+        <circle className="hub-halo" cx={CENTER} cy={CENTER} r={CORE_R * 1.4} />
         <circle className="hub-core-glow" cx={CENTER} cy={CENTER} r={CORE_R} />
         <circle className="hub-core" cx={CENTER} cy={CENTER} r={CORE_R} />
         <text className="hub-core-label" x={CENTER} y={CENTER} dy="0.36em">
