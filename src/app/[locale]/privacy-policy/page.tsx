@@ -53,7 +53,13 @@ function PrivacyUk() {
       </p>
       <ul style={{ paddingLeft: '1.5rem', lineHeight: 1.8 }}>
         <li>
-          <strong>Найменування:</strong> Neuronix
+          <strong>Найменування:</strong> Neuronix — ФОП Удич Євген Богданович
+        </li>
+        <li>
+          <strong>Реєстраційний номер (ІПН):</strong> 3214711093
+        </li>
+        <li>
+          <strong>Адреса:</strong> м. Львів, вул. Скрипника 2, Львівська обл., Україна
         </li>
         <li>
           <strong>Веб-сайт:</strong> neuronics.work
@@ -283,7 +289,13 @@ function PrivacyEn() {
       <p>This Privacy Policy applies to personal data processed by:</p>
       <ul style={{ paddingLeft: '1.5rem', lineHeight: 1.8 }}>
         <li>
-          <strong>Name:</strong> Neuronix
+          <strong>Name:</strong> Neuronix — sole proprietor Yevhen Udych
+        </li>
+        <li>
+          <strong>Tax ID (ІПН):</strong> 3214711093
+        </li>
+        <li>
+          <strong>Address:</strong> 2 Skrypnyka St., Lviv, Lviv region, Ukraine
         </li>
         <li>
           <strong>Website:</strong> neuronics.work

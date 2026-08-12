@@ -5,10 +5,14 @@ export function getOrganizationSchema() {
     '@context': 'https://schema.org',
     '@type': 'Organization',
     name: 'Neuronix',
+    legalName: 'ФОП Удич Євген Богданович',
+    taxID: '3214711093',
     url: SITE_URL,
     logo: `${SITE_URL}/favicon.svg`,
     address: {
       '@type': 'PostalAddress',
+      streetAddress: 'вул. Скрипника, 2',
+      addressLocality: 'Львів',
       addressRegion: 'Львівська область',
       addressCountry: 'UA',
     },
@@ -33,6 +37,8 @@ export function getLocalBusinessSchema() {
     priceRange: '$$',
     address: {
       '@type': 'PostalAddress',
+      streetAddress: 'вул. Скрипника, 2',
+      addressLocality: 'Львів',
       addressRegion: 'Львівська область',
       addressCountry: 'UA',
     },

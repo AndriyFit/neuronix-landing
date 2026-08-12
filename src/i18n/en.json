@@ -166,13 +166,11 @@
       },
       {
         "role": "Tech Lead",
-        "name": "Oleh",
         "note": "Solution architecture and integrations: accounting, CRM, marketplaces, telephony, shipping.",
         "initials": "O"
       },
       {
         "role": "Delivery",
-        "name": "Marta",
         "note": "Stages, regular updates, staging environment, handover with documentation.",
         "initials": "M"
       },
