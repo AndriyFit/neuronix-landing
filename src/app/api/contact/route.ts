@@ -1,5 +1,40 @@
 import { NextRequest, NextResponse } from 'next/server'
 
+async function sendTelegram(text: string) {
+  const botToken = process.env.TELEGRAM_BOT_TOKEN
+  const chatId = process.env.TELEGRAM_CHAT_ID
+  if (!botToken || !chatId) return false
+
+  const res = await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ chat_id: chatId, text }),
+  })
+  if (!res.ok) console.error('Telegram API error:', await res.text())
+  return res.ok
+}
+
+// Second, independent copy of the lead. A Telegram outage or a bad token must not
+// be the difference between having a lead and losing it. Unset env = channel skipped.
+async function sendEmail(subject: string, text: string) {
+  const key = process.env.RESEND_API_KEY
+  const to = process.env.LEAD_EMAIL_TO
+  if (!key || !to) return false
+
+  const res = await fetch('https://api.resend.com/emails', {
+    method: 'POST',
+    headers: { Authorization: `Bearer ${key}`, 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      from: process.env.LEAD_EMAIL_FROM ?? 'onboarding@resend.dev',
+      to,
+      subject,
+      text,
+    }),
+  })
+  if (!res.ok) console.error('Resend API error:', await res.text())
+  return res.ok
+}
+
 export async function POST(req: NextRequest) {
   try {
     const { name, phone, message, url, source } = await req.json()
@@ -10,15 +45,12 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 })
     }
 
-    const botToken = process.env.TELEGRAM_BOT_TOKEN
-    const chatId = process.env.TELEGRAM_CHAT_ID
-
-    if (!botToken || !chatId) {
-      return NextResponse.json({ error: 'Not configured' }, { status: 500 })
-    }
+    const subject = isAudit
+      ? '🔍 Запит на аудит з neuronics.work'
+      : '🔔 Нова заявка з neuronics.work'
 
     const text = [
-      isAudit ? '🔍 Запит на аудит з neuronics.work' : '🔔 Нова заявка з neuronics.work',
+      subject,
       '',
       url ? `🌐 Сайт: ${url}` : null,
       name ? `👤 Ім'я: ${name}` : null,
@@ -28,15 +60,11 @@ export async function POST(req: NextRequest) {
       .filter(Boolean)
       .join('\n')
 
-    const res = await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ chat_id: chatId, text }),
-    })
+    const results = await Promise.allSettled([sendTelegram(text), sendEmail(subject, text)])
+    const delivered = results.some((r) => r.status === 'fulfilled' && r.value)
 
-    if (!res.ok) {
-      const err = await res.text()
-      console.error('Telegram API error:', err)
+    if (!delivered) {
+      console.error('Lead delivery failed on every channel:', results)
       return NextResponse.json({ error: 'Delivery failed' }, { status: 500 })
     }
 
