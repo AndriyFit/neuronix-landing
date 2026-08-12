@@ -1,7 +1,7 @@
 {
   "metadata": {
     "title": "Website & E-commerce Development — Neuronix",
-    "description": "Websites, online stores and business automation. Your store, CRM, accounting and marketplaces exchange data on their own. From $335, launch in 10 days."
+    "description": "Websites, online stores and business automation. Your store, CRM, accounting and marketplaces exchange data on their own. From $350, launch in 10 days."
   },
   "nav": {
     "services": "Services",
@@ -18,7 +18,7 @@
     "titleStart": "Websites and ",
     "titleHighlight": "online stores",
     "titleEnd": " built end to end",
-    "subtitle": "From $335, launch in 10 days. Not a standalone site — a system where your store, CRM, accounting and marketplaces exchange data on their own.",
+    "subtitle": "From $350, launch in 10 days. Not a standalone site — a system where your store, CRM, accounting and marketplaces exchange data on their own.",
     "ctaPrimary": "Get a quote",
     "ctaSecondary": "Message on Telegram",
     "telegramUrl": "https://t.me/neuronixjhbot",
@@ -129,26 +129,26 @@
         "icon": "🌐",
         "title": "Websites & online stores",
         "description": "Landing pages, corporate sites, stores. Design, development, analytics and launch, end to end.",
-        "price": "from $335"
+        "price": "from $350"
       },
       {
         "icon": "🤖",
         "title": "AI bots & automation",
         "description": "Chatbots for your website and Instagram, voice agents for calls, orders flowing into your CRM hands-free. AI that works 24/7.",
-        "price": "from $671",
+        "price": "from $650",
         "href": "/ai"
       },
       {
         "icon": "⚙️",
         "title": "Automation & integrations",
         "description": "Accounting, CRM, marketplaces, telephony, shipping, receipts. Lead handling and bots that run without you.",
-        "price": "from $671"
+        "price": "from $650"
       },
       {
         "icon": "🏪",
         "title": "Horoshop",
         "description": "Store launch, custom work, integrations with accounting, CRM and delivery services.",
-        "price": "from $559",
+        "price": "from $550",
         "href": "/horoshop"
       }
     ],
@@ -257,23 +257,23 @@
     "items": [
       {
         "service": "Landing page",
-        "price": "from $335"
+        "price": "from $350"
       },
       {
         "service": "Corporate website",
-        "price": "from $671"
+        "price": "from $650"
       },
       {
         "service": "Online store",
-        "price": "from $1342"
+        "price": "from $1350"
       },
       {
         "service": "Horoshop — launch & integrations",
-        "price": "from $559"
+        "price": "from $550"
       },
       {
         "service": "Automation & integrations",
-        "price": "from $671"
+        "price": "from $650"
       }
     ]
   },
@@ -398,7 +398,7 @@
           "icon": "💬",
           "title": "AI chatbot for website & social media",
           "description": "Knows your catalog, prices and stock. Consults, places orders, hands complex questions to a manager. Website, Instagram, Telegram.",
-          "price": "from $671"
+          "price": "from $650"
         },
         {
           "icon": "📞",
@@ -410,13 +410,13 @@
           "icon": "⚙️",
           "title": "CRM & order automation",
           "description": "Orders from every channel go straight into KeyCRM or SalesDrive — with tracking number, receipt and status. Managers sell instead of copying.",
-          "price": "from $671"
+          "price": "from $650"
         },
         {
           "icon": "🚀",
           "title": "AI-powered web development",
           "description": "We build websites and landing pages with AI several times faster than classic development: a landing page in 5 days — proven on a real project.",
-          "price": "from $335"
+          "price": "from $350"
         }
       ]
     },
@@ -455,7 +455,7 @@
       "items": [
         {
           "question": "How much does a website chatbot cost?",
-          "answer": "From $671 end to end: scenarios, catalog and CRM integration, training on your data. The exact price depends on channels and integrations — we quote it after a free audit."
+          "answer": "From $650 end to end: scenarios, catalog and CRM integration, training on your data. The exact price depends on channels and integrations — we quote it after a free audit."
         },
         {
           "question": "What can a voice AI bot do?",
@@ -538,7 +538,7 @@
             "icon": "🔄",
             "title": "Accounting ↔ OpenCart sync",
             "description": "Stock, prices, orders and new items travel between accounting and the site on their own. Two-way, scheduled or instant.",
-            "price": "from $671"
+            "price": "from $650"
           },
           {
             "icon": "📥",
@@ -550,7 +550,7 @@
             "icon": "🔗",
             "title": "CRM, delivery, receipts",
             "description": "KeyCRM or SalesDrive, Nova Poshta, Checkbox: an order creates the deal, shipping label and receipt by itself.",
-            "price": "from $671"
+            "price": "from $650"
           },
           {
             "icon": "✍️",
@@ -577,7 +577,7 @@
           },
           {
             "question": "How much does an OpenCart integration cost?",
-            "answer": "Integrations with accounting, CRM or delivery start at $671. The exact quote follows a free audit — it depends on your OpenCart version and the number of systems."
+            "answer": "Integrations with accounting, CRM or delivery start at $650. The exact quote follows a free audit — it depends on your OpenCart version and the number of systems."
           },
           {
             "question": "Does automation help with SEO?",
@@ -589,7 +589,7 @@
     "horoshop": {
       "metadata": {
         "title": "Horoshop Turnkey: Launch, Integrations, Automation — Neuronix",
-        "description": "Turnkey Horoshop store launch from $559: catalog migration, design, accounting and CRM integrations, automated product content. We'll tell you honestly what the platform tariffs do and don't cover."
+        "description": "Turnkey Horoshop store launch from $550: catalog migration, design, accounting and CRM integrations, automated product content. We'll tell you honestly what the platform tariffs do and don't cover."
       },
       "hero": {
         "titleStart": "A store on ",
@@ -600,7 +600,7 @@
         "ctaSecondary": "Message on Telegram",
         "telegramUrl": "https://t.me/neuronixjhbot",
         "trust": [
-          "Turnkey Horoshop launch — from $559",
+          "Turnkey Horoshop launch — from $550",
           "Timeline and budget fixed in the contract",
           "12-month warranty"
         ]
@@ -632,7 +632,7 @@
             "icon": "🏪",
             "title": "Turnkey launch",
             "description": "Structure, design, products, payments, delivery, analytics. From brief to first orders.",
-            "price": "from $559"
+            "price": "from $550"
           },
           {
             "icon": "📦",
@@ -644,7 +644,7 @@
             "icon": "🔗",
             "title": "Accounting / CRM / API integrations",
             "description": "What the Horoshop box doesn't include: exchange with accounting, CRM, custom automations via API.",
-            "price": "from $671"
+            "price": "from $650"
           },
           {
             "icon": "✍️",
@@ -659,7 +659,7 @@
         "items": [
           {
             "question": "How much does a turnkey Horoshop store cost?",
-            "answer": "Our work starts at $559: structure, design, catalog, payments, delivery. Horoshop platform tariffs are paid separately — we'll help you pick the one you actually need."
+            "answer": "Our work starts at $550: structure, design, catalog, payments, delivery. Horoshop platform tariffs are paid separately — we'll help you pick the one you actually need."
           },
           {
             "question": "Will you migrate products from my old site?",
@@ -726,13 +726,13 @@
             "icon": "🛠️",
             "title": "Turnkey implementation",
             "description": "Pipelines, fields, permissions, sales channels — around your process. Team training included.",
-            "price": "from $671"
+            "price": "from $650"
           },
           {
             "icon": "🔗",
             "title": "Website integration",
             "description": "OpenCart, Horoshop or any site with an API: an order creates a deal with every field filled, instantly.",
-            "price": "from $671"
+            "price": "from $650"
           },
           {
             "icon": "🎙️",
@@ -754,7 +754,7 @@
         "items": [
           {
             "question": "How much does KeyCRM implementation cost?",
-            "answer": "From $671 turnkey: pipelines, fields, channels, integrations, team training. Exact quote after a free audit — depends on the number of channels and systems."
+            "answer": "From $650 turnkey: pipelines, fields, channels, integrations, team training. Exact quote after a free audit — depends on the number of channels and systems."
           },
           {
             "question": "Will you connect KeyCRM to OpenCart or Horoshop?",
