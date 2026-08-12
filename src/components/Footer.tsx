@@ -21,12 +21,10 @@ export default function Footer() {
           <Link href={`/${locale}/keycrm`}>KeyCRM</Link>
         </nav>
         <span className="footer-copy">{t('copy')}</span>
-        <span className="footer-fop">{t('fop')}</span>
-        <span className="footer-address">{t('address')}</span>
         <Link href={`/${locale}/privacy-policy`} className="footer-privacy">
           {t('privacy')}
         </Link>
-        <a href="https://t.me/angordien" className="footer-tg" target="_blank" rel="noopener noreferrer">
+        <a href="https://t.me/neuronixjhbot" className="footer-tg" target="_blank" rel="noopener noreferrer">
           {t('telegram')}
         </a>
       </div>

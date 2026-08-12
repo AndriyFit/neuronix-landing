@@ -10,7 +10,7 @@
     "faq": "FAQ",
     "contact": "Contact",
     "cta": "Message on Telegram",
-    "telegramUrl": "https://t.me/angordien",
+    "telegramUrl": "https://t.me/neuronixjhbot",
     "ai": "AI automation",
     "blog": "Blog"
   },
@@ -21,7 +21,7 @@
     "subtitle": "From 15,000 UAH, launch in 10 days. Not a standalone site — a system where your store, CRM, accounting and marketplaces exchange data on their own.",
     "ctaPrimary": "Get a quote",
     "ctaSecondary": "Message on Telegram",
-    "telegramUrl": "https://t.me/angordien",
+    "telegramUrl": "https://t.me/neuronixjhbot",
     "trust": [
       "We reply within an hour",
       "Written contract",
@@ -312,7 +312,7 @@
     "title": "Tell us about your project",
     "subtitle": "We reply within an hour during business hours. The consultation is free — if we're not the right fit, we'll point you to someone who is.",
     "telegramLabel": "Message on Telegram",
-    "telegramUrl": "https://t.me/angordien",
+    "telegramUrl": "https://t.me/neuronixjhbot",
     "orLabel": "or fill in the form",
     "form": {
       "name": "Your name",
@@ -329,14 +329,12 @@
   "stickyCta": {
     "form": "Get a quote",
     "telegram": "Telegram",
-    "telegramUrl": "https://t.me/angordien"
+    "telegramUrl": "https://t.me/neuronixjhbot"
   },
   "footer": {
     "copy": "© 2026 Neuronix. All rights reserved.",
     "telegram": "Telegram",
     "privacy": "Privacy Policy",
-    "fop": "FOP Udych Yevhen",
-    "address": "Remeniv, S. Kuzemskoho St. 1, Lviv region",
     "servicesTitle": "Services"
   },
   "cookie": {
@@ -358,7 +356,7 @@
       "subtitle": "Chatbots for your website and Instagram, voice agents for calls, CRM automation. Customers get answers in seconds, orders land in your CRM hands-free, no call goes missed.",
       "ctaPrimary": "Get a free AI audit",
       "ctaSecondary": "Message on Telegram",
-      "telegramUrl": "https://t.me/angordien",
+      "telegramUrl": "https://t.me/neuronixjhbot",
       "trust": [
         "We work with KeyCRM, SalesDrive, accounting systems",
         "Timeline and budget fixed in the contract",
@@ -498,7 +496,7 @@
         "subtitle": "Integrations with accounting, CRM and Nova Poshta, supplier parsing, automated product content. We take the routine off your hands — in our case study, 15,000+ products stay in sync with no people involved.",
         "ctaPrimary": "Get a free store audit",
         "ctaSecondary": "Message on Telegram",
-        "telegramUrl": "https://t.me/angordien",
+        "telegramUrl": "https://t.me/neuronixjhbot",
         "trust": [
           "Case: 15,000+ products in sync between accounting, site and marketplaces",
           "Timeline and budget fixed in the contract",
@@ -592,7 +590,7 @@
         "subtitle": "The platform is good, but it won't launch itself: we migrate products, set up design and payments, connect accounting, CRM and delivery — and put product content on autopilot.",
         "ctaPrimary": "Get a free audit",
         "ctaSecondary": "Message on Telegram",
-        "telegramUrl": "https://t.me/angordien",
+        "telegramUrl": "https://t.me/neuronixjhbot",
         "trust": [
           "Turnkey Horoshop launch — from 25,000 UAH",
           "Timeline and budget fixed in the contract",
@@ -686,7 +684,7 @@
         "subtitle": "We implement KeyCRM and wire it to your website, Instagram, telephony and delivery. Every lead becomes a deal, calls are transcribed into the card — managers sell instead of typing data in.",
         "ctaPrimary": "Get a free audit",
         "ctaSecondary": "Message on Telegram",
-        "telegramUrl": "https://t.me/angordien",
+        "telegramUrl": "https://t.me/neuronixjhbot",
         "trust": [
           "Case: calls automatically become deals in KeyCRM",
           "Timeline and budget fixed in the contract",

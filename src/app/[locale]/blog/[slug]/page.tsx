@@ -182,7 +182,7 @@ export default async function BlogPostPage({ params }: Props) {
           <h2>{t.ctaTitle}</h2>
           <p>{t.ctaText}</p>
           <a
-            href="https://t.me/angordien"
+            href="https://t.me/neuronixjhbot"
             target="_blank"
             rel="noopener noreferrer"
             className="blog-cta-btn"

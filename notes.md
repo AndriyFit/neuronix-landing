@@ -63,3 +63,4 @@ Append-only. Найновіше зверху.
 - 2026-08-12: Андрій натиснув Start у @neuronixjhbot → тест-повідомлення дійшло (chat 495185885, @angordien). Перемкнув Vercel Production: TELEGRAM_BOT_TOKEN на новий бот, TELEGRAM_CHAT_ID перезаписав чистим значенням — у старому був зайвий перенос рядка в кінці. Перевірив через env pull: токен 46 символів, bot id 7991328566, без екранованих \n. Прод підхопить після найближчого деплою з main — env інжектиться на білді, поточний деплой досі тримає @claudiybot
 - 2026-08-12 10:25: Видалив реквізити + налаштував @neuronixjhbot — privacy compliance, brand lead channel
 - 2026-08-12 10:38: Видалено реквізити ФОП з 3 місць, перемкнено на @neuronixjhbot — ризик Misrepresentation усунено, bot без webhook
+- 2026-08-12 11:35: Написав двосторонній Telegram-міст на @neuronixjhbot — клієнти пишуть, ти відповідаєш

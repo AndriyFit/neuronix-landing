@@ -38,16 +38,6 @@
 
 .footer-tg:hover { text-decoration: underline; }
 
-.footer-fop {
-  font-size: 0.8rem;
-  color: var(--text-muted);
-}
-
-.footer-address {
-  font-size: 0.8rem;
-  color: var(--text-muted);
-}
-
 .footer-privacy {
   font-size: 0.8rem;
   color: var(--text-muted);
@@ -70,8 +60,6 @@
   .footer-logo {
     margin-bottom: 0.25rem;
   }
-  .footer-fop,
-  .footer-address,
   .footer-copy {
     font-size: 0.78rem;
     line-height: 1.5;

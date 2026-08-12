@@ -5,25 +5,20 @@ export function getOrganizationSchema() {
     '@context': 'https://schema.org',
     '@type': 'Organization',
     name: 'Neuronix',
-    legalName: 'ФОП Удич Євген Богданович',
-    taxID: '3214711093',
     url: SITE_URL,
     logo: `${SITE_URL}/favicon.svg`,
     address: {
       '@type': 'PostalAddress',
-      streetAddress: 'вул. С. Куземського, 1',
-      addressLocality: 'с. Ременів',
       addressRegion: 'Львівська область',
-      postalCode: '80484',
       addressCountry: 'UA',
     },
     contactPoint: {
       '@type': 'ContactPoint',
       contactType: 'sales',
       availableLanguage: ['Ukrainian', 'English'],
-      url: 'https://t.me/angordien',
+      url: 'https://t.me/neuronixjhbot',
     },
-    sameAs: ['https://t.me/angordien'],
+    sameAs: ['https://t.me/neuronixjhbot'],
   }
 }
 
@@ -38,16 +33,8 @@ export function getLocalBusinessSchema() {
     priceRange: '$$',
     address: {
       '@type': 'PostalAddress',
-      streetAddress: 'вул. С. Куземського, 1',
-      addressLocality: 'с. Ременів',
       addressRegion: 'Львівська область',
-      postalCode: '80484',
       addressCountry: 'UA',
-    },
-    geo: {
-      '@type': 'GeoCoordinates',
-      latitude: 49.9542,
-      longitude: 24.1014,
     },
     areaServed: [
       { '@type': 'Country', name: 'Ukraine' },
@@ -60,7 +47,7 @@ export function getLocalBusinessSchema() {
       opens: '09:00',
       closes: '19:00',
     },
-    sameAs: ['https://t.me/angordien'],
+    sameAs: ['https://t.me/neuronixjhbot'],
   }
 }
 

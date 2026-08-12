@@ -53,21 +53,15 @@ function PrivacyUk() {
       </p>
       <ul style={{ paddingLeft: '1.5rem', lineHeight: 1.8 }}>
         <li>
-          <strong>Найменування:</strong> ФОП Удич Євген
-        </li>
-        <li>
-          <strong>ЄДРПОУ (ІПН):</strong> 3214711093
-        </li>
-        <li>
-          <strong>Адреса:</strong> с.Ременів, вул.С.Куземського 1, Львівська обл., Україна
+          <strong>Найменування:</strong> Neuronix (ФОП Гордієн Андрій)
         </li>
         <li>
           <strong>Веб-сайт:</strong> neuronics.work
         </li>
         <li>
           <strong>Контакт DPO:</strong>{' '}
-          <a href="https://t.me/angordien" style={{ color: 'var(--primary)' }}>
-            @angordien у Telegram
+          <a href="https://t.me/neuronixjhbot" style={{ color: 'var(--primary)' }}>
+            @neuronixjhbot у Telegram
           </a>
         </li>
       </ul>
@@ -223,8 +217,8 @@ function PrivacyUk() {
       <p style={{ marginTop: '0.75rem' }}>
         Для реалізації будь-якого із зазначених прав зверніться до нас через
         Telegram:{' '}
-        <a href="https://t.me/angordien" style={{ color: 'var(--primary)' }}>
-          @angordien
+        <a href="https://t.me/neuronixjhbot" style={{ color: 'var(--primary)' }}>
+          @neuronixjhbot
         </a>
         . Ми розглянемо ваш запит і відповімо протягом 30 календарних днів.
       </p>
@@ -244,8 +238,8 @@ function PrivacyUk() {
       </h2>
       <p>
         З питань захисту персональних даних звертайтеся безпосередньо до:{' '}
-        <a href="https://t.me/angordien" style={{ color: 'var(--primary)' }}>
-          @angordien (Telegram)
+        <a href="https://t.me/neuronixjhbot" style={{ color: 'var(--primary)' }}>
+          @neuronixjhbot (Telegram)
         </a>
       </p>
 
@@ -289,21 +283,15 @@ function PrivacyEn() {
       <p>This Privacy Policy applies to personal data processed by:</p>
       <ul style={{ paddingLeft: '1.5rem', lineHeight: 1.8 }}>
         <li>
-          <strong>Name:</strong> FOP Udych Yevhen (sole proprietor)
-        </li>
-        <li>
-          <strong>USREOU (ЄДРПОУ):</strong> 3214711093
-        </li>
-        <li>
-          <strong>Address:</strong> Remeniv village, Kuzemskoho St. 1, Lviv region, Ukraine
+          <strong>Name:</strong> Neuronix (sole proprietor Andrii Hordiien)
         </li>
         <li>
           <strong>Website:</strong> neuronics.work
         </li>
         <li>
           <strong>DPO contact:</strong>{' '}
-          <a href="https://t.me/angordien" style={{ color: 'var(--primary)' }}>
-            @angordien on Telegram
+          <a href="https://t.me/neuronixjhbot" style={{ color: 'var(--primary)' }}>
+            @neuronixjhbot on Telegram
           </a>
         </li>
       </ul>
@@ -457,8 +445,8 @@ function PrivacyEn() {
       </ul>
       <p style={{ marginTop: '0.75rem' }}>
         To exercise any of these rights, please contact us via Telegram:{' '}
-        <a href="https://t.me/angordien" style={{ color: 'var(--primary)' }}>
-          @angordien
+        <a href="https://t.me/neuronixjhbot" style={{ color: 'var(--primary)' }}>
+          @neuronixjhbot
         </a>
         . We will respond to your request within 30 calendar days.
       </p>
@@ -477,8 +465,8 @@ function PrivacyEn() {
       </h2>
       <p>
         For data protection inquiries, please contact:{' '}
-        <a href="https://t.me/angordien" style={{ color: 'var(--primary)' }}>
-          @angordien (Telegram)
+        <a href="https://t.me/neuronixjhbot" style={{ color: 'var(--primary)' }}>
+          @neuronixjhbot (Telegram)
         </a>
       </p>
 
@@ -500,7 +488,7 @@ function PrivacyEn() {
       </p>
 
       <p style={{ marginTop: '3rem', color: 'var(--text-muted)', fontSize: '0.85rem' }}>
-        FOP Udych Yevhen · neuronics.work · Date: 11.05.2026
+        Neuronix · neuronics.work · Date: 11.05.2026
       </p>
     </article>
   )

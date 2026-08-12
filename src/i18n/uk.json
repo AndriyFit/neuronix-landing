@@ -10,7 +10,7 @@
     "faq": "FAQ",
     "contact": "Контакт",
     "cta": "Написати в Telegram",
-    "telegramUrl": "https://t.me/angordien",
+    "telegramUrl": "https://t.me/neuronixjhbot",
     "ai": "AI-автоматизація",
     "blog": "Блог"
   },
@@ -21,7 +21,7 @@
     "subtitle": "Від 15 000 грн, запуск за 10 днів. Не окремий сайт, а система: магазин, CRM, 1С і маркетплейси обмінюються даними самі.",
     "ctaPrimary": "Розрахувати вартість",
     "ctaSecondary": "Написати в Telegram",
-    "telegramUrl": "https://t.me/angordien",
+    "telegramUrl": "https://t.me/neuronixjhbot",
     "trust": [
       "Відповідаємо протягом години",
       "Договір",
@@ -312,7 +312,7 @@
     "title": "Розкажіть про задачу",
     "subtitle": "Відповідаємо протягом години в робочий час. Консультація безкоштовна — не підійдемо, підкажемо, до кого звернутись.",
     "telegramLabel": "Написати в Telegram",
-    "telegramUrl": "https://t.me/angordien",
+    "telegramUrl": "https://t.me/neuronixjhbot",
     "orLabel": "або заповніть форму",
     "form": {
       "name": "Ваше ім'я",
@@ -329,14 +329,12 @@
   "stickyCta": {
     "form": "Розрахувати вартість",
     "telegram": "Telegram",
-    "telegramUrl": "https://t.me/angordien"
+    "telegramUrl": "https://t.me/neuronixjhbot"
   },
   "footer": {
     "copy": "© 2026 Neuronix. Всі права захищені.",
     "telegram": "Telegram",
     "privacy": "Політика конфіденційності",
-    "fop": "ФОП Удич Євген",
-    "address": "с.Ременів, вул.С.Куземського 1, Львівська обл.",
     "servicesTitle": "Послуги"
   },
   "cookie": {
@@ -358,7 +356,7 @@
       "subtitle": "Чат-боти для сайту та Instagram, голосові агенти для дзвінків, автоматизація CRM. Відповідь клієнту за секунди, замовлення в CRM без рук, жодного пропущеного дзвінка.",
       "ctaPrimary": "Отримати безкоштовний AI-аудит",
       "ctaSecondary": "Написати в Telegram",
-      "telegramUrl": "https://t.me/angordien",
+      "telegramUrl": "https://t.me/neuronixjhbot",
       "trust": [
         "Працюємо з KeyCRM, SalesDrive, 1С, Новою Поштою",
         "Строк і бюджет у договорі",
@@ -498,7 +496,7 @@
         "subtitle": "Інтеграції з 1С, CRM і Новою Поштою, парсинг постачальників, автоматичне наповнення карток. Забираємо рутину магазину на себе — у нашому кейсі 15 000+ товарів синхронізуються без людей.",
         "ctaPrimary": "Отримати безкоштовний аудит магазину",
         "ctaSecondary": "Написати в Telegram",
-        "telegramUrl": "https://t.me/angordien",
+        "telegramUrl": "https://t.me/neuronixjhbot",
         "trust": [
           "Кейс: 15 000+ товарів у синхроні 1С ↔ сайт ↔ маркетплейси",
           "Строк і бюджет у договорі",
@@ -592,7 +590,7 @@
         "subtitle": "Платформа хороша, але сама себе не запустить: переносимо товари, налаштовуємо дизайн і оплати, підключаємо 1С, CRM і доставку — і ставимо наповнення карток на автопілот.",
         "ctaPrimary": "Отримати безкоштовний аудит",
         "ctaSecondary": "Написати в Telegram",
-        "telegramUrl": "https://t.me/angordien",
+        "telegramUrl": "https://t.me/neuronixjhbot",
         "trust": [
           "Запуск Horoshop під ключ — від 25 000 грн",
           "Строк і бюджет у договорі",
@@ -686,7 +684,7 @@
         "subtitle": "Впроваджуємо KeyCRM і зʼєднуємо її з сайтом, Instagram, телефонією і доставкою. Кожна заявка стає угодою, дзвінки розшифровуються в картку — менеджери продають, а не заносять дані.",
         "ctaPrimary": "Отримати безкоштовний аудит",
         "ctaSecondary": "Написати в Telegram",
-        "telegramUrl": "https://t.me/angordien",
+        "telegramUrl": "https://t.me/neuronixjhbot",
         "trust": [
           "Кейс: дзвінки автоматично стають угодами в KeyCRM",
           "Строк і бюджет у договорі",
