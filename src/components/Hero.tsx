@@ -1,12 +1,10 @@
 'use client'
-import { useLocale, useTranslations } from 'next-intl'
+import { useTranslations } from 'next-intl'
 import SystemHub from './SystemHub'
-import HeroVideo from './HeroVideo'
 import './css/Hero.css'
 
 export default function Hero() {
   const t = useTranslations('hero')
-  const locale = useLocale()
   const trust = t.raw('trust') as string[]
 
   const scrollToContact = () => {
@@ -42,8 +40,9 @@ export default function Hero() {
         </ul>
       </div>
 
-      {/* Підписи у відео вшиті українською, тож англійська локаль лишається на SVG. */}
-      <div className="hero-visual">{locale === 'uk' ? <HeroVideo /> : <SystemHub />}</div>
+      <div className="hero-visual">
+        <SystemHub />
+      </div>
     </section>
   )
 }

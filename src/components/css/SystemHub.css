@@ -1,72 +1,70 @@
-/* Фіксована пропорція від старту: контейнер ніколи не міняє висоту, тож
-   контент під Hero не їде. Те саме правило, через яке сторінка сіпалась
-   на мобільному (див. CLAUDE.md → «Анімації, що накопичують контент»). */
+/* Пропорція від старту: блок ніколи не міняє висоту, тож контент під Hero не їде
+   (правило з CLAUDE.md про анімації, що додають елементи в потік). */
 .hub {
+  position: relative;
   width: 100%;
   max-width: 520px;
   margin-inline: auto;
-  aspect-ratio: 1;
 }
 
 .hub-svg {
   width: 100%;
-  height: 100%;
+  aspect-ratio: 1;
   overflow: visible;
+  display: block;
 }
 
-/* Зв'язок вузла з ядром. Пунктир їде до центру — дані течуть усередину. */
+/* Звʼязок вузла з ядром. До тапу — ледь помітний, після — живий пунктир,
+   що тече до бобра: дані йдуть усередину. */
 .hub-line {
   stroke: var(--primary);
   stroke-width: 3;
-  stroke-dasharray: 9 13;
   stroke-linecap: round;
-  opacity: 0.7;
+  stroke-dasharray: 9 13;
+  opacity: 0.16;
+  transition: opacity 0.35s ease;
+}
+
+.hub-line.is-linked {
+  opacity: 0.75;
   animation: hub-flow 2.4s linear infinite;
 }
 
 @keyframes hub-flow {
   to {
-    stroke-dashoffset: -40;
+    stroke-dashoffset: -44;
   }
 }
 
-.hub-core {
-  fill: url(#hubCore);
-}
-
-/* Світле кільце під ядром: у 3D-еталоні це м'яке гало, тут — просто коло. */
 .hub-halo {
   fill: #7C3AED;
-  opacity: 0.14;
+  opacity: 0.13;
 }
 
-.hub-core-glow {
-  fill: var(--primary);
-  opacity: 0.22;
+.hub-core-ring {
+  fill: #ffffff;
+  stroke: var(--primary);
+  stroke-width: 3;
+  stroke-opacity: 0.5;
+}
+
+/* Хвіст: різкий замах і повернення. Тільки transform, тож без релейауту. */
+.hub-core {
   transform-box: fill-box;
   transform-origin: center;
-  animation: hub-pulse 3.2s ease-in-out infinite;
+  cursor: pointer;
 }
 
-@keyframes hub-pulse {
-  0%,
-  100% {
-    transform: scale(1);
-    opacity: 0.18;
-  }
-  50% {
-    transform: scale(1.28);
-    opacity: 0.32;
-  }
+.hub-core.is-slapping {
+  animation: hub-slap 0.62s cubic-bezier(0.3, 1.6, 0.4, 1);
 }
 
-.hub-core-label {
-  fill: #ffffff;
-  font-family: var(--font-display);
-  font-size: 44px;
-  font-weight: 800;
-  letter-spacing: 0.02em;
-  text-anchor: middle;
+@keyframes hub-slap {
+  0%   { transform: rotate(0deg) translateY(0); }
+  22%  { transform: rotate(-9deg) translateY(-6px); }
+  48%  { transform: rotate(8deg) translateY(3px); }
+  72%  { transform: rotate(-4deg) translateY(0); }
+  100% { transform: rotate(0deg) translateY(0); }
 }
 
 .hub-sphere {
@@ -82,36 +80,60 @@
   text-anchor: middle;
 }
 
-/* Легке дихання сфер, зсув мікроскопічний — щоб не читалось як стрибок. */
+/* Незібраний вузол приглушений — видно, що контур ще не зʼєднаний. */
 .hub-node {
-  transform-box: fill-box;
-  transform-origin: center;
-  animation: hub-float 6s ease-in-out infinite;
+  opacity: 0.45;
+  transition: opacity 0.4s ease;
 }
 
-@keyframes hub-float {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-6px);
-  }
+.hub-node.is-linked {
+  opacity: 1;
+}
+
+/* Кнопка лежить поверх бобра: тап-таргет великий, доступний з клавіатури. */
+.hub-tap {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 32%;
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  border: none;
+  border-radius: 50%;
+  background: none;
+  cursor: pointer;
+  font: inherit;
+  font-size: 0;
+  color: transparent;
+  padding: 0;
+}
+
+.hub-tap:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 4px;
+}
+
+.hub-caption {
+  margin-top: 0.75rem;
+  min-height: 1.5rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.hub-caption.is-visible {
+  opacity: 1;
 }
 
 @media (max-width: 560px) {
-  .hub-label {
-    font-size: 21px;
-  }
-  .hub-core-label {
-    font-size: 48px;
-  }
+  .hub-label { font-size: 21px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hub-line,
-  .hub-core-glow,
-  .hub-node {
+  .hub-line.is-linked,
+  .hub-core.is-slapping {
     animation: none;
   }
 }
