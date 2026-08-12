@@ -162,7 +162,8 @@
         "role": "Founder",
         "name": "Andriy",
         "note": "First contact, scoping, contract. Answers to you for the outcome of the project.",
-        "icon": "🤝"
+        "icon": "🤝",
+        "photo": "/team/andriy.webp"
       },
       {
         "role": "Tech Lead",
