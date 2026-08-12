@@ -85,6 +85,11 @@ export default async function LocaleLayout({
     <html lang={locale} className={syne.variable}>
       <head>
         {gtmId && <script dangerouslySetInnerHTML={{ __html: CONSENT_DEFAULT_SNIPPET }} />}
+        {/* Заздалегідь відкриваємо зʼєднання до аналітики: інакше кожен зі скриптів
+            платить DNS + TLS уже після того, як його зустрів парсер. */}
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="preconnect" href="https://www.clarity.ms" />
+        <link rel="dns-prefetch" href="https://region1.google-analytics.com" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         {schemas.map((schema, i) => (
           <script

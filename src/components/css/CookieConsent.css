@@ -15,7 +15,9 @@
   display: flex;
   align-items: center;
   gap: 16px;
-  max-width: 680px;
+  /* Вужче за H1 навмисно: банер з'являється пізно й, будучи більшим за заголовок,
+     перехоплював на себе LCP (10 944 px² проти 10 360 у H1). */
+  max-width: 560px;
   width: calc(100% - 48px);
 }
 

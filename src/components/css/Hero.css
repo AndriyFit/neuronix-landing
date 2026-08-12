@@ -20,6 +20,23 @@
   animation: heroFadeUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
+/* H1 — це LCP-елемент сторінки. Заголовок є в SSR-розмітці з першого байта,
+   але .hero-anim ховає його за opacity: 0, тож браузер не зараховує LCP, поки
+   не добіжить анімація: 0,2с затримки + 0,7с = майже секунда порожнього екрана
+   там, де контент уже намальований. Тому заголовок їде без прозорості —
+   з'їжджає знизу, але видимий одразу. Решта блоків Hero анімується як була. */
+.hero-title.hero-anim {
+  opacity: 1;
+  animation-name: heroRiseUp;
+  animation-delay: 0s;
+  animation-duration: 0.5s;
+}
+
+@keyframes heroRiseUp {
+  from { transform: translateY(18px); }
+  to   { transform: none; }
+}
+
 .hero-anim-1 { animation-delay: 0.2s; }
 .hero-anim-2 { animation-delay: 0.32s; }
 .hero-anim-3 { animation-delay: 0.44s; }
