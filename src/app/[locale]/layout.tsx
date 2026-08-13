@@ -4,7 +4,6 @@ import { Syne } from 'next/font/google'
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages, setRequestLocale } from 'next-intl/server'
 import { notFound } from 'next/navigation'
-import { GoogleTagManager } from '@next/third-parties/google'
 import { routing } from '@/i18n/routing'
 import { type Locale } from '@/i18n/config'
 import { generateLocaleMetadata } from '@/lib/metadata'
@@ -20,6 +19,7 @@ import AnimatedBackground from '@/components/AnimatedBackground'
 import StickyCta from '@/components/StickyCta'
 import Clarity from '@/components/Clarity'
 import CookieConsent from '@/components/CookieConsent'
+import DeferredGTM from '@/components/DeferredGTM'
 import '@/styles/variables.css'
 import '@/styles/global.css'
 import '@/styles/effects.css'
@@ -99,7 +99,7 @@ export default async function LocaleLayout({
           />
         ))}
       </head>
-      {gtmId && <GoogleTagManager gtmId={gtmId} />}
+      {gtmId && <DeferredGTM gtmId={gtmId} />}
       <body>
         <NextIntlClientProvider messages={messages}>
           <AnimatedBackground />
