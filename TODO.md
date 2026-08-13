@@ -19,9 +19,17 @@
   і `LEAD_EMAIL_TO` (своя пошта). Без верифікації домену From лишається
   `onboarding@resend.dev` і шле лише на пошту власника акаунта — цього достатньо.
   Код уже готовий: порожні змінні = канал пропускається.
-- 🔲 **Перед запуском Google Ads:** створити рекламний акаунт для neuronics.work
-  (у MCC є лише Fit-Life / Trembita / Watermax) і завести conversion action на
-  `generate_lead`; імпорт з GA4 (`G-FNZ46Q88EW`) або окремий тег у GTM `GTM-N4MBTL2W`.
+- ✅ 2026-08-13 Google Ads: акаунт **Neuronix `908-703-7980`** створено (UAH, Europe/Kiev —
+  обидва незмінні, звірено), прив'язано до MCC Fit-Life `1770392909`, auto-tagging увімкнено.
+  GA4 `neuronics.work` (`properties/548742185`) зв'язано з акаунтом.
+  Conversion actions (перевірено через API):
+  · `generate_lead` id 7719736996 — SUBMIT_LEAD_FORM, ENABLED, **primary**, у метриці «Конверсії»
+  · `telegram_click` id 7719455642 — CONTACT, ENABLED, **secondary**, поза метрикою «Конверсії»
+  · обидві ONE_PER_CLICK (повторний клік не множить конверсію)
+  · заготовки Google `purchase`/`qualify_lead`/`close_convert_lead` лишені HIDDEN — порожні
+  Червоне «Неправильне налаштування» на цілі «Контакт» — очікуване: у цілі лише
+  другорядна дія. Не баг, не чіпати.
+  ⚠️ Ключовими події стали 13.08 — рахуються лише з цієї дати, заднім числом GA4 не перерахує.
 - ✅ Продуктивність /uk. ЗАКРИТО 13.08.2026, підтверджено 5 повторами PSI (ключ API):
   mobile **99** стабільно (LCP 1,4с · FCP 1,0с · TBT 30мс · SI 3,5с), desktop **99**.
   Корінь минулого разу (GTM 275 КіБ у критичному шляху) — підтвердився: `DeferredGTM`
