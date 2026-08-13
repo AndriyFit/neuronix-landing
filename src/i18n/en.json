@@ -28,20 +28,7 @@
       "12-month warranty"
     ],
     "hub": {
-      "core": "Neuronix HUB",
-      "alt": "The Neuronix HUB at the centre of the loop, surrounded by CRM, OpenCart, voice bot, delivery, receipts and analytics",
-      "hint": "Tap to connect the loop",
-      "done": "Loop connected",
-      "doneNote": "This is how your systems start exchanging data on their own",
-      "easterEgg": "All right, you are persistent. We like clients like that",
-      "nodes": [
-        "Voice Bot",
-        "OpenCart",
-        "CRM",
-        "Analytics",
-        "Receipts",
-        "Delivery"
-      ]
+      "alt": "The Neuronix HUB at the centre of the loop, surrounded by CRM, OpenCart, voice bot, delivery, receipts and analytics"
     }
   },
   "trustBar": {

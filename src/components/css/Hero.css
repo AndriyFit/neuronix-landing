@@ -147,6 +147,18 @@
   max-width: 480px;
 }
 
+/* Ролик — свідомо оформлена картка, а не «плаваючий» кадр: у нього власне
+   світле тло з кільцями, тож без рамки межа читалась як брудний прямокутник.
+   mask-image тут не працює — Chrome не застосовує маску до <video>. */
+.hero-hub {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-elevated);
+}
+
 .hero-mockup {
   width: 100%;
   max-width: 420px;
