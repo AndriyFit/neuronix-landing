@@ -173,3 +173,4 @@ Append-only. Найновіше зверху.
 - 2026-08-14 17:07: Розгорнув офертну презентацію-кейс для Cornix-партнерів — 3 дзвінки в HTML, 21 КБ, на neuronics.work/cornix
 - 2026-08-14 17:25: Розгорнув Cornix-презентацію на partners.neuronics.work — audio-файли, маршрут + noindex, бренд оновлено
 - 2026-08-14 17:28: Піднявся субдомен partners.neuronics.work для Cornix — маршрутизація, noindex, основний домен не зачеплений
+- 2026-08-14 17:32: Запустив partners.neuronics.work для Cornix — маршрутизація, noindex, SEO чистий
