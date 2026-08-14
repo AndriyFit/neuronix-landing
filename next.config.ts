@@ -1,9 +1,10 @@
 // next.config.ts
+import type { NextConfig } from 'next'
 import createNextIntlPlugin from 'next-intl/plugin'
 
 const withNextIntl = createNextIntlPlugin('./src/i18n/request.ts')
 
-const nextConfig = {
+const nextConfig: NextConfig = {
   // Vercel default output — compatible with middleware
 
   // Редіректи /en/blog → /uk/blog прибрано 2026-08-09: англійські статті тепер існують
@@ -13,14 +14,42 @@ const nextConfig = {
       // Корінь віддавав 307 (тимчасовий) від next-intl middleware — GSC показував це
       // як «Сторінка з переспрямуванням» і не консолідував сигнали на /uk.
       // 308 = постійний: вага зовнішніх посилань на neuronics.work іде на /uk.
-      { source: '/', destination: '/uk', permanent: true },
+      // missing host: на partners.* корінь віддає презентацію, а не головну сайту.
+      {
+        source: '/',
+        missing: [{ type: 'host', value: 'partners.neuronics.work' }],
+        destination: '/uk',
+        permanent: true,
+      },
     ]
   },
 
   // Презентація для партнерів Cornix — статична сторінка з public/, поза i18n-роутингом
   // (middleware matcher ловить лише /uk|/en, тож сюди не втручається).
   async rewrites() {
-    return [{ source: '/cornix', destination: '/cornix/index.html' }]
+    return {
+      beforeFiles: [
+        {
+          source: '/',
+          has: [{ type: 'host', value: 'partners.neuronics.work' }],
+          destination: '/cornix/index.html',
+        },
+      ],
+      afterFiles: [{ source: '/cornix', destination: '/cornix/index.html' }],
+      fallback: [],
+    }
+  },
+
+  // Субдомен віддає ті самі роути, що й основний домен, тож без цього заголовка
+  // partners.neuronics.work/uk став би дублем neuronics.work/uk у пошуку.
+  async headers() {
+    return [
+      {
+        source: '/:path*',
+        has: [{ type: 'host', value: 'partners.neuronics.work' }],
+        headers: [{ key: 'X-Robots-Tag', value: 'noindex, nofollow' }],
+      },
+    ]
   },
 }
 

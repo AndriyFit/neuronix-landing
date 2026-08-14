@@ -61,9 +61,17 @@ AiSecurity/FAQ через namespace-проп; кейс Abertime (CaseStudy бе�
 
 ## Презентація для партнерів Cornix (2026-08-14)
 
-`neuronics.work/cornix` — комерційна презентація для партнерів-дроперів Cornix (Sportvida).
-Статична сторінка з `public/cornix/`, поза i18n: matcher middleware ловить лише `/uk|/en`,
-тому шлях вільний; сам маршрут — `rewrites()` у `next.config.ts`.
+**`partners.neuronics.work`** (і `neuronics.work/cornix`) — комерційна презентація для
+партнерів-дроперів Cornix (Sportvida). Статична сторінка з `public/cornix/`, поза i18n:
+matcher middleware ловить лише `/uk|/en`, тому шлях вільний.
+
+Субдомен доданий до того самого Vercel-проєкту (CNAME `partners` → `cname.vercel-dns.com`),
+тому він віддає **всі** роути сайту, не лише презентацію. Звідси три правила в `next.config.ts`:
+`rewrites.beforeFiles` з `has: host` — корінь субдомену віддає презентацію; `redirects` з
+`missing: host` — інакше `/` там редіректило б на `/uk`; `headers` з `X-Robots-Tag: noindex`
+на `/:path*` — інакше `partners.neuronics.work/uk` став би дублем головної в пошуку.
+⚠️ `nextConfig` типізований як `NextConfig` — без анотації TS розширює `'host'` до `string`
+і білд падає.
 
 Джерело — `docs/2026-08-14-cornix-partners-offer.html` з плейсхолдерами `__CALL1..3__`,
 збирає `docs/assets/build-offer.py` у двох режимах: без аргументу — аудіо вшивається як
