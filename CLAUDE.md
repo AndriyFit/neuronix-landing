@@ -59,6 +59,21 @@ AiSecurity/FAQ через namespace-проп; кейс Abertime (CaseStudy бе�
 голосовий агент на /keycrm → /ai. Додаючи платформу: слаг у PLATFORMS + namespace в
 обох json + слаг у sitemap.ts.
 
+## Презентація для партнерів Cornix (2026-08-14)
+
+`neuronics.work/cornix` — комерційна презентація для партнерів-дроперів Cornix (Sportvida).
+Статична сторінка з `public/cornix/`, поза i18n: matcher middleware ловить лише `/uk|/en`,
+тому шлях вільний; сам маршрут — `rewrites()` у `next.config.ts`.
+
+Джерело — `docs/2026-08-14-cornix-partners-offer.html` з плейсхолдерами `__CALL1..3__`,
+збирає `docs/assets/build-offer.py` у двох режимах: без аргументу — аудіо вшивається як
+data URI (для копії-артефакту на claude.ai, куди CSP не пускає зовнішні хости), з `/cornix`
+— окремими файлами + повна HTML-обгортка з `viewport` і `charset`.
+
+⚠️ **Правиш текст — правиш джерело в `docs/`, не `public/cornix/index.html`**: останній
+перезаписується збіркою. Записи дзвінків `public/cornix/call{1,2,3}.mp3` — єдине джерело
+для обох режимів. Сторінка `noindex`, у `sitemap.ts` не входить (свідомо).
+
 ## Індексація і hreflang (GSC-аудит 2026-08-09)
 
 Експорт Search Console показав: проіндексована **1 сторінка**, 16 у стані «Виявлено — наразі

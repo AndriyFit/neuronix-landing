@@ -16,6 +16,12 @@ const nextConfig = {
       { source: '/', destination: '/uk', permanent: true },
     ]
   },
+
+  // Презентація для партнерів Cornix — статична сторінка з public/, поза i18n-роутингом
+  // (middleware matcher ловить лише /uk|/en, тож сюди не втручається).
+  async rewrites() {
+    return [{ source: '/cornix', destination: '/cornix/index.html' }]
+  },
 }
 
 export default withNextIntl(nextConfig)
