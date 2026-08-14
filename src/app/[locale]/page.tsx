@@ -5,6 +5,7 @@ import TrustBar from '@/components/TrustBar'
 import Pains from '@/components/Pains'
 import Ecosystem from '@/components/Ecosystem'
 import CaseStudy from '@/components/CaseStudy'
+import CallSamples from '@/components/CallSamples'
 import AuditForm from '@/components/AuditForm'
 import Services from '@/components/Services'
 import HowWeWork from '@/components/HowWeWork'
@@ -33,6 +34,7 @@ export default async function HomePage({ params }: Props) {
       <Pains />
       <Ecosystem />
       <CaseStudy />
+      <CallSamples />
       <AuditForm />
       <Services />
       <HowWeWork />

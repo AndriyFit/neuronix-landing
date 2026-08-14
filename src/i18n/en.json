@@ -224,6 +224,43 @@
       }
     ]
   },
+  "calls": {
+    "title": "Hear how it sounds",
+    "subtitle": "Recordings of our voice agent at work. It calls the customer itself, confirms the order and delivery details — no manager involved.",
+    "note": "One such call costs about half a cent. A manager covering the same ground starts at $700 a month.",
+    "items": [
+      {
+        "label": "Call 1",
+        "duration": "0:30",
+        "src": "/audio/call-1.mp3"
+      },
+      {
+        "label": "Call 2",
+        "duration": "1:06",
+        "src": "/audio/call-2.mp3"
+      },
+      {
+        "label": "Call 3",
+        "duration": "0:57",
+        "src": "/audio/call-3.mp3"
+      },
+      {
+        "label": "Call 4",
+        "duration": "0:49",
+        "src": "/audio/call-4.mp3"
+      },
+      {
+        "label": "Call 5",
+        "duration": "1:18",
+        "src": "/audio/call-5.mp3"
+      },
+      {
+        "label": "Call 6",
+        "duration": "1:46",
+        "src": "/audio/call-6.mp3"
+      }
+    ]
+  },
   "audit": {
     "title": "Not ready for a big project?",
     "subtitle": "Send us your site's URL — we'll look at it and tell you what can be automated and where you're losing leads. Free, no strings attached.",
