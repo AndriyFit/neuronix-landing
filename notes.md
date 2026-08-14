@@ -171,3 +171,4 @@ Append-only. Найновіше зверху.
 - Телефон із презентації прибрано на прохання власника, контакт — Telegram-бот.
 - Опубліковано на `partners.neuronics.work` і `neuronics.work/cornix` + копія-артефакт на claude.ai.
 - 2026-08-14 17:07: Розгорнув офертну презентацію-кейс для Cornix-партнерів — 3 дзвінки в HTML, 21 КБ, на neuronics.work/cornix
+- 2026-08-14 17:25: Розгорнув Cornix-презентацію на partners.neuronics.work — audio-файли, маршрут + noindex, бренд оновлено
