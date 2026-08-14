@@ -249,16 +249,37 @@ Consent Mode (той на JS), тобто для відвідувачів з Є�
 | Подія | Звідки | Payload |
 |---|---|---|
 | `generate_lead` | `Contact.tsx`, `AuditForm.tsx` — після `res.ok` | `form_type: 'contact' \| 'audit'` |
-| клік у Telegram | **коду немає** | тригер GTM «Click - Just Links», `Click URL contains t.me` |
+| `telegram_click` | **коду немає** | тригер GTM «Click - Just Links», `Click URL contains t.me` |
+| `phone_click` | **коду немає** (з 2026-08-14) | тригер GTM «Phone click», `Click URL contains tel:` |
 
 Посилань на `t.me` на сайті ~15, частина захардкоджена в блозі й політиці. Тому клік ловиться
 вбудованим тригером GTM, а не обробниками в коді — нових посилань це теж стосується автоматично.
 
 ⚠️ ЗАСТАРІЛО (2026-08-14): раніше тут стояло «дзвінки як конверсія неможливі — у коді немає
-жодного `tel:`». Телефон додано у футер (`tel:+380685026199`). Але **конверсія з нього ще
-не заведена** — потрібен тригер у GTM на клік по `tel:`-посиланню, за тим самим патерном,
-що й Telegram («Click - Just Links», `Click URL contains tel:`). Див. «Google Ads: сайт як
-посадкова».
+жодного `tel:`». Телефон у футері (`tel:+380685026199`), конверсія заведена — див. нижче.
+
+### Конверсія «дзвінок» (2026-08-14)
+
+Ланцюжок з трьох ланок, усі три вже на місці:
+
+| Ланка | Що саме |
+|---|---|
+| GTM | тригер `Phone click` (Клік — Лише посилання, `{{Click URL}}` містить `tel:`) → тег `GA4 Event - phone_click` (`G-FNZ46Q88EW`). Опубліковано **версією 3** |
+| GA4 | key event `phone_click`, `countingMethod: ONCE_PER_SESSION` (id 15436831105) |
+| Google Ads | conversion action `phone_click` id `7720846699`, `GOOGLE_ANALYTICS_4_CUSTOM`, `ENABLED`, категорія `PHONE_CALL_LEAD` |
+
+⚠️ **`PHONE_CALL_LEAD` — biddable, тобто дзвінки ВХОДЯТЬ у метрику «Конверсії»** і керуватимуть
+Smart Bidding при переході з Maximize Clicks. Це свідомо інакше, ніж з `telegram_click`
+(категорія `CONTACT`, виведена з метрики 13.08): клік по `tel:` — чистіший сигнал наміру,
+бо посилання одне й у футері, тоді як на `t.me` посилань ~15, включно з блогом і політикою.
+Захочеш вирівняти з Telegram — треба зняти `biddable` з цілі `PHONE_CALL_LEAD`, а не чіпати
+саму дію.
+
+`ONCE_PER_SESSION` у GA4 — щоб повторний клік («не додзвонився, тисну ще раз») не рахувався
+двічі. Решта подій у property — `ONCE_PER_EVENT`.
+
+Перевірка, що працює: `curl -s "https://www.googletagmanager.com/gtm.js?id=GTM-N4MBTL2W" | grep -c phone_click`
+має дати ≥1 (тобто опублікована версія роздається), далі — GA4 Realtime після реального кліку з телефона.
 
 ### Consent Mode v2
 
