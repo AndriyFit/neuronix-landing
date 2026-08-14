@@ -30,6 +30,9 @@ export default function Footer() {
         <a href="mailto:fitlife2404@gmail.com" className="footer-email">
           {t('email')}
         </a>
+        <a href="tel:+380685026199" className="footer-phone">
+          {t('phone')}
+        </a>
       </div>
     </footer>
   )

@@ -12,6 +12,7 @@ export function getOrganizationSchema() {
       contactType: 'sales',
       availableLanguage: ['Ukrainian', 'English'],
       email: 'fitlife2404@gmail.com',
+      telephone: '+380685026199',
       url: 'https://t.me/neuronixjhbot',
     },
     sameAs: ['https://t.me/neuronixjhbot'],
@@ -27,6 +28,7 @@ export function getLocalBusinessSchema() {
     image: `${SITE_URL}/favicon.svg`,
     url: SITE_URL,
     priceRange: '$$',
+    telephone: '+380685026199',
     address: {
       '@type': 'PostalAddress',
       addressLocality: 'Львів',

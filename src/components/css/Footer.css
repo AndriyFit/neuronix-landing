@@ -30,7 +30,8 @@
 }
 
 .footer-tg,
-.footer-email {
+.footer-email,
+.footer-phone {
   font-size: 0.8rem;
   color: var(--primary);
   text-decoration: none;
@@ -38,7 +39,8 @@
 }
 
 .footer-tg:hover,
-.footer-email:hover { text-decoration: underline; }
+.footer-email:hover,
+.footer-phone:hover { text-decoration: underline; }
 
 .footer-privacy {
   font-size: 0.8rem;
@@ -68,7 +70,8 @@
   }
   .footer-privacy,
   .footer-tg,
-  .footer-email {
+  .footer-email,
+  .footer-phone {
     padding: 0.5rem 0;
     min-height: 44px;
     display: inline-flex;
