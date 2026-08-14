@@ -1,7 +1,7 @@
 {
   "metadata": {
     "title": "Website & E-commerce Development — Neuronix",
-    "description": "Websites, online stores and business automation. Your store, CRM, accounting and marketplaces exchange data on their own. From $350, launch in 10 days."
+    "description": "Websites, online stores and business automation. Your store, CRM, accounting and marketplaces exchange data on their own. From $350, landing page in 5–10 days."
   },
   "nav": {
     "services": "Services",
@@ -18,12 +18,12 @@
     "titleStart": "Websites and ",
     "titleHighlight": "online stores",
     "titleEnd": " built end to end",
-    "subtitle": "From $350, launch in 10 days. Not a standalone site — a system where your store, CRM, accounting and marketplaces exchange data on their own.",
+    "subtitle": "From $350, landing page in 5–10 days. Not a standalone site — a system where your store, CRM, accounting and marketplaces exchange data on their own.",
     "ctaPrimary": "Get a quote",
     "ctaSecondary": "Message on Telegram",
     "telegramUrl": "https://t.me/neuronixjhbot",
     "trust": [
-      "We reply within an hour",
+      "We reply during business hours",
       "Written contract",
       "12-month warranty"
     ],
@@ -42,7 +42,7 @@
         "label": "products moving between accounting, site and marketplaces"
       },
       {
-        "metric": "5 days",
+        "metric": "5–10 days",
         "label": "from brief to landing page launch"
       },
       {
@@ -233,7 +233,7 @@
     "error": "Something went wrong. Message us directly on Telegram.",
     "errorUrl": "Enter a link to your site",
     "errorContact": "Tell us how to reach you",
-    "note": "We reply within one business day",
+    "note": "We reply during business hours",
     "consent": "By submitting the form you agree to the processing of your personal data under our",
     "consentLink": "Privacy Policy"
   },
@@ -277,7 +277,7 @@
       },
       {
         "question": "Why more expensive than a freelancer?",
-        "answer": "Because the price includes a contract, a 12-month warranty, configured analytics and support. A freelancer is cheaper right up until they disappear — then you pay twice for the same thing."
+        "answer": "Because the price includes a contract, a 12-month warranty, configured analytics and support. The warranty means we fix defects in the delivered code free of charge for 12 months, while new features are built by separate agreement. A freelancer is cheaper right up until they disappear — then you pay twice for the same thing."
       },
       {
         "question": "What does post-launch support include?",
@@ -303,7 +303,7 @@
   },
   "contact": {
     "title": "Tell us about your project",
-    "subtitle": "We reply within an hour during business hours. The consultation is free — if we're not the right fit, we'll point you to someone who is.",
+    "subtitle": "We reply during business hours. The consultation is free — if we're not the right fit, we'll point you to someone who is.",
     "telegramLabel": "Message on Telegram",
     "telegramUrl": "https://t.me/neuronixjhbot",
     "orLabel": "or fill in the form",
@@ -313,7 +313,7 @@
       "message": "Briefly about the project",
       "submit": "Send request",
       "submitting": "Sending...",
-      "success": "Thank you! We'll get back to you within an hour.",
+      "success": "Thank you! We'll get back to you during business hours.",
       "error": "Something went wrong. Message us directly on Telegram.",
       "errorName": "Enter your name",
       "errorPhone": "Enter a phone or email"
@@ -329,6 +329,7 @@
   "footer": {
     "copy": "© 2026 Neuronix. All rights reserved.",
     "telegram": "Telegram",
+    "email": "fitlife2404@gmail.com",
     "privacy": "Privacy Policy",
     "servicesTitle": "Services"
   },

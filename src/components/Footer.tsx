@@ -27,6 +27,9 @@ export default function Footer() {
         <a href="https://t.me/neuronixjhbot" className="footer-tg" target="_blank" rel="noopener noreferrer">
           {t('telegram')}
         </a>
+        <a href="mailto:fitlife2404@gmail.com" className="footer-email">
+          {t('email')}
+        </a>
       </div>
     </footer>
   )

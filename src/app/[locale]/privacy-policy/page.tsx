@@ -53,21 +53,25 @@ function PrivacyUk() {
       </p>
       <ul style={{ paddingLeft: '1.5rem', lineHeight: 1.8 }}>
         <li>
-          <strong>Найменування:</strong> Neuronix — ФОП Удич Євген Богданович
-        </li>
-        <li>
-          <strong>Реєстраційний номер (ІПН):</strong> 3214711093
-        </li>
-        <li>
-          <strong>Адреса:</strong> м. Львів, вул. Скрипника 2, Львівська обл., Україна
+          <strong>Найменування:</strong> Neuronix
         </li>
         <li>
           <strong>Веб-сайт:</strong> neuronics.work
         </li>
         <li>
+          <strong>Email:</strong>{' '}
+          <a href="mailto:fitlife2404@gmail.com" style={{ color: 'var(--primary)' }}>
+            fitlife2404@gmail.com
+          </a>
+        </li>
+        <li>
           <strong>Контакт DPO:</strong>{' '}
           <a href="https://t.me/neuronixjhbot" style={{ color: 'var(--primary)' }}>
             @neuronixjhbot у Telegram
+          </a>{' '}
+          або{' '}
+          <a href="mailto:fitlife2404@gmail.com" style={{ color: 'var(--primary)' }}>
+            fitlife2404@gmail.com
           </a>
         </li>
       </ul>
@@ -85,8 +89,12 @@ function PrivacyUk() {
         <li>Зміст повідомлення (опис вашого запиту)</li>
       </ul>
       <p style={{ marginTop: '0.75rem' }}>
-        Ми <strong>не збираємо</strong> автоматично жодних персональних даних
-        (IP-адреси, унікальних ідентифікаторів тощо) без вашої явної згоди.
+        Крім того, аналітичні та рекламні сервіси автоматично збирають технічні
+        ідентифікатори (файли cookie, ідентифікатор клієнта, IP-адресу). Для
+        відвідувачів з ЄЕЗ, Великої Британії та Швейцарії такі cookie не
+        встановлюються до отримання вашої згоди. Для решти відвідувачів вони
+        встановлюються за замовчуванням, і від них можна відмовитись через
+        банер на сайті (див. розділ 5).
       </p>
 
       <h2 style={{ fontSize: '1.25rem', fontWeight: 600, marginTop: '2rem', marginBottom: '0.75rem' }}>
@@ -130,8 +138,11 @@ function PrivacyUk() {
         <li>
           <strong>Постачальники аналітики та реклами</strong> — Microsoft Clarity,
           Google Analytics, Google Ads і Google Tag Manager. Їм передаються
-          знеособлені дані про поведінку на сайті (перегляди сторінок, кліки,
-          джерело переходу, тип пристрою), а не вміст форм зворотного зв'язку.
+          унікальні ідентифікатори (файли cookie, ідентифікатор клієнта Google
+          Analytics, параметр gclid Google Ads), IP-адреса, дані про поведінку на
+          сайті (перегляди сторінок, кліки, джерело переходу, тип пристрою), а
+          Microsoft Clarity також веде записи сесій. Вміст форм зворотного
+          зв'язку їм не передається.
           Обробка здійснюється відповідно до{' '}
           <a
             href="https://privacy.microsoft.com/privacystatement"
@@ -225,6 +236,10 @@ function PrivacyUk() {
         Telegram:{' '}
         <a href="https://t.me/neuronixjhbot" style={{ color: 'var(--primary)' }}>
           @neuronixjhbot
+        </a>{' '}
+        або електронною поштою:{' '}
+        <a href="mailto:fitlife2404@gmail.com" style={{ color: 'var(--primary)' }}>
+          fitlife2404@gmail.com
         </a>
         . Ми розглянемо ваш запит і відповімо протягом 30 календарних днів.
       </p>
@@ -246,6 +261,10 @@ function PrivacyUk() {
         З питань захисту персональних даних звертайтеся безпосередньо до:{' '}
         <a href="https://t.me/neuronixjhbot" style={{ color: 'var(--primary)' }}>
           @neuronixjhbot (Telegram)
+        </a>{' '}
+        або{' '}
+        <a href="mailto:fitlife2404@gmail.com" style={{ color: 'var(--primary)' }}>
+          fitlife2404@gmail.com
         </a>
       </p>
 
@@ -289,21 +308,25 @@ function PrivacyEn() {
       <p>This Privacy Policy applies to personal data processed by:</p>
       <ul style={{ paddingLeft: '1.5rem', lineHeight: 1.8 }}>
         <li>
-          <strong>Name:</strong> Neuronix — sole proprietor Yevhen Udych
-        </li>
-        <li>
-          <strong>Tax ID (ІПН):</strong> 3214711093
-        </li>
-        <li>
-          <strong>Address:</strong> 2 Skrypnyka St., Lviv, Lviv region, Ukraine
+          <strong>Name:</strong> Neuronix
         </li>
         <li>
           <strong>Website:</strong> neuronics.work
         </li>
         <li>
+          <strong>Email:</strong>{' '}
+          <a href="mailto:fitlife2404@gmail.com" style={{ color: 'var(--primary)' }}>
+            fitlife2404@gmail.com
+          </a>
+        </li>
+        <li>
           <strong>DPO contact:</strong>{' '}
           <a href="https://t.me/neuronixjhbot" style={{ color: 'var(--primary)' }}>
             @neuronixjhbot on Telegram
+          </a>{' '}
+          or{' '}
+          <a href="mailto:fitlife2404@gmail.com" style={{ color: 'var(--primary)' }}>
+            fitlife2404@gmail.com
           </a>
         </li>
       </ul>
@@ -321,8 +344,11 @@ function PrivacyEn() {
         <li>Message content (description of your request)</li>
       </ul>
       <p style={{ marginTop: '0.75rem' }}>
-        We do <strong>not</strong> automatically collect any personal data (IP
-        addresses, unique identifiers, etc.) without your explicit consent.
+        In addition, our analytics and advertising services automatically collect
+        technical identifiers (cookies, client identifier, IP address). For
+        visitors from the EEA, the United Kingdom and Switzerland such cookies are
+        not set before your consent is given. For all other visitors they are set
+        by default, and you can opt out via the banner on the site (see Section 5).
       </p>
 
       <h2 style={{ fontSize: '1.25rem', fontWeight: 600, marginTop: '2rem', marginBottom: '0.75rem' }}>
@@ -365,8 +391,11 @@ function PrivacyEn() {
         <li>
           <strong>Analytics and advertising providers</strong> — Microsoft Clarity,
           Google Analytics, Google Ads and Google Tag Manager. They receive
-          de-identified behavioural data (page views, clicks, referral source,
-          device type), not the contents of your contact form submissions.
+          unique identifiers (cookies, the Google Analytics client identifier, the
+          Google Ads gclid parameter), your IP address and behavioural data (page
+          views, clicks, referral source, device type), and Microsoft Clarity also
+          records session replays. The contents of your contact form submissions
+          are not shared with them.
           Processing is governed by the{' '}
           <a
             href="https://privacy.microsoft.com/privacystatement"
@@ -459,6 +488,10 @@ function PrivacyEn() {
         To exercise any of these rights, please contact us via Telegram:{' '}
         <a href="https://t.me/neuronixjhbot" style={{ color: 'var(--primary)' }}>
           @neuronixjhbot
+        </a>{' '}
+        or by email:{' '}
+        <a href="mailto:fitlife2404@gmail.com" style={{ color: 'var(--primary)' }}>
+          fitlife2404@gmail.com
         </a>
         . We will respond to your request within 30 calendar days.
       </p>
@@ -479,6 +512,10 @@ function PrivacyEn() {
         For data protection inquiries, please contact:{' '}
         <a href="https://t.me/neuronixjhbot" style={{ color: 'var(--primary)' }}>
           @neuronixjhbot (Telegram)
+        </a>{' '}
+        or{' '}
+        <a href="mailto:fitlife2404@gmail.com" style={{ color: 'var(--primary)' }}>
+          fitlife2404@gmail.com
         </a>
       </p>
 

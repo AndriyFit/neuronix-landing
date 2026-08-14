@@ -29,14 +29,16 @@
   color: var(--text-muted);
 }
 
-.footer-tg {
+.footer-tg,
+.footer-email {
   font-size: 0.8rem;
   color: var(--primary);
   text-decoration: none;
   font-weight: 500;
 }
 
-.footer-tg:hover { text-decoration: underline; }
+.footer-tg:hover,
+.footer-email:hover { text-decoration: underline; }
 
 .footer-privacy {
   font-size: 0.8rem;
@@ -65,7 +67,8 @@
     line-height: 1.5;
   }
   .footer-privacy,
-  .footer-tg {
+  .footer-tg,
+  .footer-email {
     padding: 0.5rem 0;
     min-height: 44px;
     display: inline-flex;

@@ -7,6 +7,7 @@ import './css/Services.css'
 export default function Services({ namespace = 'services' }: { namespace?: string }) {
   const sectionRef = useRef<HTMLElement>(null)
   const t = useTranslations(namespace)
+  const tCta = useTranslations('services')
   const locale = useLocale()
   const items = t.raw('items') as Array<{
     icon: string
@@ -55,11 +56,11 @@ export default function Services({ namespace = 'services' }: { namespace?: strin
                 <span className="service-price">{item.price}</span>
                 {item.href ? (
                   <Link className="service-cta" href={`/${locale}${item.href}`}>
-                    {t('more')}
+                    {tCta('more')}
                   </Link>
                 ) : (
                   <button className="service-cta" onClick={scrollToContact}>
-                    {t('more')}
+                    {tCta('more')}
                   </button>
                 )}
               </div>
