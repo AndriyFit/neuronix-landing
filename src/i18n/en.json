@@ -154,11 +154,13 @@
       },
       {
         "role": "Tech Lead",
+        "name": "Oleh",
         "note": "Solution architecture and integrations: accounting, CRM, marketplaces, telephony, shipping.",
         "photo": "/team/techlead.webp"
       },
       {
         "role": "Delivery",
+        "name": "Oksana",
         "note": "Stages, regular updates, staging environment, handover with documentation.",
         "photo": "/team/delivery.webp"
       },
