@@ -1,36 +1,17 @@
 'use client'
-import { useEffect, useRef } from 'react'
 import { preload } from 'react-dom'
 import { useTranslations } from 'next-intl'
+import { useVideoAutoplay } from '@/lib/useVideoAutoplay'
 import './css/Hero.css'
 
 export default function Hero() {
   const t = useTranslations('hero')
   const trust = t.raw('trust') as string[]
-  const videoRef = useRef<HTMLVideoElement>(null)
+  const videoRef = useVideoAutoplay()
 
   // Постер ролика — LCP-елемент на мобільному. Браузер тягне poster низьким
   // пріоритетом і пізно, тому без цього LCP просідав із 1,9с до 2,8с.
   preload('/hero/hub-poster.webp', { as: 'image', fetchPriority: 'high' })
-
-  // Ролик не автоплеїться: preload="none" тримає 388 КБ поза критичним шляхом,
-  // а на мобільному він узагалі під згином — вантажиться, лише коли до нього доїхали.
-  useEffect(() => {
-    const video = videoRef.current
-    if (!video) return
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (!entry.isIntersecting) return
-        video.play().catch(() => {})
-        observer.disconnect()
-      },
-      { threshold: 0.25, root: document.getElementById('page-scroll') },
-    )
-    observer.observe(video)
-    return () => observer.disconnect()
-  }, [])
 
   const scrollToContact = () => {
     document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })

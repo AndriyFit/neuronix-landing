@@ -1,6 +1,7 @@
 'use client'
 import { useTranslations } from 'next-intl'
 import { useScrollReveal } from '@/lib/useScrollReveal'
+import { useVideoAutoplay } from '@/lib/useVideoAutoplay'
 import './css/Team.css'
 
 interface Member {
@@ -24,6 +25,7 @@ export default function Team() {
   const t = useTranslations('team')
   const members = t.raw('members') as Member[]
   const ref = useScrollReveal<HTMLElement>()
+  const videoRef = useVideoAutoplay()
 
   return (
     <section id="team" className="team" ref={ref}>
@@ -41,7 +43,7 @@ export default function Team() {
               <div className="team-avatar">
                 {member.video ? (
                   <video
-                    autoPlay
+                    ref={videoRef}
                     loop
                     muted
                     playsInline
