@@ -60,8 +60,8 @@ function PrivacyUk() {
         </li>
         <li>
           <strong>Email:</strong>{' '}
-          <a href="mailto:fitlife2404@gmail.com" style={{ color: 'var(--primary)' }}>
-            fitlife2404@gmail.com
+          <a href="mailto:hello@neuronics.work" style={{ color: 'var(--primary)' }}>
+            hello@neuronics.work
           </a>
         </li>
         <li>
@@ -70,8 +70,8 @@ function PrivacyUk() {
             @neuronixjhbot у Telegram
           </a>{' '}
           або{' '}
-          <a href="mailto:fitlife2404@gmail.com" style={{ color: 'var(--primary)' }}>
-            fitlife2404@gmail.com
+          <a href="mailto:hello@neuronics.work" style={{ color: 'var(--primary)' }}>
+            hello@neuronics.work
           </a>
         </li>
       </ul>
@@ -238,8 +238,8 @@ function PrivacyUk() {
           @neuronixjhbot
         </a>{' '}
         або електронною поштою:{' '}
-        <a href="mailto:fitlife2404@gmail.com" style={{ color: 'var(--primary)' }}>
-          fitlife2404@gmail.com
+        <a href="mailto:hello@neuronics.work" style={{ color: 'var(--primary)' }}>
+          hello@neuronics.work
         </a>
         . Ми розглянемо ваш запит і відповімо протягом 30 календарних днів.
       </p>
@@ -263,8 +263,8 @@ function PrivacyUk() {
           @neuronixjhbot (Telegram)
         </a>{' '}
         або{' '}
-        <a href="mailto:fitlife2404@gmail.com" style={{ color: 'var(--primary)' }}>
-          fitlife2404@gmail.com
+        <a href="mailto:hello@neuronics.work" style={{ color: 'var(--primary)' }}>
+          hello@neuronics.work
         </a>
       </p>
 
@@ -315,8 +315,8 @@ function PrivacyEn() {
         </li>
         <li>
           <strong>Email:</strong>{' '}
-          <a href="mailto:fitlife2404@gmail.com" style={{ color: 'var(--primary)' }}>
-            fitlife2404@gmail.com
+          <a href="mailto:hello@neuronics.work" style={{ color: 'var(--primary)' }}>
+            hello@neuronics.work
           </a>
         </li>
         <li>
@@ -325,8 +325,8 @@ function PrivacyEn() {
             @neuronixjhbot on Telegram
           </a>{' '}
           or{' '}
-          <a href="mailto:fitlife2404@gmail.com" style={{ color: 'var(--primary)' }}>
-            fitlife2404@gmail.com
+          <a href="mailto:hello@neuronics.work" style={{ color: 'var(--primary)' }}>
+            hello@neuronics.work
           </a>
         </li>
       </ul>
@@ -490,8 +490,8 @@ function PrivacyEn() {
           @neuronixjhbot
         </a>{' '}
         or by email:{' '}
-        <a href="mailto:fitlife2404@gmail.com" style={{ color: 'var(--primary)' }}>
-          fitlife2404@gmail.com
+        <a href="mailto:hello@neuronics.work" style={{ color: 'var(--primary)' }}>
+          hello@neuronics.work
         </a>
         . We will respond to your request within 30 calendar days.
       </p>
@@ -514,8 +514,8 @@ function PrivacyEn() {
           @neuronixjhbot (Telegram)
         </a>{' '}
         or{' '}
-        <a href="mailto:fitlife2404@gmail.com" style={{ color: 'var(--primary)' }}>
-          fitlife2404@gmail.com
+        <a href="mailto:hello@neuronics.work" style={{ color: 'var(--primary)' }}>
+          hello@neuronics.work
         </a>
       </p>
 

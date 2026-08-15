@@ -27,7 +27,7 @@ export default function Footer() {
         <a href="https://t.me/neuronixjhbot" className="footer-tg" target="_blank" rel="noopener noreferrer">
           {t('telegram')}
         </a>
-        <a href="mailto:fitlife2404@gmail.com" className="footer-email">
+        <a href="mailto:hello@neuronics.work" className="footer-email">
           {t('email')}
         </a>
         <a href="tel:+380685026199" className="footer-phone">

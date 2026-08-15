@@ -11,7 +11,7 @@ export function getOrganizationSchema() {
       '@type': 'ContactPoint',
       contactType: 'sales',
       availableLanguage: ['Ukrainian', 'English'],
-      email: 'fitlife2404@gmail.com',
+      email: 'hello@neuronics.work',
       telephone: '+380685026199',
       url: 'https://t.me/neuronixjhbot',
     },
