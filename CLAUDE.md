@@ -441,8 +441,40 @@ Advanced Verification. Розробка сайтів під це не підпа
 ### Контакти — це policy-вимога, не декор
 
 Єдина реальна вимога до нас з боку Misrepresentation — щоб бізнес не виглядав анонімним.
-Закривається видимим контактом: `mailto:fitlife2404@gmail.com` у футері (на кожній
+Закривається видимим контактом: `mailto:hello@neuronics.work` у футері (на кожній
 сторінці) + у розділах 1/7/9 політики, обома мовами.
+
+**Адресу змінено 2026-08-15** з особистої `fitlife2404@gmail.com` на доменну
+`hello@neuronics.work` — 22 входження у 7 файлах: політика (16), футер, schema.org
+(`structured-data.ts`), i18n `uk`/`en`, Cornix-презентація (`public/cornix/index.html`
++ `docs/2026-08-14-cornix-partners-offer.html`). Агенція, що продає сайти, не може
+писатися з безкоштовного Gmail.
+
+### Пошта на домені — Cloudflare Email Routing
+
+`neuronics.work` **приймає** пошту з 2026-08-15. До того MX-записів не було взагалі,
+тобто доменної адреси фізично не існувало.
+
+| Що | Стан |
+|---|---|
+| Провайдер | Cloudflare Email Routing (домен уже в CF, zone `bd84f22dda8fca6f0a9aeea8ddfc345d`) |
+| Вартість | $0 |
+| MX | `route1/2/3.mx.cloudflare.net` |
+| SPF | `v=spf1 include:_spf.mx.cloudflare.net ~all` |
+| DKIM | `cf2024-1._domainkey` |
+| Правило | `hello@neuronics.work` → `fitlife2404@gmail.com` |
+| Catch-all | увімкнено → той самий Gmail (листи на `info@`, `andriy@` не губляться) |
+| Destination | `fitlife2404@gmail.com`, верифікований ще 2026-06-18 |
+
+Перевірено на SMTP-рівні: `RCPT TO:<hello@neuronics.work>` → `250 Ok`,
+довільна адреса на домені → `250 Ok` (catch-all), чужий домен → `550`.
+Тест «лист сам собі» для перевірки НЕ придатний — Gmail дедуплікує за `Message-ID`
+і переслана копія у вхідних не з'являється.
+
+⚠️ **Routing — односторонній: приймати вміє, слати ні.** Щоб відповідати клієнту
+з `hello@neuronics.work`, потрібно Gmail → Settings → Accounts → «Send mail as»
+(код підтвердження прийде на `hello@` через це ж пересилання). Без цього відповідь
+піде з особистого Gmail — і вся заміна адреси втрачає сенс на першій же відповіді.
 
 **Телефон `+380685026199` доданий 2026-08-14** — `tel:` у футері + `telephone` у
 `Organization.contactPoint` і `ProfessionalService` schema. Тобто заява «дзвінки як
