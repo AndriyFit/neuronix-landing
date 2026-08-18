@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { saveLead } from '@/lib/leads'
 
 const GREETING =
   'Вітаємо! Це Neuronix — розробка сайтів, інтеграції та автоматизація.\n\n' +
@@ -55,17 +56,30 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ ok: true })
     }
 
+    const who = [msg.from?.first_name, msg.from?.last_name].filter(Boolean).join(' ') || 'Без імені'
+    const username = msg.from?.username ? ` @${msg.from.username}` : ''
+
     if (msg.text === '/start') {
-      await tg('sendMessage', { chat_id: chatId, text: GREETING })
+      await Promise.allSettled([
+        tg('sendMessage', { chat_id: chatId, text: GREETING }),
+        saveLead({ source: 'telegram_start', name: who, tgChatId: chatId, tgUsername: msg.from?.username }),
+      ])
       return NextResponse.json({ ok: true })
     }
 
-    const who = [msg.from?.first_name, msg.from?.last_name].filter(Boolean).join(' ') || 'Без імені'
-    const username = msg.from?.username ? ` @${msg.from.username}` : ''
-    await tg('sendMessage', {
-      chat_id: owner,
-      text: `💬 ${who}${username} · #id${chatId}\n\n${msg.text ?? '[вкладення нижче]'}`,
-    })
+    await Promise.allSettled([
+      tg('sendMessage', {
+        chat_id: owner,
+        text: `💬 ${who}${username} · #id${chatId}\n\n${msg.text ?? '[вкладення нижче]'}`,
+      }),
+      saveLead({
+        source: 'telegram',
+        name: who,
+        message: msg.text ?? '[вкладення]',
+        tgChatId: chatId,
+        tgUsername: msg.from?.username,
+      }),
+    ])
     if (!msg.text) {
       await tg('copyMessage', { chat_id: owner, from_chat_id: chatId, message_id: msg.message_id })
     }

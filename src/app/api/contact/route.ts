@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { saveLead } from '@/lib/leads'
 
 async function sendTelegram(text: string) {
   const botToken = process.env.TELEGRAM_BOT_TOKEN
@@ -60,11 +61,23 @@ export async function POST(req: NextRequest) {
       .filter(Boolean)
       .join('\n')
 
-    const results = await Promise.allSettled([sendTelegram(text), sendEmail(subject, text)])
-    const delivered = results.some((r) => r.status === 'fulfilled' && r.value)
+    // Storage runs alongside delivery but is excluded from `delivered` on purpose:
+    // a lead that got stored while nobody was notified is still a failed lead.
+    const [tgRes, mailRes] = await Promise.allSettled([
+      sendTelegram(text),
+      sendEmail(subject, text),
+      saveLead({
+        source: isAudit ? 'audit' : 'form',
+        name,
+        contact: phone,
+        message,
+        siteUrl: url,
+      }),
+    ])
+    const delivered = [tgRes, mailRes].some((r) => r.status === 'fulfilled' && r.value)
 
     if (!delivered) {
-      console.error('Lead delivery failed on every channel:', results)
+      console.error('Lead delivery failed on every channel:', [tgRes, mailRes])
       return NextResponse.json({ error: 'Delivery failed' }, { status: 500 })
     }
 
