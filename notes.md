@@ -179,3 +179,4 @@ Append-only. Найновіше зверху.
 - 2026-08-15 14:01: Проаналізував Google Ads Neuronix (2 доби) — обсяг ринку вузьке місце, не ставки, план розширення семантики
 - 2026-08-15 14:33: Налаштував Email Routing Cloudflare, hello@neuronics.work активна — 22 заміни, SMTP OK, MX/SPF/DKIM готові
 - 2026-08-15 14:41: Встановив пошту на neuronics.work через Cloudflare Email Routing — hello@ живе, 22 посилання замінено, код запушено
+- 2026-08-15 14:43: Налаштував Email Routing + замінив адресу на сайті — hello@neuronics.work готова на прод

@@ -9,6 +9,22 @@
 
 ## Зараз
 
+- ✅ 2026-08-18 **Ліди фіксуються в Cloudflare D1** (`neuronix-leads`,
+  `75d3b6c1-0559-4d80-a0cf-38ad0e25065a`, EEUR). Раніше лід жив в одному екземплярі —
+  повідомленням у Telegram. Пишуть обидва шляхи: форма (`api/contact`) і бот
+  (`api/telegram`, включно з `/start`). Модуль `src/lib/leads.ts`, доступ через
+  D1 REST API (Vercel не має binding). Env у Vercel Production виставлені.
+  Лід Тетяни (@tetyanazelencova) внесено вручну — `id=2`.
+
+- 🔲 **Андрію:** звузити `CF_D1_TOKEN`. Зараз там широкий
+  `abertime/cloudflare_api_token`, яким деплояться ВСІ воркери. Потрібен окремий
+  токен лише з `D1:Edit` на `neuronix-leads` → замінити у Vercel + Vault.
+  Через API створити не вийшло — Cloudflare вимагає user-level авторизації.
+
+- ✅ 2026-08-18 **Розібрано «конверсія була, а в Ads не видно»** — трекінг справний,
+  розриву між GA4 і Ads немає. Деталі в розділі нижче.
+
+
 - ✅ 2026-08-15 **Пошта на домені `hello@neuronics.work` піднята** (Cloudflare Email
   Routing, $0). Раніше MX у зоні не було взагалі — доменної адреси не існувало.
   · MX `route1/2/3.mx.cloudflare.net`, SPF `include:_spf.mx.cloudflare.net`, DKIM `cf2024-1`.
