@@ -180,3 +180,4 @@ Append-only. Найновіше зверху.
 - 2026-08-15 14:33: Налаштував Email Routing Cloudflare, hello@neuronics.work активна — 22 заміни, SMTP OK, MX/SPF/DKIM готові
 - 2026-08-15 14:41: Встановив пошту на neuronics.work через Cloudflare Email Routing — hello@ живе, 22 посилання замінено, код запушено
 - 2026-08-15 14:43: Налаштував Email Routing + замінив адресу на сайті — hello@neuronics.work готова на прод
+- 2026-08-18 11:33: Запущено запис лідів у D1 та переведено telegram_click у конверсії Ads — кожна перемовина записується, реклама оптимізується
