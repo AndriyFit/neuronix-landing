@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
+import { track } from '@/lib/analytics'
 import { useForm } from 'react-hook-form'
 import { useLocale, useTranslations } from 'next-intl'
 import Link from 'next/link'
@@ -44,6 +45,9 @@ export default function Contact() {
     return () => observer.disconnect()
   }, [])
 
+  // Перше торкання форми — сигнал наміру; autocapture цього не розрізняє.
+  const startedRef = useRef(false)
+
   const onSubmit = async (data: FormData) => {
     setSubmitError(null)
     try {
@@ -54,10 +58,12 @@ export default function Contact() {
       })
       if (!res.ok) throw new Error('Server error')
       sendGTMEvent({ event: 'generate_lead', form_type: 'contact' })
+      track('form_submitted', { form_id: 'contact', lead_type: 'consultation' })
       setSubmitted(true)
       reset()
       setTimeout(() => setSubmitted(false), 5000)
     } catch {
+      track('form_error', { form_id: 'contact', error_type: 'server' })
       setSubmitError(t('form.error'))
     }
   }
@@ -84,7 +90,22 @@ export default function Contact() {
 
         <p className="contact-or animate-in">{t('orLabel')}</p>
 
-        <form className="contact-form animate-in" onSubmit={handleSubmit(onSubmit)} noValidate>
+        <form
+          className="contact-form animate-in"
+          onSubmit={handleSubmit(onSubmit, (errs) =>
+            track('form_error', {
+              form_id: 'contact',
+              error_type: 'validation',
+              error_field: Object.keys(errs)[0] ?? null,
+            })
+          )}
+          onFocusCapture={() => {
+            if (startedRef.current) return
+            startedRef.current = true
+            track('form_started', { form_id: 'contact' })
+          }}
+          noValidate
+        >
           <div className="contact-field">
             <input
               type="text"

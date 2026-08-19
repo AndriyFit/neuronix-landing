@@ -1,5 +1,6 @@
 'use client'
-import { useState } from 'react'
+import { useRef, useState } from 'react'
+import { track } from '@/lib/analytics'
 import { useForm } from 'react-hook-form'
 import { useLocale, useTranslations } from 'next-intl'
 import Link from 'next/link'
@@ -26,6 +27,9 @@ export default function AuditForm() {
     formState: { errors, isSubmitting },
   } = useForm<AuditData>()
 
+  // Перше торкання форми — сигнал наміру; autocapture цього не розрізняє.
+  const startedRef = useRef(false)
+
   const onSubmit = async (data: AuditData) => {
     setSubmitError(null)
     try {
@@ -36,10 +40,12 @@ export default function AuditForm() {
       })
       if (!res.ok) throw new Error('Server error')
       sendGTMEvent({ event: 'generate_lead', form_type: 'audit' })
+      track('form_submitted', { form_id: 'audit', lead_type: 'audit' })
       setSubmitted(true)
       reset()
       setTimeout(() => setSubmitted(false), 6000)
     } catch {
+      track('form_error', { form_id: 'audit', error_type: 'server' })
       setSubmitError(t('error'))
     }
   }
@@ -53,7 +59,22 @@ export default function AuditForm() {
         {submitted ? (
           <p className="audit-success">{t('success')}</p>
         ) : (
-          <form className="audit-form" onSubmit={handleSubmit(onSubmit)} noValidate>
+          <form
+          className="audit-form"
+          onSubmit={handleSubmit(onSubmit, (errs) =>
+            track('form_error', {
+              form_id: 'audit',
+              error_type: 'validation',
+              error_field: Object.keys(errs)[0] ?? null,
+            })
+          )}
+          onFocusCapture={() => {
+            if (startedRef.current) return
+            startedRef.current = true
+            track('form_started', { form_id: 'audit' })
+          }}
+          noValidate
+        >
             <div className="audit-field">
               <input
                 type="url"

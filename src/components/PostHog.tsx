@@ -1,4 +1,5 @@
 import Script from 'next/script'
+import { POSTHOG_CONSENT_SNIPPET } from '@/lib/consent'
 
 /**
  * PostHog — product-аналітика: воронки, retention, session replay, feature flags.
@@ -22,7 +23,7 @@ posthog.init(${JSON.stringify(key)}, {
   person_profiles: 'identified_only',
   capture_pageview: true,
   capture_pageleave: true
-});`}
+});${POSTHOG_CONSENT_SNIPPET}`}
     </Script>
   )
 }

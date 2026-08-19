@@ -2,6 +2,11 @@ declare global {
   interface Window {
     gtag?: (...args: unknown[]) => void
     clarity?: (...args: unknown[]) => void
+    posthog?: {
+      capture?: (event: string, props?: Record<string, unknown>) => void
+      opt_in_capturing?: () => void
+      opt_out_capturing?: () => void
+    }
   }
 }
 
@@ -45,6 +50,9 @@ const clarityConsent = (granted: boolean) => {
 export function updateConsent(granted: boolean) {
   window.gtag?.('consent', 'update', signals(granted ? 'granted' : 'denied'))
   window.clarity?.('consentv2', clarityConsent(granted))
+  // PostHog, на відміну від Clarity, сам ЄЕЗ не блокує — рішення приймаємо тільки ми.
+  if (granted) window.posthog?.opt_in_capturing?.()
+  else window.posthog?.opt_out_capturing?.()
 }
 
 /**
@@ -60,4 +68,22 @@ export const CLARITY_CONSENT_REPLAY_SNIPPET = [
   `try{var c=localStorage.getItem('${CONSENT_STORAGE_KEY}');`,
   `if(c==='accepted'||c==='declined'){var v=c==='accepted'?'granted':'denied';`,
   `clarity('consentv2',{ad_Storage:v,analytics_Storage:v})}}catch(e){}`,
+].join('')
+
+/**
+ * Те саме, що CLARITY_CONSENT_REPLAY_SNIPPET, але для PostHog: повторює збережений
+ * вибір при кожному завантаженні, інакше відмова діяла б лише в тій сесії, де людина
+ * клікнула банер.
+ *
+ * Асиметрія з Clarity навмисна. Clarity сам тримає ЄЕЗ/UK/CH без згоди, PostHog — ні,
+ * тому тут глушимо ЛИШЕ явну відмову. Відсутність вибору = капчуримо, як і GA поза
+ * STRICT_REGIONS: основний ринок — Україна, і глушити її до кліку по банеру означало б
+ * втратити вимірювання там, де крутиться бюджет Ads.
+ *
+ * ponytail: гео-детекції тут немає — кампанія таргетована на UA (geo 2804), відвідувачів
+ * з ЄЕЗ одиниці. Знадобиться ЄЕЗ-трафік — вмикати opt_out_capturing_by_default + opt-in.
+ */
+export const POSTHOG_CONSENT_SNIPPET = [
+  `try{if(localStorage.getItem('${CONSENT_STORAGE_KEY}')==='declined')`,
+  `{posthog.opt_out_capturing()}}catch(e){}`,
 ].join('')
