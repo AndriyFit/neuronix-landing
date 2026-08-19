@@ -186,3 +186,4 @@ Append-only. Найновіше зверху.
 - 2026-08-19 10:53: Інтегрував PostHog у три проєкти — MCP встановлено, трекінг у коді, ключі в Vault (565688-90)
 - 2026-08-19 11:31: Задеплоїв PostHog на Neuronix/Trembita — error tracking, flags, LLM-costs видимі; Kermo блокує Railway
 - 2026-08-19 12:06: Інтегрував PostHog у Trembita й Neuronix — лог помилок, витрати LLM, моніторинг з 26.07
+- 2026-08-19 14:51: Налаштував PostHog: consent механізм + события форми + privacy policy — конверсії у Ads безпечні
