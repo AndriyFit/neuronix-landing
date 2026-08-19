@@ -18,6 +18,7 @@ import Navbar from '@/components/Navbar'
 import AnimatedBackground from '@/components/AnimatedBackground'
 import StickyCta from '@/components/StickyCta'
 import Clarity from '@/components/Clarity'
+import PostHog from '@/components/PostHog'
 import CookieConsent from '@/components/CookieConsent'
 import DeferredGTM from '@/components/DeferredGTM'
 import '@/styles/variables.css'
@@ -111,6 +112,7 @@ export default async function LocaleLayout({
           <CookieConsent />
         </NextIntlClientProvider>
         <Clarity />
+        <PostHog />
       </body>
     </html>
   )
