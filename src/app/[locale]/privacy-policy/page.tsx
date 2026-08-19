@@ -136,23 +136,23 @@ function PrivacyUk() {
           .
         </li>
         <li>
-          <strong>Постачальники аналітики та реклами</strong> — Microsoft Clarity,
-          PostHog, Google Analytics, Google Ads і Google Tag Manager. Їм передаються
+          <strong>Постачальники аналітики та реклами</strong> — PostHog,
+          Google Analytics, Google Ads і Google Tag Manager. Їм передаються
           унікальні ідентифікатори (файли cookie, ідентифікатор клієнта Google
           Analytics, параметр gclid Google Ads), IP-адреса, дані про поведінку на
-          сайті (перегляди сторінок, кліки, джерело переходу, тип пристрою), а
-          Microsoft Clarity також веде записи сесій. PostHog отримує знеособлені
-          події взаємодії з формою — початок заповнення, відправлення, помилку
-          валідації та назву поля, у якому вона виникла; записи сесій у PostHog
-          вимкнені. Вміст форм зворотного зв'язку їм не передається.
+          сайті (перегляди сторінок, кліки, джерело переходу, тип пристрою).
+          PostHog додатково отримує знеособлені події взаємодії з формою — початок
+          заповнення, відправлення, помилку валідації та назву поля, у якому вона
+          виникла; записи сесій у PostHog вимкнені. Вміст форм зворотного
+          зв'язку їм не передається.
           Обробка здійснюється відповідно до{' '}
           <a
-            href="https://privacy.microsoft.com/privacystatement"
+            href="https://posthog.com/privacy"
             target="_blank"
             rel="noopener noreferrer"
             style={{ color: 'var(--primary)' }}
           >
-            Заяви Microsoft про конфіденційність
+            Політики конфіденційності PostHog
           </a>{' '}
           та{' '}
           <a
@@ -391,23 +391,23 @@ function PrivacyEn() {
           .
         </li>
         <li>
-          <strong>Analytics and advertising providers</strong> — Microsoft Clarity,
-          PostHog, Google Analytics, Google Ads and Google Tag Manager. They receive
+          <strong>Analytics and advertising providers</strong> — PostHog,
+          Google Analytics, Google Ads and Google Tag Manager. They receive
           unique identifiers (cookies, the Google Analytics client identifier, the
           Google Ads gclid parameter), your IP address and behavioural data (page
-          views, clicks, referral source, device type), and Microsoft Clarity also
-          records session replays. PostHog receives anonymised form-interaction
-          events — form started, submitted, and validation errors together with the
-          name of the field that failed; session replay in PostHog is disabled. The
-          contents of your contact form submissions are not shared with them.
+          views, clicks, referral source, device type). PostHog additionally receives
+          anonymised form-interaction events — form started, submitted, and validation
+          errors together with the name of the field that failed; session replay in
+          PostHog is disabled. The contents of your contact form submissions are not
+          shared with them.
           Processing is governed by the{' '}
           <a
-            href="https://privacy.microsoft.com/privacystatement"
+            href="https://posthog.com/privacy"
             target="_blank"
             rel="noopener noreferrer"
             style={{ color: 'var(--primary)' }}
           >
-            Microsoft Privacy Statement
+            PostHog Privacy Policy
           </a>{' '}
           and the{' '}
           <a

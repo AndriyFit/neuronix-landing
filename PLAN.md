@@ -35,7 +35,8 @@
 - Деталі: `docs/2026-08-04-conversion-blueprint.md`
 
 ## Фаза 5 — Аналітика й SEO-гігієна  ✅ (2026-08-05)
-- ✅ Microsoft Clarity (`NEXT_PUBLIC_CLARITY_ID`) + Consent Mode v2 (region-scoped)
+- ⚠️ ~~Microsoft Clarity (`NEXT_PUBLIC_CLARITY_ID`)~~ — прибрано 2026-08-19 як дубль PostHog.
+  Consent Mode v2 (region-scoped) лишається, PostHog підключений до того ж механізму згоди.
 - ✅ GTM як єдиний завантажувач Google-тегів (GA4 + Ads всередині контейнера)
 - ✅ Прибрано дублі блогу (`/en/blog/*` → 308 на `/uk`), додано `og:image`, `noindex`-сторінки
   прибрано зі sitemap

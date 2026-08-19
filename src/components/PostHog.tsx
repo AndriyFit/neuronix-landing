@@ -3,9 +3,10 @@ import { POSTHOG_CONSENT_SNIPPET } from '@/lib/consent'
 
 /**
  * PostHog — product-аналітика: воронки, retention, session replay, feature flags.
- * Доповнює GTM/GA4 (трафік і реклама) і Clarity (теплові карти), не замінює їх.
+ * Доповнює GTM/GA4 (трафік і реклама), не замінює їх. Clarity прибрано 2026-08-19
+ * як дубль: теплові карти й записи сесій дає сам PostHog.
  *
- * Renders nothing unless NEXT_PUBLIC_POSTHOG_KEY is set — той самий патерн, що в Clarity:
+ * Renders nothing unless NEXT_PUBLIC_POSTHOG_KEY is set:
  * локальні й preview-збірки лишаються без трекінгу, доки ключ не заданий у Vercel.
  * Ключ phc_ публічний за призначенням (їде в браузер), тому в env, а не в Vault-only.
  */

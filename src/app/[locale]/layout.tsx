@@ -17,7 +17,6 @@ import {
 import Navbar from '@/components/Navbar'
 import AnimatedBackground from '@/components/AnimatedBackground'
 import StickyCta from '@/components/StickyCta'
-import Clarity from '@/components/Clarity'
 import PostHog from '@/components/PostHog'
 import CookieConsent from '@/components/CookieConsent'
 import DeferredGTM from '@/components/DeferredGTM'
@@ -89,7 +88,6 @@ export default async function LocaleLayout({
         {/* Заздалегідь відкриваємо зʼєднання до аналітики: інакше кожен зі скриптів
             платить DNS + TLS уже після того, як його зустрів парсер. */}
         <link rel="preconnect" href="https://www.googletagmanager.com" />
-        <link rel="preconnect" href="https://www.clarity.ms" />
         <link rel="dns-prefetch" href="https://region1.google-analytics.com" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         {schemas.map((schema, i) => (
@@ -111,7 +109,6 @@ export default async function LocaleLayout({
           <StickyCta />
           <CookieConsent />
         </NextIntlClientProvider>
-        <Clarity />
         <PostHog />
       </body>
     </html>

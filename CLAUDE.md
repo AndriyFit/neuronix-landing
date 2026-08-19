@@ -213,33 +213,39 @@ Request Indexing у GSC, не правками в репозиторії. Не �
 
 ## Аналітика
 
-**Microsoft Clarity** — `src/components/Clarity.tsx`, вмикається змінною `NEXT_PUBLIC_CLARITY_ID`
-у Vercel. Порожня змінна = скрипт не вантажиться взагалі.
+**PostHog** — `src/components/PostHog.tsx`, вмикається змінною `NEXT_PUBLIC_POSTHOG_KEY`
+у Vercel. Порожня змінна = скрипт не вантажиться взагалі (той самий патерн, що був у Clarity).
 
-⚠️ **Два різні ID, які легко переплутати:**
+| Що | Значення |
+|---|---|
+| Project ID | `565689` |
+| Ключ `phc_` | Vault `neuronix/posthog_project_key` (публічний за призначенням, їде в браузер) |
+| Host | `https://us.i.posthog.com` |
+| Personal API key | Vault `shared/posthog_personal_key` (для API/дашбордів) |
 
-| Що | Вигляд | Де взяти | Навіщо |
-|---|---|---|---|
-| Tracking ID | 10 символів (`3t0wlogvdz`) | URL дашборда `clarity.microsoft.com/projects/view/<ID>/dashboard` | `NEXT_PUBLIC_CLARITY_ID` для снипета |
-| `sub` з Data Export JWT | 16 цифр | payload токена | внутрішній id акаунта, **для снипета не годиться** |
+Налаштування проєкту, звірені 2026-08-19: `session_recording_opt_in: false`,
+`capture_console_log_opt_in: false` (вимкнено — писало консоль браузера).
+Autocapture лишається УВІМКНЕНИМ: він і дає кліки та взаємодії, заради яких прибрали Clarity.
 
-Data Export API не приймає id проєкту — проєкт визначає сам токен. Тому tracking ID через API
-не дізнатись, тільки з дашборда.
+**Кастомні події** — тільки бізнес-воронка форми, `src/lib/analytics.ts` → `track()`:
+`form_started` (перший фокус у формі), `form_submitted`, `form_error`
+(`error_type: validation|server`, для валідації ще й `error_field`).
+Свідомо НЕ додані `cta_clicked` і `section_scrolled` — перше ловить autocapture,
+друге вже шле GA4.
 
-Наш tracking ID — **`xx4u0gbnw4`** (не секрет, видно у вихідному коді сторінки).
-Дашборд: `clarity.microsoft.com/projects/view/xx4u0gbnw4`.
-Заведено у Vercel як `NEXT_PUBLIC_CLARITY_ID` для Production і Preview.
+⚠️ `track()` загорнутий у try/catch І стоїть ПІСЛЯ `sendGTMEvent({event:'generate_lead'})`.
+Обидва заходи навмисні: збій аналітики не має права завадити конверсії дійти до Google Ads.
 
-Vault: `neuronix/clarity_tracking_id`, `neuronix/clarity_data_export_token`
-(API, ліміт 10 запитів/добу, дані за 1–3 дні), `neuronix/clarity_project_sub`.
+### ⚠️ ЗАСТАРІЛО — Microsoft Clarity (прибрано 2026-08-19)
 
-**Чому скрипт не в `<head>`, хоча Clarity так радить:** використовуємо `next/script` зі
-стратегією `afterInteractive` — вантажиться після гідратації, не блокує перший рендер.
-Швидкість мобільної сторінки впливає і на конверсію, і на Quality Score у Google Ads, тому
-блокувати рендер заради кількох сотень мілісекунд раннього трекінгу невигідно. Офіційний
-пакет `@microsoft/clarity` для React ініціалізується ще пізніше (в `useEffect`), тож наш
-варіант навіть агресивніший. Перевірено: `clarity.ms/tag/xx4u0gbnw4` → 200,
-`r.clarity.ms/collect` → 204.
+Clarity видалено з проєкту: він дублював PostHog (теплові карти, записи сесій, rage-кліки
+дає й PostHog), а другий скрипт аналітики платився швидкістю сторінки. Прибрано
+`src/components/Clarity.tsx`, `<Clarity />` і `preconnect` у layout, `clarityConsent()` +
+`CLARITY_CONSENT_REPLAY_SNIPPET` у `lib/consent.ts`, `NEXT_PUBLIC_CLARITY_ID` з `.env.example`
+і Vercel, згадки в політиці (замість Заяви Microsoft — Політика конфіденційності PostHog).
+Vault-ключі `neuronix/clarity_*` лишені навмисно: видалення секрету незворотне, а користі нуль.
+Згадки Clarity в `src/content/blog/*` — це рекомендації інструментів у статтях для клієнтів,
+не наша інтеграція, їх не чіпали.
 
 **Google Search Console** — верифікація в `src/lib/metadata.ts` + `public/google*.html`.
 Токени там **різні** — це два різні property, залишок від зміни домену. Обидва нешкідливі.
@@ -247,7 +253,7 @@ Vault: `neuronix/clarity_tracking_id`, `neuronix/clarity_data_export_token`
 ### Google: GTM — єдиний завантажувач
 
 `@next/third-parties` → `<GoogleTagManager>` у `src/app/[locale]/layout.tsx`, змінна
-`NEXT_PUBLIC_GTM_ID`. Порожня = ні GTM, ні Consent Mode не вантажаться (як у Clarity).
+`NEXT_PUBLIC_GTM_ID`. Порожня = ні GTM, ні Consent Mode не вантажаться (той самий патерн, що в PostHog).
 
 | Що | Значення |
 |---|---|
@@ -333,25 +339,26 @@ Smart Bidding при переході з Maximize Clicks. Керується ц�
 знищив би вимірювання конверсій саме там, де крутиться бюджет.
 
 Банер — `src/components/CookieConsent.tsx`, вибір у `localStorage.cookie_consent`.
-`updateConsent()` шле і `gtag('consent','update')`, і `clarity('consentv2', …)`.
+`updateConsent()` шле `gtag('consent','update')` і перемикає PostHog
+(`opt_in_capturing` / `opt_out_capturing`).
 
-**Clarity: перемикач «Cookie consent» у налаштуваннях проєкту лишається ВИМКНЕНИМ — це свідомо.**
-З 31.10.2025 Clarity сам тримає ЄЕЗ/UK/CH у режимі без згоди, незалежно від перемикача.
-Тобто Європа вже покрита. Увімкнення перемикача поширило б гейт на решту світу, тобто на
-Україну — основний ринок, і це відповідало б політиці гірше, ніж поточний стан.
+**PostHog і згода.** PostHog, на відміну від Clarity, сам ЄЕЗ/UK/CH не блокує — регіональний
+дефолт цілком на нас. Тому глушимо **лише явну відмову**: `POSTHOG_CONSENT_SNIPPET` у
+`lib/consent.ts` викликає `posthog.opt_out_capturing()`, якщо в `localStorage.cookie_consent`
+лежить `declined`. Відсутність вибору = капчуримо, як і GA поза `STRICT_REGIONS`: глушити
+Україну до кліку по банеру означало б втратити вимірювання там, де крутиться бюджет Ads.
 
-API — `clarity('consentv2', {ad_Storage, analytics_Storage})`. Стара форма
-`clarity('consent', bool)` задепрекейчена. Капіталізація полів (`_Storage` з великої)
-саме така в офіційній доці — виглядає як одрук, але це справжні імена, не «виправляти».
+Сигнал застосовується **двічі**: на клік по банеру (`updateConsent` → `opt_in_capturing` /
+`opt_out_capturing`) і на кожне завантаження сторінки (снippet усередині ініціалізації
+PostHog). Друге обов'язкове — повторні відвідувачі банера не бачать, тож без цього відмова
+діяла б лише в тій сесії, де її зробили.
 
-Сигнал шлеться **двічі**: на клік по банеру (`updateConsent`) і на кожне завантаження
-сторінки (`CLARITY_CONSENT_REPLAY_SNIPPET` усередині снипета Clarity). Друге обов'язкове —
-повторні відвідувачі банера не бачать, тож без реплею Clarity ніколи не дізнався б про
-їхню згоду. Якщо вибору ще немає, не шлемо нічого: інакше за людину, яка нічого не
-натискала, ми б заявили `granted` і зламали регіональний дефолт Clarity.
+⚠️ Гео-логіки для PostHog свідомо НЕМАЄ (на відміну від Consent Mode, який має `region`).
+Кампанія таргетована на Україну (geo `2804`), ЄЕЗ-трафіку одиниці. Зʼявиться реальний
+ЄЕЗ-трафік — вмикати `opt_out_capturing_by_default` + явний opt-in. Позначено `ponytail:`
+у коді.
 
-Перевірка: `clarity('metadata', (d,u,c)=>console.log(c), false, true, true)` у консолі
-повертає поточний стан. Після «Відхилити» кукі `_clck` і `_clsk` мають зникнути.
+Перевірка: `posthog.has_opted_out_capturing()` у консолі повертає поточний стан.
 
 Політика конфіденційності описує саме цю модель (розділи 4 і 5). **Міняєш логіку згоди —
 став і текст політики**, інакше сайт знову обіцяє одне, а робить інше.
