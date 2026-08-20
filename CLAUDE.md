@@ -328,6 +328,61 @@ Smart Bidding при переході з Maximize Clicks. Керується ц�
 Перевірка, що працює: `curl -s "https://www.googletagmanager.com/gtm.js?id=GTM-N4MBTL2W" | grep -c phone_click`
 має дати ≥1 (тобто опублікована версія роздається), далі — GA4 Realtime після реального кліку з телефона.
 
+### 🔴 Конверсія «заявка з форми» НЕ ДОХОДИЛА в Ads (виявлено 2026-08-19)
+
+Симптом: 3 реальні клієнти (Тетяна 18.08, Максим 19.08 — форма, Олег 19.08), у колонці
+«Конверсії» кампанії — **0** за весь час.
+
+Корінь: дія `neuronics.work (web) generate_lead` (id `7719736996`) — **НЕ імпорт із GA4**,
+а `type: WEBPAGE`, тобто gtag-конверсія власного тегу Ads. Її `tag_snippets` — просто
+`gtag('event','generate_lead')`, і вона спрацьовує лише тоді, коли на сайті стоїть тег
+Google Ads `AW-18387717496`. Його немає **ніде**:
+
+| Перевірка | Результат |
+|---|---|
+| `curl gtm.js?id=GTM-N4MBTL2W \| grep -c 'AW-'` | **0** |
+| `curl gtag/js?id=G-FNZ46Q88EW \| grep -oE 'AW-[0-9]+'` | **порожньо** (Ads не є destination цього Google-тега) |
+| GA4 key event `generate_lead` (створений 13.08, 3 події) | **у Ads не імпортований** |
+
+Тобто в контейнері на `generate_lead` висить ЛИШЕ тег GA4
+(`vtp_eventName: generate_lead`, `measurementIdOverride: G-FNZ46Q88EW`). Подія доходить
+до GA4 і зупиняється там. Ads по формі не міг зафіксувати нічого — ні тоді, ні тепер.
+
+⚠️ Запис у TODO від 13.08 «`generate_lead` — SUBMIT_LEAD_FORM, ENABLED, primary, у метриці
+Конверсії» був **не хибний, а недостатній**: перевірили статус і категорію, але не `type`
+і не `tag_snippets`. Для дії з `origin: WEBSITE` ENABLED+primary НЕ означає, що вона
+взагалі здатна спрацювати.
+
+**Рішення — той самий шлях, яким уже працює `telegram_click`:** імпортувати GA4 key event
+`generate_lead` як conversion action (GA4-import), мертву WEBPAGE-дію прибрати.
+Нуль змін у коді, нуль додаткових байтів на сторінці (варіант «прив'язати AW-destination
+до Google-тега» відкинуто: він тягне gtag Ads у критичний шлях, а /uk тримає PSI 99).
+
+⚠️ **Через API це не робиться:** `conversionActions:mutate` з `type:GOOGLE_ANALYTICS_4_CUSTOM`
+віддає `CREATION_NOT_SUPPORTED` (перевірено). GTM API теж недоступний — у нашого OAuth лише
+`adwords` + `analytics.*`, скоупа `tagmanager` немає. Імпорт = 4 кліки в UI Ads:
+Цілі → Конверсії → «+ Нова дія-конверсія» → Імпорт → GA4 → Веб.
+
+**Що НЕ полагодить імпорт:** конверсію губить будь-який блокувальник GTM/GA4 у браузері
+клієнта. Стійкий варіант — `gclid` → offline click conversion (той самий механізм, що
+запланований для факту написання в Telegram, див. TODO). Робити ОДИН з двох, не обидва:
+GA4-імпорт + offline-import на ту саму подію = подвійний облік.
+
+### `metrics.conversions` = 0 при `all_conversions` = 2
+
+Дві зафіксовані конверсії (`telegram_click` 15.08 і 16.08) сидять лише в «Усіх конверсіях».
+На момент їх фіксації ціль `CONTACT` була `biddable: false` (виставлено 13.08, повернуто
+18.08). Колонку «Конверсії» Google назад не перерахував. Зараз усі три цілі
+(`CONTACT`, `PHONE_CALL_LEAD`, `SUBMIT_LEAD_FORM`) `biddable: true` і на рівні акаунта,
+і на рівні кампанії — тобто НОВІ конверсії мають падати в «Конверсії».
+Перша перевірка — клік Олега (`telegram_click` з `cpc` 19.08, у GA4 вже є, GA4-імпорт
+доїжджає до 24 год).
+
+⚠️ `conversion_action.include_in_conversions_metric` дзеркалить `primary_for_goal`
+(звірено на всіх 6 діях акаунта), тому `phone_click` (`primary_for_goal: false`) у колонку
+«Конверсії» НЕ потрапить, хоч категорія `PHONE_CALL_LEAD` і `biddable: true`. Поки
+не критично: подій `phone_click` у GA4 немає жодної.
+
 ### Consent Mode v2
 
 `src/lib/consent.ts` → інлайн-скрипт у `<head>` (`layout.tsx`), **не `next/script`**:
