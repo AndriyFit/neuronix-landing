@@ -89,7 +89,14 @@ export default async function LocaleLayout({
             платить DNS + TLS уже після того, як його зустрів парсер. */}
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://region1.google-analytics.com" />
+        {/* Google показує іконку сайту в пошуку й у рекламних оголошеннях, але шукає
+            її передусім за /favicon.ico. Довго стояв лише SVG, а /favicon.ico віддавав
+            404 — і Google малював сірий глобус замість знака. Тримаємо обидва плюс
+            растрові розміри, кратні 48px, як радить довідка Google. */}
+        <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         {schemas.map((schema, i) => (
           <script
             key={i}
