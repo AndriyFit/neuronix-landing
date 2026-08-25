@@ -1,0 +1,122 @@
+[
+  {
+    "ad_group_id": "199656753776",
+    "ad_group_name": "Сайт під ключ",
+    "criterion_id": "299910666227",
+    "keyword": "сайт під ключ",
+    "match_type": "PHRASE",
+    "final_urls": [],
+    "quality_score": 5,
+    "post_click": "BELOW_AVERAGE",
+    "creative": "BELOW_AVERAGE",
+    "expected_ctr": "ABOVE_AVERAGE"
+  },
+  {
+    "ad_group_id": "199656753776",
+    "ad_group_name": "Сайт під ключ",
+    "criterion_id": "304667748156",
+    "keyword": "розробка сайтів під ключ",
+    "match_type": "PHRASE",
+    "final_urls": [],
+    "quality_score": 4,
+    "post_click": "BELOW_AVERAGE",
+    "creative": "AVERAGE",
+    "expected_ctr": "AVERAGE"
+  },
+  {
+    "ad_group_id": "199656753776",
+    "ad_group_name": "Сайт під ключ",
+    "criterion_id": "315759074620",
+    "keyword": "розробка сайту під ключ",
+    "match_type": "PHRASE",
+    "final_urls": [],
+    "quality_score": 6,
+    "post_click": "BELOW_AVERAGE",
+    "creative": "AVERAGE",
+    "expected_ctr": "ABOVE_AVERAGE"
+  },
+  {
+    "ad_group_id": "202276594747",
+    "ad_group_name": "Інтернет-магазин",
+    "criterion_id": "298800043875",
+    "keyword": "розробка інтернет магазину",
+    "match_type": "PHRASE",
+    "final_urls": [],
+    "quality_score": 4,
+    "post_click": "BELOW_AVERAGE",
+    "creative": "AVERAGE",
+    "expected_ctr": "AVERAGE"
+  },
+  {
+    "ad_group_id": "202276594747",
+    "ad_group_name": "Інтернет-магазин",
+    "criterion_id": "298800044555",
+    "keyword": "створення інтернет магазину",
+    "match_type": "PHRASE",
+    "final_urls": [],
+    "quality_score": 7,
+    "post_click": "BELOW_AVERAGE",
+    "creative": "ABOVE_AVERAGE",
+    "expected_ctr": "ABOVE_AVERAGE"
+  },
+  {
+    "ad_group_id": "202276594747",
+    "ad_group_name": "Інтернет-магазин",
+    "criterion_id": "301609516051",
+    "keyword": "вартість створення інтернет магазину",
+    "match_type": "EXACT",
+    "final_urls": [],
+    "quality_score": 3,
+    "post_click": "BELOW_AVERAGE",
+    "creative": "BELOW_AVERAGE",
+    "expected_ctr": "AVERAGE"
+  },
+  {
+    "ad_group_id": "202276594747",
+    "ad_group_name": "Інтернет-магазин",
+    "criterion_id": "302079394464",
+    "keyword": "створення інтернет магазину ціна",
+    "match_type": "EXACT",
+    "final_urls": [],
+    "quality_score": 7,
+    "post_click": "BELOW_AVERAGE",
+    "creative": "ABOVE_AVERAGE",
+    "expected_ctr": "ABOVE_AVERAGE"
+  },
+  {
+    "ad_group_id": "202948761487",
+    "ad_group_name": "Ціна розробки",
+    "criterion_id": "305446909818",
+    "keyword": "розробка сайту ціна",
+    "match_type": "EXACT",
+    "final_urls": [],
+    "quality_score": 5,
+    "post_click": "BELOW_AVERAGE",
+    "creative": "ABOVE_AVERAGE",
+    "expected_ctr": "AVERAGE"
+  },
+  {
+    "ad_group_id": "202948761487",
+    "ad_group_name": "Ціна розробки",
+    "criterion_id": "307497423738",
+    "keyword": "створення сайту ціна",
+    "match_type": "EXACT",
+    "final_urls": [],
+    "quality_score": 7,
+    "post_click": "BELOW_AVERAGE",
+    "creative": "ABOVE_AVERAGE",
+    "expected_ctr": "ABOVE_AVERAGE"
+  },
+  {
+    "ad_group_id": "202948761487",
+    "ad_group_name": "Ціна розробки",
+    "criterion_id": "315759065460",
+    "keyword": "замовити розробку сайту",
+    "match_type": "PHRASE",
+    "final_urls": [],
+    "quality_score": 1,
+    "post_click": "BELOW_AVERAGE",
+    "creative": "BELOW_AVERAGE",
+    "expected_ctr": "BELOW_AVERAGE"
+  }
+]

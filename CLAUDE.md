@@ -116,6 +116,25 @@ Request Indexing у GSC, не правками в репозиторії. Не �
 
 ## Пастки, на які вже наступали
 
+### grep по HTML Next.js дає хибні спрацювання (2026-08-25)
+
+`curl … | grep 'текст'` на сторінці next-intl знаходить рядки, яких на сторінці НЕ видно:
+провайдер серіалізує **весь** словник у RSC-payload усередині `<script>`. Перевіряючи
+`/uk/online-store` на суперечність «10 днів», grep дав 10 збігів — у видимому тексті було
+рівно 0, усі 10 з payload. Перевіряти так:
+```bash
+curl -s URL | python3 -c "import re,sys; h=sys.stdin.read(); \
+  v=re.sub(r'<script[\s\S]*?</script>','',h); print(len(re.findall('текст', re.sub(r'<[^>]+>',' ',v))))"
+```
+Це той самий клас помилки, що з PostHog (див. `.knowledge/infra/posthog.md`): grep по HTML
+відповідає на питання «чи є рядок у документі», а не на те, яке ти справді ставиш.
+
+### Заголовок structured snippet — англійський enum (2026-08-25)
+
+Google Ads приймає лише `Amenities, Brands, Courses, Degree programs, Destinations,
+Featured Hotels, Insurance coverage, Models, Neighborhoods, Services, Shows, Styles, Types`.
+Українські заголовки → `Validation failed`. У видачі Google локалізує заголовок сам.
+
 ### Скрол іде не в `document`, а в `#page-scroll`
 Сторінка скролиться у власному контейнері (`src/app/[locale]/layout.tsx`) — це частина фіксу
 стрибків на iOS. Наслідки:
@@ -488,7 +507,7 @@ Neuronix продає **системи, а не сайти**: сайт + авт�
 `Search — Сайти та магазини (UA)` id `24138448702`, final_url усіх оголошень —
 `https://neuronics.work/uk`. Деталі кампанії: `docs/2026-08-13-ads-campaign-plan.md`.
 
-### ⚠️ Один URL на три ad groups — діагноз 2026-08-25, ще НЕ виправлено
+### Один URL на три ad groups — діагноз і фікс 2026-08-25
 
 Заміри за 14–25.08 (уся історія акаунта, 500 показів / 39 кліків / 2082,92 грн):
 `post_click_quality_score` = **BELOW_AVERAGE у 10 ключів із 10**, без винятку.
@@ -501,10 +520,30 @@ GA4 підтверджує: 1,03 сторінки за сесію з cpc — г�
 post-click score це **той самий документ**, що й головна; якір окремої сторінки не
 створює.
 
-План виправлення: `docs/superpowers/plans/2026-08-25-ads-landing-optimization.md`
-(три посадкові `/websites`, `/online-store`, `/price` на наявному `[platform]`-шаблоні,
-далі перемикання final_urls). Доки план не виконано — рядок про final_url вище
-залишається чинним.
+**Виправлено 2026-08-25.** Три посадкові `/websites`, `/online-store`, `/price` у проді.
+Трафік переведено НЕ перестворенням оголошень, а `ad_group_criterion.final_urls` —
+keyword-level URL перекриває URL оголошення при показі, тобто змінює рівно той сигнал,
+що тягне post-click score, і нічого більше: без модерації, без втрати накопиченого
+expected CTR, оборотно одним mutate. Рядок вище про `final_url` оголошень усе ще вірний —
+самі оголошення не чіпали, вони й далі вказують на `/uk`, але фактична посадкова
+визначається ключем. Скрипт: `scripts/ads-keyword-urls.py` (snapshot / apply / --self-test).
+
+⚠️ **Гіпотезу треба перевірити, а не вважати доведеною.** Прямої фрази «keyword-level URL
+входить у розрахунок landing page experience» в довідці Google немає. Перевірка: щотижня
+`./scripts/ads-keyword-urls.py snapshot` + звіт `landing_page_view`. Якщо через 2–3 тижні
+покази йдуть на нові URL, а `post_click_quality_score` стоїть — гіпотеза хибна, тоді
+перестворювати RSA по одній групі за раз.
+
+⚠️ **Гейт для наступного кроку — календарний, не «за результатами».** 200 грн/день при
+CPC 53 грн = ~4 кліки/день на 10 ключів; побачити зрушення QS по кожному ключу — місяці.
+Чекати «сигналу за конверсіями» безглуздо: ця вибірка його фізично не дасть.
+
+Також 25.08: додано 6 callouts + 2 structured snippets (розширень не було взагалі);
+RSA `820780707003` на паузі — обіцяв «Запуск за 10 днів» для магазину, що суперечило
+і правді, і посадковій `/uk/online-store` («від 4 тижнів»); два сітлінки перенацілено
+з `/uk#pricing` на `/uk/online-store` і `/uk/price`.
+
+План: `docs/superpowers/plans/2026-08-25-ads-landing-optimization.md`.
 
 ### ⚠️ Юридичні реквізити з сайту прибрані СВІДОМО — не повертати
 
