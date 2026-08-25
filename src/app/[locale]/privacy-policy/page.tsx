@@ -1,5 +1,6 @@
 import { setRequestLocale } from 'next-intl/server'
 import type { Metadata } from 'next'
+import ConsentOptOut from '@/components/ConsentOptOut'
 
 type Props = { params: Promise<{ locale: string }> }
 
@@ -191,13 +192,15 @@ function PrivacyUk() {
           ефективності реклами. Для відвідувачів з ЄЕЗ, Великої Британії та
           Швейцарії вони встановлюються <strong>лише після вашої явної згоди</strong>{' '}
           через банер на сайті. Для решти відвідувачів вони встановлюються за
-          замовчуванням, і ви можете відмовитись від них тим самим банером.
+          замовчуванням, а відмовитись можна кнопкою нижче — банер їм не показується.
         </li>
       </ul>
       <p style={{ marginTop: '0.75rem' }}>
-        Ви можете будь-коли змінити свій вибір, очистивши localStorage у вашому
-        браузері — банер з'явиться знову — або через налаштування браузера.
+        Ви можете будь-коли змінити свій вибір цією кнопкою або через налаштування
+        браузера. Вибір зберігається у вашому браузері, тож на іншому пристрої його
+        треба зробити ще раз.
       </p>
+      <ConsentOptOut />
 
       <h2 style={{ fontSize: '1.25rem', fontWeight: 600, marginTop: '2rem', marginBottom: '0.75rem' }}>
         6. Термін зберігання даних
@@ -451,13 +454,15 @@ function PrivacyEn() {
           visitors from the EEA, the United Kingdom and Switzerland they are set{' '}
           <strong>only after your explicit consent</strong> via the banner on the
           site. For all other visitors they are set by default, and you can opt out
-          using the same banner.
+          with the button below — the banner is not shown to them.
         </li>
       </ul>
       <p style={{ marginTop: '0.75rem' }}>
-        You may change your choice at any time by clearing your browser's
-        localStorage — the banner will reappear — or through your browser settings.
+        You may change your choice at any time using this button or through your
+        browser settings. The choice is stored in your browser, so it needs to be
+        made again on another device.
       </p>
+      <ConsentOptOut />
 
       <h2 style={{ fontSize: '1.25rem', fontWeight: 600, marginTop: '2rem', marginBottom: '0.75rem' }}>
         6. Data Retention

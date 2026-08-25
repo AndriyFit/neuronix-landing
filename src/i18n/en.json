@@ -341,7 +341,10 @@
     "text": "We use cookies to run the site and for analytics.",
     "more": "Learn more",
     "accept": "Accept",
-    "decline": "Decline"
+    "decline": "Decline",
+    "optOut": "Opt out of analytics",
+    "optIn": "Allow analytics again",
+    "optedOut": "Analytics is disabled on this device."
   },
   "ai": {
     "metadata": {

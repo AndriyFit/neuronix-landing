@@ -3,7 +3,12 @@
 import { useState, useEffect } from 'react'
 import { useLocale, useTranslations } from 'next-intl'
 import Link from 'next/link'
-import { CONSENT_STORAGE_KEY, updateConsent } from '@/lib/consent'
+import {
+  CONSENT_STORAGE_KEY,
+  VISITOR_COUNTRY_COOKIE,
+  shouldShowConsentBanner,
+  updateConsent,
+} from '@/lib/consent'
 import './css/CookieConsent.css'
 
 export default function CookieConsent() {
@@ -12,9 +17,11 @@ export default function CookieConsent() {
   const [visible, setVisible] = useState(false)
 
   useEffect(() => {
-    if (!localStorage.getItem(CONSENT_STORAGE_KEY)) {
-      setVisible(true)
-    }
+    if (localStorage.getItem(CONSENT_STORAGE_KEY)) return
+    const country = document.cookie.match(
+      new RegExp(`(?:^|;\\s*)${VISITOR_COUNTRY_COOKIE}=([A-Za-z]{2})`)
+    )?.[1]
+    setVisible(shouldShowConsentBanner(country))
   }, [])
 
   function choose(granted: boolean) {
