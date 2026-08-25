@@ -5,6 +5,8 @@ import { POSTHOG_CONSENT_SNIPPET } from '@/lib/consent'
  * PostHog — product-аналітика: воронки, retention, session replay, feature flags.
  * Доповнює GTM/GA4 (трафік і реклама), не замінює їх. Clarity прибрано 2026-08-19
  * як дубль: теплові карти й записи сесій дає сам PostHog.
+ * Записи сесій увімкнено 2026-08-25 з maskAllInputs; політика конфіденційності оновлена
+ * у тій самій зміні — вона прямо декларувала, що записи вимкнені.
  *
  * Renders nothing unless NEXT_PUBLIC_POSTHOG_KEY is set:
  * локальні й preview-збірки лишаються без трекінгу, доки ключ не заданий у Vercel.
@@ -23,7 +25,15 @@ posthog.init(${JSON.stringify(key)}, {
   api_host: ${JSON.stringify(host)},
   person_profiles: 'identified_only',
   capture_pageview: true,
-  capture_pageleave: true
+  capture_pageleave: true,
+  disable_session_recording: false,
+  session_recording: {
+    // Форма збирає ім'я, телефон і текст задачі. maskAllInputs записує їх зірочками:
+    // без цього запис сесії став би відео з персональними даними клієнта.
+    maskAllInputs: true,
+    // Дефолт PostHog маскує лише password. Тут — усе, що людина друкує в textarea теж.
+    maskTextSelector: '[data-ph-mask]'
+  }
 });${POSTHOG_CONSENT_SNIPPET}`}
     </Script>
   )

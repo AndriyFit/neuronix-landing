@@ -143,8 +143,12 @@ function PrivacyUk() {
           сайті (перегляди сторінок, кліки, джерело переходу, тип пристрою).
           PostHog додатково отримує знеособлені події взаємодії з формою — початок
           заповнення, відправлення, помилку валідації та назву поля, у якому вона
-          виникла; записи сесій у PostHog вимкнені. Вміст форм зворотного
-          зв'язку їм не передається.
+          виникла. PostHog також веде запис сесій: рухи курсора, прокручування та
+          кліки на сторінці, щоб ми бачили, де інтерфейс заважає. Усе, що ви
+          вводите в поля форми, у таких записах замасковано — замість тексту
+          зберігаються символи-заповнювачі, тож ваші ім'я, телефон і опис задачі
+          у запис не потрапляють. Записи зберігаються 30 днів, після чого
+          видаляються автоматично. Вміст форм зворотного зв'язку їм не передається.
           Обробка здійснюється відповідно до{' '}
           <a
             href="https://posthog.com/privacy"
@@ -397,9 +401,13 @@ function PrivacyEn() {
           Google Ads gclid parameter), your IP address and behavioural data (page
           views, clicks, referral source, device type). PostHog additionally receives
           anonymised form-interaction events — form started, submitted, and validation
-          errors together with the name of the field that failed; session replay in
-          PostHog is disabled. The contents of your contact form submissions are not
-          shared with them.
+          errors together with the name of the field that failed. PostHog also records
+          sessions: cursor movement, scrolling and clicks on the page, so that we can
+          see where the interface gets in the way. Everything you type into form fields
+          is masked in those recordings — placeholder characters are stored instead of
+          the text, so your name, phone number and request description never enter the
+          recording. Recordings are retained for 30 days and then deleted automatically.
+          The contents of your contact form submissions are not shared with them.
           Processing is governed by the{' '}
           <a
             href="https://posthog.com/privacy"
