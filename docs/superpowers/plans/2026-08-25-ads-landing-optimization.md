@@ -60,7 +60,7 @@
 
 **Навіщо:** зараз у кампанії 6 sitelinks + 1 image і **жодного** callout чи snippet. Це найдешевший приріст CTR та Ad Rank у всьому плані — тексти вже існують в описах RSA, їх треба лише перенести у формат розширень.
 
-- [ ] **Крок 1: Перевірити поточний стан розширень**
+- [x] **Крок 1: Перевірити поточний стан розширень**
 
 ```
 mcp__adloop__run_gaql(customer_id="9087037980", query="
@@ -70,7 +70,7 @@ FROM campaign_asset
 ```
 Очікується: 6 рядків SITELINK + 1 AD_IMAGE, жодного CALLOUT чи STRUCTURED_SNIPPET.
 
-- [ ] **Крок 2: Створити чернетку callouts**
+- [x] **Крок 2: Створити чернетку callouts**
 
 Тексти (усі ≤ 25 символів, звірено з наявними RSA-описами, щоб не суперечити):
 
@@ -87,21 +87,26 @@ FROM campaign_asset
 mcp__adloop__draft_callouts(customer_id="9087037980", campaign_id="24138448702", callouts=[...])
 ```
 
-- [ ] **Крок 3: Показати preview Андрію і чекати «Apply»**
+- [x] **Крок 3: Показати preview Андрію і чекати «Apply»**
 
 Не переходити до кроку 4 без явного підтвердження в чаті.
 
-- [ ] **Крок 4: Застосувати**
+- [x] **Крок 4: Застосувати**
 
 ```
 mcp__adloop__confirm_and_apply(plan_id="<з кроку 2>", dry_run=false)
 ```
 
-- [ ] **Крок 5: Створити чернетку structured snippets**
+- [x] **Крок 5: Створити чернетку structured snippets**
 
 Два набори (мінімум 3 значення на header, кожне ≤ 25 символів):
 
-Header `Послуги` / `Services`:
+⚠️ **Заголовок — фіксований англійський enum**, українські рядки API відхиляє
+(`Amenities, Brands, Courses, Degree programs, Destinations, Featured Hotels,
+Insurance coverage, Models, Neighborhoods, Services, Shows, Styles, Types`).
+У видачі Google локалізує заголовок сам.
+
+Header `Services`:
 ```
 Сайти під ключ
 Інтернет-магазини
@@ -111,7 +116,7 @@ AI-автоматизація
 Технічна підтримка
 ```
 
-Header `Типи` / `Types`:
+Header `Types`:
 ```
 Лендінг
 Корпоративний сайт
@@ -123,19 +128,23 @@ Header `Типи` / `Types`:
 mcp__adloop__draft_structured_snippets(customer_id="9087037980", campaign_id="24138448702", ...)
 ```
 
-- [ ] **Крок 6: Preview → «Apply» → застосувати**
+- [x] **Крок 6: Preview → «Apply» → застосувати**
 
-- [ ] **Крок 7: Перечитати стан і звірити**
+- [x] **Крок 7: Перечитати стан і звірити**
 
 Повторити GAQL з кроку 1. Очікується: 6 SITELINK + 1 AD_IMAGE + 6 CALLOUT + 2 STRUCTURED_SNIPPET, усі `ENABLED`. Якщо кількість інша — розібратись до переходу далі.
 
-- [ ] **Крок 8: Записати в `notes.md`**
+- [x] **Крок 8: Записати в `notes.md`**
 
 ```bash
 cd /root/projects/neuronix-landing
 echo "- $(date +%F): Додано 6 callouts і 2 набори structured snippets у кампанію 24138448702 — розширення були відсутні, це прямий приріст CTR і Ad Rank" >> notes.md
 git add notes.md && git commit -m "docs: додано callouts і structured snippets у кампанію"
 ```
+
+---
+
+**Виконано 2026-08-25.** Callout-асети: `412916370222`, `412739796104`, `412916384214`, `412916380533`, `412739802128`, `412916384217`. Snippet-асети: `412739846240` (Services), `412916441127` (Types). Перечитано GAQL — усі 8 `ENABLED`.
 
 ---
 
