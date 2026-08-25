@@ -2,6 +2,7 @@ import type { MetadataRoute } from 'next'
 import { locales, defaultLocale } from '@/i18n/config'
 import { getAllPosts } from '@/content/blog'
 import { SITE_URL } from '@/lib/site'
+import { PLATFORMS } from './[locale]/[platform]/page'
 
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -33,7 +34,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })
   }
 
-  for (const platform of ['opencart', 'horoshop', 'keycrm']) {
+  for (const platform of PLATFORMS) {
     for (const locale of locales) {
       entries.push({
         url: `${SITE_URL}/${locale}/${platform}`,

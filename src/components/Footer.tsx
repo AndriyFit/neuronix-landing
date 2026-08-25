@@ -3,6 +3,8 @@
 import { useTranslations } from 'next-intl'
 import { useLocale } from 'next-intl'
 import Link from 'next/link'
+import { sendGTMEvent } from '@next/third-parties/google'
+import { track } from '@/lib/analytics'
 import './css/Footer.css'
 
 export default function Footer() {
@@ -30,7 +32,14 @@ export default function Footer() {
         <a href="mailto:hello@neuronics.work" className="footer-email">
           {t('email')}
         </a>
-        <a href="tel:+380685026199" className="footer-phone">
+        <a
+          href="tel:+380685026199"
+          className="footer-phone"
+          onClick={() => {
+            sendGTMEvent({ event: 'phone_click' })
+            track('phone_click')
+          }}
+        >
           {t('phone')}
         </a>
       </div>

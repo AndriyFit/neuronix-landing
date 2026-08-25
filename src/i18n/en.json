@@ -765,6 +765,282 @@
           }
         ]
       }
+    },
+    "websites": {
+      "metadata": {
+        "title": "Website Development Built End to End | Neuronix",
+        "description": "Website development built end to end: landing page from $350 in 5–10 days, corporate site or catalog from $650 in 2–3 weeks. Contract, 12-month warranty, CRM and accounting connections."
+      },
+      "hero": {
+        "titleStart": "A website ",
+        "titleHighlight": "built end to end",
+        "titleEnd": " — landing page, corporate site or catalog",
+        "subtitle": "Design, development, analytics and a CRM connection. Free estimate in 24 hours. Deadline and budget go into the contract before we start.",
+        "ctaPrimary": "Get a website quote",
+        "ctaSecondary": "Message us on Telegram",
+        "telegramUrl": "https://t.me/neuronixjhbot",
+        "trust": [
+          "Estimate in 24 hours",
+          "Deadline and budget in the contract",
+          "12-month warranty"
+        ]
+      },
+      "pains": {
+        "title": "Sound familiar from your last website project?",
+        "subtitle": "We hear this from every other client who comes to us to fix what's already built",
+        "items": [
+          "The agency promised two weeks, delivery took two months",
+          "The price you agreed on grows with every extra block along the way",
+          "They handed over the site and went quiet — no replies once the invoice is paid",
+          "Leads land in an inbox someone has to check and copy into the CRM by hand",
+          "Only the person who built the site can edit text or photos, and they're gone",
+          "You wait weeks with nothing to look at, with no idea what stage the build is at"
+        ],
+        "answerTitle": "How we deliver a site",
+        "answers": [
+          "Deadline and budget go into the contract before we start — no surprise charges for \"extra\" blocks",
+          "You see working milestones along the way, not just a final reveal at the end",
+          "Leads from the site go straight into your CRM, not into an inbox someone checks by hand",
+          "12-month warranty: we fix defects free of charge for a year, and access to the site, domain and hosting is yours from day one"
+        ]
+      },
+      "solutions": {
+        "title": "Websites we build end to end",
+        "extra": "Design, development, analytics and launch in one process — no handoff between separate vendors",
+        "items": [
+          {
+            "icon": "🎯",
+            "title": "Landing page",
+            "description": "One page built around a single offer: benefits, a lead form or a Telegram button. Designed and launched in 5–10 days.",
+            "price": "from $350"
+          },
+          {
+            "icon": "🏢",
+            "title": "Corporate website",
+            "description": "Multiple pages: about the company, services, portfolio, contacts. Ready in 2–3 weeks.",
+            "price": "from $650"
+          },
+          {
+            "icon": "📋",
+            "title": "Catalog site",
+            "description": "A services or products catalog without a cart: categories, item cards, a lead form. Connected to your CRM so leads don't get lost.",
+            "price": "from $650"
+          },
+          {
+            "icon": "🔗",
+            "title": "CRM, accounting and marketplace connections",
+            "description": "Leads from the site go straight into your CRM, product cards stay in sync with accounting. Not a standalone site — part of one system.",
+            "price": "from $650"
+          }
+        ]
+      },
+      "faq": {
+        "title": "Questions about a website built end to end",
+        "items": [
+          {
+            "question": "How much does a website built end to end cost?",
+            "answer": "Landing page — from $350, ready in 5–10 days. Corporate site or catalog — from $650, ready in 2–3 weeks. Exact price after a free audit — it depends on page count and integrations."
+          },
+          {
+            "question": "How long does it take to build a website end to end?",
+            "answer": "Landing page — 5–10 days. Corporate site or catalog — 2–3 weeks. Deadlines go into the contract before we start and don't move once work begins."
+          },
+          {
+            "question": "What's the difference between a landing page and a corporate site?",
+            "answer": "A landing page is one page built around a single offer: benefits, a lead form, a clear call to action. A corporate site has multiple pages — about, services, portfolio, contacts. We help you pick the right one for the job."
+          },
+          {
+            "question": "Can you connect a website to a CRM or accounting system?",
+            "answer": "Yes, that's our core work. Form submissions go straight into your CRM, product or service cards stay in sync with accounting — the site doesn't live apart from the rest of your systems."
+          },
+          {
+            "question": "Our previous developer disappeared and left the site unfinished. Can you take over?",
+            "answer": "Common situation. We audit what's already built, then fix or rebuild it with a 12-month warranty."
+          }
+        ]
+      }
+    },
+    "online-store": {
+      "metadata": {
+        "title": "Online Store Development — From $1350 | Neuronix",
+        "description": "Custom online stores built with 1C, CRM, Nova Poshta and marketplace integrations from day one. Launch in 4+ weeks, from $1350. Contract, 12-month warranty."
+      },
+      "hero": {
+        "titleStart": "An online store ",
+        "titleHighlight": "built to run itself",
+        "titleEnd": " — with 1C, CRM and delivery wired in from day one",
+        "subtitle": "From $1350: your site, 1C, CRM, Nova Poshta and marketplaces work as one system from launch. Live in 4+ weeks, cost fixed in the contract.",
+        "ctaPrimary": "Get a store cost estimate",
+        "ctaSecondary": "Message us on Telegram",
+        "telegramUrl": "https://t.me/neuronixjhbot",
+        "trust": [
+          "Online store — from $1350",
+          "Live in 4+ weeks, timeline in the contract",
+          "12-month warranty"
+        ]
+      },
+      "pains": {
+        "title": "Sound familiar from a rushed store build?",
+        "subtitle": "This is what happens when there's no system behind the storefront — it's the norm, not the exception",
+        "items": [
+          "Stock levels differ between accounting and the site — a customer orders something that's already gone",
+          "Every new product is added by hand: photos, specs, description — takes weeks",
+          "Supplier price lists arrive as Excel files someone has to copy in manually",
+          "Orders are moved into the CRM by hand",
+          "Waybills and receipts are issued separately from the order — one more manual step per sale",
+          "Product pages without proper descriptions — Google and shoppers never find them"
+        ],
+        "answerTitle": "How we build a store from day one",
+        "answers": [
+          "Two-way sync with 1C: stock, prices, new items update themselves",
+          "Products are added automatically from supplier price lists and sites — no Excel, no manual entry",
+          "Order → CRM → waybill → receipt: the whole chain runs without manual work from launch",
+          "AI writes product copy tuned for real search queries — the store grows through organic traffic"
+        ]
+      },
+      "solutions": {
+        "title": "Services for launching an online store",
+        "extra": "We work with Horoshop, OpenCart and custom builds: 1C, KeyCRM, SalesDrive, Nova Poshta, Rozetka, Prom, marketplaces, Checkbox",
+        "items": [
+          {
+            "icon": "🏗️",
+            "title": "Online store, built to launch",
+            "description": "Site, catalog, cart, payment and delivery — a store you can open on day one.",
+            "price": "from $1350"
+          },
+          {
+            "icon": "🔄",
+            "title": "1C integration",
+            "description": "Stock, prices, orders and new items sync between accounting and the site on their own, two-way.",
+            "price": "from $650"
+          },
+          {
+            "icon": "🚀",
+            "title": "Launch on Horoshop",
+            "description": "A store on Horoshop with integrations set up from the start — a fast launch on a ready-made platform.",
+            "price": "from $550"
+          },
+          {
+            "icon": "🔗",
+            "title": "CRM, delivery, receipts",
+            "description": "CRM, Nova Poshta, Checkbox: every order creates a deal, a waybill and a receipt on its own.",
+            "price": "from $650"
+          }
+        ]
+      },
+      "faq": {
+        "title": "Questions about building an online store",
+        "items": [
+          {
+            "question": "How much does an online store cost?",
+            "answer": "An online store built to launch starts from $1350. The exact cost depends on the number of integrations (1C, CRM, delivery) and catalog size. The estimate is free, within 24 hours."
+          },
+          {
+            "question": "How long does it take to build a store?",
+            "answer": "An online store with integrations takes from 4 weeks. Exact timelines are fixed in the contract after the brief."
+          },
+          {
+            "question": "Can 1C be connected during development instead of afterward?",
+            "answer": "Yes — two-way sync with 1C (stock, prices, orders) is part of the store build, not a separate add-on later."
+          },
+          {
+            "question": "What's the difference between a store and a landing page with a cart?",
+            "answer": "A landing page is a single page with an order form, from $350. An online store is a full catalog, cart, payment, delivery and accounting integrations, from $1350."
+          },
+          {
+            "question": "What's included in the store price?",
+            "answer": "The site, catalog, cart, payment, and baseline delivery integrations. The contract fixes the timeline and budget; the warranty covers 12 months after handover."
+          }
+        ]
+      }
+    },
+    "price": {
+      "metadata": {
+        "title": "Website Development Pricing — Neuronix",
+        "description": "How much a website or online store costs: prices published on the site, the estimate locked into the contract before work starts, a free quote within 24 hours. No \"we'll calculate it individually.\""
+      },
+      "hero": {
+        "titleStart": "How much does ",
+        "titleHighlight": "website development",
+        "titleEnd": " cost? See for yourself",
+        "subtitle": "Prices are on the site, not \"we'll call you back with a number.\" Landing page — from $350, online store — from $1,350. The estimate is locked into the contract before work starts.",
+        "ctaPrimary": "Get an exact quote",
+        "ctaSecondary": "Message us on Telegram",
+        "telegramUrl": "https://t.me/neuronixjhbot",
+        "trust": [
+          "Prices published on the site, not \"on request\"",
+          "Estimate locked into the contract before work starts",
+          "12-month warranty"
+        ]
+      },
+      "pains": {
+        "title": "Sound familiar when you're pricing a website?",
+        "subtitle": "What we hear from every second person who calls around",
+        "items": [
+          "\"We'll calculate it individually\" — then silence instead of a number",
+          "The estimate grows mid-project: first the domain, then hosting, then \"extra work\"",
+          "The proposal is full of line items that explain nothing",
+          "\"That wasn't included\" — you find out only after work has started",
+          "Cheap upfront, then monthly \"support\" costs more than the site itself",
+          "Nothing to compare — three vendors, three different numbers, zero explanation"
+        ],
+        "answerTitle": "How we price",
+        "answers": [
+          "Prices are on the site, not after a call — you see the range upfront",
+          "The estimate is locked into the contract before work starts and doesn't creep",
+          "An exact quote — free, within 24 hours",
+          "The 12-month warranty is already priced in, not a separate line item"
+        ]
+      },
+      "solutions": {
+        "title": "Three scenarios, three budgets",
+        "extra": "We name the exact figure within these ranges after a short brief — it depends on the number of pages and integrations",
+        "items": [
+          {
+            "icon": "🚀",
+            "title": "Quick start",
+            "description": "A landing page or one-pager: a single page, a clear call to action, ready in 5–10 days. Good for testing a niche or launching ads.",
+            "price": "from $350"
+          },
+          {
+            "icon": "🏢",
+            "title": "A site that grows",
+            "description": "A corporate site or catalog with CRM, form, and analytics integrations. 2–3 weeks to launch, easy to extend afterward.",
+            "price": "from $650"
+          },
+          {
+            "icon": "🛒",
+            "title": "Store, turnkey",
+            "description": "An online store with payments, shipping, and stock sync. From 4 weeks, depending on the number of integrations.",
+            "price": "from $1,350"
+          }
+        ]
+      },
+      "faq": {
+        "title": "Pricing questions",
+        "items": [
+          {
+            "question": "What determines the price?",
+            "answer": "The number of pages and features, integrations with CRM, 1C, shipping, or payment providers, custom design versus a proven template, and catalog size for an online store. We name the exact figure within the range after a short brief."
+          },
+          {
+            "question": "Can the price grow mid-project?",
+            "answer": "Not if the scope doesn't change. The estimate is locked into the contract before work starts. If new requests come up outside the original scope, that's a separate charge agreed in advance — not a surprise on the invoice."
+          },
+          {
+            "question": "What's included in the price on the site?",
+            "answer": "Development, design, the base integrations listed for that package, and testing before handover. The exact scope is in the estimate, locked into the contract before work starts."
+          },
+          {
+            "question": "How long does development take?",
+            "answer": "Landing page — 5–10 days. Corporate site — 2–3 weeks. Online store with integrations — from 4 weeks. Exact timelines are locked into the contract after the brief."
+          },
+          {
+            "question": "How does payment work?",
+            "answer": "50% upfront, 50% on delivery. For larger projects — in stages, with each next payment due only after you've signed off on the previous stage."
+          }
+        ]
+      }
     }
   },
   "blog": {

@@ -5,6 +5,7 @@ import { routing } from '@/i18n/routing'
 import { SITE_URL } from '@/lib/site'
 import { getFAQSchema } from '@/lib/structured-data'
 import AiHero from '@/components/AiHero'
+import Pricing from '@/components/Pricing'
 import Pains from '@/components/Pains'
 import Services from '@/components/Services'
 import CaseStudy from '@/components/CaseStudy'
@@ -14,7 +15,17 @@ import FAQ from '@/components/FAQ'
 import Contact from '@/components/Contact'
 import Footer from '@/components/Footer'
 
-const PLATFORMS = ['opencart', 'horoshop', 'keycrm'] as const
+// Слаги статичних сторінок цього маршруту. Крім платформ тут живуть Ads-посадкові
+// (websites/online-store/price) — назва константи історична. sitemap.ts імпортує
+// цей самий масив, щоб слаг не доводилось дописувати у двох місцях.
+export const PLATFORMS = [
+  'opencart',
+  'horoshop',
+  'keycrm',
+  'websites',
+  'online-store',
+  'price',
+] as const
 type Platform = (typeof PLATFORMS)[number]
 
 type Props = { params: Promise<{ locale: string; platform: string }> }
@@ -75,6 +86,7 @@ export default async function PlatformPage({ params }: Props) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       <AiHero namespace={`${ns}.hero`} />
+      {platform === 'price' && <Pricing />}
       <Pains namespace={`${ns}.pains`} />
       <Services namespace={`${ns}.solutions`} />
       {platform === 'opencart' && <CaseStudy />}
