@@ -27,6 +27,10 @@ posthog.init(${JSON.stringify(key)}, {
   capture_pageview: true,
   capture_pageleave: true,
   disable_session_recording: false,
+  // Явно, а не через remote config: прапорець проєкту вмикає це на боці PostHog, але
+  // тоді детекція залежить від того, чи SDK встиг підтягнути конфіг. Мертві й rage-кліки —
+  // єдине, що ми втратили з Clarity і не мали пів місяця, тож дублюємо тут.
+  capture_dead_clicks: true,
   session_recording: {
     // Форма збирає ім'я, телефон і текст задачі. maskAllInputs записує їх зірочками:
     // без цього запис сесії став би відео з персональними даними клієнта.

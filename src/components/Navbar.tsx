@@ -59,9 +59,20 @@ export default function Navbar() {
   return (
     <>
       <nav className={`navbar${scrolled ? ' scrolled' : ''}`}>
-        <div className="navbar-logo" onClick={scrollToTop}>
-          NEURONIX
-        </div>
+        {/* На головній логотип = «вгору». На інших сторінках люди очікують від нього
+            перехід на головну, і скрол угору там виглядає як зламаний клік: у записі
+            сесії 25.08 відвідувач з реклами клікнув логотип двічі за 0.6с (він уже був
+            угорі, тобто перший клік не дав жодного відгуку), а потім почав перемикати
+            мову — шукав навігацію. Link ще й робить елемент доступним з клавіатури. */}
+        {isHome ? (
+          <div className="navbar-logo" onClick={scrollToTop}>
+            NEURONIX
+          </div>
+        ) : (
+          <Link href={`/${locale}`} className="navbar-logo">
+            NEURONIX
+          </Link>
+        )}
 
         <ul className="navbar-links">
           {NAV_ITEMS.map((item) => (
