@@ -328,6 +328,18 @@
     "telegram": "Telegram",
     "telegramUrl": "https://t.me/neuronixjhbot"
   },
+  "chat": {
+    "open": "Open chat",
+    "title": "Chat with Neuronix",
+    "subtitle": "We reply within minutes during business hours",
+    "placeholder": "Type a message...",
+    "send": "Send",
+    "thinking": "Typing...",
+    "error": "Couldn't process the message.",
+    "leadOk": "Your request was passed to the team",
+    "telegramFallback": "Message us directly on Telegram: https://t.me/neuronixjhbot",
+    "close": "Close chat"
+  },
   "footer": {
     "copy": "© 2026 Neuronix. All rights reserved.",
     "telegram": "Telegram",

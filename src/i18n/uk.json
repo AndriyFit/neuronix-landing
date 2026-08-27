@@ -328,6 +328,18 @@
     "telegram": "Telegram",
     "telegramUrl": "https://t.me/neuronixjhbot"
   },
+  "chat": {
+    "open": "Відкрити чат",
+    "title": "Чат з Neuronix",
+    "subtitle": "Відповідаємо за хвилини в робочий час",
+    "placeholder": "Напишіть повідомлення...",
+    "send": "Надіслати",
+    "thinking": "Друкує...",
+    "error": "Не вдалося обробити повідомлення.",
+    "leadOk": "Заявку передано команді",
+    "telegramFallback": "Напишіть нам напряму в Telegram: https://t.me/neuronixjhbot",
+    "close": "Закрити чат"
+  },
   "footer": {
     "copy": "© 2026 Neuronix. Всі права захищені.",
     "telegram": "Telegram",
