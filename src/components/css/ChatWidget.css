@@ -219,6 +219,30 @@
 .chat-send:hover:not(:disabled) { background: #6D28D9; }
 .chat-send:disabled { opacity: 0.6; cursor: not-allowed; }
 
+/* Дубль виходу з чату. За замовчуванням прихований: на десктопі й планшеті
+   панель — картка в куті, сайт видно навколо неї, і хрестика в шапці досить.
+   Вмикається лише в мобільному медіазапиті, де панель на весь екран. */
+.chat-back {
+  display: none;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.7rem;
+  border: none;
+  border-top: 1px solid var(--border);
+  background: var(--bg-secondary);
+  color: var(--text-muted);
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.chat-back:active {
+  background: var(--border);
+}
+
 /* StickyCta occupies the same bottom-right corner under 900px (its own
    breakpoint — Contact.css/StickyCta.css) — lift both above it, same value
    CookieConsent.css already uses for the same bar (bottom:76-79). */
@@ -283,6 +307,14 @@
   .chat-header-close {
     width: 40px;
     height: 40px;
+  }
+
+  /* Смужка внизу, під рядком вводу: великому пальцю до неї ближче, ніж до шапки.
+     Свідомо оформлена як приглушена смужка, а не як ще одна кольорова кнопка —
+     поруч «Надіслати», і два акценти поряд змагались би за увагу, а помилковий
+     тап коштував би людині набраного повідомлення. */
+  .chat-back {
+    display: flex;
   }
 
   .chat-panel {

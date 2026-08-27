@@ -259,6 +259,17 @@ export default function ChatWidget() {
               {t('send')}
             </button>
           </form>
+
+          {/* Другий вихід, крім хрестика в шапці. Потрібен саме на телефоні: там
+              панель на весь екран, до шапки треба тягнутись великим пальцем через
+              весь екран, а внизу вона ще й найближча до клавіатури. На десктопі
+              приховано (CSS) — там панель картка в куті, сайт видно навколо неї. */}
+          <button type="button" className="chat-back" onClick={() => setOpen(false)}>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <path d="M19 12H5M12 19l-7-7 7-7" />
+            </svg>
+            {t('backToSite')}
+          </button>
         </div>
       )}
     </>
