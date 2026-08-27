@@ -330,6 +330,7 @@
   },
   "chat": {
     "open": "Open chat",
+    "badge": "AI consultant",
     "title": "Chat with Neuronix",
     "subtitle": "We reply within minutes during business hours",
     "placeholder": "Type a message...",
