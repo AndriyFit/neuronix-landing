@@ -35,20 +35,27 @@ export async function d1(sql: string, params: unknown[] = []): Promise<Record<st
   const token = process.env.CF_D1_TOKEN
   if (!account || !database || !token) return []
 
-  const res = await fetch(
-    `https://api.cloudflare.com/client/v4/accounts/${account}/d1/database/${database}/query`,
-    {
-      method: 'POST',
-      headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
-      body: JSON.stringify({ sql, params }),
-    },
-  )
-  if (!res.ok) {
-    console.error('D1 chat query failed:', res.status, await res.text())
+  // try/catch навколо всієї мережі — як у leads.ts. Сховище не має права ламати відповідь
+  // у чаті: виняток fetch (DNS, timeout, обрив) мусить стати порожнім результатом, не падінням.
+  try {
+    const res = await fetch(
+      `https://api.cloudflare.com/client/v4/accounts/${account}/d1/database/${database}/query`,
+      {
+        method: 'POST',
+        headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
+        body: JSON.stringify({ sql, params }),
+      },
+    )
+    if (!res.ok) {
+      console.error('D1 chat query failed:', res.status, await res.text())
+      return []
+    }
+    const body = await res.json()
+    return body?.result?.[0]?.results ?? []
+  } catch (e) {
+    console.error('D1 chat query threw:', e)
     return []
   }
-  const body = await res.json()
-  return body?.result?.[0]?.results ?? []
 }
 
 export async function touchSession(id: string, meta: SessionMeta): Promise<void> {
