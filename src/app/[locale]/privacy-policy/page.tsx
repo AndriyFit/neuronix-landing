@@ -137,6 +137,21 @@ function PrivacyUk() {
           .
         </li>
         <li>
+          <strong>Gmail API (Google)</strong> — для дублювання вашої заявки
+          поштою в нашу команду, паралельно з Telegram. Надсилання
+          виконується через поштовий акаунт команди на Google. Обробка
+          здійснюється відповідно до{' '}
+          <a
+            href="https://policies.google.com/privacy"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: 'var(--primary)' }}
+          >
+            Політики конфіденційності Google
+          </a>
+          .
+        </li>
+        <li>
           <strong>Постачальники аналітики та реклами</strong> — PostHog,
           Google Analytics, Google Ads і Google Tag Manager. Їм передаються
           унікальні ідентифікатори (файли cookie, ідентифікатор клієнта Google
@@ -303,6 +318,11 @@ function PrivacyUk() {
       </p>
       <ul style={{ paddingLeft: '1.5rem', lineHeight: 1.8 }}>
         <li>зміст листування — ваші повідомлення та відповіді агента;</li>
+        <li>
+          якщо ви лишаєте заявку в чаті — службовий запис із її даними (імʼя,
+          контакт, повідомлення); це технічний дублікат самої заявки, нової
+          інформації про вас він не додає;
+        </li>
         <li>час кожного повідомлення;</li>
         <li>сторінку сайту, з якої відкрито чат;</li>
         <li>ідентифікатор сесії чату та мову інтерфейсу;</li>
@@ -313,9 +333,9 @@ function PrivacyUk() {
         </li>
       </ul>
       <p style={{ marginTop: '0.75rem' }}>
-        Вашу IP-адресу ми <strong>не зберігаємо</strong> — лише її незворотний
-        хеш, і виключно для того, щоб обмежити кількість запитів з одного
-        джерела (захист від зловживань).
+        Вашу IP-адресу ми <strong>не зберігаємо</strong> — зберігаємо лише її
+        хеш, і використовуємо його виключно для того, щоб обмежити кількість
+        запитів з одного джерела (захист від зловживань).
       </p>
       <p style={{ marginTop: '0.75rem' }}>
         Мета обробки — та сама, що й для форми зворотного зв'язку (розділ 3):
@@ -438,6 +458,21 @@ function PrivacyEn() {
             style={{ color: 'var(--primary)' }}
           >
             Telegram's Privacy Policy
+          </a>
+          .
+        </li>
+        <li>
+          <strong>Gmail API (Google)</strong> — used to duplicate your
+          request by email to our team, alongside Telegram. Sending is
+          performed through our team's Google email account. Processing is
+          governed by the{' '}
+          <a
+            href="https://policies.google.com/privacy"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: 'var(--primary)' }}
+          >
+            Google Privacy Policy
           </a>
           .
         </li>
@@ -606,6 +641,11 @@ function PrivacyEn() {
       </p>
       <ul style={{ paddingLeft: '1.5rem', lineHeight: 1.8 }}>
         <li>the conversation content — your messages and the assistant's replies;</li>
+        <li>
+          if you leave a request in the chat — a service record of its data
+          (name, contact, message); this is a technical duplicate of the
+          request itself and adds no new information about you;
+        </li>
         <li>the time of each message;</li>
         <li>the page of the site the chat was opened from;</li>
         <li>the chat session identifier and interface language;</li>
@@ -617,9 +657,9 @@ function PrivacyEn() {
         </li>
       </ul>
       <p style={{ marginTop: '0.75rem' }}>
-        We do <strong>not store</strong> your IP address — only its
-        irreversible hash, used solely to limit the number of requests from a
-        single source (abuse protection).
+        We do <strong>not store</strong> your IP address — we store only its
+        hash, used solely to limit the number of requests from a single
+        source (abuse protection).
       </p>
       <p style={{ marginTop: '0.75rem' }}>
         The purpose of processing is the same as for the contact form
