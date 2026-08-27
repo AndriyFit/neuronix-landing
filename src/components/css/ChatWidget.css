@@ -19,7 +19,10 @@
   align-items: center;
   justify-content: center;
   gap: 0.55rem;
-  border: none;
+  /* Біла обводка, а не border: none. Кнопка висить поверх довільного контенту —
+     заголовків, карток, фіолетової StickyCta — і без власного канта зливається
+     з тим, над чим опинилась. На білому тлі її просто не видно, шкоди нуль. */
+  border: 2px solid #fff;
   /* Пігулка, а не круг: кругла іконка нічого не обіцяє, і поруч із «Розрахувати
      вартість» просто губилась. Підпис каже, що всередині — жива відповідь. */
   border-radius: 999px;
@@ -292,12 +295,18 @@
 }
 
 /* StickyCta occupies the same bottom-right corner under 900px (its own
-   breakpoint — Contact.css/StickyCta.css) — lift both above it, same value
-   CookieConsent.css already uses for the same bar (bottom:76-79). */
+   breakpoint — Contact.css/StickyCta.css) — lift both above it.
+   ⚠️ 6rem, не 4.5rem: заміряно 2026-08-27, StickyCta має висоту 75px, тож при
+   базі 72px кнопка чату НАЛІЗАЛА на нього на 3px — і зливалася з «Розрахувати
+   вартість» в одну фіолетову пляму (обидва елементи --primary, один під одним).
+   Тепер між ними 21px повітря: 13px розводили їх формально, але око все одно
+   читало три фіолетові плями поспіль як одну.
+   Міняєш padding або розмір кнопок у StickyCta.css — перезамір тут обов'язковий:
+   зв'язок між цими двома файлами тільки числовий, нічого не зламається «голосно». */
 @media (max-width: 900px) {
   .chat-toggle,
   .chat-panel {
-    --chat-base: calc(4.5rem + env(safe-area-inset-bottom));
+    --chat-base: calc(6rem + env(safe-area-inset-bottom));
   }
 
   /* Below ~720px the cookie banner (CookieConsent.css) is nearly full-width
@@ -308,14 +317,14 @@
      once it stacks to a column under 560px — see CookieConsent.css:83). */
   body:has(.cookie-banner) .chat-toggle,
   body:has(.cookie-banner) .chat-panel {
-    --chat-base: calc(10.5rem + env(safe-area-inset-bottom));
+    --chat-base: calc(12rem + env(safe-area-inset-bottom));
   }
 }
 
 @media (max-width: 560px) {
   body:has(.cookie-banner) .chat-toggle,
   body:has(.cookie-banner) .chat-panel {
-    --chat-base: calc(14.5rem + env(safe-area-inset-bottom));
+    --chat-base: calc(16rem + env(safe-area-inset-bottom));
   }
 }
 
