@@ -85,15 +85,37 @@
   color: #fff;
 }
 
+/* Суцільний білий круг, а не прозорий символ у куті: на телефоні панель займає
+   весь екран, і ця кнопка — єдиний вихід назад на сайт. Прозорий × на світлішій
+   частині фіолетового градієнта майже не читався. Інверсія (білий фон, колір
+   бренду всередині) дає найбільший контраст, який шапка взагалі дозволяє.
+   36px — мінімальна зона дотику, яку рекомендує Apple HIG (44px разом із
+   padding шапки). */
 .chat-header-close {
   flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
   border: none;
-  background: transparent;
-  color: #fff;
-  font-size: 1.4rem;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--primary);
   line-height: 1;
   cursor: pointer;
-  padding: 0 0.15rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+  transition: background 0.2s, transform 0.15s;
+}
+
+.chat-header-close:hover {
+  background: #fff;
+  transform: scale(1.06);
+}
+
+.chat-header-close:active {
+  transform: scale(0.94);
 }
 
 /* Fixed effective height via flex:1 + min-height:0 inside a bounded parent —
@@ -254,6 +276,13 @@
      maximum-scale=1 не можна: це ламає доступність для слабозорих. */
   .chat-input {
     font-size: 16px;
+  }
+
+  /* На телефоні панель на весь екран — кнопка виходу має бути помітно більшою
+     за іконку, а не рівно на межі зони дотику. */
+  .chat-header-close {
+    width: 40px;
+    height: 40px;
   }
 
   .chat-panel {
