@@ -5,7 +5,7 @@
 // Storage is deliberately NOT a delivery channel: a failed write must never block
 // or fail the notification that actually reaches a human.
 
-type LeadSource = 'form' | 'audit' | 'telegram' | 'telegram_start'
+type LeadSource = 'form' | 'audit' | 'telegram' | 'telegram_start' | 'chat'
 
 export type Lead = {
   source: LeadSource
@@ -20,12 +20,12 @@ export type Lead = {
 const SQL =
   'INSERT INTO leads (source, name, contact, message, site_url, tg_chat_id, tg_username) VALUES (?, ?, ?, ?, ?, ?, ?)'
 
-export async function saveLead(lead: Lead): Promise<boolean> {
+export async function saveLead(lead: Lead): Promise<number | null> {
   const account = process.env.CF_ACCOUNT_ID
   const database = process.env.CF_D1_LEADS_ID
   const token = process.env.CF_D1_TOKEN
   // Unset env = storage disabled, same convention as the email channel.
-  if (!account || !database || !token) return false
+  if (!account || !database || !token) return null
 
   try {
     const res = await fetch(
@@ -49,11 +49,13 @@ export async function saveLead(lead: Lead): Promise<boolean> {
     )
     if (!res.ok) {
       console.error('D1 lead write failed:', res.status, await res.text())
-      return false
+      return null
     }
-    return true
+    const body = await res.json()
+    const id = body?.result?.[0]?.meta?.last_row_id
+    return typeof id === 'number' ? id : null
   } catch (e) {
     console.error('D1 lead write threw:', e)
-    return false
+    return null
   }
 }
