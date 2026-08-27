@@ -339,6 +339,7 @@
     "leadOk": "Your request was passed to the team",
     "telegramFallback": "Message us directly on Telegram: https://t.me/neuronixjhbot",
     "close": "Close chat",
+    "backToSite": "Back to the site",
     "greeting": "Hi! I'm the Neuronix consultant. We build websites, online stores and automation: connecting your site, CRM, accounting and delivery into one system.\n\nTell me what you're working on — I'll explain what we can do and what it costs."
   },
   "footer": {

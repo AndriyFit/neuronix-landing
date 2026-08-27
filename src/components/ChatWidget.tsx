@@ -74,17 +74,38 @@ export default function ChatWidget() {
 
   // Екранна клавіатура зменшує ЛИШЕ visual viewport, а `position: fixed` рахується
   // від layout viewport — тому панель лишається на місці, і рядок вводу опиняється
-  // під клавіатурою. Меta `interactive-widget` тут не рятує: iOS Safari її не
-  // підтримує, а саме там проблема найгостріша. Тому міряємо клавіатуру самі й
-  // віддаємо висоту в CSS змінній, яку додає до свого зсуву .chat-panel.
+  // під клавіатурою. Мета `interactive-widget` тут не рятує: iOS Safari її не
+  // підтримує, а саме там проблема найгостріша. Тому міряємо самі й віддаємо
+  // геометрію в CSS змінних.
+  //
+  // Віддаємо ДВА різні описи одного й того ж, бо їх споживають різні медіазапити:
+  //   --chat-vv-top / --chat-vv-left / --chat-vv-height / --chat-vv-width —
+  //     координати видимого прямокутника; ними телефон (<=600px) прив'язує
+  //     панель до visual viewport напряму. Горизонталь потрібна не менше за
+  //     вертикаль: при зумі (пінч або авто-зум iOS на полі вводу) видима область
+  //     вужча за layout viewport і зсунута вбік;
+  //   --chat-keyboard — висота клавіатури; нею планшет/десктоп піднімає панель
+  //     над нею, лишаючись карткою в куті.
+  // ⚠️ Складати ці два підходи НЕ можна: на iOS Safari браузер сам піднімає
+  // сторінку під поле вводу (offsetTop), і другий зсув зверху відриває панель
+  // від екрана. Тому в мобільному правилі --chat-keyboard не використовується.
   useEffect(() => {
     const vv = typeof window !== 'undefined' ? window.visualViewport : undefined
     if (!open || !vv) return
 
+    const root = document.documentElement
     const sync = () => {
+      root.style.setProperty('--chat-vv-top', `${Math.round(vv.offsetTop)}px`)
+      root.style.setProperty('--chat-vv-left', `${Math.round(vv.offsetLeft)}px`)
+      root.style.setProperty('--chat-vv-height', `${Math.round(vv.height)}px`)
+      root.style.setProperty('--chat-vv-width', `${Math.round(vv.width)}px`)
       // offsetTop враховує зсув, коли Safari «піднімає» сторінку під поле вводу.
       const keyboard = Math.max(0, window.innerHeight - vv.height - vv.offsetTop)
-      document.documentElement.style.setProperty('--chat-keyboard', `${Math.round(keyboard)}px`)
+      root.style.setProperty('--chat-keyboard', `${Math.round(keyboard)}px`)
+      // Панель щойно стала нижчою — останнє повідомлення інакше лишається
+      // вище видимої області, і людина друкує «в порожнечу».
+      const list = listRef.current
+      if (list) list.scrollTop = list.scrollHeight
     }
 
     sync()
@@ -93,7 +114,11 @@ export default function ChatWidget() {
     return () => {
       vv.removeEventListener('resize', sync)
       vv.removeEventListener('scroll', sync)
-      document.documentElement.style.removeProperty('--chat-keyboard')
+      root.style.removeProperty('--chat-vv-top')
+      root.style.removeProperty('--chat-vv-left')
+      root.style.removeProperty('--chat-vv-height')
+      root.style.removeProperty('--chat-vv-width')
+      root.style.removeProperty('--chat-keyboard')
     }
   }, [open])
 
@@ -169,7 +194,7 @@ export default function ChatWidget() {
     <>
       <button
         type="button"
-        className="chat-toggle"
+        className={`chat-toggle${open ? ' chat-toggle-active' : ''}`}
         aria-label={open ? t('close') : t('open')}
         aria-expanded={open}
         onClick={() => {
@@ -193,8 +218,13 @@ export default function ChatWidget() {
               <p className="chat-title">{t('title')}</p>
               <p className="chat-subtitle">{t('subtitle')}</p>
             </div>
+            {/* Хрестик — SVG, а не символ «×»: на телефоні панель займає весь екран,
+                і це єдиний спосіб повернутись на сайт, тож кнопка не має залежати
+                від того, наскільки жирно шрифт малює типографський знак. */}
             <button type="button" className="chat-header-close" aria-label={t('close')} onClick={() => setOpen(false)}>
-              ×
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" aria-hidden="true">
+                <path d="M6 6l12 12M18 6L6 18" />
+              </svg>
             </button>
           </div>
 
@@ -229,6 +259,17 @@ export default function ChatWidget() {
               {t('send')}
             </button>
           </form>
+
+          {/* Другий вихід, крім хрестика в шапці. Потрібен саме на телефоні: там
+              панель на весь екран, до шапки треба тягнутись великим пальцем через
+              весь екран, а внизу вона ще й найближча до клавіатури. На десктопі
+              приховано (CSS) — там панель картка в куті, сайт видно навколо неї. */}
+          <button type="button" className="chat-back" onClick={() => setOpen(false)}>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <path d="M19 12H5M12 19l-7-7 7-7" />
+            </svg>
+            {t('backToSite')}
+          </button>
         </div>
       )}
     </>
