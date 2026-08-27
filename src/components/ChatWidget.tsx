@@ -128,7 +128,7 @@ export default function ChatWidget() {
       </button>
 
       {open && (
-        <div className="chat-panel" role="dialog" aria-label={t('title')}>
+        <div className="chat-panel" role="dialog" aria-modal="true" aria-label={t('title')}>
           <div className="chat-header">
             <div>
               <p className="chat-title">{t('title')}</p>
@@ -160,6 +160,7 @@ export default function ChatWidget() {
               type="text"
               className="chat-input"
               placeholder={t('placeholder')}
+              aria-label={t('placeholder')}
               value={input}
               maxLength={2000}
               disabled={sending}
