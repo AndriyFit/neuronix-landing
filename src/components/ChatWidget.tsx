@@ -72,6 +72,31 @@ export default function ChatWidget() {
     }
   }, [open, messages.length, t])
 
+  // Екранна клавіатура зменшує ЛИШЕ visual viewport, а `position: fixed` рахується
+  // від layout viewport — тому панель лишається на місці, і рядок вводу опиняється
+  // під клавіатурою. Меta `interactive-widget` тут не рятує: iOS Safari її не
+  // підтримує, а саме там проблема найгостріша. Тому міряємо клавіатуру самі й
+  // віддаємо висоту в CSS змінній, яку додає до свого зсуву .chat-panel.
+  useEffect(() => {
+    const vv = typeof window !== 'undefined' ? window.visualViewport : undefined
+    if (!open || !vv) return
+
+    const sync = () => {
+      // offsetTop враховує зсув, коли Safari «піднімає» сторінку під поле вводу.
+      const keyboard = Math.max(0, window.innerHeight - vv.height - vv.offsetTop)
+      document.documentElement.style.setProperty('--chat-keyboard', `${Math.round(keyboard)}px`)
+    }
+
+    sync()
+    vv.addEventListener('resize', sync)
+    vv.addEventListener('scroll', sync)
+    return () => {
+      vv.removeEventListener('resize', sync)
+      vv.removeEventListener('scroll', sync)
+      document.documentElement.style.removeProperty('--chat-keyboard')
+    }
+  }, [open])
+
   const send = async () => {
     const text = input.trim()
     if (!text || sending) return

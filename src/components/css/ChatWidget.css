@@ -1,7 +1,15 @@
+/* Нижній зсув зібраний в одну змінну, щоб медіазапити нижче перевизначали ЛИШЕ
+   базу, а висота екранної клавіатури (--chat-keyboard, її міряє ChatWidget.tsx
+   через visualViewport) додавалась рівно в двох місцях, а не в кожному правилі. */
+.chat-toggle,
+.chat-panel {
+  --chat-base: 1.5rem;
+}
+
 .chat-toggle {
   position: fixed;
   right: 1.5rem;
-  bottom: 1.5rem;
+  bottom: var(--chat-base);
   z-index: 95;
   width: 56px;
   height: 56px;
@@ -30,7 +38,10 @@
 .chat-panel {
   position: fixed;
   right: 1.5rem;
-  bottom: calc(1.5rem + 68px);
+  /* max(), а не сума: базовий відступ обходить StickyCta й банер згоди, але коли
+     виїхала клавіатура — вони й так під нею, тож додавати одне до одного означало б
+     без потреби душити панель (заміряно: 468 → 148px). Береться більше з двох. */
+  bottom: max(calc(var(--chat-base) + 68px), calc(var(--chat-keyboard, 0px) + 0.5rem));
   z-index: 95;
   width: 380px;
   height: 520px;
@@ -185,12 +196,9 @@
    breakpoint — Contact.css/StickyCta.css) — lift both above it, same value
    CookieConsent.css already uses for the same bar (bottom:76-79). */
 @media (max-width: 900px) {
-  .chat-toggle {
-    bottom: calc(4.5rem + env(safe-area-inset-bottom));
-  }
-
+  .chat-toggle,
   .chat-panel {
-    bottom: calc(4.5rem + 68px + env(safe-area-inset-bottom));
+    --chat-base: calc(4.5rem + env(safe-area-inset-bottom));
   }
 
   /* Below ~720px the cookie banner (CookieConsent.css) is nearly full-width
@@ -199,22 +207,16 @@
      requires to stay reachable. Raise chat above it instead, measured against
      the banner's real height (row layout ≈76px at 900-561px, taller ≈143px
      once it stacks to a column under 560px — see CookieConsent.css:83). */
-  body:has(.cookie-banner) .chat-toggle {
-    bottom: calc(10.5rem + env(safe-area-inset-bottom));
-  }
-
+  body:has(.cookie-banner) .chat-toggle,
   body:has(.cookie-banner) .chat-panel {
-    bottom: calc(10.5rem + 68px + env(safe-area-inset-bottom));
+    --chat-base: calc(10.5rem + env(safe-area-inset-bottom));
   }
 }
 
 @media (max-width: 560px) {
-  body:has(.cookie-banner) .chat-toggle {
-    bottom: calc(14.5rem + env(safe-area-inset-bottom));
-  }
-
+  body:has(.cookie-banner) .chat-toggle,
   body:has(.cookie-banner) .chat-panel {
-    bottom: calc(14.5rem + 68px + env(safe-area-inset-bottom));
+    --chat-base: calc(14.5rem + env(safe-area-inset-bottom));
   }
 }
 
