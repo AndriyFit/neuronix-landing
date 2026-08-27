@@ -9,6 +9,10 @@ const GATEWAY = 'https://ai-gateway.vercel.sh/v1/chat/completions'
 const MODEL = 'google/gemini-2.5-flash'
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i
 
+// До 6 послідовних звернень до D1 + виклик моделі + доставка заявки — дефолтний
+// ліміт Vercel (10с на Hobby / Fluid) може обірвати запит посеред цього ланцюжка.
+export const maxDuration = 60
+
 const tg = 'https://t.me/neuronixjhbot'
 const fallback = (locale?: string) =>
   locale === 'en'
