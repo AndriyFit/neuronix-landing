@@ -383,7 +383,7 @@ export async function checkLimits(sessionId: string, ipHash: string): Promise<{ 
   const [ip] = await d1(
     `SELECT COUNT(*) AS n FROM chat_messages m
      JOIN chat_sessions s ON s.id = m.session_id
-     WHERE s.ip_hash = ? AND m.created_at > datetime('now','-1 hour')`,
+     WHERE s.ip_hash = ? AND m.created_at > strftime('%Y-%m-%dT%H:%M:%SZ','now','-1 hour')`,
     [ipHash],
   )
   if (Number(ip?.n ?? 0) >= LIMITS.perIpPerHour) return { ok: false, retryAfter: 3600 }
@@ -540,6 +540,7 @@ git commit -m "feat: системний промпт чату на сервер�
 **Файли:**
 - Створити: `src/app/api/chat/route.ts`
 - Змінити: `src/lib/leads.ts` — додати `'chat'` у `LeadSource` і повертати `id` створеного ліда
+- Створити: `src/lib/lead-notify.ts` — `sendTelegram`/`sendEmail`, винесені з `api/contact`
 - Змінити: `.env.example` — додати `AI_GATEWAY_API_KEY`, `CHAT_IP_SALT`
 
 **Інтерфейси:**
@@ -601,7 +602,11 @@ export async function POST(req: NextRequest) {
 
     const messages = [
       { role: 'system', content: SYSTEM_INSTRUCTION },
-      ...history.map((m) => ({ role: m.role === 'model' ? 'assistant' : 'user', content: m.content })),
+      // tool-повідомлення лишаються в D1 для аудиту, але в модель не йдуть:
+      // службовий JSON виклику інструмента як репліка користувача — це сміття в контексті.
+      ...history
+        .filter((m) => m.role !== 'tool')
+        .map((m) => ({ role: m.role === 'model' ? 'assistant' : 'user', content: m.content })),
       { role: 'user', content: valid.text },
     ]
 
