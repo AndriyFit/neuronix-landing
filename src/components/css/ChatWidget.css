@@ -55,15 +55,21 @@
   color: #fff;
 }
 
+/* Колір заданий явно, а не успадкований від .chat-header: обидва — <p>, а
+   global.css має `p { color: var(--text-muted) }`. Пряме оголошення завжди
+   б'є успадковане значення, тож без цього заголовок стає сірим на фіолетовому
+   градієнті й практично не читається. */
 .chat-title {
   font-weight: 600;
   font-size: 0.95rem;
+  color: #fff;
 }
 
 .chat-subtitle {
   font-size: 0.8rem;
   opacity: 0.85;
   margin-top: 0.15rem;
+  color: #fff;
 }
 
 .chat-header-close {
@@ -217,11 +223,19 @@
     right: 1rem;
   }
 
+  /* Висота задається парою top + bottom, а не `height: auto` з `max-height`.
+     Різниця принципова: у fixed-елемента з обома зсувами висота ВИЗНАЧЕНА —
+     і тоді `.chat-messages { flex:1 1 auto; min-height:0 }` справді скролиться
+     всередині. З `height: auto` панель схлопувалась до висоти вмісту (заміряно:
+     182px при екрані 844) і висіла коробкою посеред сторінки поверх контенту.
+     Нижній зсув приходить із правил вище й міняється, коли видно банер згоди —
+     панель від цього просто стає нижчою, а не зривається з місця. */
   .chat-panel {
     right: 0.75rem;
     left: 0.75rem;
+    top: 4.75rem;
     width: auto;
     height: auto;
-    max-height: 80dvh;
+    max-height: none;
   }
 }

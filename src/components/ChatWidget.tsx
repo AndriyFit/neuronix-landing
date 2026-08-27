@@ -62,6 +62,16 @@ export default function ChatWidget() {
     if (el) el.scrollTop = el.scrollHeight
   }, [messages, sending, open])
 
+  // Привітання показуємо локально, першим відкриттям панелі. У модель воно не
+  // йде і в D1 не пишеться: це підказка «з чого почати», а не хід розмови —
+  // інакше історія починалася б з репліки, якої ніхто не писав, і кожна сесія
+  // коштувала б виклику моделі ще до того, як людина щось спитала.
+  useEffect(() => {
+    if (open && messages.length === 0) {
+      setMessages([{ role: 'assistant', content: t('greeting') }])
+    }
+  }, [open, messages.length, t])
+
   const send = async () => {
     const text = input.trim()
     if (!text || sending) return
