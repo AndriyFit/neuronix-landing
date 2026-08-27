@@ -6,6 +6,7 @@ declare global {
       opt_in_capturing?: () => void
       opt_out_capturing?: () => void
       get_distinct_id?: () => string | undefined
+      identify?: (id: string) => void
     }
   }
 }

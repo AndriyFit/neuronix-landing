@@ -84,6 +84,7 @@ export async function POST(req: NextRequest) {
     // Інструмент виконує СЕРВЕР. У згенерованому коді це робив браузер — тоді заявку
     // можна підробити запитом повз чат, а source 'chat' нічого не вартий.
     const call = choice?.tool_calls?.[0]
+    let leadContact: string | undefined
     if (call?.function?.name === 'submit_lead') {
       const args = parseLeadArgs(call.function.arguments ?? '')
       if (args) {
@@ -114,6 +115,9 @@ export async function POST(req: NextRequest) {
         const leadId = leadRes.status === 'fulfilled' ? leadRes.value : null
         if (leadId) await linkLead(sessionId, leadId)
         leadCreated = Boolean(leadId)
+        // Віддаємо назад те саме, що людина щойно ввела в цьому діалозі — нічого нового
+        // про неї не розкривається. Потрібно віджету для posthog.identify().
+        if (leadCreated) leadContact = args.phone
         await appendMessage(sessionId, { role: 'tool', content: JSON.stringify(args), toolName: 'submit_lead' })
       }
     }
@@ -122,7 +126,7 @@ export async function POST(req: NextRequest) {
     // не збій. На успішній заявці порожній content означає "готово", а не "вибачте".
     const reply = String(choice?.content ?? '').trim() || (leadCreated ? leadConfirmation(locale) : fallback(locale))
     await appendMessage(sessionId, { role: 'model', content: reply })
-    return NextResponse.json({ reply, leadCreated })
+    return NextResponse.json({ reply, leadCreated, ...(leadContact ? { contact: leadContact } : {}) })
   } catch (e) {
     console.error('Chat route error:', e)
     return NextResponse.json({ reply: fallback(locale) }, { status: 503 })

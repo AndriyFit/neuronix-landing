@@ -2,6 +2,8 @@
 
 import { useEffect, useRef, useState } from 'react'
 import { useLocale, useTranslations } from 'next-intl'
+import { sendGTMEvent } from '@next/third-parties/google'
+import { track } from '@/lib/analytics'
 import './css/ChatWidget.css'
 
 interface ChatMessage {
@@ -67,6 +69,7 @@ export default function ChatWidget() {
     setMessages((prev) => [...prev, { role: 'user', content: text }])
     setInput('')
     setSending(true)
+    track('chat_message_sent')
 
     const fallback = `${t('error')} ${t('telegramFallback')}`
 
@@ -99,10 +102,28 @@ export default function ChatWidget() {
           ...prev,
           { role: 'assistant', content: data.reply ?? fallback, leadCreated: data.leadCreated },
         ])
+        if (res.status === 503) track('chat_error', { reason: 'unavailable' })
+
+        // Порядок обов'язковий: sendGTMEvent — гроші, PostHog — аналітика. Збій
+        // аналітики не має права завадити конверсії дійти до Google Ads.
+        if (data.leadCreated) {
+          sendGTMEvent({ event: 'generate_lead', lead_source: 'chat' })
+          if (data.contact) {
+            try {
+              window.posthog?.identify?.(data.contact)
+            } catch {
+              // no-op: аналітика не критична, конверсія критична
+            }
+          }
+          track('chat_lead_submitted')
+        }
       } else {
+        const errBody: { error?: string } | null = await res.json().catch(() => null)
+        track('chat_error', { reason: errBody?.error ?? `http_${res.status}` })
         setMessages((prev) => [...prev, { role: 'assistant', content: fallback }])
       }
     } catch {
+      track('chat_error', { reason: 'network' })
       setMessages((prev) => [...prev, { role: 'assistant', content: fallback }])
     } finally {
       setSending(false)
@@ -116,7 +137,10 @@ export default function ChatWidget() {
         className="chat-toggle"
         aria-label={open ? t('close') : t('open')}
         aria-expanded={open}
-        onClick={() => setOpen((v) => !v)}
+        onClick={() => {
+          if (!open) track('chat_opened')
+          setOpen((v) => !v)
+        }}
       >
         {open ? (
           '×'
