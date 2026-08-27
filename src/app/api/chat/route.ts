@@ -14,10 +14,20 @@ const fallback = (locale?: string) =>
   locale === 'en'
     ? `Sorry — I can't reply right now. Please message us directly: ${tg}`
     : `Вибачте, зараз не можу відповісти. Напишіть, будь ласка, напряму: ${tg}`
+const leadConfirmation = (locale?: string) =>
+  locale === 'en'
+    ? "Done — I've passed it to the team. They'll be in touch during business hours."
+    : 'Готово, передав команді. Зв’яжуться в робочий час.'
+
+// req.json() зазвичай дає string; будь-що інше (число, об'єкт) обрізати нема сенсу — просто в базу не пише.
+const str = (v: unknown, max: number) => (typeof v === 'string' ? v.slice(0, max) : undefined)
 
 export async function POST(req: NextRequest) {
+  let locale: string | undefined
   try {
-    const { sessionId, message, locale, landingPath, distinctId, utm } = await req.json()
+    const body = await req.json()
+    const { sessionId, message, landingPath, distinctId, utm } = body
+    locale = body.locale
     if (!UUID.test(String(sessionId ?? ''))) {
       return NextResponse.json({ error: 'bad_session' }, { status: 400 })
     }
@@ -25,14 +35,22 @@ export async function POST(req: NextRequest) {
     if (!valid.ok) return NextResponse.json({ error: valid.reason }, { status: 400 })
 
     const ip = req.headers.get('x-forwarded-for')?.split(',')[0]?.trim() || 'unknown'
-    const ipHash = hashIp(ip, process.env.CHAT_IP_SALT ?? 'neuronix')
+    const ipHash = hashIp(ip, process.env.CHAT_IP_SALT || 'neuronix')
 
     const limit = await checkLimits(sessionId, ipHash)
     if (!limit.ok) {
       return NextResponse.json({ error: 'rate_limited', retryAfter: limit.retryAfter }, { status: 429 })
     }
 
-    await touchSession(sessionId, { locale, landingPath, distinctId, ipHash, utm })
+    await touchSession(sessionId, {
+      locale: str(locale, 10),
+      landingPath: str(landingPath, 500),
+      distinctId: str(distinctId, 200),
+      ipHash,
+      utm: utm && typeof utm === 'object'
+        ? { source: str(utm.source, 200), medium: str(utm.medium, 200), campaign: str(utm.campaign, 200) }
+        : undefined,
+    })
     const history = trimHistory(await getHistory(sessionId, LIMITS.historyDepth), LIMITS.historyDepth)
     await appendMessage(sessionId, { role: 'user', content: valid.text })
 
@@ -83,11 +101,16 @@ export async function POST(req: NextRequest) {
           .filter(Boolean)
           .join('\n')
 
-        const [leadRes] = await Promise.allSettled([
+        const [leadRes, tgRes, mailRes] = await Promise.allSettled([
           saveLead({ source: 'chat', name: args.name, contact: args.phone, message: args.message, siteUrl: args.url }),
           sendTelegram(text),
           sendEmail(subject, text),
         ])
+        // Дзеркало api/contact: saveLead — не канал доставки, delivered міряється лише
+        // двома реальними каналами. Мовчазний збій обох — це рівно втрачений лід.
+        const delivered = [tgRes, mailRes].some((r) => r.status === 'fulfilled' && r.value)
+        if (!delivered) console.error('Chat lead delivery failed on every channel:', [tgRes, mailRes])
+
         const leadId = leadRes.status === 'fulfilled' ? leadRes.value : null
         if (leadId) await linkLead(sessionId, leadId)
         leadCreated = Boolean(leadId)
@@ -95,11 +118,13 @@ export async function POST(req: NextRequest) {
       }
     }
 
-    const reply = String(choice?.content ?? '').trim() || fallback(locale)
+    // tool_calls штатно приходить із порожнім content (OpenAI-сумісний формат) — це
+    // не збій. На успішній заявці порожній content означає "готово", а не "вибачте".
+    const reply = String(choice?.content ?? '').trim() || (leadCreated ? leadConfirmation(locale) : fallback(locale))
     await appendMessage(sessionId, { role: 'model', content: reply })
     return NextResponse.json({ reply, leadCreated })
   } catch (e) {
     console.error('Chat route error:', e)
-    return NextResponse.json({ reply: fallback() }, { status: 503 })
+    return NextResponse.json({ reply: fallback(locale) }, { status: 503 })
   }
 }
