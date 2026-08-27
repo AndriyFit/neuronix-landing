@@ -247,9 +247,18 @@
      Тому offsetTop тепер не компенсується формулою, а використовується як
      координата: панель = рівно той прямокутник, який видно.
      Фолбек 100dvh/0 — для браузерів без visualViewport (вар'ябл не виставлений). */
+  /* ⚠️ Рівно 16px, не 0.9rem. iOS Safari АВТОМАТИЧНО зумить сторінку при фокусі
+     в поле з меншим шрифтом (viewport дозволяє: maximumScale 5). Зум робить
+     visual viewport вужчим за layout — і панель, розтягнута на всю ширину
+     layout viewport, вилазить за правий край екрана. Прибирати зум через
+     maximum-scale=1 не можна: це ламає доступність для слабозорих. */
+  .chat-input {
+    font-size: 16px;
+  }
+
   .chat-panel {
     top: 0;
-    right: 0;
+    right: auto;
     left: 0;
     bottom: auto;
     /* Вище за Navbar і банер згоди (обидва 100): на телефоні панель — модалка на
@@ -257,10 +266,15 @@
        тобто чат не було б чим закрити. Банер згоди від цього не втрачається:
        він перекритий лише поки чат відкритий, а закриття тепер доступне. */
     z-index: 101;
-    width: auto;
+    /* Ширина й горизонтальний зсув — теж від visual viewport, а не `right: 0`:
+       якщо сторінка зумлена (пінч користувача або авто-зум iOS), видима область
+       вужча за layout viewport і зсунута вбік. `right: 0` у такому разі тягне
+       панель до краю LAYOUT viewport, тобто за екран — саме це й було видно
+       як «з'їхало вправо». */
+    width: var(--chat-vv-width, 100%);
     height: var(--chat-vv-height, 100dvh);
     max-height: none;
-    transform: translateY(var(--chat-vv-top, 0px));
+    transform: translate(var(--chat-vv-left, 0px), var(--chat-vv-top, 0px));
     border-radius: 0;
     border-left: none;
     border-right: none;

@@ -79,8 +79,11 @@ export default function ChatWidget() {
   // геометрію в CSS змінних.
   //
   // Віддаємо ДВА різні описи одного й того ж, бо їх споживають різні медіазапити:
-  //   --chat-vv-top / --chat-vv-height — координати видимого прямокутника; ними
-  //     телефон (<=600px) прив'язує панель до visual viewport напряму;
+  //   --chat-vv-top / --chat-vv-left / --chat-vv-height / --chat-vv-width —
+  //     координати видимого прямокутника; ними телефон (<=600px) прив'язує
+  //     панель до visual viewport напряму. Горизонталь потрібна не менше за
+  //     вертикаль: при зумі (пінч або авто-зум iOS на полі вводу) видима область
+  //     вужча за layout viewport і зсунута вбік;
   //   --chat-keyboard — висота клавіатури; нею планшет/десктоп піднімає панель
   //     над нею, лишаючись карткою в куті.
   // ⚠️ Складати ці два підходи НЕ можна: на iOS Safari браузер сам піднімає
@@ -93,7 +96,9 @@ export default function ChatWidget() {
     const root = document.documentElement
     const sync = () => {
       root.style.setProperty('--chat-vv-top', `${Math.round(vv.offsetTop)}px`)
+      root.style.setProperty('--chat-vv-left', `${Math.round(vv.offsetLeft)}px`)
       root.style.setProperty('--chat-vv-height', `${Math.round(vv.height)}px`)
+      root.style.setProperty('--chat-vv-width', `${Math.round(vv.width)}px`)
       // offsetTop враховує зсув, коли Safari «піднімає» сторінку під поле вводу.
       const keyboard = Math.max(0, window.innerHeight - vv.height - vv.offsetTop)
       root.style.setProperty('--chat-keyboard', `${Math.round(keyboard)}px`)
@@ -110,7 +115,9 @@ export default function ChatWidget() {
       vv.removeEventListener('resize', sync)
       vv.removeEventListener('scroll', sync)
       root.style.removeProperty('--chat-vv-top')
+      root.style.removeProperty('--chat-vv-left')
       root.style.removeProperty('--chat-vv-height')
+      root.style.removeProperty('--chat-vv-width')
       root.style.removeProperty('--chat-keyboard')
     }
   }, [open])
