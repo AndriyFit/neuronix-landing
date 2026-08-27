@@ -74,17 +74,33 @@ export default function ChatWidget() {
 
   // Екранна клавіатура зменшує ЛИШЕ visual viewport, а `position: fixed` рахується
   // від layout viewport — тому панель лишається на місці, і рядок вводу опиняється
-  // під клавіатурою. Меta `interactive-widget` тут не рятує: iOS Safari її не
-  // підтримує, а саме там проблема найгостріша. Тому міряємо клавіатуру самі й
-  // віддаємо висоту в CSS змінній, яку додає до свого зсуву .chat-panel.
+  // під клавіатурою. Мета `interactive-widget` тут не рятує: iOS Safari її не
+  // підтримує, а саме там проблема найгостріша. Тому міряємо самі й віддаємо
+  // геометрію в CSS змінних.
+  //
+  // Віддаємо ДВА різні описи одного й того ж, бо їх споживають різні медіазапити:
+  //   --chat-vv-top / --chat-vv-height — координати видимого прямокутника; ними
+  //     телефон (<=600px) прив'язує панель до visual viewport напряму;
+  //   --chat-keyboard — висота клавіатури; нею планшет/десктоп піднімає панель
+  //     над нею, лишаючись карткою в куті.
+  // ⚠️ Складати ці два підходи НЕ можна: на iOS Safari браузер сам піднімає
+  // сторінку під поле вводу (offsetTop), і другий зсув зверху відриває панель
+  // від екрана. Тому в мобільному правилі --chat-keyboard не використовується.
   useEffect(() => {
     const vv = typeof window !== 'undefined' ? window.visualViewport : undefined
     if (!open || !vv) return
 
+    const root = document.documentElement
     const sync = () => {
+      root.style.setProperty('--chat-vv-top', `${Math.round(vv.offsetTop)}px`)
+      root.style.setProperty('--chat-vv-height', `${Math.round(vv.height)}px`)
       // offsetTop враховує зсув, коли Safari «піднімає» сторінку під поле вводу.
       const keyboard = Math.max(0, window.innerHeight - vv.height - vv.offsetTop)
-      document.documentElement.style.setProperty('--chat-keyboard', `${Math.round(keyboard)}px`)
+      root.style.setProperty('--chat-keyboard', `${Math.round(keyboard)}px`)
+      // Панель щойно стала нижчою — останнє повідомлення інакше лишається
+      // вище видимої області, і людина друкує «в порожнечу».
+      const list = listRef.current
+      if (list) list.scrollTop = list.scrollHeight
     }
 
     sync()
@@ -93,7 +109,9 @@ export default function ChatWidget() {
     return () => {
       vv.removeEventListener('resize', sync)
       vv.removeEventListener('scroll', sync)
-      document.documentElement.style.removeProperty('--chat-keyboard')
+      root.style.removeProperty('--chat-vv-top')
+      root.style.removeProperty('--chat-vv-height')
+      root.style.removeProperty('--chat-keyboard')
     }
   }, [open])
 
@@ -169,7 +187,7 @@ export default function ChatWidget() {
     <>
       <button
         type="button"
-        className="chat-toggle"
+        className={`chat-toggle${open ? ' chat-toggle-active' : ''}`}
         aria-label={open ? t('close') : t('open')}
         aria-expanded={open}
         onClick={() => {
