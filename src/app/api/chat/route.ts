@@ -170,6 +170,9 @@ export async function POST(req: NextRequest) {
           // tool_calls штатно приходить із порожнім content (OpenAI-сумісний формат) — це
           // не збій. На успішній заявці порожній content означає "готово", а не "вибачте".
           if (!full.trim()) {
+            // Порожня відповідь без заявки — єдиний стан, який мовчки перетворювався на
+            // «Не вдалося обробити» і не лишав по собі СЛІДУ в логах. Тепер лишає.
+            if (!leadCreated) console.error('Chat: empty model reply', { hadToolCall: Boolean(toolName) })
             full = leadCreated ? leadConfirmation(locale) : fallback(locale)
             send({ delta: full })
           }
@@ -178,7 +181,12 @@ export async function POST(req: NextRequest) {
           console.error('Chat post-stream error:', e)
         }
 
-        send({ done: true, leadCreated, ...(leadContact ? { contact: leadContact } : {}) })
+        // reply дублює те, що вже пішло шматками — навмисно. Шматок може не доїхати
+        // (обрив, приспана вкладка, проміжний проксі), і тоді людина бачила fallback,
+        // хоч відповідь була згенерована й записана в D1 — саме це сталося 27.08.
+        // Фінальний рядок малий і приходить одним шматком, тож служить джерелом
+        // правди: віджет добирає з нього те, чого не отримав потоком.
+        send({ done: true, leadCreated, reply: full, ...(leadContact ? { contact: leadContact } : {}) })
         controller.close()
       },
     })

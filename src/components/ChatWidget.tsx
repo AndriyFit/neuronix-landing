@@ -225,7 +225,7 @@ export default function ChatWidget() {
         const decoder = new TextDecoder()
         const parse = createNdjsonParser()
         let started = false
-        let done: { leadCreated?: boolean; contact?: string } = {}
+        let done: { leadCreated?: boolean; contact?: string; reply?: string } = {}
 
         const push = (text: string) => {
           if (!started) {
@@ -259,7 +259,34 @@ export default function ChatWidget() {
           }
         }
 
-        if (!started) setMessages((prev) => [...prev, { role: 'assistant', content: fallback }])
+        // Фінальний рядок несе повний текст відповіді — беремо його як джерело правди.
+        // Шматок міг не доїхати (обрив, приспана вкладка), і тоді на екрані лишався б
+        // обрізаний текст або взагалі fallback, хоч відповідь є. Саме так і сталося 27.08:
+        // модель відповіла за 3с, відповідь лягла в D1, а людина побачила «не вдалося».
+        if (typeof done.reply === 'string' && done.reply.trim()) {
+          const full = done.reply
+          if (!started) {
+            started = true
+            scrollModeRef.current = 'reply-start'
+            alignedRef.current = false
+            setSending(false)
+            setMessages((prev) => [...prev, { role: 'assistant', content: full }])
+            track('chat_error', { reason: 'stream_lost' })
+          } else {
+            setMessages((prev) => {
+              const next = [...prev]
+              const last = next[next.length - 1]
+              if (last.content === full) return prev
+              track('chat_error', { reason: 'stream_partial' })
+              next[next.length - 1] = { ...last, content: full }
+              return next
+            })
+          }
+        } else if (!started) {
+          // Ані шматків, ані фінального рядка — запит справді не дійшов.
+          track('chat_error', { reason: 'empty_stream' })
+          setMessages((prev) => [...prev, { role: 'assistant', content: fallback }])
+        }
         if (done.leadCreated) {
           setMessages((prev) => {
             const next = [...prev]
