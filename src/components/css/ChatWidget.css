@@ -186,6 +186,30 @@
   .chat-panel {
     bottom: calc(4.5rem + 68px + env(safe-area-inset-bottom));
   }
+
+  /* Below ~720px the cookie banner (CookieConsent.css) is nearly full-width
+     and shares this same bottom offset, so it physically sits under the chat
+     button — z-index alone would just hide the Decline button, which GDPR
+     requires to stay reachable. Raise chat above it instead, measured against
+     the banner's real height (row layout ≈76px at 900-561px, taller ≈143px
+     once it stacks to a column under 560px — see CookieConsent.css:83). */
+  body:has(.cookie-banner) .chat-toggle {
+    bottom: calc(10.5rem + env(safe-area-inset-bottom));
+  }
+
+  body:has(.cookie-banner) .chat-panel {
+    bottom: calc(10.5rem + 68px + env(safe-area-inset-bottom));
+  }
+}
+
+@media (max-width: 560px) {
+  body:has(.cookie-banner) .chat-toggle {
+    bottom: calc(14.5rem + env(safe-area-inset-bottom));
+  }
+
+  body:has(.cookie-banner) .chat-panel {
+    bottom: calc(14.5rem + 68px + env(safe-area-inset-bottom));
+  }
 }
 
 @media (max-width: 600px) {
