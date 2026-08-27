@@ -8,16 +8,29 @@ TOKEN="$(curl -s -H "X-API-Key: $VAULT_KEY" \
   | python3 -c 'import json,sys;print(json.load(sys.stdin)["value"])')"
 ACC=2c4c514716008ce7795e40ac9e0cd04c
 DB=75d3b6c1-0559-4d80-a0cf-38ad0e25065a
-python3 - "$FILE" <<'PY' | while read -r stmt; do
+# mapfile (не `python3 | while read`) — щоб цикл виконувався в поточній оболонці,
+# а не в підоболонці пайпу, інакше змінна fail нижче не пережила б цикл.
+mapfile -t STATEMENTS < <(python3 - "$FILE" <<'PY'
 import sys
 sql = open(sys.argv[1], encoding='utf-8').read()
 # D1 REST виконує один стейтмент за виклик — ріжемо по ";" і чистимо переноси.
 for s in filter(None, (x.strip() for x in sql.split(';'))):
     print(' '.join(s.split()))
 PY
+)
+
+fail=0
+for stmt in "${STATEMENTS[@]}"; do
   echo "→ ${stmt:0:60}..."
-  curl -s -X POST "https://api.cloudflare.com/client/v4/accounts/$ACC/d1/database/$DB/query" \
+  if curl -s -X POST "https://api.cloudflare.com/client/v4/accounts/$ACC/d1/database/$DB/query" \
     -H "Authorization: Bearer $TOKEN" -H "Content-Type: application/json" \
     -d "$(python3 -c 'import json,sys;print(json.dumps({"sql":sys.argv[1]}))' "$stmt")" \
-    | python3 -c 'import json,sys;d=json.load(sys.stdin);print("  ok" if d.get("success") else "  ПОМИЛКА: "+json.dumps(d.get("errors"),ensure_ascii=False))'
+    | python3 -c 'import json,sys;d=json.load(sys.stdin);ok=bool(d.get("success"));print("  ok" if ok else "  ПОМИЛКА: "+json.dumps(d.get("errors"),ensure_ascii=False));sys.exit(0 if ok else 1)'
+  then
+    :
+  else
+    fail=1
+  fi
 done
+
+exit "$fail"
