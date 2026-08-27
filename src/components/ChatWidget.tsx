@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react'
 import { useLocale, useTranslations } from 'next-intl'
 import { sendGTMEvent } from '@next/third-parties/google'
 import { track } from '@/lib/analytics'
+import { parseReply, type Inline } from '@/lib/chat-format'
 import { createNdjsonParser } from '@/lib/chat-stream'
 import './css/ChatWidget.css'
 
@@ -29,16 +30,40 @@ function getSessionId(): string {
   }
 }
 
-// /api/chat replies (incl. the 503 fallback) embed a plain t.me URL, not markdown —
-// linkify so it's an actual tappable link rather than inert text.
-function linkify(text: string) {
-  return text.split(/(https?:\/\/\S+)/g).map((part, i) =>
-    /^https?:\/\//.test(part) ? (
-      <a key={i} href={part} target="_blank" rel="noopener noreferrer">
-        {part}
-      </a>
+// Модель відповідає markdown-ом, і без розбору «**від $350**» показувалось
+// людині разом із зірочками. parseReply дає структуру (абзаци, списки, жирний,
+// посилання), яку рендеримо звичайними вузлами — ніякого dangerouslySetInnerHTML.
+function renderInline(parts: Inline[]) {
+  return parts.map((part, i) => {
+    if (part.href) {
+      return (
+        <a key={i} href={part.href} target="_blank" rel="noopener noreferrer">
+          {part.text}
+        </a>
+      )
+    }
+    return part.bold ? <strong key={i}>{part.text}</strong> : <span key={i}>{part.text}</span>
+  })
+}
+
+function renderReply(text: string) {
+  return parseReply(text).map((block, bi) =>
+    block.type === 'ul' ? (
+      <ul key={bi}>
+        {block.lines.map((line, li) => (
+          <li key={li}>{renderInline(line)}</li>
+        ))}
+      </ul>
     ) : (
-      part
+      <p key={bi}>
+        {block.lines.map((line, li) => (
+          // Переноси всередині абзацу модель ставить свідомо — зберігаємо їх.
+          <span key={li}>
+            {li > 0 && <br />}
+            {renderInline(line)}
+          </span>
+        ))}
+      </p>
     )
   )
 }
@@ -324,7 +349,7 @@ export default function ChatWidget() {
           <div className="chat-messages" ref={listRef}>
             {messages.map((m, i) => (
               <div key={i} className={`chat-bubble chat-bubble-${m.role}`}>
-                <p>{linkify(m.content)}</p>
+                {renderReply(m.content)}
                 {m.leadCreated && <span className="chat-lead-ok">{t('leadOk')}</span>}
               </div>
             ))}

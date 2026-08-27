@@ -190,6 +190,42 @@
   text-decoration: underline;
 }
 
+/* ⚠️ Та сама пастка, що вже ловила .chat-title: текст бульбашки лежить у <p>,
+   а global.css має `p { color: var(--text-muted) }`. Пряме оголошення б'є
+   успадкований від .chat-bubble колір, тож репліка користувача виходила сірою
+   на фіолетовому — практично нечитабельною (видно на скріншоті бага 27.08).
+   inherit повертає керування кольором самій бульбашці. */
+.chat-bubble p,
+.chat-bubble li {
+  color: inherit;
+}
+
+/* Відступи між абзацами відповіді: без них markdown-структура моделі
+   схлопується в суцільну стіну тексту, заради розбору якої все й робилось. */
+.chat-bubble p + p,
+.chat-bubble ul,
+.chat-bubble ul + p {
+  margin-top: 0.55rem;
+}
+
+.chat-bubble ul {
+  margin-bottom: 0;
+  padding-left: 1.05rem;
+  list-style: disc;
+}
+
+.chat-bubble li + li {
+  margin-top: 0.25rem;
+}
+
+.chat-bubble li {
+  line-height: 1.45;
+}
+
+.chat-bubble strong {
+  font-weight: 600;
+}
+
 .chat-bubble-user {
   align-self: flex-end;
   background: var(--primary);
