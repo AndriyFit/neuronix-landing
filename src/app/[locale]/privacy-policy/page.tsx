@@ -359,7 +359,7 @@ function PrivacyUk() {
       </p>
 
       <p style={{ marginTop: '3rem', color: 'var(--text-muted)', fontSize: '0.85rem' }}>
-        Neuronix · neuronics.work · Дата: 11.05.2026
+        Neuronix · neuronics.work · Дата: 27.08.2026
       </p>
     </article>
   )
@@ -684,7 +684,7 @@ function PrivacyEn() {
       </p>
 
       <p style={{ marginTop: '3rem', color: 'var(--text-muted)', fontSize: '0.85rem' }}>
-        Neuronix · neuronics.work · Date: 11.05.2026
+        Neuronix · neuronics.work · Date: 27.08.2026
       </p>
     </article>
   )
