@@ -43,7 +43,9 @@ export async function POST(req: NextRequest) {
       const target = quoted?.text?.match(/#id(\d+)/)?.[1] ?? quoted?.forward_from?.id
       if (!target) {
         // Form leads carry no Telegram chat at all — the visitor left a phone or email.
-        const isFormLead = /^[\u{1F514}\u{1F50D}]/u.test(quoted?.text ?? '')
+        // Chat-agent leads (💬, chat-prompt.ts) land here too: same 💬 prefix as a real
+        // bridged message, but no #id — there's no Telegram chat behind a chat-widget lead.
+        const isFormLead = /^[\u{1F514}\u{1F50D}\u{1F4AC}]/u.test(quoted?.text ?? '')
         await tg('sendMessage', {
           chat_id: owner,
           text: isFormLead

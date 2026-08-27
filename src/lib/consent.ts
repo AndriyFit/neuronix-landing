@@ -5,6 +5,8 @@ declare global {
       capture?: (event: string, props?: Record<string, unknown>) => void
       opt_in_capturing?: () => void
       opt_out_capturing?: () => void
+      get_distinct_id?: () => string | undefined
+      identify?: (id: string) => void
     }
   }
 }

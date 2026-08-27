@@ -137,6 +137,21 @@ function PrivacyUk() {
           .
         </li>
         <li>
+          <strong>Gmail API (Google)</strong> — для дублювання вашої заявки
+          поштою в нашу команду, паралельно з Telegram. Надсилання
+          виконується через поштовий акаунт команди на Google. Обробка
+          здійснюється відповідно до{' '}
+          <a
+            href="https://policies.google.com/privacy"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: 'var(--primary)' }}
+          >
+            Політики конфіденційності Google
+          </a>
+          .
+        </li>
+        <li>
           <strong>Постачальники аналітики та реклами</strong> — PostHog,
           Google Analytics, Google Ads і Google Tag Manager. Їм передаються
           унікальні ідентифікатори (файли cookie, ідентифікатор клієнта Google
@@ -294,8 +309,57 @@ function PrivacyUk() {
         персональних даних» від 01.06.2010 № 2297-VI.
       </p>
 
+      <h2 style={{ fontSize: '1.25rem', fontWeight: 600, marginTop: '2rem', marginBottom: '0.75rem' }}>
+        12. Чат-агент на сайті
+      </h2>
+      <p>
+        На сайті працює чат-агент для спілкування з відвідувачами. Якщо ви ним
+        користуєтесь, ми зберігаємо:
+      </p>
+      <ul style={{ paddingLeft: '1.5rem', lineHeight: 1.8 }}>
+        <li>зміст листування — ваші повідомлення та відповіді агента;</li>
+        <li>
+          якщо ви лишаєте заявку в чаті — службовий запис із її даними (імʼя,
+          контакт, повідомлення); це технічний дублікат самої заявки, нової
+          інформації про вас він не додає;
+        </li>
+        <li>час кожного повідомлення;</li>
+        <li>сторінку сайту, з якої відкрито чат;</li>
+        <li>ідентифікатор сесії чату та мову інтерфейсу;</li>
+        <li>UTM-мітки переходу (джерело, канал, кампанія), якщо вони є в посиланні;</li>
+        <li>
+          ваш ідентифікатор PostHog (distinct_id), якщо аналітика вже його
+          присвоїла, — щоб повʼязати сесію чату з подальшою поведінкою на сайті.
+        </li>
+      </ul>
+      <p style={{ marginTop: '0.75rem' }}>
+        Вашу IP-адресу ми <strong>не зберігаємо</strong> — зберігаємо лише її
+        хеш, і використовуємо його виключно для того, щоб обмежити кількість
+        запитів з одного джерела (захист від зловживань).
+      </p>
+      <p style={{ marginTop: '0.75rem' }}>
+        Мета обробки — та сама, що й для форми зворотного зв'язку (розділ 3):
+        відповісти на ваш запит і покращити роботу чату.
+      </p>
+      <p style={{ marginTop: '0.75rem' }}>
+        Якщо під час розмови ви лишаєте заявку (ім'я й контакт), вона
+        надходить тій самій команді й тим самим каналом, що й заявка з форми,
+        — дублюється в Telegram і на пошту (розділ 4). Додатково ваш контакт
+        (телефон, email або Telegram), вказаний у чаті, передається сервісу
+        аналітики PostHog як ідентифікатор вашого профілю — це дозволяє
+        повʼязати подальшу поведінку на сайті з конкретним зверненням. Без
+        заявки листування лишається знеособленим і такого звʼязування не
+        відбувається.
+      </p>
+      <p style={{ marginTop: '0.75rem' }}>
+        Фіксованого строку автоматичного видалення листування чату немає —
+        воно зберігається, доки потрібне для обробки вашого звернення й
+        аналізу роботи чату. Ви можете будь-коли вимагати його видалення —
+        права описані в розділі 7.
+      </p>
+
       <p style={{ marginTop: '3rem', color: 'var(--text-muted)', fontSize: '0.85rem' }}>
-        Neuronix · neuronics.work · Дата: 11.05.2026
+        Neuronix · neuronics.work · Дата: 27.08.2026
       </p>
     </article>
   )
@@ -394,6 +458,21 @@ function PrivacyEn() {
             style={{ color: 'var(--primary)' }}
           >
             Telegram's Privacy Policy
+          </a>
+          .
+        </li>
+        <li>
+          <strong>Gmail API (Google)</strong> — used to duplicate your
+          request by email to our team, alongside Telegram. Sending is
+          performed through our team's Google email account. Processing is
+          governed by the{' '}
+          <a
+            href="https://policies.google.com/privacy"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: 'var(--primary)' }}
+          >
+            Google Privacy Policy
           </a>
           .
         </li>
@@ -553,8 +632,59 @@ function PrivacyEn() {
         Data Protection dated June 1, 2010, No. 2297-VI.
       </p>
 
+      <h2 style={{ fontSize: '1.25rem', fontWeight: 600, marginTop: '2rem', marginBottom: '0.75rem' }}>
+        12. Website Chat Assistant
+      </h2>
+      <p>
+        Our website runs a chat assistant for talking to visitors. If you use
+        it, we store:
+      </p>
+      <ul style={{ paddingLeft: '1.5rem', lineHeight: 1.8 }}>
+        <li>the conversation content — your messages and the assistant's replies;</li>
+        <li>
+          if you leave a request in the chat — a service record of its data
+          (name, contact, message); this is a technical duplicate of the
+          request itself and adds no new information about you;
+        </li>
+        <li>the time of each message;</li>
+        <li>the page of the site the chat was opened from;</li>
+        <li>the chat session identifier and interface language;</li>
+        <li>UTM tags from the referring link (source, medium, campaign), if present;</li>
+        <li>
+          your PostHog identifier (distinct_id), if analytics has already
+          assigned one, to link the chat session with your subsequent
+          activity on the site.
+        </li>
+      </ul>
+      <p style={{ marginTop: '0.75rem' }}>
+        We do <strong>not store</strong> your IP address — we store only its
+        hash, used solely to limit the number of requests from a single
+        source (abuse protection).
+      </p>
+      <p style={{ marginTop: '0.75rem' }}>
+        The purpose of processing is the same as for the contact form
+        (Section 3): responding to your inquiry and improving the chat.
+      </p>
+      <p style={{ marginTop: '0.75rem' }}>
+        If you leave a request during the conversation (your name and
+        contact), it reaches the same team through the same channels as a
+        request from the form — it is duplicated to Telegram and email
+        (Section 4). In addition, the contact you provide in the chat (phone
+        number, email, or Telegram) is passed to our analytics provider,
+        PostHog, as your person identifier — this lets us link your
+        subsequent behaviour on the site to that specific inquiry. Without a
+        request, the conversation remains unidentified and no such linking
+        occurs.
+      </p>
+      <p style={{ marginTop: '0.75rem' }}>
+        There is no fixed automatic deletion period for chat conversations —
+        they are stored for as long as needed to handle your inquiry and
+        analyse how the chat performs. You may request deletion at any time —
+        see your rights in Section 7.
+      </p>
+
       <p style={{ marginTop: '3rem', color: 'var(--text-muted)', fontSize: '0.85rem' }}>
-        Neuronix · neuronics.work · Date: 11.05.2026
+        Neuronix · neuronics.work · Date: 27.08.2026
       </p>
     </article>
   )

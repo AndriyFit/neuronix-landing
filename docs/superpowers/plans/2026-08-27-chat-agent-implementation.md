@@ -231,20 +231,27 @@ export async function d1(sql: string, params: unknown[] = []): Promise<Record<st
   const token = process.env.CF_D1_TOKEN
   if (!account || !database || !token) return []
 
-  const res = await fetch(
-    `https://api.cloudflare.com/client/v4/accounts/${account}/d1/database/${database}/query`,
-    {
-      method: 'POST',
-      headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
-      body: JSON.stringify({ sql, params }),
-    },
-  )
-  if (!res.ok) {
-    console.error('D1 chat query failed:', res.status, await res.text())
+  // try/catch навколо всієї мережі — як у leads.ts. Сховище не має права ламати відповідь
+  // у чаті: виняток fetch (DNS, timeout, обрив) мусить стати порожнім результатом, не падінням.
+  try {
+    const res = await fetch(
+      `https://api.cloudflare.com/client/v4/accounts/${account}/d1/database/${database}/query`,
+      {
+        method: 'POST',
+        headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
+        body: JSON.stringify({ sql, params }),
+      },
+    )
+    if (!res.ok) {
+      console.error('D1 chat query failed:', res.status, await res.text())
+      return []
+    }
+    const body = await res.json()
+    return body?.result?.[0]?.results ?? []
+  } catch (e) {
+    console.error('D1 chat query threw:', e)
     return []
   }
-  const body = await res.json()
-  return body?.result?.[0]?.results ?? []
 }
 
 export async function touchSession(id: string, meta: SessionMeta): Promise<void> {
@@ -373,20 +380,39 @@ export function validateMessage(text: unknown): { ok: true; text: string } | { o
   return { ok: true, text: trimmed }
 }
 
+/**
+ * Лічильник недоступний = блокуємо (fail closed).
+ *
+ * `COUNT(*)` завжди повертає рівно один рядок, тож порожній масив від d1() означає саме
+ * помилку, а не «нуль». Пропускати запит у цей момент — значить лишати платний ендпоінт
+ * без захисту рівно тоді, коли база моргає: флуд і бот на це не чекають.
+ * Ціна протилежного вибору мала: віджет на 429 показує Telegram, тобто людина не в глухому куті.
+ */
+function counted(rows: Record<string, unknown>[]): number | null {
+  const first = rows[0]
+  if (!first) return null            // порожньо від COUNT(*) = збій запиту
+  const n = Number(first.n)
+  return Number.isFinite(n) ? n : null
+}
+
 export async function checkLimits(sessionId: string, ipHash: string): Promise<{ ok: boolean; retryAfter?: number }> {
-  const [sess] = await d1(
+  const sess = counted(await d1(
     "SELECT COUNT(*) AS n FROM chat_messages WHERE session_id = ? AND role = 'user'",
     [sessionId],
-  )
-  if (Number(sess?.n ?? 0) >= LIMITS.perSession) return { ok: false, retryAfter: 3600 }
+  ))
+  if (sess === null || sess >= LIMITS.perSession) return { ok: false, retryAfter: 3600 }
 
-  const [ip] = await d1(
+  // role = 'user' і тут теж: один хід людини породжує ще й відповідь моделі, а часом
+  // і tool-рядок. Без фільтра «60 на годину» означало б ~20 реальних ходів — утричі
+  // суворіше, ніж каже назва константи.
+  const ip = counted(await d1(
     `SELECT COUNT(*) AS n FROM chat_messages m
      JOIN chat_sessions s ON s.id = m.session_id
-     WHERE s.ip_hash = ? AND m.created_at > datetime('now','-1 hour')`,
+     WHERE s.ip_hash = ? AND m.role = 'user'
+       AND m.created_at > strftime('%Y-%m-%dT%H:%M:%SZ','now','-1 hour')`,
     [ipHash],
-  )
-  if (Number(ip?.n ?? 0) >= LIMITS.perIpPerHour) return { ok: false, retryAfter: 3600 }
+  ))
+  if (ip === null || ip >= LIMITS.perIpPerHour) return { ok: false, retryAfter: 3600 }
 
   return { ok: true }
 }
@@ -540,6 +566,7 @@ git commit -m "feat: системний промпт чату на сервер�
 **Файли:**
 - Створити: `src/app/api/chat/route.ts`
 - Змінити: `src/lib/leads.ts` — додати `'chat'` у `LeadSource` і повертати `id` створеного ліда
+- Створити: `src/lib/lead-notify.ts` — `sendTelegram`/`sendEmail`, винесені з `api/contact`
 - Змінити: `.env.example` — додати `AI_GATEWAY_API_KEY`, `CHAT_IP_SALT`
 
 **Інтерфейси:**
@@ -601,7 +628,11 @@ export async function POST(req: NextRequest) {
 
     const messages = [
       { role: 'system', content: SYSTEM_INSTRUCTION },
-      ...history.map((m) => ({ role: m.role === 'model' ? 'assistant' : 'user', content: m.content })),
+      // tool-повідомлення лишаються в D1 для аудиту, але в модель не йдуть:
+      // службовий JSON виклику інструмента як репліка користувача — це сміття в контексті.
+      ...history
+        .filter((m) => m.role !== 'tool')
+        .map((m) => ({ role: m.role === 'model' ? 'assistant' : 'user', content: m.content })),
       { role: 'user', content: valid.text },
     ]
 
