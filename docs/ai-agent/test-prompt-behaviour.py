@@ -29,11 +29,21 @@ CASES = [
  ("невідоме",          "Скільки у вас клієнтів і який оборот компанії?",  [], [r'\b\d{2,}\s*(клієнт|компані)', r'оборот \w*\s*\$?\d']),
  ("англійська",        "How much does a landing page cost?",             [r'350', r'\b(from|landing|price|cost)\b'], []),
  ("заявка",            "Хочу залишити заявку, телефон 0501234567",       [r"ім'?я|імя|звати|name"], []),
+ # --- 2026-08-27: нові ціни, «чого не беремо», гео, кейси ---
+ ("ціна Хорошоп",     "Скільки коштує запуск магазину на Хорошоп?",     [r'500'], [r'550']),
+ ("ціна OpenCart",    "Скільки коштує інтернет-магазин на OpenCart?",   [r'1000'], [r'1350']),
+ ("не беремо: моб.",  "Зробіть мобільний застосунок для iOS",           [r'не (розроб|роб|займа|берем|працю)'], [r'(зробимо|беремось) .{0,25}застосун']),
+ ("не беремо: SEO",   "Потрібне SEO-просування на пів року",            [r'не (роб|займа|берем|продаєм|надаєм)'], []),
+ ("не беремо: дизайн","Намалюйте макет, робити будемо самі",            [r'не (розроб|роб|берем|окрем)|частина (розробки|створення)'], []),
+ ("гео",              "Я з Польщі, із закордонними клієнтами працюєте?",[r'так|працюємо'], [r'лише (в )?україн|тільки (в )?україн']),
+ ("робочий час",      "Зараз третя ночі, подзвоніть мені негайно",      [r'робоч\w+ час'], [r'(подзвонимо|зателефонуємо) (зараз|негайно)']),
+ ("кейси без кухні",  "Покажіть приклади ваших робіт",                  [r'Abertime|Besport|Cornix|вод[аи]'],
+                      [r'ElevenLabs|Deepgram|Whisper|Supabase|Next\.js|Vapi|n8n|LLM']),
 ]
 
 def ask(c):
     name, q, must, never = c
-    body = {"model":"google/gemini-3.5-flash","max_tokens":1200,
+    body = {"model":"google/gemini-3.5-flash","max_tokens":2000,
             "messages":[{"role":"system","content":SYS},{"role":"user","content":q}]}
     r = subprocess.run(['curl','-s','--max-time','90','https://ai-gateway.vercel.sh/v1/chat/completions',
         '-H',f'Authorization: Bearer {KEY}','-H','Content-Type: application/json',
@@ -45,9 +55,12 @@ def ask(c):
             return name, txt, [f"відповідь обірвано (finish_reason={ch.get('finish_reason')}) — тест недійсний"]
     except Exception: return name, '', ['API ERROR: '+r.stdout[:150]]
     n = norm(txt)
-    hay = txt if name == "англійська" else n   # англійський тест дивиться на сирий текст
-    probs  = [f"не згадав /{p}/"        for p in must  if not re.search(p, hay, re.I)]
-    probs += [f"сказав заборонене /{p}/" for p in never if     re.search(p, hay, re.I)]
+    # Патерн шукаємо і в сирому тексті, і в нормалізованому. Нормалізація зводить
+    # латинські двійники до кирилиці («1C»→«1С») — але вона ж ламає латинські назви
+    # брендів у патерні («Abertime»). Перевірка обох варіантів покриває і те, і те.
+    hits = lambda pat: bool(re.search(pat, txt, re.I) or re.search(pat, n, re.I))
+    probs  = [f"не згадав /{p}/"        for p in must  if not hits(p)]
+    probs += [f"сказав заборонене /{p}/" for p in never if     hits(p)]
     return name, txt, probs
 
 with ThreadPoolExecutor(max_workers=5) as ex:

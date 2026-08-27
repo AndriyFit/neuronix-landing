@@ -135,7 +135,7 @@
         "icon": "🏪",
         "title": "Horoshop",
         "description": "Store launch, custom work, integrations with accounting, CRM and delivery services.",
-        "price": "from $550",
+        "price": "from $500",
         "href": "/horoshop"
       }
     ],
@@ -253,12 +253,12 @@
         "price": "from $650"
       },
       {
-        "service": "Online store",
-        "price": "from $1350"
+        "service": "OpenCart online store",
+        "price": "from $1000"
       },
       {
         "service": "Horoshop — launch & integrations",
-        "price": "from $550"
+        "price": "from $500"
       },
       {
         "service": "Automation & integrations",
@@ -583,7 +583,7 @@
     "horoshop": {
       "metadata": {
         "title": "Horoshop Turnkey: Launch, Integrations, Automation — Neuronix",
-        "description": "Turnkey Horoshop store launch from $550: catalog migration, design, accounting and CRM integrations, automated product content. We'll tell you honestly what the platform tariffs do and don't cover."
+        "description": "Turnkey Horoshop store launch from $500: catalog migration, design, accounting and CRM integrations, automated product content. We'll tell you honestly what the platform tariffs do and don't cover."
       },
       "hero": {
         "titleStart": "A store on ",
@@ -594,7 +594,7 @@
         "ctaSecondary": "Message on Telegram",
         "telegramUrl": "https://t.me/neuronixjhbot",
         "trust": [
-          "Turnkey Horoshop launch — from $550",
+          "Turnkey Horoshop launch — from $500",
           "Timeline and budget fixed in the contract",
           "12-month warranty"
         ]
@@ -626,7 +626,7 @@
             "icon": "🏪",
             "title": "Turnkey launch",
             "description": "Structure, design, products, payments, delivery, analytics. From brief to first orders.",
-            "price": "from $550"
+            "price": "from $500"
           },
           {
             "icon": "📦",
@@ -653,7 +653,7 @@
         "items": [
           {
             "question": "How much does a turnkey Horoshop store cost?",
-            "answer": "Our work starts at $550: structure, design, catalog, payments, delivery. Horoshop platform tariffs are paid separately — we'll help you pick the one you actually need."
+            "answer": "Our work starts at $500: structure, design, catalog, payments, delivery. Horoshop platform tariffs are paid separately — we'll help you pick the one you actually need."
           },
           {
             "question": "Will you migrate products from my old site?",
@@ -865,19 +865,19 @@
     },
     "online-store": {
       "metadata": {
-        "title": "Online Store Development — From $1350 | Neuronix",
-        "description": "Custom online stores built with 1C, CRM, Nova Poshta and marketplace integrations from day one. Launch in 4+ weeks, from $1350. Contract, 12-month warranty."
+        "title": "Online Store Development — From $1000 | Neuronix",
+        "description": "Custom online stores built with 1C, CRM, Nova Poshta and marketplace integrations from day one. Launch in 4+ weeks, from $1000. Contract, 12-month warranty."
       },
       "hero": {
         "titleStart": "An online store ",
         "titleHighlight": "built to run itself",
         "titleEnd": " — with 1C, CRM and delivery wired in from day one",
-        "subtitle": "From $1350: your site, 1C, CRM, Nova Poshta and marketplaces work as one system from launch. Live in 4+ weeks, cost fixed in the contract.",
+        "subtitle": "From $1000: your site, 1C, CRM, Nova Poshta and marketplaces work as one system from launch. Live in 4+ weeks, cost fixed in the contract.",
         "ctaPrimary": "Get a store cost estimate",
         "ctaSecondary": "Message us on Telegram",
         "telegramUrl": "https://t.me/neuronixjhbot",
         "trust": [
-          "Online store — from $1350",
+          "Online store — from $1000",
           "Live in 4+ weeks, timeline in the contract",
           "12-month warranty"
         ]
@@ -909,7 +909,7 @@
             "icon": "🏗️",
             "title": "Online store, built to launch",
             "description": "Site, catalog, cart, payment and delivery — a store you can open on day one.",
-            "price": "from $1350"
+            "price": "from $1000"
           },
           {
             "icon": "🔄",
@@ -921,7 +921,7 @@
             "icon": "🚀",
             "title": "Launch on Horoshop",
             "description": "A store on Horoshop with integrations set up from the start — a fast launch on a ready-made platform.",
-            "price": "from $550"
+            "price": "from $500"
           },
           {
             "icon": "🔗",
@@ -936,7 +936,7 @@
         "items": [
           {
             "question": "How much does an online store cost?",
-            "answer": "An online store built to launch starts from $1350. The exact cost depends on the number of integrations (1C, CRM, delivery) and catalog size. The estimate is free, within 24 hours."
+            "answer": "An online store built to launch starts from $1000. The exact cost depends on the number of integrations (1C, CRM, delivery) and catalog size. The estimate is free, within 24 hours."
           },
           {
             "question": "How long does it take to build a store?",
@@ -948,7 +948,7 @@
           },
           {
             "question": "What's the difference between a store and a landing page with a cart?",
-            "answer": "A landing page is a single page with an order form, from $350. An online store is a full catalog, cart, payment, delivery and accounting integrations, from $1350."
+            "answer": "A landing page is a single page with an order form, from $350. An online store is a full catalog, cart, payment, delivery and accounting integrations, from $1000."
           },
           {
             "question": "What's included in the store price?",
@@ -966,7 +966,7 @@
         "titleStart": "How much does ",
         "titleHighlight": "website development",
         "titleEnd": " cost? See for yourself",
-        "subtitle": "Prices are on the site, not \"we'll call you back with a number.\" Landing page — from $350, online store — from $1,350. The estimate is locked into the contract before work starts.",
+        "subtitle": "Prices are on the site, not \"we'll call you back with a number.\" Landing page — from $350, online store — from $1000. The estimate is locked into the contract before work starts.",
         "ctaPrimary": "Get an exact quote",
         "ctaSecondary": "Message us on Telegram",
         "telegramUrl": "https://t.me/neuronixjhbot",
@@ -1015,7 +1015,7 @@
             "icon": "🛒",
             "title": "Store, turnkey",
             "description": "An online store with payments, shipping, and stock sync. From 4 weeks, depending on the number of integrations.",
-            "price": "from $1,350"
+            "price": "from $1000"
           }
         ]
       },
