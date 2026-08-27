@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react'
 import { useLocale, useTranslations } from 'next-intl'
 import { sendGTMEvent } from '@next/third-parties/google'
 import { track } from '@/lib/analytics'
+import { createNdjsonParser } from '@/lib/chat-stream'
 import './css/ChatWidget.css'
 
 interface ChatMessage {
@@ -56,11 +57,47 @@ export default function ChatWidget() {
     sessionIdRef.current = getSessionId()
   }, [])
 
+  // Куди скролити список після наступного рендера. Раніше він завжди їхав у самий
+  // низ — і початок довгої відповіді опинявся вище видимої області, тобто людині
+  // доводилось прокручувати вгору, щоб знайти, звідки читати. Тепер нова відповідь
+  // ставиться ПОЧАТКОМ до верху, а свої повідомлення й далі показуються знизу.
+  const scrollModeRef = useRef<'bottom' | 'reply-start'>('bottom')
+  // Початок відповіді вже стоїть угорі — далі не чіпаємо скрол узагалі, навіть
+  // якщо текст ще росте: інакше ми б перехоплювали керування в людини, яка
+  // в цей момент читає й гортає сама.
+  const alignedRef = useRef(false)
+
+  // Підтягує початок останньої репліки до верху списку. Один раз цього замало:
+  // у момент появи бульбашки прокручувати ще нічого (текст порожній), тож
+  // потрібна ціль недосяжна й браузер обрізає scrollTop. Тому вирівнюємо ще й
+  // на кожен шматок тексту — рівно доти, доки ціль не досягнута.
+  const alignReplyStart = () => {
+    const el = listRef.current
+    if (!el || alignedRef.current) return
+    const last = el.lastElementChild as HTMLElement | null
+    if (!last) return
+    // offsetTop рахується від .chat-messages — у CSS він position: relative саме заради цього.
+    const target = Math.max(0, last.offsetTop - 8)
+    if (el.scrollTop >= target) {
+      alignedRef.current = true
+      return
+    }
+    el.scrollTop = target
+    if (el.scrollTop >= target) alignedRef.current = true
+  }
+
   useEffect(() => {
     // Own scroll container, not window: the page scrolls inside #page-scroll.
     const el = listRef.current
-    if (el) el.scrollTop = el.scrollHeight
-  }, [messages, sending, open])
+    if (!el) return
+    if (scrollModeRef.current === 'reply-start') {
+      alignReplyStart()
+      return
+    }
+    el.scrollTop = el.scrollHeight
+    // Довжина, не самі повідомлення: під час стрімінгу росте текст останньої
+    // репліки, і перескролювання на кожен шматок відбирало б у людини контроль.
+  }, [messages.length, sending, open])
 
   // Привітання показуємо локально, першим відкриттям панелі. У модель воно не
   // йде і в D1 не пишеться: це підказка «з чого почати», а не хід розмови —
@@ -126,6 +163,7 @@ export default function ChatWidget() {
     const text = input.trim()
     if (!text || sending) return
 
+    scrollModeRef.current = 'bottom'
     setMessages((prev) => [...prev, { role: 'user', content: text }])
     setInput('')
     setSending(true)
@@ -153,37 +191,86 @@ export default function ChatWidget() {
         }),
       })
 
-      // 200 and 503 both carry `reply` — 503's already has the Telegram fallback text
-      // baked in server-side. Everything else (400, 429, ...) has no reply field: the
-      // route's one real failure mode with no built-in fallback, so we supply our own.
-      if (res.ok || res.status === 503) {
-        const data = await res.json()
-        setMessages((prev) => [
-          ...prev,
-          { role: 'assistant', content: data.reply ?? fallback, leadCreated: data.leadCreated },
-        ])
-        if (res.status === 503) track('chat_error', { reason: 'unavailable' })
+      // Успіх приходить потоком NDJSON, помилки — звичайним JSON зі своїм статусом.
+      // Розрізняємо за Content-Type, а не за статусом: 503 теж несе готовий reply.
+      const streamed = res.ok && res.headers.get('content-type')?.includes('ndjson') && res.body
 
-        // Порядок обов'язковий: sendGTMEvent — гроші, PostHog — аналітика. Збій
-        // аналітики не має права завадити конверсії дійти до Google Ads.
-        if (data.leadCreated) {
+      if (streamed) {
+        const reader = res.body!.getReader()
+        const decoder = new TextDecoder()
+        const parse = createNdjsonParser()
+        let started = false
+        let done: { leadCreated?: boolean; contact?: string } = {}
+
+        const push = (text: string) => {
+          if (!started) {
+            started = true
+            // Перший шматок = відповідь пішла: прибираємо «Друкує...» і ставимо
+            // початок нової репліки до верху списку.
+            scrollModeRef.current = 'reply-start'
+            alignedRef.current = false
+            setSending(false)
+            setMessages((prev) => [...prev, { role: 'assistant', content: text }])
+            return
+          }
+          setMessages((prev) => {
+            const next = [...prev]
+            const last = next[next.length - 1]
+            next[next.length - 1] = { ...last, content: last.content + text }
+            return next
+          })
+          // Після рендера цього шматка: доки початок відповіді не піднявся до
+          // верху — підтягуємо. requestAnimationFrame, бо DOM оновлюється не
+          // синхронно з setMessages.
+          requestAnimationFrame(alignReplyStart)
+        }
+
+        for (;;) {
+          const { value, done: finished } = await reader.read()
+          if (finished) break
+          for (const obj of parse(decoder.decode(value, { stream: true }))) {
+            if (typeof obj.delta === 'string') push(obj.delta)
+            if (obj.done) done = obj as { leadCreated?: boolean; contact?: string }
+          }
+        }
+
+        if (!started) setMessages((prev) => [...prev, { role: 'assistant', content: fallback }])
+        if (done.leadCreated) {
+          setMessages((prev) => {
+            const next = [...prev]
+            next[next.length - 1] = { ...next[next.length - 1], leadCreated: true }
+            return next
+          })
+          // Порядок обов'язковий: sendGTMEvent — гроші, PostHog — аналітика. Збій
+          // аналітики не має права завадити конверсії дійти до Google Ads.
           sendGTMEvent({ event: 'generate_lead', lead_source: 'chat' })
-          if (data.contact) {
+          if (done.contact) {
             try {
-              window.posthog?.identify?.(data.contact)
+              window.posthog?.identify?.(done.contact)
             } catch {
               // no-op: аналітика не критична, конверсія критична
             }
           }
           track('chat_lead_submitted')
         }
+      } else if (res.ok || res.status === 503) {
+        // 503 несе готовий fallback-текст із посиланням на Telegram, зібраний на сервері.
+        const data = await res.json()
+        scrollModeRef.current = 'reply-start'
+        alignedRef.current = false
+        setMessages((prev) => [...prev, { role: 'assistant', content: data.reply ?? fallback }])
+        if (res.status === 503) track('chat_error', { reason: 'unavailable' })
       } else {
         const errBody: { error?: string } | null = await res.json().catch(() => null)
         track('chat_error', { reason: errBody?.error ?? `http_${res.status}` })
+        scrollModeRef.current = 'reply-start'
+        alignedRef.current = false
         setMessages((prev) => [...prev, { role: 'assistant', content: fallback }])
       }
     } catch {
       track('chat_error', { reason: 'network' })
+      scrollModeRef.current = 'reply-start'
+      alignedRef.current = false
       setMessages((prev) => [...prev, { role: 'assistant', content: fallback }])
     } finally {
       setSending(false)
@@ -205,9 +292,15 @@ export default function ChatWidget() {
         {open ? (
           '×'
         ) : (
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <path d="M4 4h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H9l-5 4v-4H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z" />
-          </svg>
+          <>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M4 4h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H9l-5 4v-4H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z" />
+            </svg>
+            {/* Підпис у самій кнопці, а не окремою бульбашкою поруч: інакше це другий
+                fixed-елемент у тому ж куті, який довелося б окремо розводити зі
+                StickyCta й банером згоди — усе те, що вже налаштовано для .chat-toggle. */}
+            <span className="chat-toggle-label">{t('badge')}</span>
+          </>
         )}
       </button>
 
