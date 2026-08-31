@@ -34,3 +34,6 @@ notes.md.lock
 
 # Робочі папки паралельних сесій Claude — не в репозиторій
 .claude/worktrees/
+
+# Playwright MCP artifacts (скріншоти, снапшоти, логи консолі)
+.playwright-mcp/
