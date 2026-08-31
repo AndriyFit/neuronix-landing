@@ -55,19 +55,20 @@
     "title": "Sound familiar?",
     "subtitle": "If at least two of these ring true, we should talk",
     "items": [
-      "I paid for the first stage, they never finished it — and they're already asking for the second",
+      "I want to sell online but I don't know where to start, or in what order",
+      "I'm afraid of paying for a pretty page that nobody ever visits",
+      "I don't know the real number — or what I'll be asked to pay for after launch",
+      "So the site gets built — then what? Who brings the buyers, who handles the orders",
       "They built the site and vanished. Now there's nobody to even swap a banner",
-      "One month, they promised — six months in, and the budget has doubled",
-      "The site runs on their platform: changing the smallest thing means paying them again",
-      "I copy orders from the site into the CRM by hand. Every single day",
-      "The site says in stock, the warehouse says otherwise. We call to apologise"
+      "One month, they promised — six months in, and the budget has doubled"
     ],
-    "answerTitle": "That won't happen here",
+    "answerTitle": "What we take off your plate",
     "answers": [
-      "You only pay for the next stage once you've accepted the previous one",
-      "Budget and deadline are fixed in the contract. Scope changes are agreed before the work, not after",
-      "Access is yours from day one: site, domain, hosting, analytics",
-      "12-month warranty and post-launch support — not deliver-and-run"
+      "The full cycle: site, catalogue, payments, delivery — you open a working store, not a mock-up",
+      "We fill the catalogue: your supplier's Excel price list becomes product pages with specs and copy",
+      "Ads and visibility — together with our partners, prepared alongside the build, so the site doesn't launch into an empty room",
+      "Price and deadline go into the contract before we start. You pay for the next stage only once you've accepted the previous one",
+      "12-month warranty and post-launch support. Access to the site, domain and hosting is yours from day one"
     ]
   },
   "ecosystem": {
@@ -300,6 +301,14 @@
       {
         "question": "What if I need something non-standard?",
         "answer": "Message us on Telegram and we'll talk it through. We've built integrations with Vapi, Binotel, SalesDrive, KeyCRM, Checkbox and Nova Poshta. Chances are we've done it already."
+      },
+      {
+        "question": "I've never sold online before. Where do I start?",
+        "answer": "With a conversation about the product and the buyer, not with a website. On the free assessment we work out what you sell, who to and what sets you apart — and only then say which type of site you need and what it costs. If the idea doesn't hold up to the numbers, we'll tell you straight rather than take your money for a pretty page."
+      },
+      {
+        "question": "Who brings the buyers after launch?",
+        "answer": "We hand the site over ready for advertising: analytics connected, goals configured, every enquiry traceable to its source. The advertising and visibility work itself we run together with our partners, prepared in parallel with the build so the site doesn't open into an empty room. Nobody guarantees search positions — not us, not our partners: you can guarantee the work, not a place in Google's auction."
       }
     ]
   },
@@ -498,6 +507,59 @@
           "AI enrichment of product cards: specs, descriptions and copy in Ukrainian — targeting real search queries, for organic growth",
           "The system works overnight — in the morning your store has finished product cards. No content manager, no Excel",
           "Proven on live catalogs: thousands of items updated with no manual work"
+        ]
+      },
+      "ecommStats": {
+        "title": "Is there money in this — numbers, not promises",
+        "items": [
+          {
+            "metric": "₴256bn",
+            "label": "spent by Ukrainians on online purchases in 2025: 196m orders, average basket ₴1,320"
+          },
+          {
+            "metric": "+36%",
+            "label": "growth in online sellers' revenue in dollar terms in H2 2025 — even though order counts fell"
+          },
+          {
+            "metric": "55%",
+            "label": "of Ukrainians already buy online more often than in physical shops"
+          }
+        ],
+        "note": "Sources: WayForPay study of 2025 (Forbes, May 2026); Promodo study of H2 2025 (Forbes, February 2026); Gradus Research survey — 1,000 respondents, cities of 50,000+, March 2026. This is industry data, not a guarantee of your result: what a particular store earns depends on the niche, the product and the advertising. We'll run the numbers on a free assessment."
+      },
+      "fullCycle": {
+        "title": "The full cycle: from idea to first order",
+        "steps": [
+          {
+            "number": "01",
+            "title": "We scope the idea",
+            "description": "We look at the niche, the product and the competition. If the idea doesn't hold up to the numbers, we say so"
+          },
+          {
+            "number": "02",
+            "title": "Site and catalogue",
+            "description": "We build the store and fill it: your supplier's price list becomes product pages with specs and copy"
+          },
+          {
+            "number": "03",
+            "title": "Payments, delivery, ads",
+            "description": "We wire up payments, delivery and receipts. Ads are prepared with our partners in parallel — so you don't open into an empty room"
+          },
+          {
+            "number": "04",
+            "title": "First orders",
+            "description": "You can see where every customer came from and what they cost. Then we scale what works"
+          }
+        ]
+      },
+      "yourPart": {
+        "title": "What we need from you",
+        "items": [
+          "A list of your products or services — even a supplier's Excel price list will do",
+          "Photos, if you already have them. If not, we'll tell you which ones you need and where to get them",
+          "Briefly: what you sell, who to, and what sets you apart in your niche",
+          "The details you'll need to accept payments — we'll tell you which ones",
+          "Nothing technical. We set up the domain, hosting, email and analytics, and hand you the credentials"
         ]
       }
     },
@@ -804,22 +866,24 @@
         ]
       },
       "pains": {
-        "title": "Sound familiar from your last website project?",
-        "subtitle": "We hear this from every other client who comes to us to fix what's already built",
+        "title": "Sound familiar when you think about your first website?",
+        "subtitle": "These are the normal questions of someone doing this for the first time. We answer them before you pay",
         "items": [
-          "The agency promised two weeks, delivery took two months",
-          "The price you agreed on grows with every extra block along the way",
-          "They handed over the site and went quiet — no replies once the invoice is paid",
-          "Leads land in an inbox someone has to check and copy into the CRM by hand",
-          "Only the person who built the site can edit text or photos, and they're gone",
-          "You wait weeks with nothing to look at, with no idea what stage the build is at"
+          "I don't know which site I actually need — a landing page, a catalogue or a full store",
+          "I'm afraid of paying for a pretty page that nobody ever visits",
+          "I don't know what's needed from me: copy, photos, accounts — I have none of it",
+          "I don't know the real number, or what I'll be asked to pay for after launch",
+          "They built the site and vanished — there's nobody to even swap a banner",
+          "The site is live but no enquiries come in, and it's not clear why"
         ],
-        "answerTitle": "How we deliver a site",
+        "answerTitle": "How we build a first website",
         "answers": [
+          "First we work out what you sell and to whom — then we tell you which type of site you need. Sometimes it isn't a store",
+          "We write the copy and the structure. From you: a list of products or services and whatever already exists — photos, a price list, a social media page",
+          "Ads and visibility — together with our partners, prepared alongside the build, so the site doesn't launch into an empty room",
           "Deadline and budget go into the contract before we start — no surprise charges for \"extra\" blocks",
-          "You see working milestones along the way, not just a final reveal at the end",
-          "Leads from the site go straight into your CRM, not into an inbox someone checks by hand",
-          "12-month warranty: we fix defects free of charge for a year, and access to the site, domain and hosting is yours from day one"
+          "Enquiries go straight into your CRM and Telegram, not into an inbox someone has to check",
+          "12-month warranty. Access to the site, domain and hosting is yours from day one"
         ]
       },
       "solutions": {
@@ -874,6 +938,14 @@
           {
             "question": "Our previous developer disappeared and left the site unfinished. Can you take over?",
             "answer": "Common situation. We audit what's already built, then fix or rebuild it with a 12-month warranty."
+          },
+          {
+            "question": "What do you need from me to start?",
+            "answer": "A list of your products or services — even a supplier's Excel price list will do. Photos, if you already have them. And briefly: what you sell, who to, and what sets you apart. We write the copy and the structure. Nothing technical is needed from you: we set up the domain, hosting, email and analytics, and hand you the credentials."
+          },
+          {
+            "question": "What if the site gets built and nobody visits it?",
+            "answer": "A website on its own doesn't create traffic — that's true of any agency. So we hand it over ready for advertising with analytics connected, and run the advertising and visibility work with our partners in parallel with the build. After launch you can see where every enquiry came from and what it cost, and scale what works."
           }
         ]
       }
@@ -898,22 +970,24 @@
         ]
       },
       "pains": {
-        "title": "Sound familiar from a rushed store build?",
-        "subtitle": "This is what happens when there's no system behind the storefront — it's the norm, not the exception",
+        "title": "Sound familiar when you're opening your first store?",
+        "subtitle": "The questions everyone asks on their first move online. We work through them before you pay",
         "items": [
-          "Stock levels differ between accounting and the site — a customer orders something that's already gone",
-          "Every new product is added by hand: photos, specs, description — takes weeks",
-          "Supplier price lists arrive as Excel files someone has to copy in manually",
-          "Orders are moved into the CRM by hand",
-          "Waybills and receipts are issued separately from the order — one more manual step per sale",
-          "Product pages without proper descriptions — Google and shoppers never find them"
+          "I want to sell online but I don't know where to start, or in what order",
+          "I'm afraid of spending the money and getting no orders at all",
+          "My supplier sent an Excel price list — I have no idea how that becomes a catalogue",
+          "I don't understand how to take payments or who handles delivery",
+          "I don't know whether I need to register a business and a till, or who sets that up",
+          "The store gets built — but who brings the buyers?"
         ],
-        "answerTitle": "How we build a store from day one",
+        "answerTitle": "What we take off your plate",
         "answers": [
-          "Two-way sync with 1C: stock, prices, new items update themselves",
-          "Products are added automatically from supplier price lists and sites — no Excel, no manual entry",
-          "Order → CRM → waybill → receipt: the whole chain runs without manual work from launch",
-          "AI writes product copy tuned for real search queries — the store grows through organic traffic"
+          "The full cycle: catalogue, cart, payments, delivery — you open a working store, not a shop window",
+          "We fill the catalogue: your supplier's Excel price list becomes product pages with specs and copy",
+          "Payments, delivery and fiscal receipts are wired up from day one — an order creates the waybill and the receipt by itself",
+          "We'll tell you which documents and details you need to accept payments, and connect the till — you won't be wrestling with integrations",
+          "Ads and visibility — together with our partners, prepared alongside the build, so the store doesn't launch into an empty room",
+          "Once the catalogue grows, prices and stock update themselves — from your accounting system or straight from the supplier"
         ]
       },
       "solutions": {
@@ -968,6 +1042,18 @@
           {
             "question": "What's included in the store price?",
             "answer": "The site, catalog, cart, payment, and baseline delivery integrations. The contract fixes the timeline and budget; the warranty covers 12 months after handover."
+          },
+          {
+            "question": "This is my first move online. What do you need from me?",
+            "answer": "A product list — a supplier's Excel price list is fine. Photos, if you have them. The details needed to accept payments — we'll tell you which ones. We fill the catalogue: the price list becomes product pages with specs and copy. Payments, delivery and fiscal receipts we connect ourselves."
+          },
+          {
+            "question": "Do I need a registered business and a till to sell online?",
+            "answer": "Accepting payments on a website requires a registered business and fiscalisation — the exact form is best agreed with your accountant, we don't advise on tax. On our side: we'll tell you which details are needed to connect payments, and configure the till so that an order creates the receipt and the waybill by itself."
+          },
+          {
+            "question": "Is there actually demand — is it too late to open a store now?",
+            "answer": "In 2025 Ukrainians spent ₴256bn on online purchases — 196m orders at an average basket of about ₴1,320 (WayForPay data). Online sellers' revenue in dollar terms grew 36% in H2 2025 even as order counts fell (Promodo study). These are industry figures, not a promise about your result: that depends on the niche, the product and the advertising. What's realistic in your niche we'll work out on the free assessment."
           }
         ]
       }

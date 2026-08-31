@@ -3,9 +3,9 @@ import { useEffect, useRef } from 'react'
 import { useTranslations } from 'next-intl'
 import './css/HowWeWork.css'
 
-export default function HowWeWork() {
+export default function HowWeWork({ namespace = 'howWeWork' }: { namespace?: string }) {
   const sectionRef = useRef<HTMLElement>(null)
-  const t = useTranslations('howWeWork')
+  const t = useTranslations(namespace)
   const steps = t.raw('steps') as Array<{ number: string; title: string; description: string }>
 
   useEffect(() => {

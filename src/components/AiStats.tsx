@@ -3,8 +3,8 @@ import { useTranslations } from 'next-intl'
 import { useScrollReveal } from '@/lib/useScrollReveal'
 import './css/CaseStudy.css'
 
-export default function AiStats() {
-  const t = useTranslations('ai.stats')
+export default function AiStats({ namespace = 'ai.stats' }: { namespace?: string }) {
+  const t = useTranslations(namespace)
   const items = t.raw('items') as Array<{ metric: string; label: string }>
   const ref = useScrollReveal<HTMLElement>()
 
