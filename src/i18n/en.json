@@ -523,6 +523,32 @@
           "The details you'll need to accept payments — we'll tell you which ones",
           "Nothing technical. We set up the domain, hosting, email and analytics, and hand you the credentials"
         ]
+      },
+      "techChoice": {
+        "title": "Which platform fits you",
+        "extra": "Not knowing which to pick is normal. On the free assessment we say plainly what works out better for your particular store. Sometimes that is not the most expensive option.",
+        "items": [
+          {
+            "icon": "🚀",
+            "title": "Horoshop",
+            "description": "A ready-made Ukrainian platform. Fast start and predictable cost — right when you need to open and start selling rather than build something unique. The platform's own subscription is paid separately; we'll help you pick the tier.",
+            "price": "from $500",
+            "href": "/horoshop"
+          },
+          {
+            "icon": "🛠️",
+            "title": "OpenCart",
+            "description": "Your own platform on your own hosting: full control, any integration, no monthly fee for the platform itself. Right when the catalogue is large or you need data flowing between accounting and marketplaces.",
+            "price": "from $1000",
+            "href": "/opencart"
+          },
+          {
+            "icon": "🧩",
+            "title": "Custom build",
+            "description": "For when the business logic doesn't fit a ready-made platform: complex pricing, B2B portals, an unusual catalogue. More expensive and slower — we take it on only when an off-the-shelf option genuinely won't cover the job.",
+            "price": "priced after the audit"
+          }
+        ]
       }
     },
     "opencart": {
