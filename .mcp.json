@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "adloop": {
+      "type": "stdio",
+      "command": "/root/.local/share/pipx/venvs/adloop/bin/python3",
+      "args": ["-m", "adloop"],
+      "env": {
+        "ADLOOP_CONFIG": "/root/.adloop/config.neuronix.yaml"
+      }
+    }
+  }
+}
