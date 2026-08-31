@@ -10,6 +10,8 @@ import Pains from '@/components/Pains'
 import Services from '@/components/Services'
 import CaseStudy from '@/components/CaseStudy'
 import AiSecurity from '@/components/AiSecurity'
+import AiStats from '@/components/AiStats'
+import HowWeWork from '@/components/HowWeWork'
 import AuditForm from '@/components/AuditForm'
 import FAQ from '@/components/FAQ'
 import Contact from '@/components/Contact'
@@ -88,8 +90,11 @@ export default async function PlatformPage({ params }: Props) {
       <AiHero namespace={`${ns}.hero`} />
       {platform === 'price' && <Pricing />}
       <Pains namespace={`${ns}.pains`} />
+      <AiStats namespace="platforms.shared.ecommStats" />
       <Services namespace={`${ns}.solutions`} />
       {platform === 'opencart' && <CaseStudy />}
+      <HowWeWork namespace="platforms.shared.fullCycle" />
+      <AiSecurity namespace="platforms.shared.yourPart" id="your-part" />
       <AiSecurity namespace="platforms.shared.contentEngine" />
       <AuditForm />
       <FAQ namespace={`${ns}.faq`} />
