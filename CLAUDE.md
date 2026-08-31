@@ -368,7 +368,24 @@ Vault-ключі `neuronix/clarity_*` лишені навмисно: видал�
 |---|---|
 | GTM container | `GTM-N4MBTL2W` |
 | GA4 measurement ID | `G-FNZ46Q88EW` |
-| GA4 property | `neuronics.work`, акаунт `fit-life.com.ua` (252827951), stream `15385523381` |
+| GA4 property | `properties/548742185` — `neuronics.work`, акаунт `fit-life.com.ua` (252827951), stream `15385523381` |
+
+⚠️ **Дефолтний `~/.adloop/config.yaml` — це конфіг Trembita**, не наш: інший Ads-акаунт
+(`6550197413`) і GA4 сайту нерухомості (`531732654`). Наступити на це легко й непомітно:
+`run_ga4_report` без явного `property_id` мовчки віддає дані чужого проєкту — сторінки
+`/kvartyry/`, `/budynky/` і купа fbclid-трафіку. На цьому вже будувався хибний висновок
+2026-08-31, поки в лендінгах не спливли квартири.
+
+Тому в репозиторії лежить `.mcp.json`, який підмінює конфіг adloop через
+`ADLOOP_CONFIG=/root/.adloop/config.neuronix.yaml` (GA4 `548742185`, Ads `9087037980`,
+`require_dry_run: true`, ліміт 300 грн/добу). Конфіг Trembita не чіпаємо — він лишається
+дефолтом для своїх сесій.
+
+⚠️ Сам файл конфігу **машинний**, у git його немає (там developer token). На новій машині
+його треба створити заново, інакше adloop не стартує. Перевірка, що підхопився правильний:
+```bash
+ADLOOP_CONFIG=/root/.adloop/config.neuronix.yaml /root/.local/share/pipx/venvs/adloop/bin/python3 -c "from adloop.config import load_config; print(load_config().ga4.property_id)"
+```
 
 ⚠️ **Не вставляй снипет GTM із інструкції Google вручну.** `<GoogleTagManager>` рендерить
 той самий інлайн-ініт (`gtm.start`) і той самий `gtm.js?id=`. Ручна вставка = контейнер
