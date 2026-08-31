@@ -4,7 +4,13 @@ import { useTranslations, useLocale } from 'next-intl'
 import Link from 'next/link'
 import './css/Services.css'
 
-export default function Services({ namespace = 'services' }: { namespace?: string }) {
+export default function Services({
+  namespace = 'services',
+  id = 'services',
+}: {
+  namespace?: string
+  id?: string
+}) {
   const sectionRef = useRef<HTMLElement>(null)
   const t = useTranslations(namespace)
   const tCta = useTranslations('services')
@@ -39,7 +45,7 @@ export default function Services({ namespace = 'services' }: { namespace?: strin
   }
 
   return (
-    <section id="services" className="services" ref={sectionRef}>
+    <section id={id} className="services" ref={sectionRef}>
       <div className="services-inner">
         <h2 className="services-title animate-in">{t('title')}</h2>
         <div className="services-grid">

@@ -30,6 +30,10 @@ export const PLATFORMS = [
 ] as const
 type Platform = (typeof PLATFORMS)[number]
 
+// Вибір платформи має сенс лише там, де людина справді обирає рушій магазину.
+// На /websites і /price це збиває з пантелику: там питання «який тип сайту», не «яка CMS».
+const STORE_PAGES: readonly string[] = ['online-store', 'opencart', 'horoshop', 'keycrm']
+
 type Props = { params: Promise<{ locale: string; platform: string }> }
 
 export const dynamicParams = false
@@ -92,6 +96,9 @@ export default async function PlatformPage({ params }: Props) {
       <Pains namespace={`${ns}.pains`} />
       <AiStats namespace="platforms.shared.ecommStats" />
       <Services namespace={`${ns}.solutions`} />
+      {STORE_PAGES.includes(platform) && (
+        <Services namespace="platforms.shared.techChoice" id="tech-choice" />
+      )}
       {platform === 'opencart' && <CaseStudy />}
       <HowWeWork namespace="platforms.shared.fullCycle" />
       <AiSecurity namespace="platforms.shared.yourPart" id="your-part" />
