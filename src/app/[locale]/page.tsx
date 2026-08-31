@@ -3,8 +3,6 @@ import { getFAQSchema } from '@/lib/structured-data'
 import Hero from '@/components/Hero'
 import TrustBar from '@/components/TrustBar'
 import Pains from '@/components/Pains'
-import Ecosystem from '@/components/Ecosystem'
-import CaseStudy from '@/components/CaseStudy'
 import AuditForm from '@/components/AuditForm'
 import Services from '@/components/Services'
 import HowWeWork from '@/components/HowWeWork'
@@ -31,11 +29,9 @@ export default async function HomePage({ params }: Props) {
       <Hero />
       <TrustBar />
       <Pains />
-      <Ecosystem />
-      <CaseStudy />
+      <HowWeWork />
       <AuditForm />
       <Services />
-      <HowWeWork />
       <Team />
       <Pricing />
       <FAQ />

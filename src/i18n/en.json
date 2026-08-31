@@ -71,44 +71,6 @@
       "12-month warranty and post-launch support. Access to the site, domain and hosting is yours from day one"
     ]
   },
-  "ecosystem": {
-    "title": "Most vendors will hand you one more isolated island",
-    "subtitle": "We connect what you already run into a single loop — and the data starts moving on its own",
-    "hubLabel": "Your loop",
-    "nodes": [
-      {
-        "icon": "🛒",
-        "label": "Website / store"
-      },
-      {
-        "icon": "📇",
-        "label": "CRM"
-      },
-      {
-        "icon": "📦",
-        "label": "Accounting"
-      },
-      {
-        "icon": "🏬",
-        "label": "Marketplaces"
-      },
-      {
-        "icon": "📞",
-        "label": "Phone system"
-      },
-      {
-        "icon": "🚚",
-        "label": "Shipping & receipts"
-      }
-    ],
-    "benefits": [
-      "An order from the site lands in the CRM by itself, and the waybill is created without you",
-      "Prices, stock and products flow from accounting to the site and marketplaces automatically",
-      "A call you missed still becomes a lead",
-      "A bot answers routine questions and qualifies the client before you pick up",
-      "Reports build themselves instead of waiting for someone to export them"
-    ]
-  },
   "services": {
     "title": "What we do",
     "extra": "We also work with: OpenCart, WordPress, KeyCRM, SalesDrive, Nova Poshta, Rozetka, Prom, Checkbox",
@@ -174,27 +136,27 @@
     ]
   },
   "howWeWork": {
-    "title": "How we work",
+    "title": "The road to your first customers",
     "steps": [
       {
         "number": "01",
-        "title": "Request",
-        "description": "Describe the task on Telegram or through the form — no runaround"
+        "title": "We scope the idea",
+        "description": "What you sell and to whom. If the idea doesn't hold up to the numbers, we say so. The assessment is free; price and deadline go into the contract before we start"
       },
       {
         "number": "02",
-        "title": "Quote in 24h",
-        "description": "A call or chat. Budget and deadline fixed in the contract — no surprises later"
+        "title": "We build the store",
+        "description": "Site, catalogue, payments, delivery. Your Excel price list becomes product pages with copy. The technical side is ours — from the domain to the till"
       },
       {
         "number": "03",
-        "title": "Development",
-        "description": "Regular updates and access to a staging environment at every stage"
+        "title": "We bring the buyers",
+        "description": "Analytics and goals configured. Advertising is prepared with our partners in parallel, so you don't open into an empty room"
       },
       {
         "number": "04",
-        "title": "Handover + support",
-        "description": "Delivered with documentation, and we don't disappear — post-launch support included"
+        "title": "First orders",
+        "description": "You can see where every customer came from and what they cost. We don't vanish after handover: 12-month warranty and support"
       }
     ]
   },
