@@ -18,7 +18,7 @@
     "titleStart": "Websites and ",
     "titleHighlight": "online stores",
     "titleEnd": " built end to end",
-    "subtitle": "From $350, landing page in 5–10 days. Not a standalone site — a system where your store, CRM, accounting and marketplaces exchange data on their own.",
+    "subtitle": "From $350, landing page in 5–10 days. A site ready to take enquiries from day one: a form, analytics connected, a contract and a 12-month warranty.",
     "ctaPrimary": "Get a quote",
     "ctaSecondary": "Message on Telegram",
     "telegramUrl": "https://t.me/neuronixjhbot",
@@ -67,7 +67,7 @@
       "The full cycle: site, catalogue, payments, delivery — you open a working store, not a mock-up",
       "We fill the catalogue: your supplier's Excel price list becomes product pages with specs and copy",
       "Ads and visibility — together with our partners, prepared alongside the build, so the site doesn't launch into an empty room",
-      "Price and deadline go into the contract before we start. You pay for the next stage only once you've accepted the previous one",
+      "Price and deadline go into the contract before we start. 50% upfront, 50% on delivery; on larger projects — staged, and you pay for the next stage only once you've accepted the previous one",
       "12-month warranty and post-launch support. Access to the site, domain and hosting is yours from day one"
     ]
   },
@@ -234,7 +234,7 @@
     "items": [
       {
         "question": "How long does development take?",
-        "answer": "Landing page — 5–10 days. Corporate site — from 3 weeks. Online store with integrations — from 4 weeks. Exact deadlines go into the contract after the brief."
+        "answer": "Landing page — 5–10 days. Corporate site — 2–3 weeks. Online store with integrations — from 4 weeks. Exact deadlines go into the contract after the brief."
       },
       {
         "question": "We already have a site and a CRM, but they don't talk. Is that your job?",
@@ -254,11 +254,11 @@
       },
       {
         "question": "Do you work with existing sites?",
-        "answer": "Yes, that's most of our work. We take a site in any condition — extend it, fix it, integrate it with everything else."
+        "answer": "Yes, we do. We take a site in any condition — extend it, fix it, integrate it with everything else. And we build first sites from scratch just as often."
       },
       {
         "question": "How does payment work?",
-        "answer": "50% upfront, 50% on delivery. For larger projects — staged, with each stage's deliverable fixed in the contract. The next payment only comes after you've accepted the previous stage. We don't ask for money for the next step until the current one is closed."
+        "answer": "50% upfront, 50% on delivery. For larger projects — in stages, with each stage's deliverable fixed in the contract. The next payment only comes after you've accepted the previous stage. We don't ask for money for the next step until the current one is closed."
       },
       {
         "question": "What if I need something non-standard?",
@@ -270,7 +270,7 @@
       },
       {
         "question": "Who brings the buyers after launch?",
-        "answer": "We hand the site over ready for advertising: analytics connected, goals configured, every enquiry traceable to its source. The advertising and visibility work itself we run together with our partners, prepared in parallel with the build so the site doesn't open into an empty room. Nobody guarantees search positions — not us, not our partners: you can guarantee the work, not a place in Google's auction."
+        "answer": "We hand the site over ready for advertising: analytics connected, goals configured, every enquiry traceable to its source. The advertising and visibility work itself we run together with our partners, prepared in parallel with the build so the site doesn't open into an empty room. The ad budget and the partners' work are billed separately from development — they are not part of the site price. Nobody guarantees search positions — not us, not our partners: you can guarantee the work, not a place in Google's auction."
       }
     ]
   },
@@ -866,7 +866,7 @@
         ],
         "answerTitle": "How we build a first website",
         "answers": [
-          "First we work out what you sell and to whom — then we tell you which type of site you need. Sometimes it isn't a store",
+          "First we work out what you sell and to whom — then we tell you which type of site you need — a landing page, a catalogue or a full store",
           "We write the copy and the structure. From you: a list of products or services and whatever already exists — photos, a price list, a social media page",
           "Ads and visibility — together with our partners, prepared alongside the build, so the site doesn't launch into an empty room",
           "Deadline and budget go into the contract before we start — no surprise charges for \"extra\" blocks",
@@ -891,6 +891,13 @@
             "price": "from $650"
           },
           {
+            "icon": "🛒",
+            "title": "Online store",
+            "description": "Catalogue, cart, payment and delivery. Accounting and CRM integrations when you need them — at launch or later.",
+            "price": "from $1000",
+            "href": "/online-store"
+          },
+          {
             "icon": "📋",
             "title": "Catalog site",
             "description": "A services or products catalog without a cart: categories, item cards, a lead form. Connected to your CRM so leads don't get lost.",
@@ -913,7 +920,7 @@
           },
           {
             "question": "How long does it take to build a website end to end?",
-            "answer": "Landing page — 5–10 days. Corporate site or catalog — 2–3 weeks. Deadlines go into the contract before we start and don't move once work begins."
+            "answer": "Landing page — 5–10 days. Corporate site or catalog — 2–3 weeks. Deadlines go into the contract before we start; they change only if the scope changes by agreement."
           },
           {
             "question": "What's the difference between a landing page and a corporate site?",
