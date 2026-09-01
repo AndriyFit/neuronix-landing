@@ -1,0 +1,122 @@
+.clients {
+  padding: 5rem 2rem;
+  background: var(--bg);
+}
+
+.clients-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.clients-heading {
+  max-width: 720px;
+  margin: 0 auto 2.5rem;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s, transform 0.6s;
+}
+
+.clients-heading.visible {
+  opacity: 1;
+  transform: none;
+}
+
+.clients-eyebrow {
+  margin-bottom: 0.65rem;
+  color: var(--primary);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.clients-heading h2 {
+  margin-bottom: 0.75rem;
+  color: var(--text);
+}
+
+.clients-heading > p:last-child {
+  color: var(--text-muted);
+  line-height: 1.65;
+}
+
+.clients-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.client-logo {
+  min-height: 112px;
+  padding: 1.35rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: var(--shadow-card);
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.5s, transform 0.5s, border-color 0.2s, box-shadow 0.2s;
+}
+
+.client-logo.visible {
+  opacity: 1;
+  transform: none;
+}
+
+.client-logo:hover,
+.client-logo:focus-visible {
+  border-color: rgba(124, 58, 237, 0.45);
+  box-shadow: var(--shadow-elevated);
+  transform: translateY(-2px);
+}
+
+.client-logo--dark {
+  border-color: #222a39;
+  background: #101623;
+}
+
+.client-logo--dark:hover,
+.client-logo--dark:focus-visible {
+  border-color: var(--primary);
+}
+
+.client-logo:focus-visible {
+  outline: 3px solid rgba(124, 58, 237, 0.2);
+  outline-offset: 3px;
+}
+
+.client-logo img {
+  width: 100%;
+  max-width: 160px;
+  max-height: 64px;
+  object-fit: contain;
+}
+
+@media (max-width: 900px) {
+  .clients-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .clients {
+    padding: 3.5rem 1rem;
+  }
+
+  .clients-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .client-logo {
+    min-height: 96px;
+    padding: 1rem;
+  }
+
+  .client-logo:last-child {
+    grid-column: 1 / -1;
+  }
+}

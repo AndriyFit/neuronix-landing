@@ -71,6 +71,39 @@
       "12-month warranty and post-launch support. Access to the site, domain and hosting is yours from day one"
     ]
   },
+  "solutionGuide": {
+    "title": "Choose the right format for your business",
+    "extra": "You do not need to figure out the technology yourself — we will match the solution to your goal, catalogue size and growth plans.",
+    "items": [
+      {
+        "icon": "🎯",
+        "title": "Landing page",
+        "description": "A one-page site for a service, a focused offer, or one to several products. A fast way to validate demand and launch advertising.",
+        "price": "from $350",
+        "href": "/websites"
+      },
+      {
+        "icon": "🏪",
+        "title": "Horoshop online store",
+        "description": "For a first store and a quick launch without complex development. Product catalogue, payments, delivery, platform support and straightforward management.",
+        "price": "from $500",
+        "href": "/horoshop"
+      },
+      {
+        "icon": "⚙️",
+        "title": "OpenCart online store",
+        "description": "For large catalogues, retailers, own brands and manufacturers. Full control, custom logic and integrations with accounting, CRM and marketplaces.",
+        "price": "from $1000",
+        "href": "/opencart"
+      }
+    ]
+  },
+  "clients": {
+    "eyebrow": "Trusted by",
+    "title": "Businesses we work with",
+    "subtitle": "We build websites, stores and automation for companies serving real customers and processing real orders every day.",
+    "visit": "visit the client's website"
+  },
   "services": {
     "title": "What we do",
     "extra": "We also work with: OpenCart, WordPress, KeyCRM, SalesDrive, Nova Poshta, Rozetka, Prom, Checkbox",
