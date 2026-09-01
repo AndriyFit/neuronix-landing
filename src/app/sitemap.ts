@@ -2,7 +2,7 @@ import type { MetadataRoute } from 'next'
 import { locales, defaultLocale } from '@/i18n/config'
 import { getAllPosts } from '@/content/blog'
 import { SITE_URL } from '@/lib/site'
-import { PLATFORMS } from './[locale]/[platform]/page'
+import { PLATFORMS } from '@/lib/platforms'
 
 
 export default function sitemap(): MetadataRoute.Sitemap {

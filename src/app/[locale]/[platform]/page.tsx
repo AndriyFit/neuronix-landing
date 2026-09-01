@@ -4,6 +4,7 @@ import { getMessages, setRequestLocale } from 'next-intl/server'
 import { routing } from '@/i18n/routing'
 import { SITE_URL } from '@/lib/site'
 import { getFAQSchema } from '@/lib/structured-data'
+import { PLATFORMS, type Platform } from '@/lib/platforms'
 import AiHero from '@/components/AiHero'
 import Pricing from '@/components/Pricing'
 import Pains from '@/components/Pains'
@@ -16,19 +17,6 @@ import AuditForm from '@/components/AuditForm'
 import FAQ from '@/components/FAQ'
 import Contact from '@/components/Contact'
 import Footer from '@/components/Footer'
-
-// Слаги статичних сторінок цього маршруту. Крім платформ тут живуть Ads-посадкові
-// (websites/online-store/price) — назва константи історична. sitemap.ts імпортує
-// цей самий масив, щоб слаг не доводилось дописувати у двох місцях.
-export const PLATFORMS = [
-  'opencart',
-  'horoshop',
-  'keycrm',
-  'websites',
-  'online-store',
-  'price',
-] as const
-type Platform = (typeof PLATFORMS)[number]
 
 // Вибір платформи має сенс лише там, де людина справді обирає рушій магазину.
 // На /websites і /price це збиває з пантелику: там питання «який тип сайту», не «яка CMS».
