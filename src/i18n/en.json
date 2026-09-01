@@ -109,30 +109,26 @@
     "extra": "We also work with: OpenCart, WordPress, KeyCRM, SalesDrive, Nova Poshta, Rozetka, Prom, Checkbox",
     "items": [
       {
-        "icon": "🌐",
         "title": "Websites & online stores",
         "description": "Landing pages, corporate sites, stores. Design, development, analytics and launch, end to end.",
         "price": "from $350"
       },
       {
-        "icon": "🤖",
+        "title": "Horoshop online store",
+        "description": "Store launch, custom work, integrations with accounting, CRM and delivery services.",
+        "price": "from $500",
+        "href": "/horoshop"
+      },
+      {
         "title": "AI bots & automation",
         "description": "Chatbots for your website and Instagram, voice agents for calls, orders flowing into your CRM hands-free. AI that works 24/7.",
         "price": "from $650",
         "href": "/ai"
       },
       {
-        "icon": "⚙️",
         "title": "Automation & integrations",
         "description": "Accounting, CRM, marketplaces, telephony, shipping, receipts. Lead handling and bots that run without you.",
         "price": "from $650"
-      },
-      {
-        "icon": "🏪",
-        "title": "Horoshop",
-        "description": "Store launch, custom work, integrations with accounting, CRM and delivery services.",
-        "price": "from $500",
-        "href": "/horoshop"
       }
     ],
     "more": "Learn more"
@@ -145,7 +141,6 @@
         "role": "Founder",
         "name": "Andriy",
         "note": "First contact, scoping, contract. Answers to you for the outcome of the project.",
-        "icon": "🤝",
         "photo": "/team/andriy.webp"
       },
       {
@@ -245,20 +240,20 @@
         "price": "from $350"
       },
       {
+        "service": "Horoshop online store",
+        "price": "from $500"
+      },
+      {
         "service": "Corporate website",
         "price": "from $650"
       },
       {
-        "service": "OpenCart online store",
-        "price": "from $1000"
-      },
-      {
-        "service": "Horoshop — launch & integrations",
-        "price": "from $500"
-      },
-      {
         "service": "Automation & integrations",
         "price": "from $650"
+      },
+      {
+        "service": "OpenCart online store — large catalogue and warehouse",
+        "price": "from $1000"
       }
     ]
   },
@@ -408,25 +403,21 @@
       "extra": "We integrate with what you already have: KeyCRM, SalesDrive, accounting, OpenCart, Horoshop, Nova Poshta, Binotel, Checkbox",
       "items": [
         {
-          "icon": "💬",
           "title": "AI chatbot for website & social media",
           "description": "Knows your catalog, prices and stock. Consults, places orders, hands complex questions to a manager. Website, Instagram, Telegram.",
           "price": "from $650"
         },
         {
-          "icon": "📞",
           "title": "Voice AI agents",
           "description": "Confirm orders, call back missed calls, send payment reminders, collect feedback. Natural-sounding Ukrainian speech.",
           "price": "quoted after audit"
         },
         {
-          "icon": "⚙️",
           "title": "CRM & order automation",
           "description": "Orders from every channel go straight into KeyCRM or SalesDrive — with tracking number, receipt and status. Managers sell instead of copying.",
           "price": "from $650"
         },
         {
-          "icon": "🚀",
           "title": "AI-powered web development",
           "description": "We build websites and landing pages with AI several times faster than classic development: a landing page in 5 days — proven on a real project.",
           "price": "from $350"
@@ -562,21 +553,18 @@
         "extra": "Not knowing which to pick is normal. On the free assessment we say plainly what works out better for your particular store. Sometimes that is not the most expensive option.",
         "items": [
           {
-            "icon": "🚀",
             "title": "Horoshop",
             "description": "A ready-made Ukrainian platform. Fast start and predictable cost — right when you need to open and start selling rather than build something unique. The platform's own subscription is paid separately; we'll help you pick the tier.",
             "price": "from $500",
             "href": "/horoshop"
           },
           {
-            "icon": "🛠️",
             "title": "OpenCart",
             "description": "Your own platform on your own hosting: full control, any integration, no monthly fee for the platform itself. Right when the catalogue is large or you need data flowing between accounting and marketplaces.",
             "price": "from $1000",
             "href": "/opencart"
           },
           {
-            "icon": "🧩",
             "title": "Custom build",
             "description": "For when the business logic doesn't fit a ready-made platform: complex pricing, B2B portals, an unusual catalogue. More expensive and slower — we take it on only when an off-the-shelf option genuinely won't cover the job.",
             "price": "priced after the audit"
@@ -627,25 +615,21 @@
         "extra": "OpenCart 2–4: accounting, KeyCRM, SalesDrive, Nova Poshta, Rozetka, Prom, Google Shopping, Checkbox",
         "items": [
           {
-            "icon": "🔄",
             "title": "Accounting ↔ OpenCart sync",
             "description": "Stock, prices, orders and new items travel between accounting and the site on their own. Two-way, scheduled or instant.",
             "price": "from $650"
           },
           {
-            "icon": "📥",
             "title": "Supplier parsing",
             "description": "Supplier price lists, websites and marketplaces feed straight into your store: new products, prices, stock. No Excel.",
             "price": "quoted after audit"
           },
           {
-            "icon": "🔗",
             "title": "CRM, delivery, receipts",
             "description": "KeyCRM or SalesDrive, Nova Poshta, Checkbox: an order creates the deal, shipping label and receipt by itself.",
             "price": "from $650"
           },
           {
-            "icon": "✍️",
             "title": "Content engine 24/7",
             "description": "AI enriches product cards: specs and descriptions in Ukrainian for search. Works on your catalog every night.",
             "price": "quoted after audit"
@@ -721,25 +705,21 @@
         "extra": "Also: KeyCRM, SalesDrive, accounting, Nova Poshta, Rozetka, Prom, Checkbox",
         "items": [
           {
-            "icon": "🏪",
             "title": "Turnkey launch",
             "description": "Structure, design, products, payments, delivery, analytics. From brief to first orders.",
             "price": "from $500"
           },
           {
-            "icon": "📦",
             "title": "Catalog migration & filling",
             "description": "From your old site, Excel or accounting — with photos, specs and descriptions. Thousands of items, no manual work.",
             "price": "quoted after audit"
           },
           {
-            "icon": "🔗",
             "title": "Accounting / CRM / API integrations",
             "description": "What the Horoshop box doesn't include: exchange with accounting, CRM, custom automations via API.",
             "price": "from $650"
           },
           {
-            "icon": "✍️",
             "title": "Content engine 24/7",
             "description": "AI enriches product cards: descriptions and specs in Ukrainian targeting search queries. Organic growth.",
             "price": "quoted after audit"
@@ -815,25 +795,21 @@
         "extra": "We connect KeyCRM with: OpenCart, Horoshop, accounting, Nova Poshta, Binotel, Checkbox, Instagram, Telegram",
         "items": [
           {
-            "icon": "🛠️",
             "title": "Turnkey implementation",
             "description": "Pipelines, fields, permissions, sales channels — around your process. Team training included.",
             "price": "from $650"
           },
           {
-            "icon": "🔗",
             "title": "Website integration",
             "description": "OpenCart, Horoshop or any site with an API: an order creates a deal with every field filled, instantly.",
             "price": "from $650"
           },
           {
-            "icon": "🎙️",
             "title": "AI for calls",
             "description": "Call transcripts in the deal card, short summaries, script compliance monitoring for managers.",
             "price": "quoted after audit"
           },
           {
-            "icon": "📞",
             "title": "Voice AI agent",
             "description": "Confirms orders and calls back missed calls by itself — results land straight in KeyCRM.",
             "price": "quoted after audit",
@@ -912,32 +888,27 @@
         "extra": "Design, development, analytics and launch in one process — no handoff between separate vendors",
         "items": [
           {
-            "icon": "🎯",
             "title": "Landing page",
             "description": "One page built around a single offer: benefits, a lead form or a Telegram button. Designed and launched in 5–10 days.",
             "price": "from $350"
           },
           {
-            "icon": "🏢",
             "title": "Corporate website",
             "description": "Multiple pages: about the company, services, portfolio, contacts. Ready in 2–3 weeks.",
             "price": "from $650"
           },
           {
-            "icon": "🛒",
             "title": "Online store",
             "description": "Catalogue, cart, payment and delivery. Accounting and CRM integrations when you need them — at launch or later.",
             "price": "from $1000",
             "href": "/online-store"
           },
           {
-            "icon": "📋",
             "title": "Catalog site",
             "description": "A services or products catalog without a cart: categories, item cards, a lead form. Connected to your CRM so leads don't get lost.",
             "price": "from $650"
           },
           {
-            "icon": "🔗",
             "title": "CRM, accounting and marketplace connections",
             "description": "Leads from the site go straight into your CRM, product cards stay in sync with accounting. Not a standalone site — part of one system.",
             "price": "from $650"
@@ -1023,25 +994,21 @@
         "extra": "We work with Horoshop, OpenCart and custom builds: 1C, KeyCRM, SalesDrive, Nova Poshta, Rozetka, Prom, marketplaces, Checkbox",
         "items": [
           {
-            "icon": "🏗️",
             "title": "Online store, built to launch",
             "description": "Site, catalog, cart, payment and delivery — a store you can open on day one.",
             "price": "from $1000"
           },
           {
-            "icon": "🔄",
             "title": "1C integration",
             "description": "Stock, prices, orders and new items sync between accounting and the site on their own, two-way.",
             "price": "from $650"
           },
           {
-            "icon": "🚀",
             "title": "Launch on Horoshop",
             "description": "A store on Horoshop with integrations set up from the start — a fast launch on a ready-made platform.",
             "price": "from $500"
           },
           {
-            "icon": "🔗",
             "title": "CRM, delivery, receipts",
             "description": "CRM, Nova Poshta, Checkbox: every order creates a deal, a waybill and a receipt on its own.",
             "price": "from $650"
@@ -1129,19 +1096,16 @@
         "extra": "We name the exact figure within these ranges after a short brief — it depends on the number of pages and integrations",
         "items": [
           {
-            "icon": "🚀",
             "title": "Quick start",
             "description": "A landing page or one-pager: a single page, a clear call to action, ready in 5–10 days. Good for testing a niche or launching ads.",
             "price": "from $350"
           },
           {
-            "icon": "🏢",
             "title": "A site that grows",
             "description": "A corporate site or catalog with CRM, form, and analytics integrations. 2–3 weeks to launch, easy to extend afterward.",
             "price": "from $650"
           },
           {
-            "icon": "🛒",
             "title": "Store, turnkey",
             "description": "An online store with payments, shipping, and stock sync. From 4 weeks, depending on the number of integrations.",
             "price": "from $1000"

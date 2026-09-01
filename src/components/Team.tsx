@@ -11,11 +11,9 @@ interface Member {
   name?: string
   /** What this role closes for the client. */
   note?: string
-  /** Initials shown until a real photo exists. */
-  icon?: string
   /** Слот-анімація для збірної картки: відео замість GIF, у ~70 разів легше. */
   video?: string
-  /** Path under /public, e.g. "/team/andriy.jpg". Omit and the role icon is used. */
+  /** Path under /public, e.g. "/team/andriy.webp". Omit and the slot stays empty. */
   photo?: string
   /** Collective card — the people we assemble per project, not one person. */
   collective?: boolean
@@ -62,11 +60,7 @@ export default function Team() {
                     height={160}
                     loading="lazy"
                   />
-                ) : (
-                  <span className="team-icon" aria-hidden="true">
-                    {member.icon}
-                  </span>
-                )}
+                ) : null}
               </div>
               <h3 className="team-position">{member.role}</h3>
               {member.name && <p className="team-person">{member.name}</p>}

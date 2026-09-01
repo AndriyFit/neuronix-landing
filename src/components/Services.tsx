@@ -16,7 +16,6 @@ export default function Services({
   const tCta = useTranslations('services')
   const locale = useLocale()
   const items = t.raw('items') as Array<{
-    icon: string
     title: string
     description: string
     price: string
@@ -55,7 +54,6 @@ export default function Services({
               key={item.title}
               style={{ transitionDelay: `${i * 0.1}s` }}
             >
-              <span className="service-icon">{item.icon}</span>
               <h3 className="service-card-title">{item.title}</h3>
               <p className="service-card-desc">{item.description}</p>
               <div className="service-card-footer">
