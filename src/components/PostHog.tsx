@@ -29,9 +29,13 @@ export default function PostHog() {
   // розрізняє лише ця супер-властивість, тож без неї Kermo не знайде їх узагалі.
   // register, а не capture: тег мусить їхати і на автозахоплених подіях (сабміти форм),
   // яких сайт не шле руками. Порожньо → сайт поводиться як раніше.
+  // Всередині `loaded`, а НЕ рядком після init: виклик після init лише стає в чергу
+  // до-завантажувального стаба, і властивість губиться, коли справжня бібліотека
+  // відновлює persistence. Заміряно на живому 2026-09-01 — виклик був на сторінці,
+  // ручний register() після завантаження працював, а властивості все одно не було.
   const kermoProjectId = process.env.NEXT_PUBLIC_KERMO_PROJECT_ID
-  const register = kermoProjectId
-    ? `\nposthog.register({ kermo_project_id: ${JSON.stringify(kermoProjectId)} });`
+  const registerTenant = kermoProjectId
+    ? `,\n  loaded: function (ph) { ph.register({ kermo_project_id: ${JSON.stringify(kermoProjectId)} }); }`
     : ''
 
   return (
@@ -53,8 +57,8 @@ posthog.init(${JSON.stringify(key)}, {
     maskAllInputs: true,
     // Дефолт PostHog маскує лише password. Тут — усе, що людина друкує в textarea теж.
     maskTextSelector: '[data-ph-mask]'
-  }
-});${register}${POSTHOG_CONSENT_SNIPPET}`}
+  }${registerTenant}
+});${POSTHOG_CONSENT_SNIPPET}`}
     </Script>
   )
 }
