@@ -17,7 +17,6 @@ import {
 import Navbar from '@/components/Navbar'
 import AnimatedBackground from '@/components/AnimatedBackground'
 import StickyCta from '@/components/StickyCta'
-import ChatWidget from '@/components/ChatWidget'
 import PostHog from '@/components/PostHog'
 import CookieConsent from '@/components/CookieConsent'
 import DeferredGTM from '@/components/DeferredGTM'
@@ -115,7 +114,6 @@ export default async function LocaleLayout({
             <main>{children}</main>
           </div>
           <StickyCta />
-          <ChatWidget />
           <CookieConsent />
         </NextIntlClientProvider>
         <PostHog />

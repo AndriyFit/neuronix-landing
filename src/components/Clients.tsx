@@ -77,6 +77,13 @@ const clients: Array<{
     width: 450,
     height: 150,
   },
+  {
+    name: 'Trex Sport',
+    href: 'https://trex-sport.com.ua',
+    logo: '/clients/trex-sport.png',
+    width: 450,
+    height: 150,
+  },
 ]
 
 export default function Clients() {
