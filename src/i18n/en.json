@@ -571,181 +571,41 @@
     },
     "opencart": {
       "metadata": {
-        "title": "OpenCart: Integrations, Automation, Custom Work — Neuronix",
-        "description": "OpenCart store automation: integration with accounting, KeyCRM, Nova Poshta, supplier parsing, AI-powered product content in Ukrainian. Case study: 15,000+ products in sync."
+        "title": "What Is OpenCart and Who It's For — Neuronix",
+        "description": "OpenCart is a free, open-source platform for online stores: full control and flexibility for custom integrations. Free consultation on whether it fits your business."
       },
       "hero": {
-        "titleStart": "Your ",
+        "titleStart": "What Is ",
         "titleHighlight": "OpenCart",
-        "titleEnd": " store can run itself",
-        "subtitle": "Integrations with accounting, CRM and Nova Poshta, supplier parsing, automated product content. We take the routine off your hands — in our case study, 15,000+ products stay in sync with no people involved.",
-        "ctaPrimary": "Get a free store audit",
-        "ctaSecondary": "Message on Telegram",
+        "titleEnd": ", and Who It's For",
+        "subtitle": "OpenCart is a free, open-source platform for online stores: unlike a rented SaaS engine, the code is entirely yours — more control and flexibility for custom integrations. It fits businesses with large catalogs, their own production, or non-standard accounting logic. We'll tell you if it fits your business on a short, free consultation.",
+        "ctaPrimary": "Get a Consultation",
+        "ctaSecondary": "Message us on Telegram",
         "telegramUrl": "https://t.me/neuronixjhbot",
         "trust": [
-          "Case: 15,000+ products in sync between accounting, site and marketplaces",
-          "Timeline and budget fixed in the contract",
-          "12-month warranty"
-        ]
-      },
-      "pains": {
-        "title": "Sound familiar, OpenCart store owner?",
-        "subtitle": "We hear this from every second client",
-        "items": [
-          "Stock differs between accounting and the site. A customer orders — the item isn't there",
-          "New products are added by hand: photos, specs, descriptions. It takes weeks",
-          "Supplier price lists arrive in Excel — and someone has to copy them over",
-          "Orders go into the CRM manually, shipping labels separately, receipts separately again",
-          "Product cards lack proper Ukrainian descriptions — Google can't see your store",
-          "The developer who built the site is gone — nobody to make changes"
-        ],
-        "answerTitle": "What we do with OpenCart",
-        "answers": [
-          "Two-way sync with your accounting: stock, prices, new items — automatic",
-          "Parsing of supplier price lists and websites: products come in with photos and specs on their own",
-          "AI-generated product content in Ukrainian targeting search queries — your store grows organically",
-          "Order → CRM → shipping label → receipt: the whole chain hands-free"
-        ]
-      },
-      "solutions": {
-        "title": "Services for OpenCart",
-        "extra": "OpenCart 2–4: accounting, KeyCRM, SalesDrive, Nova Poshta, Rozetka, Prom, Google Shopping, Checkbox",
-        "items": [
-          {
-            "title": "Accounting ↔ OpenCart sync",
-            "description": "Stock, prices, orders and new items travel between accounting and the site on their own. Two-way, scheduled or instant.",
-            "price": "from $650"
-          },
-          {
-            "title": "Supplier parsing",
-            "description": "Supplier price lists, websites and marketplaces feed straight into your store: new products, prices, stock. No Excel.",
-            "price": "quoted after audit"
-          },
-          {
-            "title": "CRM, delivery, receipts",
-            "description": "KeyCRM or SalesDrive, Nova Poshta, Checkbox: an order creates the deal, shipping label and receipt by itself.",
-            "price": "from $650"
-          },
-          {
-            "title": "Content engine 24/7",
-            "description": "AI enriches product cards: specs and descriptions in Ukrainian for search. Works on your catalog every night.",
-            "price": "quoted after audit"
-          }
-        ]
-      },
-      "faq": {
-        "title": "OpenCart FAQ",
-        "items": [
-          {
-            "question": "Can you connect accounting software to OpenCart?",
-            "answer": "Yes — two-way exchange: stock, prices, new products, orders. In our case study, 15,000+ items stay in sync between accounting, the site and marketplaces."
-          },
-          {
-            "question": "How do I fill my store with supplier products automatically?",
-            "answer": "We set up parsing of price lists (Excel, XML) or supplier websites: new products come in with photos and specs, prices and stock refresh on schedule."
-          },
-          {
-            "question": "The site was built by another contractor who disappeared. Will you take it?",
-            "answer": "Yes, it's a typical situation. We audit what's there, document it, then handle custom work and integrations with a 12-month warranty."
-          },
-          {
-            "question": "How much does an OpenCart integration cost?",
-            "answer": "Integrations with accounting, CRM or delivery start at $650. The exact quote follows a free audit — it depends on your OpenCart version and the number of systems."
-          },
-          {
-            "question": "Does automation help with SEO?",
-            "answer": "Yes: AI content generation produces Ukrainian descriptions and specs targeting real search queries. Complete, quality product cards are the foundation of organic traffic."
-          }
+          "Open source — full control over your store",
+          "Fits large catalogs and custom integrations",
+          "Needs a developer to launch and maintain"
         ]
       }
     },
     "horoshop": {
       "metadata": {
-        "title": "Horoshop Turnkey: Launch, Integrations, Automation — Neuronix",
-        "description": "Turnkey Horoshop store launch from $500: catalog migration, design, accounting and CRM integrations, automated product content. We'll tell you honestly what the platform tariffs do and don't cover."
+        "title": "What Is Horoshop and Who It's For — Neuronix",
+        "description": "Horoshop is a SaaS platform for online stores: a ready-made engine you rent instead of building from scratch. Free consultation on whether it fits your business."
       },
       "hero": {
-        "titleStart": "A store on ",
+        "titleStart": "What Is ",
         "titleHighlight": "Horoshop",
-        "titleEnd": " — launched and put on autopilot",
-        "subtitle": "The platform is good, but it won't launch itself: we migrate products, set up design and payments, connect accounting, CRM and delivery — and put product content on autopilot.",
-        "ctaPrimary": "Get a free audit",
-        "ctaSecondary": "Message on Telegram",
+        "titleEnd": ", and Who It's For",
+        "subtitle": "Horoshop is a SaaS platform for online stores: you rent a ready-made engine with a catalog, cart, payments and delivery, instead of building a site from scratch. It fits small and mid-size businesses that want to launch fast without their own IT team. We'll tell you if it fits your business on a short, free consultation.",
+        "ctaPrimary": "Get a Consultation",
+        "ctaSecondary": "Message us on Telegram",
         "telegramUrl": "https://t.me/neuronixjhbot",
         "trust": [
-          "Turnkey Horoshop launch — from $500",
-          "Timeline and budget fixed in the contract",
-          "12-month warranty"
-        ]
-      },
-      "pains": {
-        "title": "Picked Horoshop — now what?",
-        "subtitle": "The most common situations we're brought in for",
-        "items": [
-          "You've seen the platform tariffs, but the turnkey launch cost is unclear",
-          "Products need migrating from the old site or Excel — thousands of items",
-          "No time to figure out the setup — the business won't wait",
-          "Accounting lives in its own system with no sync to the store",
-          "Built-in integrations aren't enough: you need a custom exchange",
-          "Product cards are empty — the store is invisible in organic search"
-        ],
-        "answerTitle": "What we do with Horoshop",
-        "answers": [
-          "Turnkey launch: structure, design, payments, delivery — a store that sells, not one that's 'almost ready'",
-          "Catalog migration: from the old site, Excel or accounting — with photos and specs",
-          "Beyond-the-box integrations: accounting, CRM, custom APIs — built around your process",
-          "Content engine: AI fills product cards in Ukrainian for search — daily, without a content manager"
-        ]
-      },
-      "solutions": {
-        "title": "Services for Horoshop",
-        "extra": "Also: KeyCRM, SalesDrive, accounting, Nova Poshta, Rozetka, Prom, Checkbox",
-        "items": [
-          {
-            "title": "Turnkey launch",
-            "description": "Structure, design, products, payments, delivery, analytics. From brief to first orders.",
-            "price": "from $500"
-          },
-          {
-            "title": "Catalog migration & filling",
-            "description": "From your old site, Excel or accounting — with photos, specs and descriptions. Thousands of items, no manual work.",
-            "price": "quoted after audit"
-          },
-          {
-            "title": "Accounting / CRM / API integrations",
-            "description": "What the Horoshop box doesn't include: exchange with accounting, CRM, custom automations via API.",
-            "price": "from $650"
-          },
-          {
-            "title": "Content engine 24/7",
-            "description": "AI enriches product cards: descriptions and specs in Ukrainian targeting search queries. Organic growth.",
-            "price": "quoted after audit"
-          }
-        ]
-      },
-      "faq": {
-        "title": "Horoshop FAQ",
-        "items": [
-          {
-            "question": "How much does a turnkey Horoshop store cost?",
-            "answer": "Our work starts at $500: structure, design, catalog, payments, delivery. Horoshop platform tariffs are paid separately — we'll help you pick the one you actually need."
-          },
-          {
-            "question": "Will you migrate products from my old site?",
-            "answer": "Yes: from the old site, Excel price lists or your accounting system. With photos, specs and descriptions — thousands of items migrated automatically, not by hand."
-          },
-          {
-            "question": "Can Horoshop be integrated with my accounting?",
-            "answer": "Yes, we set up the exchange: stock, prices, orders. If the built-in module falls short, we build a custom API integration."
-          },
-          {
-            "question": "I need automation Horoshop doesn't offer. Possible?",
-            "answer": "Yes, via the platform's API: custom exchanges, supplier parsing, automated product content, CRM and telephony connections."
-          },
-          {
-            "question": "Horoshop or a custom-built site?",
-            "answer": "Depends on the task: Horoshop is a fast start with predictable costs, custom development is full freedom. In a free audit we'll tell you honestly which pays off for you — we do both."
-          }
+          "SaaS — a ready-made platform, no build from scratch",
+          "Fits a fast launch without an in-house IT team",
+          "Turnkey launch from $500"
         ]
       }
     },
@@ -842,107 +702,21 @@
     },
     "websites": {
       "metadata": {
-        "title": "Website Development Built End to End | Neuronix",
-        "description": "Website development built end to end: landing page from $350 in 5–10 days, corporate site or catalog from $650 in 2–3 weeks. Contract, 12-month warranty, CRM and accounting connections."
+        "title": "What Is a Landing Page and What Does It Cost — Neuronix",
+        "description": "A landing page is a 1-2 page site for one offer: a pitch, a lead form, a Buy button. Built from $350, ready in 5-10 days. Free consultation."
       },
       "hero": {
-        "titleStart": "A website ",
-        "titleHighlight": "built end to end",
-        "titleEnd": " — landing page, corporate site or catalog",
-        "subtitle": "Design, development, analytics and a CRM connection. Free estimate in 24 hours. Deadline and budget go into the contract before we start.",
-        "ctaPrimary": "Get a website quote",
+        "titleStart": "What Is a ",
+        "titleHighlight": "Landing Page",
+        "titleEnd": ", and Do You Need One",
+        "subtitle": "A landing page is a one- or two-page site — essentially a digital business card. It's used to advertise a service or 1-2 products: a visitor arrives, reads the offer, and either leaves their contact for a consultation or clicks Buy right away. We'll tell you if it fits your business on a short, free consultation.",
+        "ctaPrimary": "Get a Consultation",
         "ctaSecondary": "Message us on Telegram",
         "telegramUrl": "https://t.me/neuronixjhbot",
         "trust": [
-          "Estimate in 24 hours",
-          "Deadline and budget in the contract",
-          "12-month warranty"
-        ]
-      },
-      "pains": {
-        "title": "Sound familiar when you think about your first website?",
-        "subtitle": "These are the normal questions of someone doing this for the first time. We answer them before you pay",
-        "items": [
-          "I don't know which site I actually need — a landing page, a catalogue or a full store",
-          "I'm afraid of paying for a pretty page that nobody ever visits",
-          "I don't know what's needed from me: copy, photos, accounts — I have none of it",
-          "I don't know the real number, or what I'll be asked to pay for after launch",
-          "They built the site and vanished — there's nobody to even swap a banner",
-          "The site is live but no enquiries come in, and it's not clear why"
-        ],
-        "answerTitle": "How we build a first website",
-        "answers": [
-          "First we work out what you sell and to whom — then we tell you which type of site you need — a landing page, a catalogue or a full store",
-          "We write the copy and the structure. From you: a list of products or services and whatever already exists — photos, a price list, a social media page",
-          "Ads and visibility — together with our partners, prepared alongside the build, so the site doesn't launch into an empty room",
-          "Deadline and budget go into the contract before we start — no surprise charges for \"extra\" blocks",
-          "Enquiries go straight into your CRM and Telegram, not into an inbox someone has to check",
-          "12-month warranty. Access to the site, domain and hosting is yours from day one"
-        ]
-      },
-      "solutions": {
-        "title": "Websites we build end to end",
-        "extra": "Design, development, analytics and launch in one process — no handoff between separate vendors",
-        "items": [
-          {
-            "title": "Landing page",
-            "description": "One page built around a single offer: benefits, a lead form or a Telegram button. Designed and launched in 5–10 days.",
-            "price": "from $350"
-          },
-          {
-            "title": "Corporate website",
-            "description": "Multiple pages: about the company, services, portfolio, contacts. Ready in 2–3 weeks.",
-            "price": "from $650"
-          },
-          {
-            "title": "Online store",
-            "description": "Catalogue, cart, payment and delivery. Accounting and CRM integrations when you need them — at launch or later.",
-            "price": "from $1000",
-            "href": "/online-store"
-          },
-          {
-            "title": "Catalog site",
-            "description": "A services or products catalog without a cart: categories, item cards, a lead form. Connected to your CRM so leads don't get lost.",
-            "price": "from $650"
-          },
-          {
-            "title": "CRM, accounting and marketplace connections",
-            "description": "Leads from the site go straight into your CRM, product cards stay in sync with accounting. Not a standalone site — part of one system.",
-            "price": "from $650"
-          }
-        ]
-      },
-      "faq": {
-        "title": "Questions about a website built end to end",
-        "items": [
-          {
-            "question": "How much does a website built end to end cost?",
-            "answer": "Landing page — from $350, ready in 5–10 days. Corporate site or catalog — from $650, ready in 2–3 weeks. Exact price after a free audit — it depends on page count and integrations."
-          },
-          {
-            "question": "How long does it take to build a website end to end?",
-            "answer": "Landing page — 5–10 days. Corporate site or catalog — 2–3 weeks. Deadlines go into the contract before we start; they change only if the scope changes by agreement."
-          },
-          {
-            "question": "What's the difference between a landing page and a corporate site?",
-            "answer": "A landing page is one page built around a single offer: benefits, a lead form, a clear call to action. A corporate site has multiple pages — about, services, portfolio, contacts. We help you pick the right one for the job."
-          },
-          {
-            "question": "Can you connect a website to a CRM or accounting system?",
-            "answer": "Yes, that's our core work. Form submissions go straight into your CRM, product or service cards stay in sync with accounting — the site doesn't live apart from the rest of your systems."
-          },
-          {
-            "question": "Our previous developer disappeared and left the site unfinished. Can you take over?",
-            "answer": "Common situation. We audit what's already built, then fix or rebuild it with a 12-month warranty."
-          },
-          {
-            "question": "What do you need from me to start?",
-            "answer": "A list of your products or services — even a supplier's Excel price list will do. Photos, if you already have them. And briefly: what you sell, who to, and what sets you apart. We write the copy and the structure. Nothing technical is needed from you: we set up the domain, hosting, email and analytics, and hand you the credentials."
-          },
-          {
-            "question": "What if the site gets built and nobody visits it?",
-            "answer": "A website on its own doesn't create traffic — that's true of any agency. So we hand it over ready for advertising with analytics connected, and run the advertising and visibility work with our partners in parallel with the build. After launch you can see where every enquiry came from and what it cost, and scale what works."
-          }
+          "One or two pages built around a single offer",
+          "Ready in 5-10 days, from $350",
+          "Lead form goes straight to CRM and Telegram"
         ]
       }
     },

@@ -24,8 +24,11 @@ CUSTOMER_ID = "9087037980"
 LOGIN_CUSTOMER_ID = "1770392909"
 
 # ad_group.id -> посадкова цієї групи
+# 199656753776 раніше вів на /uk/websites; та сторінка з 2026-09-01 — explainer
+# «що таке лендінг» + форма (без цін/FAQ), непридатна як Ads-посадкова для широкого
+# «сайт під ключ». Перенесено на /uk/price — там і лендінг, і магазин, і FAQ.
 URL_BY_AD_GROUP = {
-    "199656753776": "https://neuronics.work/uk/websites",      # Сайт під ключ
+    "199656753776": "https://neuronics.work/uk/price",         # Сайт під ключ
     "202276594747": "https://neuronics.work/uk/online-store",  # Інтернет-магазин
     "202948761487": "https://neuronics.work/uk/price",         # Ціна розробки
 }
@@ -129,8 +132,10 @@ def self_test():
     ch, sk = plan_changes([{**base, "ad_group_id": "999"}], m)
     assert not ch and sk[0][1] == "невідома ad group", "чужа група → не чіпаємо"
 
-    assert len(URL_BY_AD_GROUP) == 3 and len(set(URL_BY_AD_GROUP.values())) == 3, \
-        "три групи, три РІЗНІ URL — інакше сенс зміни втрачено"
+    # /websites стала explainer-сторінкою (2026-09-01) і більше не годиться як Ads-посадкова
+    # для широкого «сайт під ключ» — тому ця й "Ціна розробки" тепер обидві ведуть на /price.
+    assert len(URL_BY_AD_GROUP) == 3 and len(set(URL_BY_AD_GROUP.values())) == 2, \
+        "три групи, мінімум дві різні посадкові — інакше сенс зміни втрачено"
     for u in URL_BY_AD_GROUP.values():
         assert u.startswith("https://neuronics.work/uk/") and "#" not in u, \
             "тільки https і без якоря: якір не створює окремої сторінки для Google"
