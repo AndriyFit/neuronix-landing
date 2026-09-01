@@ -5,6 +5,13 @@ import { POSTHOG_CONSENT_SNIPPET } from '@/lib/consent'
  * PostHog — product-аналітика: воронки, retention, session replay, feature flags.
  * Доповнює GTM/GA4 (трафік і реклама), не замінює їх. Clarity прибрано 2026-08-19
  * як дубль: теплові карти й записи сесій дає сам PostHog.
+ *
+ * 2026-09-01: події перенаправлено з власного проєкту Neuronix (565689) у спільний
+ * «Kermo Clients» (588130) — Neuronix став клієнтом №1 у Kermo, і крос-перевірка
+ * Ads↔PostHog потребує ОДНОГО джерела правди, не двох паралельних скриптів.
+ * Змінився лише ключ у env і тег `kermo_project_id`; згода на кукі, записи сесій з
+ * маскуванням PII і capture_dead_clicks лишились як були — їх Kermo-сніпет не має,
+ * тож підміняти цей компонент простішим було б регресією.
  * Записи сесій увімкнено 2026-08-25 з maskAllInputs; політика конфіденційності оновлена
  * у тій самій зміні — вона прямо декларувала, що записи вимкнені.
  *
@@ -17,6 +24,15 @@ export default function PostHog() {
   if (!key) return null
 
   const host = process.env.NEXT_PUBLIC_POSTHOG_HOST || 'https://us.i.posthog.com'
+
+  // Neuronix — клієнт №1 у Kermo. Події їдуть у спільний проєкт «Kermo Clients», де їх
+  // розрізняє лише ця супер-властивість, тож без неї Kermo не знайде їх узагалі.
+  // register, а не capture: тег мусить їхати і на автозахоплених подіях (сабміти форм),
+  // яких сайт не шле руками. Порожньо → сайт поводиться як раніше.
+  const kermoProjectId = process.env.NEXT_PUBLIC_KERMO_PROJECT_ID
+  const register = kermoProjectId
+    ? `\nposthog.register({ kermo_project_id: ${JSON.stringify(kermoProjectId)} });`
+    : ''
 
   return (
     <Script id="posthog" strategy="afterInteractive">
@@ -38,7 +54,7 @@ posthog.init(${JSON.stringify(key)}, {
     // Дефолт PostHog маскує лише password. Тут — усе, що людина друкує в textarea теж.
     maskTextSelector: '[data-ph-mask]'
   }
-});${POSTHOG_CONSENT_SNIPPET}`}
+});${register}${POSTHOG_CONSENT_SNIPPET}`}
     </Script>
   )
 }
