@@ -9,7 +9,6 @@ import AiHero from '@/components/AiHero'
 import Pricing from '@/components/Pricing'
 import Pains from '@/components/Pains'
 import Services from '@/components/Services'
-import CaseStudy from '@/components/CaseStudy'
 import AiSecurity from '@/components/AiSecurity'
 import AiStats from '@/components/AiStats'
 import HowWeWork from '@/components/HowWeWork'
@@ -18,9 +17,15 @@ import FAQ from '@/components/FAQ'
 import Contact from '@/components/Contact'
 import Footer from '@/components/Footer'
 
+// Ці три — посадкові для картки «яке рішення підійде» з головної (solutionGuide).
+// Візитер там ще не знає, що таке лендінг/Horoshop/OpenCart, тож сторінка — лише
+// пояснення «що це» (в hero.subtitle) + форма консультації, без цін/кейсів/FAQ.
+const EXPLAINER_PAGES: readonly string[] = ['websites', 'horoshop', 'opencart']
+
 // Вибір платформи має сенс лише там, де людина справді обирає рушій магазину.
-// На /websites і /price це збиває з пантелику: там питання «який тип сайту», не «яка CMS».
-const STORE_PAGES: readonly string[] = ['online-store', 'opencart', 'horoshop', 'keycrm']
+// На /price це збиває з пантелику: там питання «який тип сайту», не «яка CMS».
+// opencart/horoshop сюди більше не входять — вони explainer-сторінки (див. вище).
+const STORE_PAGES: readonly string[] = ['online-store', 'keycrm']
 
 type Props = { params: Promise<{ locale: string; platform: string }> }
 
@@ -70,8 +75,19 @@ export default async function PlatformPage({ params }: Props) {
   if (!PLATFORMS.includes(platform as Platform)) notFound()
   setRequestLocale(locale)
   const messages = (await getMessages()) as Record<string, any>
-  const faqSchema = getFAQSchema(messages.platforms[platform].faq.items)
   const ns = `platforms.${platform}`
+
+  if (EXPLAINER_PAGES.includes(platform)) {
+    return (
+      <>
+        <AiHero namespace={`${ns}.hero`} ctaTarget="contact" />
+        <Contact />
+        <Footer />
+      </>
+    )
+  }
+
+  const faqSchema = getFAQSchema(messages.platforms[platform].faq.items)
 
   return (
     <>
@@ -87,7 +103,6 @@ export default async function PlatformPage({ params }: Props) {
       {STORE_PAGES.includes(platform) && (
         <Services namespace="platforms.shared.techChoice" id="tech-choice" />
       )}
-      {platform === 'opencart' && <CaseStudy />}
       <HowWeWork namespace="platforms.shared.fullCycle" />
       <AiSecurity namespace="platforms.shared.yourPart" id="your-part" />
       <AiSecurity namespace="platforms.shared.contentEngine" />

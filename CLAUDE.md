@@ -44,6 +44,26 @@ Cornix, AbTime, Trembita Group і Watermax у `public/clients/`. Кожен ло
 Next.js 16 забороняє довільні export-поля зі спеціального файла сторінки. І сторінка, і
 `sitemap.ts` імпортують один масив звідти.
 
+### /websites, /horoshop, /opencart — explainer-сторінки (2026-09-01)
+
+Ці три — посадкові саме для карток `solutionGuide` вище. Візитер, що клікнув «Лендінг» /
+«Horoshop» / «OpenCart» з головної, ще не знає, що це таке — тому сторінка більше НЕ
+повторює повний шаблон (Pains/AiStats/Services/техвибір/CaseStudy/HowWeWork/AiSecurity/
+AuditForm/FAQ), а лише пояснює «що це» в `hero.subtitle` і веде до `Contact` — усе, разом
+з ціною, вже під капотом продано в одному абзаці, глибше копати нема куди.
+
+В `[platform]/page.tsx` це окрема гілка рендеру: `EXPLAINER_PAGES.includes(platform)` →
+тільки `AiHero` + `Contact` + `Footer`, без FAQPage schema (`faq.items` для цих трьох
+платформ у json більше не існує — і не заводь, нічого не рендерить). CTA в `AiHero` за
+замовчуванням скролить на `#audit` (там, де є `AuditForm`); для цих трьох сторінок
+передається `ctaTarget="contact"` — інакше кнопка веде в нікуди.
+
+⚠️ **`/websites` була основною Ads-посадковою** для keyword-level URL ad-груп «Сайт під
+ключ» і «Ціна розробки» (`scripts/ads-keyword-urls.py`, див. розділ «Google Ads» нижче).
+З явним контентом-«що таке» вона для цього більше не годиться — обидві групи переведено
+на `/uk/price`. Заводиш нову explainer-сторінку в `EXPLAINER_PAGES` — перевір спершу,
+чи вона не є чиєюсь Ads-посадковою.
+
 ## Сторінка /ai — AI-автоматизація (2026-08-09)
 
 Окрема посадкова `/{locale}/ai` під AI-напрямок (чат-боти, голосові агенти, CRM-автоматизація,
@@ -106,8 +126,9 @@ AI-розробка сайтів). Побудована під реальні п
 **Вибір платформи (2026-08-31).** `platforms.shared.techChoice` — Horoshop / OpenCart /
 власна розробка, з цінами й переходами на `/horoshop` і `/opencart`. Рендериться через
 `Services` з `id="tech-choice"` і **лише на сторінках, де людина справді обирає рушій**
-(`STORE_PAGES` у шаблоні: online-store, opencart, horoshop, keycrm). На `/websites` і
-`/price` його немає свідомо: там питання «який тип сайту», а не «яка CMS».
+(`STORE_PAGES` у шаблоні: зараз лише `online-store`, `keycrm`). На `/websites` і `/price`
+його немає свідомо: там питання «який тип сайту», а не «яка CMS». `/opencart` і `/horoshop`
+з 2026-09-01 теж не мають — вони explainer-сторінки, див. розділ нижче.
 ⚠️ Ціни в картках мусять збігатися з `pricing.items` — скрипт додавання це перевіряв,
 але постійної перевірки немає, тому міняєш ціни в `pricing` — став і тут.
 ⚠️ Четверта картка не вигадується заради сітки: WooCommerce чи «запуск на маркетплейсі»
@@ -126,17 +147,19 @@ AI-розробка сайтів). Побудована під реальні п
 ## Платформені сторінки /opencart /horoshop /keycrm (2026-08-09)
 
 Спільний шаблон `src/app/[locale]/[platform]/page.tsx` (SSG, `dynamicParams=false`,
-слаги в константі PLATFORMS). Контент — `platforms.{slug}.*` в i18n + спільний
-`platforms.shared.contentEngine` (оффер «контент-система 24/7» на всіх трьох).
-Інтент з дослідження: бренд-запити платформ — здебільшого НЕ ЦА; сторінки цілять
-у хвіст «інтеграція/автоматизація/під ключ/наповнення». Реюз: AiHero/Pains/Services/
-AiSecurity/FAQ через namespace-проп; кейс Abertime (CaseStudy без пропа) — лише на opencart.
+слаги в константі PLATFORMS). Контент — `platforms.{slug}.*` в i18n.
 Перелінковка: футер `footer-services` (усі сторінки), Horoshop-картка головної → /horoshop,
 голосовий агент на /keycrm → /ai. Додаючи платформу: слаг у PLATFORMS + namespace в
 обох json + слаг у sitemap.ts.
 З 25.08 цей же шаблон перевикористовується під Ads-посадкові (`/websites`,
 `/online-store`, `/price`) — тобто PLATFORMS більше не список самих лише платформ;
 назва константи історична.
+
+⚠️ ЗАСТАРІЛО (2026-09-01): `/opencart` і `/horoshop` описано вище як повні сторінки з
+Pains/Services/AiSecurity/FAQ і кейсом Abertime (CaseStudy) — це вже не так, вони стали
+explainer-сторінками (hero-пояснення + форма), див. розділ «/websites, /horoshop, /opencart
+— explainer-сторінки». `contentEngine`/`ecommStats` і CaseStudy лишаються тільки на
+`/keycrm`, `/online-store`, `/price`.
 
 ## Презентація для партнерів Cornix (2026-08-14)
 
@@ -839,6 +862,12 @@ RSA `820780707003` на паузі — обіцяв «Запуск за 10 дн�
 з `/uk#pricing` на `/uk/online-store` і `/uk/price`.
 
 План: `docs/superpowers/plans/2026-08-25-ads-landing-optimization.md`.
+
+⚠️ **2026-09-01: `/websites` вибула з цього трикутника.** Сторінка стала explainer-ом
+(див. вище) — без цін і FAQ вона більше не годиться як посадкова для широкого «Сайт під
+ключ». `URL_BY_AD_GROUP` в `ads-keyword-urls.py` тепер веде обидві групи, «Сайт під ключ»
+і «Ціна розробки», на `/uk/price`; лишається 2 різні посадкові на 3 групи, не 3. Перед
+`apply` — прогнати `snapshot`, звірити стан, і застосовувати тільки після підтвердження.
 
 ### ⚠️ Юридичні реквізити з сайту прибрані СВІДОМО — не повертати
 
