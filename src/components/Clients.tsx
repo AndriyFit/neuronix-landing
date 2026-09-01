@@ -49,6 +49,34 @@ const clients: Array<{
     width: 200,
     height: 67,
   },
+  {
+    name: 'Hop-Sport',
+    href: 'https://hop-sport.com.ua',
+    logo: '/clients/hop-sport.png',
+    width: 450,
+    height: 150,
+  },
+  {
+    name: 'Sportvida',
+    href: 'https://sportvida.com.ua',
+    logo: '/clients/sportvida.png',
+    width: 640,
+    height: 65,
+  },
+  {
+    name: '4FIZJO',
+    href: 'https://4fizjo.com.ua',
+    logo: '/clients/4fizjo.svg',
+    width: 2448,
+    height: 845,
+  },
+  {
+    name: 'Di Volio',
+    href: 'https://divolio.com.ua',
+    logo: '/clients/divolio.png',
+    width: 450,
+    height: 150,
+  },
 ]
 
 export default function Clients() {
