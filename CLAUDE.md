@@ -39,7 +39,8 @@ Next.js 16 (App Router) · TypeScript · next-intl (uk/en) · React 19 · react-
 екрані порушували власне правило персони 31.08 («OpenCart, Horoshop — не в перших
 екранах»), а корпоративний сайт узагалі був у прайсі, але не мав входу з головної.
 Наслідок: `/horoshop` і `/opencart` більше не мають входу з головної — лишаються футер
-і `techChoice` на `/online-store`. Це прийнято свідомо, трафіку на них майже не було.
+і `techChoice` на `/online-store` та `/keycrm` (обидва слаги в `STORE_PAGES`).
+Це прийнято свідомо, трафіку на них майже не було.
 
 Після `HowWeWork` рендериться `Clients.tsx`: локальні копії офіційних логотипів Besport,
 Cornix, AbTime, Trembita Group і Watermax у `public/clients/`. Кожен логотип веде на
