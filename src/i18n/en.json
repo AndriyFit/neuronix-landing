@@ -88,8 +88,8 @@
       },
       {
         "title": "Online store",
-        "description": "Catalogue, cart, payment and delivery. For when the buyer picks the product and places the order themselves, without you in the loop.",
-        "price": "from $500",
+        "description": "Catalogue, cart, payment and delivery. For when the buyer picks the product and places the order themselves. The figure depends on how many products you have and whether the store needs to sync with your accounting.",
+        "price": "$500–$1000",
         "href": "/online-store"
       }
     ]
@@ -113,8 +113,7 @@
       {
         "title": "Automation & integrations",
         "description": "Accounting, CRM, marketplaces, telephony, shipping, receipts. Orders, leads and stock move between systems without manual work.",
-        "price": "from $650",
-        "href": "/keycrm"
+        "price": "from $650"
       }
     ],
     "more": "Learn more"
@@ -202,7 +201,7 @@
     ]
   },
   "audit": {
-    "title": "Already have a site?",
+    "title": "Free site audit",
     "subtitle": "Send us the URL — we'll look at it and tell you what can be fixed and where you're losing leads. Free, no strings attached.",
     "urlPlaceholder": "Link to your site",
     "contactPlaceholder": "Phone, email or Telegram",
