@@ -32,6 +32,15 @@
   gap: 1.5rem;
 }
 
+/* Рівно дві картки під auto-fit розповзаються на пів екрана кожна (заміряно
+   06.09: 538px проти 351px у сітки з трьох) і читаються як порожні. Обмежуємо
+   саме цей випадок і центруємо — сітки з трьох і чотирьох лишаються як були.
+   Браузер без :has() просто покаже старий, ширший варіант, нічого не ламається. */
+.services-grid:has(> :nth-child(2):last-child) {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 360px));
+  justify-content: center;
+}
+
 .service-card {
   background: #fff;
   border-radius: 16px;

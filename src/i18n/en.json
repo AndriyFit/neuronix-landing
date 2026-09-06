@@ -53,7 +53,7 @@
   },
   "pains": {
     "title": "Sound familiar?",
-    "subtitle": "If at least two of these ring true, we should talk",
+    "subtitle": "If any of this rings true, we should talk",
     "items": [
       "I want to sell online but I don't know where to start, or in what order",
       "I'm afraid of paying for a pretty page that nobody ever visits",
@@ -73,25 +73,24 @@
   },
   "solutionGuide": {
     "title": "Choose the right format for your business",
-    "extra": "You do not need to figure out the technology yourself — we will match the solution to your goal, catalogue size and growth plans.",
+    "extra": "You do not need to figure out the technology yourself — on a free assessment we match the format to your goal, catalogue size and plans for the year.",
     "items": [
       {
         "title": "Landing page",
-        "description": "A one-page site for a service, a focused offer, or one to several products. A fast way to validate demand and launch advertising.",
+        "description": "A single page for one service, a focused offer, or one to two products. The fastest way to validate demand and start taking enquiries.",
         "price": "from $350",
         "href": "/websites"
       },
       {
-        "title": "Horoshop online store",
-        "description": "For a first store and a quick launch without complex development. Product catalogue, payments, delivery, platform support and straightforward management.",
-        "price": "from $500",
-        "href": "/horoshop"
+        "title": "Corporate website",
+        "description": "A few pages about your company: what you do, services, pricing, contacts and an enquiry form. For when a client needs to understand who you are.",
+        "price": "from $650"
       },
       {
-        "title": "OpenCart online store",
-        "description": "For large catalogues, retailers, own brands and manufacturers. Full control, custom logic and integrations with accounting, CRM and marketplaces.",
-        "price": "from $1000",
-        "href": "/opencart"
+        "title": "Online store",
+        "description": "Catalogue, cart, payment and delivery. For when the buyer picks the product and places the order themselves, without you in the loop.",
+        "price": "from $500",
+        "href": "/online-store"
       }
     ]
   },
@@ -102,20 +101,9 @@
     "visit": "visit the client's website"
   },
   "services": {
-    "title": "What we do",
-    "extra": "We also work with: OpenCart, WordPress, KeyCRM, SalesDrive, Nova Poshta, Rozetka, Prom, Checkbox",
+    "title": "Already have a website?",
+    "extra": "We work with what you already run: OpenCart, WordPress, Horoshop, KeyCRM, SalesDrive, Nova Poshta, Rozetka, Prom, Checkbox",
     "items": [
-      {
-        "title": "Websites & online stores",
-        "description": "Landing pages, corporate sites, stores. Design, development, analytics and launch, end to end.",
-        "price": "from $350"
-      },
-      {
-        "title": "Horoshop online store",
-        "description": "Store launch, custom work, integrations with accounting, CRM and delivery services.",
-        "price": "from $500",
-        "href": "/horoshop"
-      },
       {
         "title": "AI bots & automation",
         "description": "Chatbots for your website and Instagram, voice agents for calls, orders flowing into your CRM hands-free. AI that works 24/7.",
@@ -124,8 +112,9 @@
       },
       {
         "title": "Automation & integrations",
-        "description": "Accounting, CRM, marketplaces, telephony, shipping, receipts. Lead handling and bots that run without you.",
-        "price": "from $650"
+        "description": "Accounting, CRM, marketplaces, telephony, shipping, receipts. Orders, leads and stock move between systems without manual work.",
+        "price": "from $650",
+        "href": "/keycrm"
       }
     ],
     "more": "Learn more"
@@ -161,7 +150,7 @@
     ]
   },
   "howWeWork": {
-    "title": "The road to your first customers",
+    "title": "The road to launch",
     "steps": [
       {
         "number": "01",
@@ -170,18 +159,18 @@
       },
       {
         "number": "02",
-        "title": "We build the store",
-        "description": "Site, catalogue, payments, delivery. Your Excel price list becomes product pages with copy. The technical side is ours — from the domain to the till"
+        "title": "We build the site",
+        "description": "Design, pages, copy, forms. For a store — catalogue, payments and delivery: your Excel price list becomes product pages with copy. The technical side is ours — from the domain to the till"
       },
       {
         "number": "03",
-        "title": "We bring the buyers",
-        "description": "Analytics and goals configured. Advertising is prepared with our partners in parallel, so you don't open into an empty room"
+        "title": "We get you ready for ads",
+        "description": "Analytics and goals configured, so you can see where every enquiry came from. Advertising is run by our partners in parallel with the build — their work and the media budget are billed separately"
       },
       {
         "number": "04",
-        "title": "First orders",
-        "description": "You can see where every customer came from and what they cost. We don't vanish after handover: 12-month warranty and support"
+        "title": "Launch and handover",
+        "description": "Access to the site, domain and hosting goes to you — it is yours. The first month of tweaks and consultations is free, and the work carries a 12-month warranty"
       }
     ]
   },
@@ -213,8 +202,8 @@
     ]
   },
   "audit": {
-    "title": "Not ready for a big project?",
-    "subtitle": "Send us your site's URL — we'll look at it and tell you what can be automated and where you're losing leads. Free, no strings attached.",
+    "title": "Already have a site?",
+    "subtitle": "Send us the URL — we'll look at it and tell you what can be fixed and where you're losing leads. Free, no strings attached.",
     "urlPlaceholder": "Link to your site",
     "contactPlaceholder": "Phone, email or Telegram",
     "submit": "Get the audit",
@@ -263,11 +252,11 @@
       },
       {
         "question": "We already have a site and a CRM, but they don't talk. Is that your job?",
-        "answer": "Yes, that's our core work. We don't rebuild everything from scratch — we connect what already runs: site, CRM, accounting, marketplaces, telephony, shipping."
+        "answer": "Yes, it's one of the things we do. We don't rebuild everything from scratch — we connect what already runs: site, CRM, accounting, marketplaces, telephony, shipping."
       },
       {
         "question": "Why more expensive than a freelancer?",
-        "answer": "Because the price includes a contract, a 12-month warranty, configured analytics and support. The warranty means we fix defects in the delivered code free of charge for 12 months, while new features are built by separate agreement. A freelancer is cheaper right up until they disappear — then you pay twice for the same thing."
+        "answer": "Because the price includes a contract with a fixed sum and deadline, a 12-month warranty on the delivered code, configured analytics and post-launch support. The warranty means we fix defects in the delivered code free of charge for 12 months, while new features are built by separate agreement. Access to the site, domain and hosting is yours from day one, so after handover there's always someone to answer for it."
       },
       {
         "question": "What does post-launch support include?",

@@ -76,7 +76,7 @@
 | # | Зміна | Файл | Деталі |
 |---|---|---|---|
 | 1.1 | Hero-CTA на `/online-store`, `/price`, `/keycrm` веде до `#contact` | `[platform]/page.tsx` | Змінити **дефолт** `ctaTarget` в `AiHero` на `'contact'`; `/ai` лишається на `'audit'` явно (там аудит доречний). Так нова сторінка за замовчуванням не зламається |
-| 1.2 | `nav.results` прибрати з `NAV_ITEMS`, доки немає секції | `Navbar.tsx`, `uk.json`/`en.json` | Ключ `nav.results` **лишити** в json (повернемо на етапі 2). `CLAUDE.md`: сітлінк «Наші результати» → `/uk#results` перенацілити на `/uk#solution-guide` (поза репо, adloop) |
+| 1.2 | `nav.results` прибрати з `NAV_ITEMS`, доки немає секції | `Navbar.tsx`, `uk.json`/`en.json` | Ключ `nav.results` **лишити** в json (повернемо на етапі 2). `CLAUDE.md`: сітлінк «Наші результати» → `/uk#results` перенацілити в акаунті (поза репо, adloop) — з етапу 2 якір формату називається `#services`, а `#solution-guide` більше не існує |
 | 1.3 | Navbar: локальний якір, якщо секція є на сторінці | `Navbar.tsx` | `scrollTo`: `const el = document.getElementById(id); if (el) el.scrollIntoView(...) else window.location.href = '/${locale}#${id}'`. Прибирає `isHome` з логіки якорів; `isHome` лишається для логотипа |
 | 1.4 | Узгодити ціни магазину в текстах | `uk.json`, `en.json` | `platforms.price.hero.subtitle`, `platforms.price.trust`, `platforms.online-store.hero.subtitle` + `trust[0]`, `platforms.online-store.solutions.items[0]`: «магазин на Horoshop — від $500, на OpenCart — від $1000». Джерело правди — `pricing.items`. Після правки `python3 docs/ai-agent/check-prompt-facts.py` |
 | 1.5 | Футер: послуги розробки першими | `Footer.tsx` | `Сайти` → `/websites`, `Інтернет-магазин` → `/online-store`, `Ціни` → `/price`, далі AI / OpenCart / Horoshop / KeyCRM |
@@ -85,6 +85,11 @@
 Приймання: чекліст в розділі 6, пункти A1–A6.
 
 ### Етап 2. Перебудувати переконання на головній (P1, переважно json, 1–2 PR)
+
+> **Стан: зроблено 2026-09-06, крім 2.8 і 2.9.** Обидва впираються не в код, а в дані
+> від Андрія: 2.8 — реальні проєкти зі скріншотами й дозволом (D3), 2.9 — підтверджений
+> факт про розробку замість «15 000+ товарів між 1С». Вигадувати їх заборонено, тому
+> секції робіт на сайті поки немає і пункт «Результати» в навбар не повернуто.
 
 Залежить від D2, D3, D4.
 

@@ -78,7 +78,11 @@ export default async function LocaleLayout({
     getOrganizationSchema(),
     getLocalBusinessSchema(),
     getWebSiteSchema(),
-    ...getServicesSchema(msg.services.items),
+    // Обидва набори: services.items з 06.09 описує лише доробку наявного сайту
+    // (AI, інтеграції), а розробку сайтів і магазинів — solutionGuide.items. Схема
+    // живе в layout, тобто на КОЖНІЙ сторінці, тому взяти лише один набір означало б
+    // прибрати з розмітки те, що ми продаємо найбільше.
+    ...getServicesSchema([...msg.solutionGuide.items, ...msg.services.items]),
   ]
 
   return (
