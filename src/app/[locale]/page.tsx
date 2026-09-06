@@ -30,13 +30,20 @@ export default async function HomePage({ params }: Props) {
       <Hero />
       <TrustBar />
       <Pains />
-      <Services namespace="solutionGuide" id="solution-guide" />
+      {/* Формати — це і є «Послуги» з погляду відвідувача, тому саме цей блок несе
+          id="services", на який цілить навбар. Другий блок нижче — для тих, у кого
+          сайт уже є, і має власний id, інакше на сторінці був би дубль DOM-id. */}
+      <Services namespace="solutionGuide" id="services" />
       <HowWeWork />
       <Clients />
-      <AuditForm />
-      <Services />
       <Team />
       <Pricing />
+      {/* Після прайсу, а не між формами: до 06.09 головна двічі показувала сітку
+          послуг (формати, потім знову сайти + Horoshop + AI), і другий блок повертав
+          людину до вибору, який вона щойно зробила. Тепер це не повтор, а наступний
+          крок для іншої аудиторії — у кого сайт уже працює. */}
+      <Services id="automation" />
+      <AuditForm />
       <FAQ />
       <Contact />
       <Footer />
