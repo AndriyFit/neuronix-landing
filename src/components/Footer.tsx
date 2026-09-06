@@ -16,7 +16,13 @@ export default function Footer() {
       <div className="footer-inner">
         <span className="footer-logo">NEURONIX</span>
         <nav className="footer-services">
+          {/* Порядок = що ми продаємо. До 06.09 перелік починався з AI і назв платформ,
+              тобто з нашої кухні, а не з того, по що людина прийшла. Розробка сайтів
+              і магазинів — попереду, платформи лишаються як хвіст для тих, хто їх шукає. */}
           <span>{t('servicesTitle')}:</span>
+          <Link href={`/${locale}/websites`}>{t('sites')}</Link>
+          <Link href={`/${locale}/online-store`}>{t('store')}</Link>
+          <Link href={`/${locale}/price`}>{t('prices')}</Link>
           <Link href={`/${locale}/ai`}>AI</Link>
           <Link href={`/${locale}/opencart`}>OpenCart</Link>
           <Link href={`/${locale}/horoshop`}>Horoshop</Link>

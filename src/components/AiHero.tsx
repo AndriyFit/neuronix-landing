@@ -2,9 +2,13 @@
 import { useTranslations } from 'next-intl'
 import './css/Hero.css'
 
+// ctaTarget за замовчуванням — форма консультації, а не аудиту. Аудит просить
+// посилання на НАЯВНИЙ сайт (обов'язкове поле), тож на комерційних посадкових
+// головна кнопка вела людину, яка сайт тільки замовляє, у форму не для неї.
+// Аудит доречний лише там, де сайт у клієнта вже є — /ai передає 'audit' явно.
 export default function AiHero({
   namespace = 'ai.hero',
-  ctaTarget = 'audit',
+  ctaTarget = 'contact',
 }: {
   namespace?: string
   ctaTarget?: string

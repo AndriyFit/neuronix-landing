@@ -330,7 +330,10 @@
     "email": "hello@neuronics.work",
     "phone": "+380 68 502 61 99",
     "privacy": "Privacy Policy",
-    "servicesTitle": "Services"
+    "servicesTitle": "Services",
+    "sites": "Websites",
+    "store": "Online store",
+    "prices": "Pricing"
   },
   "cookie": {
     "label": "Cookie consent",
@@ -707,19 +710,19 @@
     },
     "online-store": {
       "metadata": {
-        "title": "Online Store Development — From $1000 | Neuronix",
-        "description": "Custom online stores built with 1C, CRM, Nova Poshta and marketplace integrations from day one. Launch in 4+ weeks, from $1000. Contract, 12-month warranty."
+        "title": "Online Store Development With Integrations — From $1000 | Neuronix",
+        "description": "Custom online stores built with 1C, CRM, Nova Poshta and marketplace integrations from day one. Launch in 4+ weeks, from $1000 on OpenCart or from $500 on Horoshop. Contract, 12-month warranty."
       },
       "hero": {
         "titleStart": "An online store ",
         "titleHighlight": "built to run itself",
         "titleEnd": " — with 1C, CRM and delivery wired in from day one",
-        "subtitle": "From $1000: your site, 1C, CRM, Nova Poshta and marketplaces work as one system from launch. Live in 4+ weeks, cost fixed in the contract.",
+        "subtitle": "A store on the ready-made Horoshop platform — from $500. A store on OpenCart, where your site, 1C, CRM, Nova Poshta and marketplaces work as one system from launch — from $1000. Live in 4+ weeks, cost fixed in the contract.",
         "ctaPrimary": "Get a store cost estimate",
         "ctaSecondary": "Message us on Telegram",
         "telegramUrl": "https://t.me/neuronixjhbot",
         "trust": [
-          "Online store — from $1000",
+          "Horoshop — from $500, OpenCart with integrations — from $1000",
           "Live in 4+ weeks, timeline in the contract",
           "12-month warranty"
         ]
@@ -750,8 +753,8 @@
         "extra": "We work with Horoshop, OpenCart and custom builds: 1C, KeyCRM, SalesDrive, Nova Poshta, Rozetka, Prom, marketplaces, Checkbox",
         "items": [
           {
-            "title": "Online store, built to launch",
-            "description": "Site, catalog, cart, payment and delivery — a store you can open on day one.",
+            "title": "OpenCart store, built to launch",
+            "description": "Site, catalog, cart, payment and delivery on your own platform — a store for a large catalog that you can open on day one.",
             "price": "from $1000"
           },
           {
@@ -776,7 +779,7 @@
         "items": [
           {
             "question": "How much does an online store cost?",
-            "answer": "An online store built to launch starts from $1000. The exact cost depends on the number of integrations (1C, CRM, delivery) and catalog size. The estimate is free, within 24 hours."
+            "answer": "A store on the ready-made Horoshop platform starts from $500. A store on OpenCart with integrations starts from $1000. The exact cost depends on the number of integrations (1C, CRM, delivery) and catalog size. The estimate is free, within 24 hours."
           },
           {
             "question": "How long does it take to build a store?",
@@ -788,7 +791,7 @@
           },
           {
             "question": "What's the difference between a store and a landing page with a cart?",
-            "answer": "A landing page is a single page with an order form, from $350. An online store is a full catalog, cart, payment, delivery and accounting integrations, from $1000."
+            "answer": "A landing page is a single page with an order form, from $350. An online store is a catalog, cart, payment and delivery: from $500 on Horoshop, or from $1000 on OpenCart with accounting integrations."
           },
           {
             "question": "What's included in the store price?",
@@ -818,7 +821,7 @@
         "titleStart": "How much does ",
         "titleHighlight": "website development",
         "titleEnd": " cost? See for yourself",
-        "subtitle": "Prices are on the site, not \"we'll call you back with a number.\" Landing page — from $350, online store — from $1000. The estimate is locked into the contract before work starts.",
+        "subtitle": "Prices are on the site, not \"we'll call you back with a number.\" Landing page — from $350, a store on the ready-made Horoshop platform — from $500, a store with integrations on OpenCart — from $1000. The estimate is locked into the contract before work starts.",
         "ctaPrimary": "Get an exact quote",
         "ctaSecondary": "Message us on Telegram",
         "telegramUrl": "https://t.me/neuronixjhbot",
@@ -863,8 +866,8 @@
           },
           {
             "title": "Store, turnkey",
-            "description": "An online store with payments, shipping, and stock sync. From 4 weeks, depending on the number of integrations.",
-            "price": "from $1000"
+            "description": "An online store with payments, shipping, and stock sync. On the ready-made Horoshop platform — from $500; on OpenCart, when you need a large catalog and accounting sync — from $1000. From 4 weeks, depending on the number of integrations.",
+            "price": "from $500"
           }
         ]
       },
