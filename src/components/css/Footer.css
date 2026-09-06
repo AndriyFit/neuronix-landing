@@ -68,10 +68,14 @@
     font-size: 0.78rem;
     line-height: 1.5;
   }
+  /* .footer-services a сюди входить з 06.09: у переліку тепер 7 посилань, і три
+     з них — головні комерційні (/websites, /online-store, /price). Без цього
+     правила саме вони лишались найдрібнішою ціллю для пальця в усьому футері. */
   .footer-privacy,
   .footer-tg,
   .footer-email,
-  .footer-phone {
+  .footer-phone,
+  .footer-services a {
     padding: 0.5rem 0;
     min-height: 44px;
     display: inline-flex;
