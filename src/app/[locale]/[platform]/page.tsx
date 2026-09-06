@@ -20,6 +20,7 @@ import Footer from '@/components/Footer'
 // Ці три — посадкові для картки «яке рішення підійде» з головної (solutionGuide).
 // Візитер там ще не знає, що таке лендінг/Horoshop/OpenCart, тож сторінка — лише
 // пояснення «що це» (в hero.subtitle) + форма консультації, без цін/кейсів/FAQ.
+// CTA веде в #contact — як і на решті сторінок цього шаблону (дефолт AiHero).
 const EXPLAINER_PAGES: readonly string[] = ['websites', 'horoshop', 'opencart']
 
 // Вибір платформи має сенс лише там, де людина справді обирає рушій магазину.
@@ -80,7 +81,7 @@ export default async function PlatformPage({ params }: Props) {
   if (EXPLAINER_PAGES.includes(platform)) {
     return (
       <>
-        <AiHero namespace={`${ns}.hero`} ctaTarget="contact" />
+        <AiHero namespace={`${ns}.hero`} />
         <Contact />
         <Footer />
       </>

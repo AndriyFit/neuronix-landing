@@ -18,14 +18,19 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          # 22, не 20: тести ганяються з --experimental-strip-types, якого в 20 немає
+          # (`node: bad option`), і архівний studio-export вимагає engines >=22.
+          node-version: '22'
 
       - name: Node packages
         shell: bash
         run: |
+          # docs/ — заморожені експорти чужих проєктів (studio-export); їх збірка
+          # нічого не каже про цей сайт, лише подовжує прогін і додає чужі падіння.
           mapfile -t dirs < <(find . -name package.json \
             -not -path '*/node_modules/*' -not -path '*/.next/*' \
-            -not -path '*/dist/*' -not -path '*/.claude/*' -printf '%h\n' | sort -u)
+            -not -path '*/dist/*' -not -path '*/.claude/*' \
+            -not -path './docs/*' -printf '%h\n' | sort -u)
           [ ${#dirs[@]} -eq 0 ] && { echo "no node packages"; exit 0; }
           failed=()
           for d in "${dirs[@]}"; do

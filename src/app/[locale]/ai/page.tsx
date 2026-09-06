@@ -58,7 +58,9 @@ export default async function AiPage({ params }: Props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
-      <AiHero />
+      {/* Тут аудит доречний: сторінка для тих, у кого сайт і процеси вже є.
+          На решті сторінок дефолт AiHero веде в #contact. */}
+      <AiHero ctaTarget="audit" />
       <Pains namespace="ai.pains" />
       <Services namespace="ai.solutions" />
       <AiStats />

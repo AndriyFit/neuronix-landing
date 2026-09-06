@@ -13,9 +13,12 @@ export default function Navbar() {
   const pathname = usePathname()
   const isHome = pathname === `/${locale}` || pathname === `/${locale}/`
 
+  // «Результати» тут немає свідомо: єдиний елемент з id="results" — CaseStudy,
+  // а його зняли з головної 31.08. Пункт лишався й вів у нікуди — клік по ньому
+  // просто нічого не робив. Ключ nav.results у json лишений: повернемо пункт
+  // разом із секцією робіт. Сітлінк Ads на /uk#results треба перенацілити.
   const NAV_ITEMS = [
     { label: t('services'), id: 'services' },
-    { label: t('results'), id: 'results' },
     { label: t('pricing'), id: 'pricing' },
     { label: t('faq'), id: 'faq' },
     { label: t('contact'), id: 'contact' },
@@ -40,16 +43,21 @@ export default function Navbar() {
     }
   }, [mobileOpen])
 
+  // Секція може бути й на вкладеній сторінці: у /online-store є свій #faq і #services,
+  // у /price — #pricing. Раніше будь-який пункт поза головною робив повний перехід на
+  // /uk#…, тобто забирав людину зі сторінки послуги, яку вона щойно відкрила з реклами.
+  // Тому спершу шукаємо секцію тут і йдемо на головну, тільки якщо її немає.
   const scrollTo = useCallback(
     (id: string) => {
       setMobileOpen(false)
-      if (!isHome) {
-        window.location.href = `/${locale}#${id}`
+      const target = document.getElementById(id)
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' })
         return
       }
-      document.querySelector(`#${id}`)?.scrollIntoView({ behavior: 'smooth' })
+      window.location.href = `/${locale}#${id}`
     },
-    [isHome, locale],
+    [locale],
   )
 
   const scrollToTop = useCallback(() => {
