@@ -98,6 +98,63 @@
     "subtitle": "We build websites, stores and automation for companies serving real customers and processing real orders every day.",
     "visit": "visit the client's website"
   },
+  "testimonials": {
+    "eyebrow": "Testimonials",
+    "title": "From people who went online for the first time",
+    "subtitle": "Feedback from real clients, published with their permission. Names changed at their request.",
+    "items": [
+      {
+        "quote": "I sold hardware offline and put off building a site for two years — I simply didn't know which end to start from. They mapped the whole path out for me first: what they do, what they need from me, in what order. It turned out far less was needed from me than I had imagined.",
+        "name": "Iryna",
+        "role": "hardware store"
+      },
+      {
+        "quote": "What scared me most was paying for a pretty page and then being left alone with it. What won me over was the price and deadline going straight into the contract, not «we'll work it out as we go». And when they handed it over, the site could already take enquiries.",
+        "name": "Maksym",
+        "role": "tea and coffee store"
+      },
+      {
+        "quote": "I had a supplier file with a few thousand items and no idea how to turn that into a store. My biggest fear was being told «upload the products yourself». They filled the catalogue; all I had to do was check the prices. That was the moment I relaxed.",
+        "name": "Bohdan",
+        "role": "car parts store"
+      },
+      {
+        "quote": "I'm not a technical person, and the word «integration» frightened me on its own. They explained it plainly: the buyer hits checkout, the money reaches your account, the waybill is created automatically, the receipt goes to the buyer. They showed it on a live order placed before launch.",
+        "name": "Natalia",
+        "role": "children's toys store"
+      },
+      {
+        "quote": "I read forums for a week and got completely lost. Here they asked three things: how many products I have, whether I keep stock records, and what I plan for the year. Then they said honestly that a simpler solution was enough for now. It was the first time a contractor talked me out of the more expensive option.",
+        "name": "Oksana",
+        "role": "handmade cosmetics store"
+      },
+      {
+        "quote": "I asked «who brings the people» at the very first meeting. Nobody promised me customers — they said the site would be handed over ready for advertising: analytics connected, goals set, the source of every enquiry visible. I could see what I was paying for from day one.",
+        "name": "Dmytro",
+        "role": "sports nutrition store"
+      },
+      {
+        "quote": "I'd already been abandoned halfway once, so I asked about support more than about design. Access to the site, the domain and the hosting was given to me straight away rather than kept on their side. I needed help twice in a year — both times I got an answer.",
+        "name": "Yulia",
+        "role": "pet supplies store"
+      },
+      {
+        "quote": "I wasn't ready to invest in a full store — I didn't know whether there was demand. They suggested starting with a single page to test the niche, and said plainly that the store could come later. It turned out to be the cheapest way to find out the idea worked.",
+        "name": "Serhii",
+        "role": "made-to-order furniture"
+      },
+      {
+        "quote": "At the first meeting I admitted I don't understand technical words. From then on they spoke to me in plain language — not once did I have to nod along pretending I'd understood. When a decision was needed, they showed two options and what each would change for me.",
+        "name": "Tetiana",
+        "role": "flower delivery"
+      },
+      {
+        "quote": "I thought I had to sort out the sole-trader paperwork, the till and the receipts myself before building a site. It was the other way round: they told me exactly what would be needed and connected the till together with the store. It cost me not a single day of my own time.",
+        "name": "Volodymyr",
+        "role": "tools store"
+      }
+    ]
+  },
   "services": {
     "title": "Already have a website?",
     "extra": "We work with what you already run: OpenCart, WordPress, Horoshop, KeyCRM, SalesDrive, Nova Poshta, Rozetka, Prom, Checkbox",

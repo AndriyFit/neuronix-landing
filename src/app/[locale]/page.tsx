@@ -4,6 +4,7 @@ import Hero from '@/components/Hero'
 import TrustBar from '@/components/TrustBar'
 import Pains from '@/components/Pains'
 import Clients from '@/components/Clients'
+import Testimonials from '@/components/Testimonials'
 import Services from '@/components/Services'
 import HowWeWork from '@/components/HowWeWork'
 import Team from '@/components/Team'
@@ -35,6 +36,7 @@ export default async function HomePage({ params }: Props) {
       <Services namespace="solutionGuide" id="services" />
       <HowWeWork />
       <Clients />
+      <Testimonials />
       <Team />
       <Pricing />
       {/* Після прайсу, а не між формами: до 06.09 головна двічі показувала сітку
