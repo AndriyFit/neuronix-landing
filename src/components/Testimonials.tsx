@@ -1,92 +1,41 @@
 'use client'
-import { useEffect, useRef, useState } from 'react'
 import { useTranslations } from 'next-intl'
+import { useScrollReveal } from '@/lib/useScrollReveal'
 import './css/Testimonials.css'
 
+interface Item {
+  quote: string
+  /** Імʼя змінене на прохання клієнта — про це прямо сказано в підзаголовку секції. */
+  name: string
+  /** Ніша замість назви компанії: клієнти погодились на публікацію без ідентифікації. */
+  role: string
+}
+
 export default function Testimonials() {
-  const sectionRef = useRef<HTMLElement>(null)
-  const [activeIndex, setActiveIndex] = useState(0)
   const t = useTranslations('testimonials')
-  const items = t.raw('items') as Array<{ quote: string; author: string; role: string; initials: string }>
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveIndex((prev) => (prev + 1) % items.length)
-    }, 5000)
-    return () => clearInterval(interval)
-  }, [items.length])
-
-  useEffect(() => {
-    if (!sectionRef.current) return
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible')
-            observer.unobserve(entry.target)
-          }
-        })
-      },
-      { threshold: 0.1, root: document.getElementById('page-scroll') }
-    )
-    sectionRef.current.querySelectorAll('.animate-in').forEach((el) => observer.observe(el))
-    return () => observer.disconnect()
-  }, [])
+  const items = t.raw('items') as Item[]
+  const ref = useScrollReveal<HTMLElement>()
 
   return (
-    <section id="testimonials" className="testimonials" ref={sectionRef}>
-      <h2 className="testimonials-title animate-in">{t('title')}</h2>
+    <section id="testimonials" className="testimonials" ref={ref}>
+      <div className="testimonials-inner">
+        <p className="testimonials-eyebrow animate-in">{t('eyebrow')}</p>
+        <h2 className="testimonials-title animate-in">{t('title')}</h2>
+        {/* Підзаголовок несе обовʼязкове розкриття: відгуки справжні, імена змінені.
+            Без цього рядка вигадане імʼя біля справжнього відгуку читається як підробка. */}
+        <p className="testimonials-subtitle animate-in">{t('subtitle')}</p>
 
-      <div className="testimonials-slider animate-in">
-        <div
-          className="testimonials-track"
-          style={{ transform: `translateX(-${activeIndex * 100}%)` }}
-        >
-          {items.map((item) => (
-            <div className="testimonial-card" key={item.author}>
-              <span className="testimonial-quote">&laquo;&raquo;</span>
-              <p className="testimonial-text">{item.quote}</p>
-              <div className="testimonial-author">
-                <div className="testimonial-avatar">{item.initials}</div>
-                <div className="testimonial-author-info">
-                  <div className="testimonial-name">{item.author}</div>
-                  <div className="testimonial-role">{item.role}</div>
-                </div>
-              </div>
-            </div>
+        <ul className="testimonials-list animate-in">
+          {items.map((item, i) => (
+            <li className="testimonial" key={i}>
+              <blockquote className="testimonial-quote">{item.quote}</blockquote>
+              <p className="testimonial-author">
+                <span className="testimonial-name">{item.name}</span>
+                <span className="testimonial-role">{item.role}</span>
+              </p>
+            </li>
           ))}
-        </div>
-      </div>
-
-      <div className="testimonials-desktop">
-        {items.map((item, i) => (
-          <div
-            className="testimonial-card animate-in"
-            key={item.author}
-            style={{ transitionDelay: `${i * 0.15}s` }}
-          >
-            <span className="testimonial-quote">&laquo;&raquo;</span>
-            <p className="testimonial-text">{item.quote}</p>
-            <div className="testimonial-author">
-              <div className="testimonial-avatar">{item.initials}</div>
-              <div className="testimonial-author-info">
-                <div className="testimonial-name">{item.author}</div>
-                <div className="testimonial-role">{item.role}</div>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      <div className="testimonials-dots">
-        {items.map((_, i) => (
-          <button
-            key={i}
-            className={`testimonials-dot${i === activeIndex ? ' active' : ''}`}
-            onClick={() => setActiveIndex(i)}
-            aria-label={`Slide ${i + 1}`}
-          />
-        ))}
+        </ul>
       </div>
     </section>
   )

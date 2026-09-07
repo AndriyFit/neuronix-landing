@@ -28,8 +28,9 @@
     transform: none;
   }
 
-  .sticky-cta-form,
-  .sticky-cta-tg {
+  /* Одна кнопка на всю ширину: друга (Telegram) прибрана 07.09 разом з рештою
+     Telegram-закликів. flex-розподілу між двома більше немає. */
+  .sticky-cta-form {
     flex: 1;
     display: inline-flex;
     align-items: center;
@@ -39,21 +40,10 @@
     font-family: inherit;
     font-size: 0.9375rem;
     font-weight: 600;
-    text-decoration: none;
-    cursor: pointer;
-  }
-
-  .sticky-cta-form {
-    flex: 1.6;
     border: none;
     background: var(--primary);
     color: #fff;
-  }
-
-  .sticky-cta-tg {
-    background: transparent;
-    border: 1.5px solid var(--border);
-    color: var(--text);
+    cursor: pointer;
   }
 }
 

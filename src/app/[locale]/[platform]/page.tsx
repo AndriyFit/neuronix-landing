@@ -12,7 +12,6 @@ import Services from '@/components/Services'
 import AiSecurity from '@/components/AiSecurity'
 import AiStats from '@/components/AiStats'
 import HowWeWork from '@/components/HowWeWork'
-import AuditForm from '@/components/AuditForm'
 import FAQ from '@/components/FAQ'
 import Contact from '@/components/Contact'
 import Footer from '@/components/Footer'
@@ -107,7 +106,6 @@ export default async function PlatformPage({ params }: Props) {
       <HowWeWork namespace="platforms.shared.fullCycle" />
       <AiSecurity namespace="platforms.shared.yourPart" id="your-part" />
       <AiSecurity namespace="platforms.shared.contentEngine" />
-      <AuditForm />
       <FAQ namespace={`${ns}.faq`} />
       <Contact />
       <Footer />

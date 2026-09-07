@@ -1,7 +1,6 @@
 'use client'
 import { useTranslations } from 'next-intl'
 import { useScrollReveal } from '@/lib/useScrollReveal'
-import { useVideoAutoplay } from '@/lib/useVideoAutoplay'
 import './css/Team.css'
 
 interface Member {
@@ -11,19 +10,14 @@ interface Member {
   name?: string
   /** What this role closes for the client. */
   note?: string
-  /** Слот-анімація для збірної картки: відео замість GIF, у ~70 разів легше. */
-  video?: string
-  /** Path under /public, e.g. "/team/andriy.webp". Omit and the slot stays empty. */
-  photo?: string
-  /** Collective card — the people we assemble per project, not one person. */
-  collective?: boolean
+  /** Path under /public, e.g. "/team/andriy.webp". */
+  photo: string
 }
 
 export default function Team() {
   const t = useTranslations('team')
   const members = t.raw('members') as Member[]
   const ref = useScrollReveal<HTMLElement>()
-  const videoRef = useVideoAutoplay()
 
   return (
     <section id="team" className="team" ref={ref}>
@@ -34,33 +28,24 @@ export default function Team() {
         <div className="team-grid">
           {members.map((member, i) => (
             <div
-              className={`team-card animate-in${member.collective ? ' team-card-collective' : ''}`}
+              className="team-card animate-in"
               key={i}
               style={{ transitionDelay: `${i * 0.08}s` }}
             >
+              {/* Збірної картки з роликом більше немає: у слот-анімацію був ВШИТИЙ
+                  фіолетовий обідок і білі поля (це видно в кожному кадрі, не лише
+                  в постері), тож CSS клипав коло в колі, а праворуч лізло чуже
+                  волосся. Перекодування цього не лікувало — зіпсоване джерело.
+                  Що робила та картка, тепер сказано в підзаголовку секції. */}
               <div className="team-avatar">
-                {member.video ? (
-                  <video
-                    ref={videoRef}
-                    loop
-                    muted
-                    playsInline
-                    preload="none"
-                    poster="/team/slot-poster.webp"
-                    aria-label={member.role}
-                  >
-                    <source src={`${member.video}.webm`} type="video/webm" />
-                    <source src={`${member.video}.mp4`} type="video/mp4" />
-                  </video>
-                ) : member.photo ? (
-                  <img
-                    src={member.photo}
-                    alt={member.name ?? member.role}
-                    width={160}
-                    height={160}
-                    loading="lazy"
-                  />
-                ) : null}
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={member.photo}
+                  alt={member.name ?? member.role}
+                  width={160}
+                  height={160}
+                  loading="lazy"
+                />
               </div>
               <h3 className="team-position">{member.role}</h3>
               {member.name && <p className="team-person">{member.name}</p>}

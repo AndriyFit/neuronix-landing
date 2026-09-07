@@ -1,238 +1,131 @@
+/* Блок соціального доказу. Стоїть одразу після логотипів клієнтів — обидва
+   відповідають на те саме питання «а вам можна довіряти», тож розводити їх по
+   різних кінцях сторінки немає сенсу.
+
+   Оформлення навмисно тихе: сильний елемент сторінки — телефон із магазином у
+   першому екрані, і другий гучний блок з ним конкурував би. Тут — хайрлайн-рамка
+   на світлому тлі, без тіней, без лапок-картинок, без зірочок рейтингу
+   (рейтингу ми не збираємо, малювати п'ять зірок було б вигадкою). */
 .testimonials {
-  padding: 120px 2rem 80px;
+  padding: 5rem 2rem;
+  background: var(--bg-secondary);
+}
+
+.testimonials-inner {
   max-width: 1200px;
   margin: 0 auto;
-  text-align: center;
+}
+
+.testimonials-eyebrow {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin: 0 0 0.75rem;
 }
 
 .testimonials-title {
-  font-family: var(--font-display);
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: var(--text);
-  margin-bottom: 3.5rem;
-  letter-spacing: 0.04em;
-  position: relative;
-  display: inline-block;
+  margin-bottom: 0.75rem;
 }
 
-.testimonials-title::after {
-  content: '';
-  position: absolute;
-  bottom: -8px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80px;
-  height: 3px;
-  background: linear-gradient(90deg, var(--primary), var(--secondary));
-  border-radius: 2px;
+.testimonials-subtitle {
+  color: var(--text-muted);
+  max-width: 60ch;
+  margin: 0 0 2.5rem;
 }
 
-/* Desktop: show all 3 cards in a row */
-.testimonials-desktop {
-  display: flex;
-  gap: 1.5rem;
-  justify-content: center;
+/* Десктоп: колонки, а не сітка. Відгуки різної довжини, і grid розтягував би
+   кожен рядок під найдовшу картку, лишаючи порожнечу під короткими.
+   `columns` пакує їх щільно, як masonry, без жодного JS. */
+.testimonials-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  columns: 3;
+  column-gap: 1.25rem;
 }
 
-/* Mobile slider: hidden on desktop */
-.testimonials-slider {
-  display: none;
-  overflow: hidden;
-}
-
-.testimonials-track {
-  display: flex;
-  transition: transform 0.5s ease;
-}
-
-.testimonials-track .testimonial-card {
-  min-width: 100%;
-  flex-shrink: 0;
-}
-
-/* Card styles */
-.testimonial-card {
-  background: rgba(10, 10, 30, 0.6);
-  backdrop-filter: var(--glass-blur);
-  -webkit-backdrop-filter: var(--glass-blur);
-  border: 1px solid var(--glass-border);
-  border-radius: 16px;
-  padding: 32px;
-  flex: 1;
-  text-align: left;
-  transition: all 0.4s ease;
-  position: relative;
-  box-shadow:
-    0 4px 24px rgba(0, 0, 0, 0.15),
-    0 1px 3px rgba(0, 0, 0, 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 0.05);
-}
-
-.testimonial-card::before {
-  content: '';
-  position: absolute;
-  inset: -1px;
-  border-radius: 17px;
-  padding: 1px;
-  background: linear-gradient(135deg, transparent, transparent);
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  opacity: 0;
-  transition: opacity 0.4s ease, background 0.4s ease;
-  pointer-events: none;
-}
-
-.testimonial-card:hover::before {
-  opacity: 1;
-  background: linear-gradient(135deg, var(--primary), var(--secondary), var(--accent));
-}
-
-.testimonial-card:hover {
-  box-shadow:
-    0 0 30px rgba(0, 212, 255, 0.15),
-    0 8px 32px rgba(0, 0, 0, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08);
-  transform: translateY(-4px);
+.testimonial {
+  /* Без цього браузер рве картку між колонками просто посеред речення. */
+  break-inside: avoid;
+  margin: 0 0 1.25rem;
+  padding: 1.5rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 14px;
 }
 
 .testimonial-quote {
-  font-size: 64px;
-  line-height: 1;
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  display: block;
-  margin-bottom: 0.5rem;
-  font-family: var(--font-display);
-  opacity: 0.7;
-}
-
-.testimonial-text {
-  font-family: var(--font-body);
-  font-size: 1rem;
-  color: var(--text);
+  margin: 0 0 1rem;
+  font-size: 0.9375rem;
   line-height: 1.65;
-  margin: 0 0 1.25rem;
+  color: var(--text);
 }
 
 .testimonial-author {
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
-  padding-top: 1rem;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.testimonial-avatar {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-display);
-  font-size: 16px;
-  font-weight: 700;
-  color: #fff;
-  flex-shrink: 0;
-}
-
-.testimonial-author-info {
   display: flex;
   flex-direction: column;
+  gap: 0.125rem;
+  margin: 0;
+  padding-top: 0.875rem;
+  border-top: 1px solid var(--border);
 }
 
+/* global.css фарбує будь-який <p> у --text-muted прямим оголошенням, тож
+   успадкування тут не спрацювало б — колір ставимо явно (та сама пастка, що
+   вже кусала двічі в чаті, див. CLAUDE.md). */
 .testimonial-name {
-  font-family: var(--font-display);
-  font-size: 0.85rem;
-  color: var(--primary);
   font-weight: 600;
-  letter-spacing: 0.02em;
+  color: var(--text);
+  font-size: 0.9375rem;
 }
 
 .testimonial-role {
-  font-family: var(--font-body);
-  font-size: 0.8rem;
+  font-size: 0.8125rem;
   color: var(--text-muted);
-  margin-top: 0.25rem;
 }
 
-/* Dots */
-.testimonials-dots {
-  display: none;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 1.5rem;
+@media (max-width: 1024px) {
+  .testimonials-list { columns: 2; }
 }
 
-.testimonials-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  border: 1px solid var(--primary);
-  background: transparent;
-  cursor: pointer;
-  padding: 0;
-  transition: background 0.3s ease;
-}
-
-.testimonials-dot.active {
-  background: var(--primary);
-}
-
-/* Tablet */
-@media (max-width: 768px) {
+/* Мобільний: десять карток в один стовпчик — це екранів вісім прокрутки, які
+   відсувають прайс і форму. Тому горизонтальна стрічка зі snap: секція займає
+   висоту однієї картки, а гортати можна пальцем.
+   Скрол тут ВСЕРЕДИНІ контейнера — сторінка по горизонталі не їде. */
+@media (max-width: 700px) {
   .testimonials {
-    padding: 80px 1.5rem 60px;
+    padding: 3.5rem 0;
   }
 
-  .testimonials-title {
-    font-size: 2rem;
-    margin-bottom: 2.5rem;
+  .testimonials-inner > :not(.testimonials-list) {
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 
-  /* Hide desktop grid, show slider */
-  .testimonials-desktop {
-    display: none;
-  }
-
-  .testimonials-slider {
-    display: block;
-  }
-
-  .testimonials-dots {
+  .testimonials-list {
+    columns: auto;
     display: flex;
+    gap: 0.875rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding: 0 1rem 0.5rem;
+    /* Смуга прокрутки на мобільному лише додає шуму — жест і так очевидний
+       з обрізаної наступної картки. */
+    scrollbar-width: none;
   }
 
-  .testimonial-card {
-    padding: 28px;
+  .testimonials-list::-webkit-scrollbar { display: none; }
+
+  .testimonial {
+    flex: 0 0 82%;
+    margin: 0;
+    scroll-snap-align: start;
   }
 }
 
-/* Mobile */
-@media (max-width: 480px) {
-  .testimonials {
-    padding: 60px 1rem 40px;
-  }
-
-  .testimonials-title {
-    font-size: 1.6rem;
-    margin-bottom: 2rem;
-  }
-
-  .testimonial-card {
-    padding: 24px;
-  }
-
-  .testimonial-quote {
-    font-size: 48px;
-  }
-
-  .testimonial-text {
-    font-size: 0.95rem;
-  }
+@media (prefers-reduced-motion: reduce) {
+  .testimonials-list { scroll-behavior: auto; }
 }

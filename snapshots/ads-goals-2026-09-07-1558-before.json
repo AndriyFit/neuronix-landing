@@ -1,0 +1,20 @@
+[
+  {
+    "campaign_id": "24138448702",
+    "category": "PHONE_CALL_LEAD",
+    "origin": "WEBSITE",
+    "biddable": true
+  },
+  {
+    "campaign_id": "24138448702",
+    "category": "SUBMIT_LEAD_FORM",
+    "origin": "WEBSITE",
+    "biddable": true
+  },
+  {
+    "campaign_id": "24138448702",
+    "category": "CONTACT",
+    "origin": "WEBSITE",
+    "biddable": true
+  }
+]

@@ -48,26 +48,36 @@
 
 .hero-content {
   flex: 1;
-  max-width: 560px;
+  max-width: 620px;
 }
 
+/* Заголовок навмисно домінує в екрані: до 07.09 він був 29,6px на мобільному і
+   програвав за вагою підзаголовку з чотирьох рядків.
+   ⚠️ hyphens: auto тут НЕ ставити. Unbounded широкий, рядок довгий, і браузер
+   розсипає «інтернет-магазинів» на «ін-тернет-ма-газинів» — це і хибний перенос,
+   і виглядає як зламана верстка. Без нього слово рветься по власному дефісу
+   («інтернет-» / «магазинів»), що і потрібно. */
 .hero-title {
-  font-size: clamp(2.2rem, 4.5vw, 3.5rem);
+  font-size: clamp(2.1rem, 4.4vw, 3.75rem);
   font-weight: 800;
   color: var(--text);
-  line-height: 1.15;
-  margin-bottom: 1.25rem;
+  line-height: 1.06;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.75rem;
+  overflow-wrap: break-word;
 }
 
 .hero-title-highlight {
   color: var(--primary);
 }
 
+/* Підзаголовок іде ПІСЛЯ кнопки і дрібним: він пояснює, а не продає. Продає заголовок. */
 .hero-subtitle {
-  font-size: clamp(1rem, 2vw, 1.2rem);
+  font-size: clamp(0.9375rem, 1.4vw, 1.0625rem);
   color: var(--text-muted);
   line-height: 1.6;
-  margin-bottom: 2rem;
+  margin: 1.5rem 0 0;
+  max-width: 44ch;
 }
 
 .hero-actions {
@@ -97,27 +107,6 @@
   transform: translateY(-2px);
 }
 
-.hero-cta-secondary {
-  display: inline-flex;
-  align-items: center;
-  padding: 0.875rem 1.75rem;
-  background: transparent;
-  color: var(--text);
-  font-family: inherit;
-  font-size: 1rem;
-  font-weight: 500;
-  border: 1.5px solid var(--border);
-  border-radius: 10px;
-  text-decoration: none;
-  cursor: pointer;
-  transition: border-color 0.2s, background 0.2s;
-}
-
-.hero-cta-secondary:hover {
-  border-color: var(--primary);
-  background: #F5F3FF;
-}
-
 .hero-trust {
   display: flex;
   flex-wrap: wrap;
@@ -143,20 +132,56 @@
 .hero-visual {
   flex: 1;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
   max-width: 480px;
 }
 
-/* Ролик — свідомо оформлена картка, а не «плаваючий» кадр: у нього власне
-   світле тло з кільцями, тож без рамки межа читалась як брудний прямокутник.
-   mask-image тут не працює — Chrome не застосовує маску до <video>. */
-.hero-hub {
+/* Рамка телефона зі справжнім магазином, який ми зробили.
+   Замінила ролик hub.mp4 (397 КБ) — тут один WebP на 115 КБ і CSS-анімація:
+   немає ні декодування відео, ні хука автоплею, ні окремого постера в критичному шляху.
+   Пропорції екрана 390:844 — той самий кадр, у якому знято скріншот. */
+.hero-phone {
+  width: min(272px, 72vw);
+  padding: 10px;
+  background: var(--secondary);
+  border-radius: 42px;
+  box-shadow: var(--shadow-elevated);
+}
+
+.hero-phone-screen {
+  position: relative;
+  aspect-ratio: 390 / 844;
+  overflow: hidden;
+  border-radius: 32px;
+  background: #fff;
+}
+
+/* Знімок утричі вищий за кадр, тому прокрутка — рівно 2/3 його висоти.
+   Число не «підібране»: 4155/640 проти 844/390 дає 66,67%. Міняєш знімок —
+   перерахуй, інакше анімація або смикнеться, або не догортає. */
+.hero-phone-shot {
+  display: block;
   width: 100%;
   height: auto;
-  display: block;
-  border-radius: 12px;
-  border: 1px solid var(--border);
-  box-shadow: var(--shadow-elevated);
+  animation: storeScroll 30s ease-in-out infinite alternate;
+}
+
+@keyframes storeScroll {
+  from { transform: translateY(0); }
+  to   { transform: translateY(-66.67%); }
+}
+
+.hero-phone-caption {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  text-align: center;
+  margin: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-phone-shot { animation: none; }
 }
 
 .hero-mockup {
@@ -255,6 +280,19 @@
   }
   .hero-actions { justify-content: center; }
   .hero-visual { width: 100%; }
+  .hero-subtitle { margin-left: auto; margin-right: auto; }
+  /* Список довіри теж центруємо: без цього він лишався притиснутим ліворуч
+     посеред центрованого блоку. */
+  .hero-trust { justify-content: center; }
+}
+
+/* Крапки-роздільники малюються перед кожним елементом, крім першого. Коли список
+   переноситься (на вузькому екрані «Гарантія 12 місяців» їде на свій рядок),
+   крапка опиняється на початку рядка й читається як сміття. Тому нижче 700px
+   роздільників немає — розділяє відступ. */
+@media (max-width: 700px) {
+  .hero-trust li:not(:first-child)::before { content: none; }
+  .hero-trust { gap: 0.35rem 1.25rem; }
 }
 
 @media (max-width: 600px) {
@@ -268,22 +306,21 @@
   }
 
   .hero-title {
-    font-size: clamp(1.85rem, 7vw, 2.4rem);
-    line-height: 1.2;
+    font-size: clamp(1.9rem, 7.6vw, 2.5rem);
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
   }
 
   .hero-subtitle {
-    font-size: 1rem;
+    font-size: 0.9375rem;
+    margin-top: 1.25rem;
   }
 
   .hero-actions {
-    flex-direction: column;
-    gap: 0.625rem;
     align-items: stretch;
   }
 
-  .hero-cta-primary,
-  .hero-cta-secondary {
+  .hero-cta-primary {
     justify-content: center;
     width: 100%;
     padding: 0.95rem 1.25rem;

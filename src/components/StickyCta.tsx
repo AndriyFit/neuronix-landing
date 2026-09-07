@@ -37,17 +37,11 @@ export default function StickyCta() {
 
   return (
     <div className={`sticky-cta${scrolled && !atContact ? ' shown' : ''}`}>
+      {/* Одна кнопка, не дві: липка панель була третім місцем, де Telegram конкурував
+          із формою. Тепер усі заклики на сайті ведуть в одну форму. */}
       <button className="sticky-cta-form" onClick={scrollToContact}>
         {t('form')}
       </button>
-      <a
-        className="sticky-cta-tg"
-        href={t('telegramUrl')}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        {t('telegram')}
-      </a>
     </div>
   )
 }

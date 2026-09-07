@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react'
 import type { Metadata, Viewport } from 'next'
-import { Syne } from 'next/font/google'
+import { Syne, Unbounded } from 'next/font/google'
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages, setRequestLocale } from 'next-intl/server'
 import { notFound } from 'next/navigation'
@@ -29,6 +29,21 @@ const syne = Syne({
   weight: ['400', '500', '600', '700', '800'],
   display: 'swap',
   variable: '--font-syne',
+  preload: true,
+})
+
+// Syne НЕ МАЄ кирилиці (на Google Fonts у нього лише latin, latin-ext, greek), а стояв
+// і як display, і як body — тобто весь український сайт малювався системним sans-serif,
+// і ніхто цього не помічав, поки заголовки були дрібні. Заголовок першого екрана тепер
+// удвічі більший, і в Roboto він виглядав би як чернетка.
+// Unbounded покриває cyrillic + cyrillic-ext, широкий геометричний — тримає ту саму
+// «технічну» ноту, що й фіолетовий бренд. Ставимо ТІЛЬКИ на заголовки: body лишається
+// як був, щоб зміна була оборотною одним рядком у variables.css.
+const unbounded = Unbounded({
+  subsets: ['latin', 'cyrillic'],
+  weight: ['600', '700', '800'],
+  display: 'swap',
+  variable: '--font-unbounded',
   preload: true,
 })
 
@@ -86,7 +101,7 @@ export default async function LocaleLayout({
   ]
 
   return (
-    <html lang={locale} className={syne.variable}>
+    <html lang={locale} className={`${syne.variable} ${unbounded.variable}`}>
       <head>
         {gtmId && <script dangerouslySetInnerHTML={{ __html: CONSENT_DEFAULT_SNIPPET }} />}
         {/* Заздалегідь відкриваємо зʼєднання до аналітики: інакше кожен зі скриптів

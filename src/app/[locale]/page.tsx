@@ -4,7 +4,7 @@ import Hero from '@/components/Hero'
 import TrustBar from '@/components/TrustBar'
 import Pains from '@/components/Pains'
 import Clients from '@/components/Clients'
-import AuditForm from '@/components/AuditForm'
+import Testimonials from '@/components/Testimonials'
 import Services from '@/components/Services'
 import HowWeWork from '@/components/HowWeWork'
 import Team from '@/components/Team'
@@ -36,6 +36,7 @@ export default async function HomePage({ params }: Props) {
       <Services namespace="solutionGuide" id="services" />
       <HowWeWork />
       <Clients />
+      <Testimonials />
       <Team />
       <Pricing />
       {/* Після прайсу, а не між формами: до 06.09 головна двічі показувала сітку
@@ -43,7 +44,6 @@ export default async function HomePage({ params }: Props) {
           людину до вибору, який вона щойно зробила. Тепер це не повтор, а наступний
           крок для іншої аудиторії — у кого сайт уже працює. */}
       <Services id="automation" />
-      <AuditForm />
       <FAQ />
       <Contact />
       <Footer />
