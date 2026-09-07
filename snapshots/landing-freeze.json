@@ -2,7 +2,7 @@
   "note": "Заморозка Ads-посадкових. Правила й стоп-правило: docs/2026-09-07-landing-freeze.md. Не редагувати руками — npm run freeze:update -- \"причина\".",
   "appliedAt": "2026-09-07",
   "frozenUntil": "2026-09-28",
-  "reason": "apply мапи зроблено 07.09 10:12; дожато uk audit.title (рішення етапу 2 доїхало лише в en); заголовки services/audit додано під заморозку",
+  "reason": "SEO-прохід 07.09 (914be80): слова із пошукових запитів у видимі H2 і CTA на /online-store і /price — «створення», «замовити»",
   "content": {
     "uk:metadata.title": "Розробка сайтів та інтернет-магазинів під ключ — Neuronix",
     "uk:metadata.description": "Розробка сайтів, інтернет-магазинів та автоматизація для бізнесу. Сайт, CRM, 1С і маркетплейси обмінюються даними самі. Від $350, лендінг за 5–10 днів.",
@@ -119,7 +119,7 @@
     },
     "uk:platforms.online-store.pains.title": "Знайомо, коли відкриваєте перший магазин?",
     "uk:platforms.online-store.solutions": {
-      "title": "Послуги для запуску інтернет-магазину",
+      "title": "Створення інтернет-магазину: що входить у роботу",
       "extra": "Працюємо з Horoshop, OpenCart і кастомними рішеннями: 1С, KeyCRM, SalesDrive, Нова Пошта, Rozetka, Prom, маркетплейси, Checkbox",
       "items": [
         {
@@ -190,7 +190,7 @@
       "titleHighlight": "розробка сайту",
       "titleEnd": "? Дивіться самі",
       "subtitle": "Ціни на сайті, а не «розрахуємо після дзвінка». Лендінг — від $350, магазин на готовій платформі Horoshop — від $500, магазин з інтеграціями на OpenCart — від $1000. Кошторис фіксується в договорі до старту робіт.",
-      "ctaPrimary": "Отримати точний розрахунок",
+      "ctaPrimary": "Замовити розробку сайту",
       "ctaSecondary": "Написати в Telegram",
       "telegramUrl": "https://t.me/neuronixjhbot",
       "trust": [
@@ -201,7 +201,7 @@
     },
     "uk:platforms.price.pains.title": "Знайомо, коли шукаєте ціну на сайт?",
     "uk:platforms.price.solutions": {
-      "title": "Три сценарії, три бюджети",
+      "title": "Створення сайту: три сценарії, три бюджети",
       "extra": "Точну суму в межах цих вилок називаємо після короткого брифу — вона залежить від кількості сторінок і інтеграцій",
       "items": [
         {
@@ -384,7 +384,7 @@
     },
     "en:platforms.online-store.pains.title": "Sound familiar when you're opening your first store?",
     "en:platforms.online-store.solutions": {
-      "title": "Services for launching an online store",
+      "title": "Building an online store: what the work covers",
       "extra": "We work with Horoshop, OpenCart and custom builds: 1C, KeyCRM, SalesDrive, Nova Poshta, Rozetka, Prom, marketplaces, Checkbox",
       "items": [
         {
@@ -455,7 +455,7 @@
       "titleHighlight": "website development",
       "titleEnd": " cost? See for yourself",
       "subtitle": "Prices are on the site, not \"we'll call you back with a number.\" Landing page — from $350, a store on the ready-made Horoshop platform — from $500, a store with integrations on OpenCart — from $1000. The estimate is locked into the contract before work starts.",
-      "ctaPrimary": "Get an exact quote",
+      "ctaPrimary": "Order website development",
       "ctaSecondary": "Message us on Telegram",
       "telegramUrl": "https://t.me/neuronixjhbot",
       "trust": [
@@ -466,7 +466,7 @@
     },
     "en:platforms.price.pains.title": "Sound familiar when you're pricing a website?",
     "en:platforms.price.solutions": {
-      "title": "Three scenarios, three budgets",
+      "title": "Website development: three scenarios, three budgets",
       "extra": "We name the exact figure within these ranges after a short brief — it depends on the number of pages and integrations",
       "items": [
         {
