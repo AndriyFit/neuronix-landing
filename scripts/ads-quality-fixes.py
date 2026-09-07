@@ -50,6 +50,7 @@ MAX_HEADLINE = 30
 MAX_DESCRIPTION = 90
 MAX_PATH = 15
 MAX_HEADLINES = 15
+MAX_DESCRIPTIONS = 4
 
 # Заміни тексту. Ключ — точний наявний рядок, значення — новий. Заміна за текстом,
 # а не за індексом: індекси зсуваються, коли до оголошення щось додають руками.
@@ -86,11 +87,15 @@ ADS_QUERY = """
     WHERE ad_group_ad.status = 'ENABLED' AND ad_group.status = 'ENABLED'
 """
 
-GEO_QUERY = """
+# Фільтр по campaign.id обов'язковий: mutate_geo пише в жорстко заданий CAMPAIGN_ID,
+# і без фільтра читання могло б повернути ІНШУ ENABLED-кампанію (перший рядок відповіді).
+# Тоді і рішення «чи треба міняти», і фінальна перевірка стосувались би не тієї кампанії,
+# що й запис, — тобто гарантія «перевіряти перечитуванням» стала б фальшивою.
+GEO_QUERY = f"""
     SELECT campaign.id, campaign.name,
            campaign.geo_target_type_setting.positive_geo_target_type,
            campaign.geo_target_type_setting.negative_geo_target_type
-    FROM campaign WHERE campaign.status = 'ENABLED'
+    FROM campaign WHERE campaign.id = {CAMPAIGN_ID}
 """
 
 
@@ -117,6 +122,8 @@ def plan_ad_changes(ads, replacements, per_group):
         problems += [f"шлях >{MAX_PATH}: {p!r}" for p in (cfg["path1"], cfg["path2"]) if len(p) > MAX_PATH]
         if len(heads) > MAX_HEADLINES:
             problems.append(f"заголовків {len(heads)} > {MAX_HEADLINES}")
+        if len(descs) > MAX_DESCRIPTIONS:
+            problems.append(f"описів {len(descs)} > {MAX_DESCRIPTIONS}")
         if problems:
             skipped.append((ad, "; ".join(problems)))
             continue
@@ -144,6 +151,13 @@ def fetch_ads(client):
                 "ad_id": str(r.ad_group_ad.ad.id),
                 "headlines": [h.text for h in rsa.headlines],
                 "descriptions": [d.text for d in rsa.descriptions],
+                # Закріплення позиції зчитуємо разом з текстом: мутація замінює масив
+                # headlines/descriptions ЦІЛКОМ (update_mask на repeated-полі дає шлях
+                # усього поля, не поелементний), тож незчитаний pinned_field тихо зникає.
+                # Зараз закріплень нема в жодному оголошенні, але щойно хтось закріпить
+                # заголовок в інтерфейсі — наступний запуск стер би це без жодної помилки.
+                "headline_pins": [h.pinned_field.name for h in rsa.headlines],
+                "description_pins": [d.pinned_field.name for d in rsa.descriptions],
                 "path1": rsa.path1,
                 "path2": rsa.path2,
             })
@@ -161,6 +175,13 @@ def fetch_geo(client):
     return None
 
 
+def _restore_pin(client, asset, pins, i):
+    """Повертає закріплення позиції, якщо воно було. UNSPECIFIED/UNKNOWN = закріплення нема."""
+    pin = pins[i] if i < len(pins) else None
+    if pin and pin not in ("UNSPECIFIED", "UNKNOWN"):
+        asset.pinned_field = client.enums.ServedAssetFieldTypeEnum[pin]
+
+
 def mutate_ads(client, changes, dry_run):
     """RSA редагується на місці через AdService: ad_id і накопичена історія зберігаються.
 
@@ -175,11 +196,15 @@ def mutate_ads(client, changes, dry_run):
         ad = op.update
         ad.resource_name = svc.ad_path(CUSTOMER_ID, ch["ad_id"])
         rsa = ad.responsive_search_ad
-        for text in ch["new_headlines"]:
+        # Закріплення переносяться позиційно: new_*[i] відповідає наявному *[i], бо заміна
+        # тексту індексів не зсуває, а додані заголовки йдуть у хвіст і закріплень не мають.
+        for i, text in enumerate(ch["new_headlines"]):
             asset = client.get_type("AdTextAsset"); asset.text = text
+            _restore_pin(client, asset, ch.get("headline_pins", []), i)
             rsa.headlines.append(asset)
-        for text in ch["new_descriptions"]:
+        for i, text in enumerate(ch["new_descriptions"]):
             asset = client.get_type("AdTextAsset"); asset.text = text
+            _restore_pin(client, asset, ch.get("description_pins", []), i)
             rsa.descriptions.append(asset)
         rsa.path1 = ch["new_path1"]
         rsa.path2 = ch["new_path2"]
@@ -269,6 +294,18 @@ def self_test():
     ch6, sk6 = plan_ad_changes([unknown], TEXT_REPLACEMENTS, PER_AD_GROUP)
     assert not ch6 and sk6[0][1] == "невідома ad group", "чужа група не чіпається"
 
+    many_desc = {**base, "descriptions": base["descriptions"] + [f"d{i}" for i in range(4)]}
+    ch7, sk7 = plan_ad_changes([many_desc], TEXT_REPLACEMENTS, PER_AD_GROUP)
+    assert not ch7 and "описів 5" in sk7[0][1], "перевищення 4 описів має блокувати"
+
+    # Закріплення мусять доїхати до кроку мутації, інакше вони тихо зникнуть.
+    pinned = {**base, "headline_pins": ["HEADLINE_1", "UNSPECIFIED"],
+              "description_pins": ["UNSPECIFIED"]}
+    ch8, _ = plan_ad_changes([pinned], TEXT_REPLACEMENTS, PER_AD_GROUP)
+    assert ch8[0]["headline_pins"] == ["HEADLINE_1", "UNSPECIFIED"], "закріплення не втрачаються в плані"
+    assert len(ch8[0]["new_headlines"]) > len(ch8[0]["headline_pins"]), (
+        "додані заголовки йдуть у хвіст, тобто позиційний перенос закріплень лишається коректним")
+
     # Самі константи мусять вкладатись у ліміти — інакше self-test зелений, а прод падає.
     for gid, cfg in PER_AD_GROUP.items():
         assert len(cfg["path1"]) <= MAX_PATH and len(cfg["path2"]) <= MAX_PATH, f"шлях завеликий: {gid}"
@@ -278,7 +315,7 @@ def self_test():
         limit = MAX_HEADLINE if len(old) <= MAX_HEADLINE else MAX_DESCRIPTION
         assert len(new) <= limit, f"заміна не вкладається в ліміт: {new}"
 
-    print("self-test: 8 перевірок пройдено")
+    print("self-test: 10 перевірок пройдено")
 
 
 def main():
