@@ -41,6 +41,11 @@ export const FROZEN_PATHS = [
   'solutionGuide.items',
   'pricing.title',
   'pricing.items',
+  // Заголовки сусідніх секцій — разом, бо дефект тут саме в їхній ПАРІ: 06.09
+  // «Уже маєте сайт?» над формою аудиту дублювало «Коли сайт уже є» поруч.
+  // Порізно кожен виглядає нормально, тому й проїхало в ревʼю.
+  'services.title',
+  'audit.title',
   'faq.items',
 
   // /online-store — група «Інтернет-магазин»
@@ -89,6 +94,8 @@ export function sectionOrder(source: string): string[] {
 }
 
 export type Freeze = {
+  /** Пояснення для того, хто відкрив файл першим — куди йти по правила. */
+  note: string
   appliedAt: string
   frozenUntil: string
   reason: string

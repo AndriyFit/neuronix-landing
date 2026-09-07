@@ -19,8 +19,16 @@ try {
   // перший запуск — знімка ще немає
 }
 
+const NOTE =
+  'Заморозка Ads-посадкових. Правила й стоп-правило: docs/2026-09-07-landing-freeze.md. ' +
+  'Не редагувати руками — npm run freeze:update -- "причина".'
+
 const today = new Date().toISOString().slice(0, 10)
+// note/appliedAt/frozenUntil переносяться зі старого знімка: перший прогін їх губив,
+// бо обʼєкт збирався лише з полів Freeze — і пояснення «як цим користуватись»
+// зникало з файла рівно тоді, коли в нього хтось уперше заглядав.
 const freeze: Freeze = {
+  note: previous.note ?? NOTE,
   appliedAt: previous.appliedAt ?? today,
   frozenUntil: previous.frozenUntil ?? today,
   reason,

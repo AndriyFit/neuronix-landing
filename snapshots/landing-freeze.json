@@ -1,8 +1,8 @@
 {
   "note": "Заморозка Ads-посадкових. Правила й стоп-правило: docs/2026-09-07-landing-freeze.md. Не редагувати руками — npm run freeze:update -- \"причина\".",
-  "appliedAt": "очікує apply нової мапи посадкових",
-  "frozenUntil": "apply + 21 день (проставити датою після apply)",
-  "reason": "перший знімок: фіксація посадкових під експеримент з keyword-level URL",
+  "appliedAt": "2026-09-07",
+  "frozenUntil": "2026-09-28",
+  "reason": "apply мапи зроблено 07.09 10:12; дожато uk audit.title (рішення етапу 2 доїхало лише в en); заголовки services/audit додано під заморозку",
   "content": {
     "uk:metadata.title": "Розробка сайтів та інтернет-магазинів під ключ — Neuronix",
     "uk:metadata.description": "Розробка сайтів, інтернет-магазинів та автоматизація для бізнесу. Сайт, CRM, 1С і маркетплейси обмінюються даними самі. Від $350, лендінг за 5–10 днів.",
@@ -55,6 +55,8 @@
         "price": "від $1000"
       }
     ],
+    "uk:services.title": "Коли сайт уже є",
+    "uk:audit.title": "Безкоштовний аудит сайту",
     "uk:faq.items": [
       {
         "question": "Скільки часу займає розробка?",
@@ -318,6 +320,8 @@
         "price": "from $1000"
       }
     ],
+    "en:services.title": "Already have a website?",
+    "en:audit.title": "Free site audit",
     "en:faq.items": [
       {
         "question": "How long does development take?",
