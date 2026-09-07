@@ -9,7 +9,8 @@
     "start": "next start",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
-    "test": "node --test --experimental-strip-types src/lib/*.test.ts"
+    "test": "node --test --experimental-strip-types src/lib/*.test.ts",
+    "freeze:update": "node --experimental-strip-types scripts/update-landing-freeze.ts"
   },
   "dependencies": {
     "@next/third-parties": "^16.3.0",

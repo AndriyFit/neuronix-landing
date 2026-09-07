@@ -1,0 +1,569 @@
+{
+  "note": "Заморозка Ads-посадкових. Правила й стоп-правило: docs/2026-09-07-landing-freeze.md. Не редагувати руками — npm run freeze:update -- \"причина\".",
+  "appliedAt": "очікує apply нової мапи посадкових",
+  "frozenUntil": "apply + 21 день (проставити датою після apply)",
+  "reason": "перший знімок: фіксація посадкових під експеримент з keyword-level URL",
+  "content": {
+    "uk:metadata.title": "Розробка сайтів та інтернет-магазинів під ключ — Neuronix",
+    "uk:metadata.description": "Розробка сайтів, інтернет-магазинів та автоматизація для бізнесу. Сайт, CRM, 1С і маркетплейси обмінюються даними самі. Від $350, лендінг за 5–10 днів.",
+    "uk:hero.titleStart": "Розробка сайтів та ",
+    "uk:hero.titleHighlight": "інтернет-магазинів",
+    "uk:hero.titleEnd": " під ключ",
+    "uk:hero.subtitle": "Від $350, лендінг за 5–10 днів. Сайт, готовий приймати заявки з першого дня: форма, підключена аналітика, договір і гарантія 12 місяців.",
+    "uk:hero.ctaPrimary": "Розрахувати вартість",
+    "uk:pains.title": "Знайомо?",
+    "uk:solutionGuide.title": "Який формат підійде вашому бізнесу",
+    "uk:solutionGuide.items": [
+      {
+        "title": "Лендінг",
+        "description": "Одна сторінка під конкретну послугу, пропозицію або один-два товари. Найшвидший спосіб перевірити попит і почати приймати заявки.",
+        "price": "від $350",
+        "href": "/websites"
+      },
+      {
+        "title": "Корпоративний сайт",
+        "description": "Кілька сторінок про компанію: напрямки, послуги, ціни, контакти й форма заявки. Коли клієнту треба зрозуміти, хто ви і чим саме займаєтесь.",
+        "price": "від $650"
+      },
+      {
+        "title": "Інтернет-магазин",
+        "description": "Каталог, кошик, оплата і доставка. Коли покупець має сам обрати товар і оформити замовлення, без вашої участі.",
+        "price": "від $500",
+        "href": "/online-store"
+      }
+    ],
+    "uk:pricing.title": "Ціни",
+    "uk:pricing.items": [
+      {
+        "service": "Лендінг",
+        "price": "від $350"
+      },
+      {
+        "service": "Інтернет-магазин на Horoshop",
+        "price": "від $500"
+      },
+      {
+        "service": "Корпоративний сайт",
+        "price": "від $650"
+      },
+      {
+        "service": "Автоматизація та інтеграції",
+        "price": "від $650"
+      },
+      {
+        "service": "Інтернет-магазин на OpenCart — великий каталог і склад",
+        "price": "від $1000"
+      }
+    ],
+    "uk:faq.items": [
+      {
+        "question": "Скільки часу займає розробка?",
+        "answer": "Лендінг — 5–10 днів. Корпоративний сайт — 2–3 тижні. Інтернет-магазин з інтеграціями — від 4 тижнів. Точні строки фіксуємо в договорі після брифу."
+      },
+      {
+        "question": "У нас уже є сайт і CRM, але вони не дружать. Це до вас?",
+        "answer": "Так, це один із наших напрямків. Не переробляємо все з нуля — зʼєднуємо те, що у вас уже працює: сайт, CRM, облік, маркетплейси, телефонію, доставку."
+      },
+      {
+        "question": "Чому дорожче за фрілансера?",
+        "answer": "Бо в ціні договір із зафіксованою сумою і строком, гарантія 12 місяців на зданий код, налаштована аналітика й підтримка після запуску. Гарантія означає, що 12 місяців безкоштовно виправляємо дефекти зданого коду, а доробку нових функцій робимо за домовленістю. Доступи до сайту, домену й хостингу — ваші з першого дня, тож після здачі завжди є з кого спитати."
+      },
+      {
+        "question": "Що входить в підтримку після здачі?",
+        "answer": "Перший місяць — безкоштовні правки і консультації. Далі — за домовленістю. Не зникаємо після оплати."
+      },
+      {
+        "question": "Ви віддаєте доступи?",
+        "answer": "Так, усі й одразу. Сайт, домен, хостинг, аналітика — ваші. Ми не тримаємо клієнта на замку."
+      },
+      {
+        "question": "Чи працюєте з готовими сайтами?",
+        "answer": "Так, беремо. Сайт будь-якого стану — доробляємо, виправляємо, інтегруємо з рештою систем. Перший сайт із нуля робимо так само часто."
+      },
+      {
+        "question": "Як відбувається оплата?",
+        "answer": "50% передоплата, 50% після здачі. Для більших проєктів — поетапно, і кожен етап має зафіксований результат у договорі. Наступний платіж — тільки після того, як ви прийняли попередній етап. Ми не просимо грошей за наступний крок, поки не закрили попередній."
+      },
+      {
+        "question": "Що якщо мені потрібно щось нестандартне?",
+        "answer": "Напишіть в Telegram — обговоримо. Ми робили інтеграції з Vapi, Binotel, SalesDrive, KeyCRM, Checkbox, Новою Поштою. Швидше за все вже вміємо."
+      },
+      {
+        "question": "Я ще ніколи не продавав онлайн. З чого починати?",
+        "answer": "З розмови про товар і покупця, а не з сайту. На безкоштовній оцінці розбираємо, що ви продаєте, кому і чим відрізняєтесь, — і аж потім кажемо, який тип сайту потрібен і скільки він коштує. Якщо ідея не витримує перевірки цифрами, скажемо про це прямо, а не візьмемо гроші за красиву сторінку."
+      },
+      {
+        "question": "Хто приведе покупців після запуску?",
+        "answer": "Сайт ми віддаємо готовим до реклами: підключена аналітика, налаштовані цілі, видно, звідки прийшла кожна заявка. Саму рекламу й просування ведемо разом із партнерами — це готується паралельно з розробкою, щоб сайт відкривався не в порожнечу. Рекламний бюджет і роботу партнерів оплачуєте окремо від розробки — у вартість сайту вони не входять. Позицій у пошуку ніхто не гарантує, ані ми, ані партнери: гарантувати можна роботу, а не місце в аукціоні Google."
+      }
+    ],
+    "uk:platforms.online-store.metadata": {
+      "title": "Розробка інтернет-магазину з інтеграціями — від $1000 | Neuronix",
+      "description": "Створення інтернет-магазину з інтеграціями: 1С, CRM, Нова Пошта, маркетплейси. Запуск — від 4 тижнів, вартість — від $1000 на OpenCart або від $500 на Horoshop. Договір, гарантія 12 місяців."
+    },
+    "uk:platforms.online-store.hero": {
+      "titleStart": "Інтернет-магазин ",
+      "titleHighlight": "під ключ",
+      "titleEnd": " — з 1С, CRM і Новою Поштою з першого дня",
+      "subtitle": "Магазин на готовій платформі Horoshop — від $500. Магазин на OpenCart, де сайт, 1С, CRM, Нова Пошта і маркетплейси працюють як одна система від запуску, — від $1000. Строк — від 4 тижнів, вартість фіксуємо в договорі.",
+      "ctaPrimary": "Розрахувати вартість магазину",
+      "ctaSecondary": "Написати в Telegram",
+      "telegramUrl": "https://t.me/neuronixjhbot",
+      "trust": [
+        "Horoshop — від $500, OpenCart з інтеграціями — від $1000",
+        "Запуск — від 4 тижнів, строк у договорі",
+        "Гарантія 12 місяців"
+      ]
+    },
+    "uk:platforms.online-store.pains.title": "Знайомо, коли відкриваєте перший магазин?",
+    "uk:platforms.online-store.solutions": {
+      "title": "Послуги для запуску інтернет-магазину",
+      "extra": "Працюємо з Horoshop, OpenCart і кастомними рішеннями: 1С, KeyCRM, SalesDrive, Нова Пошта, Rozetka, Prom, маркетплейси, Checkbox",
+      "items": [
+        {
+          "title": "Магазин на OpenCart під ключ",
+          "description": "Сайт, каталог, кошик, оплата і доставка на власній платформі — готовий магазин для великого каталогу, який можна відкривати з першого дня.",
+          "price": "від $1000"
+        },
+        {
+          "title": "Інтеграція з 1С",
+          "description": "Залишки, ціни, замовлення і нові позиції ходять між обліком і сайтом самі, двосторонньо.",
+          "price": "від $650"
+        },
+        {
+          "title": "Запуск на Horoshop",
+          "description": "Магазин на Horoshop із налаштованими інтеграціями від старту — швидкий запуск на готовій платформі.",
+          "price": "від $500"
+        },
+        {
+          "title": "CRM, доставка, чеки",
+          "description": "CRM, Нова Пошта, Checkbox: замовлення саме створює угоду, ТТН і чек.",
+          "price": "від $650"
+        }
+      ]
+    },
+    "uk:platforms.online-store.faq": {
+      "title": "Питання про розробку інтернет-магазину",
+      "items": [
+        {
+          "question": "Скільки коштує інтернет-магазин?",
+          "answer": "Магазин на готовій платформі Horoshop — від $500. Магазин на OpenCart з інтеграціями — від $1000. Точна вартість залежить від кількості інтеграцій (1С, CRM, доставка) і розміру каталогу. Оцінка безкоштовна, за 24 години."
+        },
+        {
+          "question": "Скільки часу займає розробка магазину?",
+          "answer": "Інтернет-магазин з інтеграціями — від 4 тижнів. Точні строки фіксуємо в договорі після брифу."
+        },
+        {
+          "question": "Чи можна підключити 1С одразу під час розробки, а не потім?",
+          "answer": "Так, двосторонній обмін з 1С — залишки, ціни, замовлення — частина розробки магазину, а не окрема доробка пізніше."
+        },
+        {
+          "question": "Чим інтернет-магазин відрізняється від лендінга з кошиком?",
+          "answer": "Лендінг — одна сторінка з формою замовлення, від $350. Інтернет-магазин — каталог, кошик, оплата і доставка: на Horoshop від $500, а з інтеграціями з обліком на OpenCart — від $1000."
+        },
+        {
+          "question": "Що входить у вартість магазину?",
+          "answer": "Сайт, каталог, кошик, оплата, базові інтеграції з доставкою. Договір фіксує строк і бюджет, гарантія — 12 місяців після здачі."
+        },
+        {
+          "question": "Я виходжу в онлайн уперше. Що потрібно від мене?",
+          "answer": "Перелік товарів — підійде прайс від постачальника в Excel. Фото, якщо є. Реквізити для приймання оплат — підкажемо, які саме знадобляться. Каталог наповнюємо ми: з прайсу робимо картки з описами й характеристиками українською. Оплату, Нову Пошту й фіскальний чек підключаємо самі."
+        },
+        {
+          "question": "Чи потрібні ФОП і каса, щоб продавати онлайн?",
+          "answer": "Для приймання оплат на сайті потрібні зареєстрований бізнес і фіскалізація — конкретну форму й групу краще узгодити з бухгалтером, ми не консультуємо з податків. З нашого боку: скажемо, які реквізити знадобляться для підключення оплат, і налаштуємо касу Checkbox так, щоб замовлення саме створювало чек і ТТН."
+        },
+        {
+          "question": "Чи є взагалі попит — чи не пізно зараз відкривати магазин?",
+          "answer": "За 2025 рік українці витратили на онлайн-покупки 256 млрд грн — 196 млн замовлень, середній чек близько 1320 грн (дані WayForPay). Доходи онлайн-продавців у доларах у другому півріччі 2025-го зросли на 36%, хоч замовлень стало менше (дослідження Promodo). Це галузеві цифри, а не обіцянка вашого результату: він залежить від ніші, товару й реклами. Що реально у вашій ніші — порахуємо на безкоштовній оцінці."
+        }
+      ]
+    },
+    "uk:platforms.price.metadata": {
+      "title": "Ціна розробки сайту — Neuronix",
+      "description": "Скільки коштує сайт чи інтернет-магазин: відкриті ціни на сайті, кошторис у договорі до старту робіт, безкоштовна оцінка за 24 години. Без «розрахуємо індивідуально»."
+    },
+    "uk:platforms.price.hero": {
+      "titleStart": "Скільки коштує ",
+      "titleHighlight": "розробка сайту",
+      "titleEnd": "? Дивіться самі",
+      "subtitle": "Ціни на сайті, а не «розрахуємо після дзвінка». Лендінг — від $350, магазин на готовій платформі Horoshop — від $500, магазин з інтеграціями на OpenCart — від $1000. Кошторис фіксується в договорі до старту робіт.",
+      "ctaPrimary": "Отримати точний розрахунок",
+      "ctaSecondary": "Написати в Telegram",
+      "telegramUrl": "https://t.me/neuronixjhbot",
+      "trust": [
+        "Ціни відкриті на сайті, не «за запитом»",
+        "Кошторис у договорі до старту робіт",
+        "Гарантія 12 місяців"
+      ]
+    },
+    "uk:platforms.price.pains.title": "Знайомо, коли шукаєте ціну на сайт?",
+    "uk:platforms.price.solutions": {
+      "title": "Три сценарії, три бюджети",
+      "extra": "Точну суму в межах цих вилок називаємо після короткого брифу — вона залежить від кількості сторінок і інтеграцій",
+      "items": [
+        {
+          "title": "Швидкий старт",
+          "description": "Лендінг або сайт-візитка: одна сторінка, чіткий заклик до дії, готовий за 5–10 днів. Підходить перевірити нішу чи запустити рекламу.",
+          "price": "від $350"
+        },
+        {
+          "title": "Сайт, що росте",
+          "description": "Корпоративний сайт чи каталог з інтеграціями CRM, форм і аналітики. 2–3 тижні на запуск, далі легко нарощувати функціонал.",
+          "price": "від $650"
+        },
+        {
+          "title": "Магазин під ключ",
+          "description": "Інтернет-магазин з оплатою, доставкою і синхронізацією залишків. На готовій платформі Horoshop — від $500; на OpenCart, коли потрібен великий каталог і обмін з обліком, — від $1000. Від 4 тижнів, залежно від кількості інтеграцій.",
+          "price": "від $500"
+        }
+      ]
+    },
+    "uk:platforms.price.faq": {
+      "title": "Питання про вартість",
+      "items": [
+        {
+          "question": "Від чого залежить ціна?",
+          "answer": "Кількість сторінок і функціонал, інтеграції з CRM, 1С, доставкою чи платіжними системами, дизайн з нуля чи на основі готового рішення, обсяг каталогу для інтернет-магазину. Точну суму в межах вилки називаємо після короткого брифу."
+        },
+        {
+          "question": "Чи може вартість зрости в процесі?",
+          "answer": "Ні, якщо не змінюється сама задача. Кошторис фіксується в договорі до старту робіт. Якщо в процесі з'являються нові побажання поза початковим ТЗ — це окрема доплата, погоджена заздалегідь, а не сюрприз у рахунку."
+        },
+        {
+          "question": "Що входить у вартість, вказану на сайті?",
+          "answer": "Розробка, дизайн, базові інтеграції, зазначені в описі пакета, і тестування перед здачею. Точний перелік — у кошторисі, який фіксуємо в договорі до старту робіт."
+        },
+        {
+          "question": "Скільки часу займає розробка?",
+          "answer": "Лендінг — 5–10 днів. Корпоративний сайт — 2–3 тижні. Інтернет-магазин з інтеграціями — від 4 тижнів. Точні строки фіксуємо в договорі після брифу."
+        },
+        {
+          "question": "Як відбувається оплата?",
+          "answer": "50% передоплата, 50% після здачі. Для більших проєктів — поетапно, і кожен наступний платіж — тільки після того, як ви прийняли попередній етап."
+        }
+      ]
+    },
+    "uk:platforms.shared.techChoice": {
+      "title": "Яка платформа підійде саме вам",
+      "extra": "Не знаєте, що обрати — це нормально. На безкоштовній оцінці кажемо прямо, що вигідніше саме вашому магазину. Іноді це не найдорожчий варіант.",
+      "items": [
+        {
+          "title": "Horoshop",
+          "description": "Готова українська платформа. Швидкий старт і передбачувана вартість — підходить, якщо треба відкритись і почати продавати, а не будувати щось унікальне. Тарифи самої платформи оплачуються окремо, допоможемо обрати потрібний.",
+          "price": "від $500",
+          "href": "/horoshop"
+        },
+        {
+          "title": "OpenCart",
+          "description": "Своя платформа на вашому хостингу: повний контроль, будь-які інтеграції, немає щомісячної плати за саму платформу. Підходить, коли каталог великий або потрібен обмін з обліком і маркетплейсами.",
+          "price": "від $1000",
+          "href": "/opencart"
+        },
+        {
+          "title": "Власна розробка",
+          "description": "Коли бізнес-логіка не вкладається в готові платформи: складні розрахунки, B2B-кабінети, нестандартний каталог. Дорожче й довше — беремось лише тоді, коли готове рішення справді не покриває задачу.",
+          "price": "ціна після аудиту"
+        }
+      ]
+    },
+    "en:metadata.title": "Website & E-commerce Development — Neuronix",
+    "en:metadata.description": "Websites, online stores and business automation. Your store, CRM, accounting and marketplaces exchange data on their own. From $350, landing page in 5–10 days.",
+    "en:hero.titleStart": "Websites and ",
+    "en:hero.titleHighlight": "online stores",
+    "en:hero.titleEnd": " built end to end",
+    "en:hero.subtitle": "From $350, landing page in 5–10 days. A site ready to take enquiries from day one: a form, analytics connected, a contract and a 12-month warranty.",
+    "en:hero.ctaPrimary": "Get a quote",
+    "en:pains.title": "Sound familiar?",
+    "en:solutionGuide.title": "Choose the right format for your business",
+    "en:solutionGuide.items": [
+      {
+        "title": "Landing page",
+        "description": "A single page for one service, a focused offer, or one to two products. The fastest way to validate demand and start taking enquiries.",
+        "price": "from $350",
+        "href": "/websites"
+      },
+      {
+        "title": "Corporate website",
+        "description": "A few pages about your company: what you do, services, pricing, contacts and an enquiry form. For when a client needs to understand who you are.",
+        "price": "from $650"
+      },
+      {
+        "title": "Online store",
+        "description": "Catalogue, cart, payment and delivery. For when the buyer picks the product and places the order themselves. The figure depends on how many products you have and whether the store needs to sync with your accounting.",
+        "price": "$500–$1000",
+        "href": "/online-store"
+      }
+    ],
+    "en:pricing.title": "Pricing",
+    "en:pricing.items": [
+      {
+        "service": "Landing page",
+        "price": "from $350"
+      },
+      {
+        "service": "Horoshop online store",
+        "price": "from $500"
+      },
+      {
+        "service": "Corporate website",
+        "price": "from $650"
+      },
+      {
+        "service": "Automation & integrations",
+        "price": "from $650"
+      },
+      {
+        "service": "OpenCart online store — large catalogue and warehouse",
+        "price": "from $1000"
+      }
+    ],
+    "en:faq.items": [
+      {
+        "question": "How long does development take?",
+        "answer": "Landing page — 5–10 days. Corporate site — 2–3 weeks. Online store with integrations — from 4 weeks. Exact deadlines go into the contract after the brief."
+      },
+      {
+        "question": "We already have a site and a CRM, but they don't talk. Is that your job?",
+        "answer": "Yes, it's one of the things we do. We don't rebuild everything from scratch — we connect what already runs: site, CRM, accounting, marketplaces, telephony, shipping."
+      },
+      {
+        "question": "Why more expensive than a freelancer?",
+        "answer": "Because the price includes a contract with a fixed sum and deadline, a 12-month warranty on the delivered code, configured analytics and post-launch support. The warranty means we fix defects in the delivered code free of charge for 12 months, while new features are built by separate agreement. Access to the site, domain and hosting is yours from day one, so after handover there's always someone to answer for it."
+      },
+      {
+        "question": "What does post-launch support include?",
+        "answer": "First month — free fixes and consulting. After that, by agreement. We don't disappear once we're paid."
+      },
+      {
+        "question": "Do you hand over access?",
+        "answer": "Yes, all of it, immediately. Site, domain, hosting, analytics — they're yours. We don't hold clients hostage."
+      },
+      {
+        "question": "Do you work with existing sites?",
+        "answer": "Yes, we do. We take a site in any condition — extend it, fix it, integrate it with everything else. And we build first sites from scratch just as often."
+      },
+      {
+        "question": "How does payment work?",
+        "answer": "50% upfront, 50% on delivery. For larger projects — in stages, with each stage's deliverable fixed in the contract. The next payment only comes after you've accepted the previous stage. We don't ask for money for the next step until the current one is closed."
+      },
+      {
+        "question": "What if I need something non-standard?",
+        "answer": "Message us on Telegram and we'll talk it through. We've built integrations with Vapi, Binotel, SalesDrive, KeyCRM, Checkbox and Nova Poshta. Chances are we've done it already."
+      },
+      {
+        "question": "I've never sold online before. Where do I start?",
+        "answer": "With a conversation about the product and the buyer, not with a website. On the free assessment we work out what you sell, who to and what sets you apart — and only then say which type of site you need and what it costs. If the idea doesn't hold up to the numbers, we'll tell you straight rather than take your money for a pretty page."
+      },
+      {
+        "question": "Who brings the buyers after launch?",
+        "answer": "We hand the site over ready for advertising: analytics connected, goals configured, every enquiry traceable to its source. The advertising and visibility work itself we run together with our partners, prepared in parallel with the build so the site doesn't open into an empty room. The ad budget and the partners' work are billed separately from development — they are not part of the site price. Nobody guarantees search positions — not us, not our partners: you can guarantee the work, not a place in Google's auction."
+      }
+    ],
+    "en:platforms.online-store.metadata": {
+      "title": "Online Store Development With Integrations — From $1000 | Neuronix",
+      "description": "Custom online stores built with 1C, CRM, Nova Poshta and marketplace integrations from day one. Launch in 4+ weeks, from $1000 on OpenCart or from $500 on Horoshop. Contract, 12-month warranty."
+    },
+    "en:platforms.online-store.hero": {
+      "titleStart": "An online store ",
+      "titleHighlight": "built to run itself",
+      "titleEnd": " — with 1C, CRM and delivery wired in from day one",
+      "subtitle": "A store on the ready-made Horoshop platform — from $500. A store on OpenCart, where your site, 1C, CRM, Nova Poshta and marketplaces work as one system from launch — from $1000. Live in 4+ weeks, cost fixed in the contract.",
+      "ctaPrimary": "Get a store cost estimate",
+      "ctaSecondary": "Message us on Telegram",
+      "telegramUrl": "https://t.me/neuronixjhbot",
+      "trust": [
+        "Horoshop — from $500, OpenCart with integrations — from $1000",
+        "Live in 4+ weeks, timeline in the contract",
+        "12-month warranty"
+      ]
+    },
+    "en:platforms.online-store.pains.title": "Sound familiar when you're opening your first store?",
+    "en:platforms.online-store.solutions": {
+      "title": "Services for launching an online store",
+      "extra": "We work with Horoshop, OpenCart and custom builds: 1C, KeyCRM, SalesDrive, Nova Poshta, Rozetka, Prom, marketplaces, Checkbox",
+      "items": [
+        {
+          "title": "OpenCart store, built to launch",
+          "description": "Site, catalog, cart, payment and delivery on your own platform — a store for a large catalog that you can open on day one.",
+          "price": "from $1000"
+        },
+        {
+          "title": "1C integration",
+          "description": "Stock, prices, orders and new items sync between accounting and the site on their own, two-way.",
+          "price": "from $650"
+        },
+        {
+          "title": "Launch on Horoshop",
+          "description": "A store on Horoshop with integrations set up from the start — a fast launch on a ready-made platform.",
+          "price": "from $500"
+        },
+        {
+          "title": "CRM, delivery, receipts",
+          "description": "CRM, Nova Poshta, Checkbox: every order creates a deal, a waybill and a receipt on its own.",
+          "price": "from $650"
+        }
+      ]
+    },
+    "en:platforms.online-store.faq": {
+      "title": "Questions about building an online store",
+      "items": [
+        {
+          "question": "How much does an online store cost?",
+          "answer": "A store on the ready-made Horoshop platform starts from $500. A store on OpenCart with integrations starts from $1000. The exact cost depends on the number of integrations (1C, CRM, delivery) and catalog size. The estimate is free, within 24 hours."
+        },
+        {
+          "question": "How long does it take to build a store?",
+          "answer": "An online store with integrations takes from 4 weeks. Exact timelines are fixed in the contract after the brief."
+        },
+        {
+          "question": "Can 1C be connected during development instead of afterward?",
+          "answer": "Yes — two-way sync with 1C (stock, prices, orders) is part of the store build, not a separate add-on later."
+        },
+        {
+          "question": "What's the difference between a store and a landing page with a cart?",
+          "answer": "A landing page is a single page with an order form, from $350. An online store is a catalog, cart, payment and delivery: from $500 on Horoshop, or from $1000 on OpenCart with accounting integrations."
+        },
+        {
+          "question": "What's included in the store price?",
+          "answer": "The site, catalog, cart, payment, and baseline delivery integrations. The contract fixes the timeline and budget; the warranty covers 12 months after handover."
+        },
+        {
+          "question": "This is my first move online. What do you need from me?",
+          "answer": "A product list — a supplier's Excel price list is fine. Photos, if you have them. The details needed to accept payments — we'll tell you which ones. We fill the catalogue: the price list becomes product pages with specs and copy. Payments, delivery and fiscal receipts we connect ourselves."
+        },
+        {
+          "question": "Do I need a registered business and a till to sell online?",
+          "answer": "Accepting payments on a website requires a registered business and fiscalisation — the exact form is best agreed with your accountant, we don't advise on tax. On our side: we'll tell you which details are needed to connect payments, and configure the till so that an order creates the receipt and the waybill by itself."
+        },
+        {
+          "question": "Is there actually demand — is it too late to open a store now?",
+          "answer": "In 2025 Ukrainians spent ₴256bn on online purchases — 196m orders at an average basket of about ₴1,320 (WayForPay data). Online sellers' revenue in dollar terms grew 36% in H2 2025 even as order counts fell (Promodo study). These are industry figures, not a promise about your result: that depends on the niche, the product and the advertising. What's realistic in your niche we'll work out on the free assessment."
+        }
+      ]
+    },
+    "en:platforms.price.metadata": {
+      "title": "Website Development Pricing — Neuronix",
+      "description": "How much a website or online store costs: prices published on the site, the estimate locked into the contract before work starts, a free quote within 24 hours. No \"we'll calculate it individually.\""
+    },
+    "en:platforms.price.hero": {
+      "titleStart": "How much does ",
+      "titleHighlight": "website development",
+      "titleEnd": " cost? See for yourself",
+      "subtitle": "Prices are on the site, not \"we'll call you back with a number.\" Landing page — from $350, a store on the ready-made Horoshop platform — from $500, a store with integrations on OpenCart — from $1000. The estimate is locked into the contract before work starts.",
+      "ctaPrimary": "Get an exact quote",
+      "ctaSecondary": "Message us on Telegram",
+      "telegramUrl": "https://t.me/neuronixjhbot",
+      "trust": [
+        "Prices published on the site, not \"on request\"",
+        "Estimate locked into the contract before work starts",
+        "12-month warranty"
+      ]
+    },
+    "en:platforms.price.pains.title": "Sound familiar when you're pricing a website?",
+    "en:platforms.price.solutions": {
+      "title": "Three scenarios, three budgets",
+      "extra": "We name the exact figure within these ranges after a short brief — it depends on the number of pages and integrations",
+      "items": [
+        {
+          "title": "Quick start",
+          "description": "A landing page or one-pager: a single page, a clear call to action, ready in 5–10 days. Good for testing a niche or launching ads.",
+          "price": "from $350"
+        },
+        {
+          "title": "A site that grows",
+          "description": "A corporate site or catalog with CRM, form, and analytics integrations. 2–3 weeks to launch, easy to extend afterward.",
+          "price": "from $650"
+        },
+        {
+          "title": "Store, turnkey",
+          "description": "An online store with payments, shipping, and stock sync. On the ready-made Horoshop platform — from $500; on OpenCart, when you need a large catalog and accounting sync — from $1000. From 4 weeks, depending on the number of integrations.",
+          "price": "from $500"
+        }
+      ]
+    },
+    "en:platforms.price.faq": {
+      "title": "Pricing questions",
+      "items": [
+        {
+          "question": "What determines the price?",
+          "answer": "The number of pages and features, integrations with CRM, 1C, shipping, or payment providers, custom design versus a proven template, and catalog size for an online store. We name the exact figure within the range after a short brief."
+        },
+        {
+          "question": "Can the price grow mid-project?",
+          "answer": "Not if the scope doesn't change. The estimate is locked into the contract before work starts. If new requests come up outside the original scope, that's a separate charge agreed in advance — not a surprise on the invoice."
+        },
+        {
+          "question": "What's included in the price on the site?",
+          "answer": "Development, design, the base integrations listed for that package, and testing before handover. The exact scope is in the estimate, locked into the contract before work starts."
+        },
+        {
+          "question": "How long does development take?",
+          "answer": "Landing page — 5–10 days. Corporate site — 2–3 weeks. Online store with integrations — from 4 weeks. Exact timelines are locked into the contract after the brief."
+        },
+        {
+          "question": "How does payment work?",
+          "answer": "50% upfront, 50% on delivery. For larger projects — in stages, with each next payment due only after you've signed off on the previous stage."
+        }
+      ]
+    },
+    "en:platforms.shared.techChoice": {
+      "title": "Which platform fits you",
+      "extra": "Not knowing which to pick is normal. On the free assessment we say plainly what works out better for your particular store. Sometimes that is not the most expensive option.",
+      "items": [
+        {
+          "title": "Horoshop",
+          "description": "A ready-made Ukrainian platform. Fast start and predictable cost — right when you need to open and start selling rather than build something unique. The platform's own subscription is paid separately; we'll help you pick the tier.",
+          "price": "from $500",
+          "href": "/horoshop"
+        },
+        {
+          "title": "OpenCart",
+          "description": "Your own platform on your own hosting: full control, any integration, no monthly fee for the platform itself. Right when the catalogue is large or you need data flowing between accounting and marketplaces.",
+          "price": "from $1000",
+          "href": "/opencart"
+        },
+        {
+          "title": "Custom build",
+          "description": "For when the business logic doesn't fit a ready-made platform: complex pricing, B2B portals, an unusual catalogue. More expensive and slower — we take it on only when an off-the-shelf option genuinely won't cover the job.",
+          "price": "priced after the audit"
+        }
+      ]
+    }
+  },
+  "structure": {
+    "src/app/[locale]/page.tsx": [
+      "Hero",
+      "TrustBar",
+      "Pains",
+      "Services",
+      "HowWeWork",
+      "Clients",
+      "Team",
+      "Pricing",
+      "Services",
+      "AuditForm",
+      "FAQ",
+      "Contact",
+      "Footer"
+    ],
+    "src/app/[locale]/[platform]/page.tsx": [
+      "AiHero",
+      "Contact",
+      "Footer",
+      "AiHero",
+      "Pricing",
+      "Pains",
+      "AiStats",
+      "Services",
+      "Services",
+      "HowWeWork",
+      "AiSecurity",
+      "AiSecurity",
+      "AuditForm",
+      "FAQ",
+      "Contact",
+      "Footer"
+    ]
+  }
+}
