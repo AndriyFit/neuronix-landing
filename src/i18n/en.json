@@ -118,7 +118,7 @@
   },
   "team": {
     "title": "Who will actually do it",
-    "subtitle": "A small team with no layers in between. Whoever you speak to at the start runs your project to the end — nobody gets handed off to a manager after signing.",
+    "subtitle": "A small team with no layers in between: whoever you speak to at the start runs your project to the end, with nobody handed off to a manager after signing. Design, frontend and QA are assembled per project — from a landing page to a complex integration.",
     "members": [
       {
         "role": "Founder",
@@ -137,12 +137,6 @@
         "name": "Oksana",
         "note": "Stages, regular updates, staging environment, handover with documentation.",
         "photo": "/team/delivery.webp"
-      },
-      {
-        "role": "Team",
-        "note": "Design, frontend, QA. Assembled per project — from a landing page to a complex integration.",
-        "collective": true,
-        "video": "/team/slot"
       }
     ]
   },

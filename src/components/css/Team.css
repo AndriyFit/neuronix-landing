@@ -44,8 +44,7 @@
   justify-content: center;
 }
 
-.team-avatar img,
-.team-avatar video {
+.team-avatar img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -55,11 +54,6 @@
 
 /* Іконка посади замість ініціалів: імен у картках більше немає, тож літери
    були б від неіснуючих людей. Емодзі — та сама мова, що в services та ecosystem. */
-.team-card-collective .team-avatar {
-  border-style: dashed;
-  border-color: var(--glass-border);
-}
-
 .team-position {
   font-size: 1.0625rem;
   font-weight: 700;
