@@ -79,10 +79,36 @@
 }
 
 @media (max-width: 600px) {
-  .team { padding: 3.5rem 1rem; }
-  .team-subtitle { margin-bottom: 2rem; }
-  .team-grid { grid-template-columns: repeat(2, 1fr); gap: 1.75rem 1rem; }
   .team-avatar { width: 120px; height: 120px; margin-bottom: 1rem; }
   .team-position { font-size: 0.9375rem; }
   .team-note { font-size: 0.75rem; }
+}
+
+/* Мобільний: та сама горизонтальна стрічка зі snap, що й у відгуках вище — інакше
+   два сусідні блоки з людьми поводяться по-різному. Поріг 700px спільний з
+   Testimonials.css свідомо: на 600–700px один блок був би каруселлю, другий сіткою.
+   Заодно зникає сирітська третя картка, яку лишала сітка 2×2 при трьох людях.
+   Скрол усередині контейнера — сторінка по горизонталі не їде.
+   Третє повторення цього патерну — привід винести його в спільний клас. */
+@media (max-width: 700px) {
+  .team { padding: 3.5rem 0; }
+  .team-inner > :not(.team-grid) { padding-left: 1rem; padding-right: 1rem; }
+  .team-subtitle { margin-bottom: 2rem; }
+
+  .team-grid {
+    display: flex;
+    gap: 0.875rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding: 0 1rem 0.5rem;
+    scrollbar-width: none;
+  }
+
+  .team-grid::-webkit-scrollbar { display: none; }
+
+  .team-card {
+    flex: 0 0 62%;
+    scroll-snap-align: start;
+  }
 }
