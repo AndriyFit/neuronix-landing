@@ -10,8 +10,11 @@
   --glass-bg: rgba(255, 255, 255, 0.8);
   --glass-border: rgba(124, 58, 237, 0.15);
   --glass-blur: blur(20px);
-  --font-display: var(--font-syne), 'Syne', sans-serif;
-  --font-body: var(--font-syne), 'Syne', sans-serif;
+  /* Unbounded має кирилицю, Syne — ні (лише latin/latin-ext/greek). Syne лишається
+     в ланцюгу для латиниці; далі — названі системні шрифти, а не голий sans-serif,
+     щоб фолбек був передбачуваним, а не «що там у браузера за замовчуванням». */
+  --font-display: var(--font-unbounded), var(--font-syne), 'Unbounded', system-ui, sans-serif;
+  --font-body: var(--font-syne), 'Syne', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
 
   /* Shadows */
   --shadow-card: 0 2px 16px rgba(15, 23, 42, 0.08), 0 1px 4px rgba(15, 23, 42, 0.04);

@@ -9,8 +9,7 @@
     "pricing": "Pricing",
     "faq": "FAQ",
     "contact": "Contact",
-    "cta": "Message on Telegram",
-    "telegramUrl": "https://t.me/neuronixjhbot",
+    "cta": "Discuss your project",
     "ai": "AI automation",
     "blog": "Blog"
   },
@@ -18,17 +17,16 @@
     "titleStart": "Websites and ",
     "titleHighlight": "online stores",
     "titleEnd": " built end to end",
-    "subtitle": "From $350, landing page in 5–10 days. A site ready to take enquiries from day one: a form, analytics connected, a contract and a 12-month warranty.",
+    "subtitle": "From $350, a landing page in 5–10 days. A site ready to take enquiries from day one.",
     "ctaPrimary": "Get a quote",
-    "ctaSecondary": "Message on Telegram",
-    "telegramUrl": "https://t.me/neuronixjhbot",
     "trust": [
       "We reply during business hours",
       "Written contract",
       "12-month warranty"
     ],
-    "hub": {
-      "alt": "The Neuronix HUB at the centre of the loop, surrounded by CRM, OpenCart, voice bot, delivery, receipts and analytics"
+    "showcase": {
+      "alt": "AbTime online store we built: watch catalogue, prices and a Buy button",
+      "caption": "AbTime store — one of our projects"
     }
   },
   "trustBar": {
@@ -308,9 +306,7 @@
     "consentLink": "Privacy Policy"
   },
   "stickyCta": {
-    "form": "Get a quote",
-    "telegram": "Telegram",
-    "telegramUrl": "https://t.me/neuronixjhbot"
+    "form": "Get a quote"
   },
   "footer": {
     "copy": "© 2026 Neuronix. All rights reserved.",
@@ -344,8 +340,6 @@
       "titleEnd": " — 24/7",
       "subtitle": "Chatbots for your website and Instagram, voice agents for calls, CRM automation. Customers get answers in seconds, orders land in your CRM hands-free, no call goes missed.",
       "ctaPrimary": "Get a free AI audit",
-      "ctaSecondary": "Message on Telegram",
-      "telegramUrl": "https://t.me/neuronixjhbot",
       "trust": [
         "We work with KeyCRM, SalesDrive, accounting systems",
         "Timeline and budget fixed in the contract",
@@ -556,8 +550,6 @@
         "titleEnd": ", and Who It's For",
         "subtitle": "OpenCart is a free, open-source platform for online stores: unlike a rented SaaS engine, the code is entirely yours — more control and flexibility for custom integrations. It fits businesses with large catalogs, their own production, or non-standard accounting logic. We'll tell you if it fits your business on a short, free consultation.",
         "ctaPrimary": "Get a Consultation",
-        "ctaSecondary": "Message us on Telegram",
-        "telegramUrl": "https://t.me/neuronixjhbot",
         "trust": [
           "Open source — full control over your store",
           "Fits large catalogs and custom integrations",
@@ -576,8 +568,6 @@
         "titleEnd": ", and Who It's For",
         "subtitle": "Horoshop is a SaaS platform for online stores: you rent a ready-made engine with a catalog, cart, payments and delivery, instead of building a site from scratch. It fits small and mid-size businesses that want to launch fast without their own IT team. We'll tell you if it fits your business on a short, free consultation.",
         "ctaPrimary": "Get a Consultation",
-        "ctaSecondary": "Message us on Telegram",
-        "telegramUrl": "https://t.me/neuronixjhbot",
         "trust": [
           "SaaS — a ready-made platform, no build from scratch",
           "Fits a fast launch without an in-house IT team",
@@ -596,8 +586,6 @@
         "titleEnd": "",
         "subtitle": "We implement KeyCRM and wire it to your website, Instagram, telephony and delivery. Every lead becomes a deal, calls are transcribed into the card — managers sell instead of typing data in.",
         "ctaPrimary": "Get a free audit",
-        "ctaSecondary": "Message on Telegram",
-        "telegramUrl": "https://t.me/neuronixjhbot",
         "trust": [
           "Case: calls automatically become deals in KeyCRM",
           "Timeline and budget fixed in the contract",
@@ -687,8 +675,6 @@
         "titleEnd": ", and Do You Need One",
         "subtitle": "A landing page is a one- or two-page site — essentially a digital business card. It's used to advertise a service or 1-2 products: a visitor arrives, reads the offer, and either leaves their contact for a consultation or clicks Buy right away. We'll tell you if it fits your business on a short, free consultation.",
         "ctaPrimary": "Get a Consultation",
-        "ctaSecondary": "Message us on Telegram",
-        "telegramUrl": "https://t.me/neuronixjhbot",
         "trust": [
           "One or two pages built around a single offer",
           "Ready in 5-10 days, from $350",
@@ -707,8 +693,6 @@
         "titleEnd": " — with 1C, CRM and delivery wired in from day one",
         "subtitle": "A store on the ready-made Horoshop platform — from $500. A store on OpenCart, where your site, 1C, CRM, Nova Poshta and marketplaces work as one system from launch — from $1000. Live in 4+ weeks, cost fixed in the contract.",
         "ctaPrimary": "Get a store cost estimate",
-        "ctaSecondary": "Message us on Telegram",
-        "telegramUrl": "https://t.me/neuronixjhbot",
         "trust": [
           "Horoshop — from $500, OpenCart with integrations — from $1000",
           "Live in 4+ weeks, timeline in the contract",
@@ -811,8 +795,6 @@
         "titleEnd": " cost? See for yourself",
         "subtitle": "Prices are on the site, not \"we'll call you back with a number.\" Landing page — from $350, a store on the ready-made Horoshop platform — from $500, a store with integrations on OpenCart — from $1000. The estimate is locked into the contract before work starts.",
         "ctaPrimary": "Order website development",
-        "ctaSecondary": "Message us on Telegram",
-        "telegramUrl": "https://t.me/neuronixjhbot",
         "trust": [
           "Prices published on the site, not \"on request\"",
           "Estimate locked into the contract before work starts",

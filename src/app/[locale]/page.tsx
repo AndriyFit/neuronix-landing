@@ -4,7 +4,6 @@ import Hero from '@/components/Hero'
 import TrustBar from '@/components/TrustBar'
 import Pains from '@/components/Pains'
 import Clients from '@/components/Clients'
-import AuditForm from '@/components/AuditForm'
 import Services from '@/components/Services'
 import HowWeWork from '@/components/HowWeWork'
 import Team from '@/components/Team'
@@ -43,7 +42,6 @@ export default async function HomePage({ params }: Props) {
           людину до вибору, який вона щойно зробила. Тепер це не повтор, а наступний
           крок для іншої аудиторії — у кого сайт уже працює. */}
       <Services id="automation" />
-      <AuditForm />
       <FAQ />
       <Contact />
       <Footer />

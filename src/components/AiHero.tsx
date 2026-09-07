@@ -29,18 +29,12 @@ export default function AiHero({
           {t('titleEnd')}
         </h1>
         <p className="hero-subtitle hero-anim hero-anim-2">{t('subtitle')}</p>
+        {/* Одна дія, як і на головній: кнопку Telegram прибрано з усіх перших екранів,
+            щоб посадкова з реклами вела рівно в одну форму. Канал лишився в контактах. */}
         <div className="hero-actions hero-anim hero-anim-3">
           <button className="hero-cta-primary" onClick={scrollToAudit}>
             {t('ctaPrimary')}
           </button>
-          <a
-            href={t('telegramUrl')}
-            className="hero-cta-secondary"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {t('ctaSecondary')}
-          </a>
         </div>
         <ul className="hero-trust hero-anim hero-anim-4">
           {trust.map((item, i) => (

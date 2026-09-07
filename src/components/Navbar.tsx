@@ -102,14 +102,15 @@ export default function Navbar() {
           </li>
         </ul>
 
-        <a
-          href={t('telegramUrl')}
+        {/* Був зовнішній лінк у Telegram — третій вихід зі сторінки поряд із двома
+            кнопками першого екрана. Тепер веде в ту саму єдину форму, що й усе інше. */}
+        <button
+          type="button"
           className="navbar-cta navbar-cta-desktop"
-          target="_blank"
-          rel="noopener noreferrer"
+          onClick={() => scrollTo('contact')}
         >
           {t('cta')}
-        </a>
+        </button>
         <LanguageSwitcher />
 
         <button
@@ -140,9 +141,9 @@ export default function Navbar() {
           </Link>
         </li>
         <li>
-          <a href={t('telegramUrl')} className="navbar-cta" target="_blank" rel="noopener noreferrer">
+          <button type="button" className="navbar-cta" onClick={() => scrollTo('contact')}>
             {t('cta')}
-          </a>
+          </button>
         </li>
         <li><LanguageSwitcher /></li>
       </ul>
