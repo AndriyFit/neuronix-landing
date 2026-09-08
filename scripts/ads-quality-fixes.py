@@ -62,17 +62,44 @@ TEXT_REPLACEMENTS = {
 
 # Що додати кожній групі. Суми звірені з pricing.items у src/i18n/uk.json.
 # path1/path2 — видимий шлях в оголошенні, до 15 символів кожен.
+#
+# ⚠️ Другий прохід 08.09: після першого ad_strength усіх трьох оголошень став AVERAGE
+# (до правок був GOOD). Per-asset діагнозу Google не дає — усі активи NOT_APPLICABLE,
+# бо замало показів. Тому діємо за задокументованими входами ad strength: КІЛЬКІСТЬ
+# заголовків (було 11-12 із дозволених 15) і їх РІЗНОМАНІТТЯ. Групи добиваємо до 15,
+# і додаємо кути, яких у наборі не було: не ще одну ціну, а що саме людина отримує.
+#
+# ⚠️ Кожен новий заголовок мусить мати джерело у ВЛАСНОМУ тексті сайту, а не в цитаті
+# з відгуку: слова клієнта — не наша обіцянка. Джерела перевірені 08.09 по uk.json.
 PER_AD_GROUP = {
     "199656753776": {  # Сайт під ключ -> /uk
-        "add_headlines": ["Лендінг від $350"],
+        "add_headlines": [
+            "Лендінг від $350",
+            "Доступи до сайту — ваші",      # pains.answers[4]
+            "Місяць правок безкоштовно",     # howWeWork.steps[3]
+            "Видно, звідки кожна заявка",    # howWeWork.steps[2], faq.items[9]
+            "Каталог наповнимо ми",          # pains.answers[1]
+        ],
         "path1": "Сайти", "path2": "Під-ключ",
     },
     "202276594747": {  # Інтернет-магазин -> /uk/online-store
-        "add_headlines": ["Магазин від $500"],
+        "add_headlines": [
+            "Магазин від $500",
+            "Каталог наповнимо ми",              # pains.answers[1]
+            "Прайс з Excel стане каталогом",     # pains.answers[1]
+            "Оплата й Нова пошта одразу",        # online-store.pains.answers[2]
+            "Підключимо касу й чеки",            # online-store.pains.answers[3]
+        ],
         "path1": "Магазин", "path2": "Під-ключ",
     },
     "202948761487": {  # Ціна розробки -> /uk/price
-        "add_headlines": ["Лендінг від $350", "Магазин від $500"],
+        "add_headlines": [
+            "Лендінг від $350",
+            "Магазин від $500",
+            "Ціни відкриті на сайті",        # price.hero.subtitle, price.metadata
+            "Доступи до сайту — ваші",       # pains.answers[4]
+            "Місяць правок безкоштовно",     # howWeWork.steps[3]
+        ],
         "path1": "Ціни", "path2": "Розробка-сайту",
     },
 }
@@ -286,9 +313,11 @@ def self_test():
     ch4, sk4 = plan_ad_changes([too_long], TEXT_REPLACEMENTS, PER_AD_GROUP)
     assert not ch4 and "заголовок >30" in sk4[0][1], "задовгий заголовок має блокувати зміну"
 
-    over = {**base, "headlines": [f"h{i}" for i in range(15)]}
+    # Точне число тут навмисно НЕ перевіряємо: воно залежить від довжини add_headlines
+    # у конфігу, і тест ламався б від кожного нового заголовка, нічого при цьому не ловлячи.
+    over = {**base, "headlines": [f"h{i}" for i in range(MAX_HEADLINES)]}
     ch5, sk5 = plan_ad_changes([over], TEXT_REPLACEMENTS, PER_AD_GROUP)
-    assert not ch5 and "заголовків 16" in sk5[0][1], "перевищення 15 заголовків має блокувати"
+    assert not ch5 and f"> {MAX_HEADLINES}" in sk5[0][1], "перевищення ліміту заголовків має блокувати"
 
     unknown = {**base, "ad_group_id": "000"}
     ch6, sk6 = plan_ad_changes([unknown], TEXT_REPLACEMENTS, PER_AD_GROUP)
