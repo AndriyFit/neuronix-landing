@@ -3,8 +3,9 @@
   padding-left: max(2rem, env(safe-area-inset-left));
   padding-right: max(2rem, env(safe-area-inset-right));
   padding-bottom: max(1.5rem, env(safe-area-inset-bottom));
-  background: var(--bg);
-  border-top: 1px solid var(--border);
+  background: #1E293B;
+  border-top: 1px solid #334155;
+  color: #E2E8F0;
 }
 
 .footer-inner {
@@ -20,35 +21,41 @@
 .footer-logo {
   font-weight: 800;
   font-size: 1rem;
-  color: var(--text);
+  color: #fff;
   letter-spacing: 0.05em;
 }
 
 .footer-copy {
   font-size: 0.8rem;
-  color: var(--text-muted);
+  color: #94A3B8;
 }
 
 .footer-tg,
 .footer-email,
 .footer-phone {
   font-size: 0.8rem;
-  color: var(--primary);
+  color: #C4B5FD;
   text-decoration: none;
   font-weight: 500;
 }
 
 .footer-tg:hover,
 .footer-email:hover,
-.footer-phone:hover { text-decoration: underline; }
+.footer-phone:hover {
+  color: #fff;
+  text-decoration: underline;
+}
 
 .footer-privacy {
   font-size: 0.8rem;
-  color: var(--text-muted);
+  color: #CBD5E1;
   text-decoration: none;
 }
 
-.footer-privacy:hover { text-decoration: underline; }
+.footer-privacy:hover {
+  color: #fff;
+  text-decoration: underline;
+}
 
 @media (max-width: 768px) {
   .footer {
@@ -87,9 +94,10 @@
   gap: 0.75rem;
   flex-wrap: wrap;
   font-size: 0.85rem;
-  opacity: 0.8;
+  color: #94A3B8;
 }
+.footer-services a { color: #CBD5E1; }
 .footer-services a:hover {
-  opacity: 1;
+  color: #fff;
   text-decoration: underline;
 }

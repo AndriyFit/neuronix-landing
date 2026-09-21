@@ -1,5 +1,7 @@
 .pains {
-  background: var(--bg);
+  /* A quiet lavender break makes this diagnostic step distinct from the
+     white trust bar above and the service cards below. */
+  background: var(--bg-tint);
   padding: 5rem 2rem;
 }
 
@@ -8,17 +10,23 @@
   margin: 0 auto;
 }
 
-/* Headings stay left-aligned to match the rest of the page: the global h2 is
-   inline-block (so its accent underline centres inside the text width), which
-   makes text-align on the heading itself a no-op. */
+/* This section is a self-contained diagnostic step, so its heading is centered.
+   Global h2 is inline-block; block display lets the heading and accent line
+   center as one unit. */
 .pains-title {
   color: var(--text);
   margin-bottom: 0.75rem;
+  text-align: center;
+  display: block;
 }
 
 .pains-subtitle {
   color: var(--text-muted);
   font-size: 1rem;
+  max-width: 48ch;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
   margin-bottom: 3rem;
 }
 
