@@ -104,6 +104,16 @@
   transform: translateY(-1px);
 }
 
+/* The header action starts a conversation. It deliberately differs from the
+   violet "calculate the cost" action in the first screen. */
+.navbar-cta-desktop {
+  background: var(--secondary);
+}
+
+.navbar-cta-desktop:hover {
+  background: #020617;
+}
+
 .navbar-burger {
   display: none;
   flex-direction: column;
