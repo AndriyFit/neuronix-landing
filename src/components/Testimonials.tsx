@@ -1,6 +1,7 @@
 'use client'
 import { useTranslations } from 'next-intl'
 import { useScrollReveal } from '@/lib/useScrollReveal'
+import { splitTestimonialsIntoColumns } from '@/lib/testimonials'
 import './css/Testimonials.css'
 
 interface Item {
@@ -14,6 +15,7 @@ interface Item {
 export default function Testimonials() {
   const t = useTranslations('testimonials')
   const items = t.raw('items') as Item[]
+  const columns = splitTestimonialsIntoColumns(items)
   const ref = useScrollReveal<HTMLElement>()
 
   return (
@@ -25,17 +27,21 @@ export default function Testimonials() {
             Без цього рядка вигадане імʼя біля справжнього відгуку читається як підробка. */}
         <p className="testimonials-subtitle animate-in">{t('subtitle')}</p>
 
-        <ul className="testimonials-list animate-in">
-          {items.map((item, i) => (
-            <li className="testimonial" key={i}>
-              <blockquote className="testimonial-quote">{item.quote}</blockquote>
-              <p className="testimonial-author">
-                <span className="testimonial-name">{item.name}</span>
-                <span className="testimonial-role">{item.role}</span>
-              </p>
-            </li>
+        <div className="testimonials-list animate-in">
+          {columns.map((column, columnIndex) => (
+            <ul className="testimonial-column" key={columnIndex}>
+              {column.map((item) => (
+                <li className="testimonial" key={item.name}>
+                  <blockquote className="testimonial-quote">{item.quote}</blockquote>
+                  <p className="testimonial-author">
+                    <span className="testimonial-name">{item.name}</span>
+                    <span className="testimonial-role">{item.role}</span>
+                  </p>
+                </li>
+              ))}
+            </ul>
           ))}
-        </ul>
+        </div>
       </div>
     </section>
   )
