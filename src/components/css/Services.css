@@ -46,22 +46,6 @@
     grid-template-columns: repeat(auto-fit, minmax(240px, 360px));
     justify-content: center;
   }
-
-  /* Рівно шість карток (/shop-express): 3+3 замість 4+2 із сиротами в другому ряду.
-     Та сама пастка специфічності, що вище, — тому всередині min-width. */
-  .services-grid:has(> :nth-child(6):last-child) {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  /* Рівно п'ять карток: 3 + 2 по центру замість 4 + 1 сироти. */
-  .services-grid:has(> :nth-child(5):last-child) {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  .services-grid:has(> :nth-child(5):last-child) > .service-card {
-    flex: 0 1 calc((100% - 3rem) / 3);
-  }
 }
 
 .service-card {
