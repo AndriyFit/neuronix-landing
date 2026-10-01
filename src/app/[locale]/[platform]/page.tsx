@@ -8,6 +8,7 @@ import { PLATFORMS, type Platform } from '@/lib/platforms'
 import AiHero from '@/components/AiHero'
 import Pricing from '@/components/Pricing'
 import Pains from '@/components/Pains'
+import PartnerBadge from '@/components/PartnerBadge'
 import Services from '@/components/Services'
 import AiSecurity from '@/components/AiSecurity'
 import AiStats from '@/components/AiStats'
@@ -99,6 +100,7 @@ export default async function PlatformPage({ params }: Props) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
         />
         <AiHero namespace={`${ns}.hero`} />
+        <PartnerBadge />
         <Pains namespace={`${ns}.pains`} />
         <Services namespace={`${ns}.solutions`} />
         <FAQ namespace={`${ns}.faq`} />

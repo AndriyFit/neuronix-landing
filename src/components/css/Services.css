@@ -46,6 +46,12 @@
     grid-template-columns: repeat(auto-fit, minmax(240px, 360px));
     justify-content: center;
   }
+
+  /* Рівно шість карток (/shop-express): 3+3 замість 4+2 із сиротами в другому ряду.
+     Та сама пастка специфічності, що вище, — тому всередині min-width. */
+  .services-grid:has(> :nth-child(6):last-child) {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 .service-card {

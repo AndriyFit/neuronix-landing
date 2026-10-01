@@ -947,7 +947,8 @@
           "AI tools are separate paid services you have to stitch together by hand",
           "Descriptions, meta tags and banners are still written by hand, product by product",
           "Bots and voice assistants cannot see the store's orders, statuses and stock",
-          "The platform is not ready for where the market is heading: automated calls, AI assistants, AI search"
+          "The platform is not ready for where the market is heading: automated calls, AI assistants, AI search",
+          "Retail and wholesale have to run in separate services and be reconciled by hand"
         ],
         "answerTitle": "What Shop-Express gives you",
         "answers": [
@@ -1018,6 +1019,11 @@
             "answer": "Yes, we are a Shop-Express partner. We recommend the platform to our clients, and it recommends us to store owners who need development and AI automation."
           }
         ]
+      },
+      "partner": {
+        "label": "Neuronix is an official Shop-Express partner: we build stores on the platform and connect AI agents.",
+        "alt": "Shop-Express partner",
+        "href": "https://shop-express.ua/ukr/?&utm_source=partner&utm_medium=site&utm_campaign=Neuronics.work"
       }
     }
   },
