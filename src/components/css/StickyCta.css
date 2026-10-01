@@ -15,7 +15,7 @@
     /* Solid, NOT backdrop-filter: iOS Safari repaints position:fixed elements
        with a blur when scroll momentum ends, which reads as a jump. Same
        reason Navbar drops its blur below 900px (386d95d). */
-    background: #fff;
+    background: var(--surface);
     border-top: 1px solid var(--border);
     box-shadow: 0 -2px 16px rgba(15, 23, 42, 0.08);
     transform: translateY(110%);
@@ -36,9 +36,9 @@
     align-items: center;
     justify-content: center;
     padding: 0.8rem 1rem;
-    border-radius: 10px;
+    border-radius: var(--radius-md);
     font-family: inherit;
-    font-size: 0.9375rem;
+    font-size: var(--fs-md);
     font-weight: 600;
     border: none;
     background: var(--primary);

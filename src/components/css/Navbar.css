@@ -33,7 +33,7 @@
    On mobile we drop the blur and use a solid background instead. */
 @media (max-width: 900px) {
   .navbar {
-    background: #ffffff;
+    background: var(--surface);
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
   }
@@ -51,7 +51,7 @@
 .navbar-logo {
   font-family: var(--font-display);
   font-weight: 800;
-  font-size: 1.25rem;
+  font-size: var(--fs-xl);
   color: var(--text);
   cursor: pointer;
   letter-spacing: 0.05em;
@@ -68,11 +68,11 @@
 .navbar-links a {
   display: block;
   padding: 0.4rem 0.75rem;
-  font-size: 0.875rem;
+  font-size: var(--fs-sm);
   font-weight: 500;
   color: var(--text-muted);
   text-decoration: none;
-  border-radius: 6px;
+  border-radius: var(--radius-sm);
   transition: color 0.2s, background 0.2s;
 }
 
@@ -88,10 +88,10 @@
   padding: 0.5rem 1.125rem;
   background: var(--primary);
   color: #fff;
-  font-size: 0.875rem;
+  font-size: var(--fs-sm);
   font-weight: 600;
   border: none;
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
   cursor: pointer;
   text-decoration: none;
   white-space: nowrap;
@@ -100,7 +100,7 @@
 }
 
 .navbar-cta:hover {
-  background: #6D28D9;
+  background: var(--primary-hover);
   transform: translateY(-1px);
 }
 
@@ -146,7 +146,7 @@
   position: fixed;
   inset: 64px 0 0 0;
   z-index: 99;
-  background: #fff;
+  background: var(--surface);
   list-style: none;
   flex-direction: column;
   padding: 1rem 1.25rem;
@@ -164,7 +164,7 @@
 .navbar-mobile a, .navbar-mobile button {
   display: block;
   padding: 0.95rem 0;
-  font-size: 1.05rem;
+  font-size: var(--fs-base);
   font-weight: 500;
   color: var(--text);
   text-decoration: none;
@@ -179,7 +179,7 @@
 
 .navbar-mobile .navbar-cta {
   margin-top: 0.5rem;
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
   text-align: center;
   justify-content: center;
   border-bottom: none;
@@ -197,10 +197,10 @@
   .navbar-mobile .navbar-cta {
     padding: 1rem;
     min-height: 52px;
-    font-size: 1rem;
+    font-size: var(--fs-base);
   }
 }
 
 @media (max-width: 380px) {
-  .navbar-logo { font-size: 1.1rem; }
+  .navbar-logo { font-size: var(--fs-lg); }
 }

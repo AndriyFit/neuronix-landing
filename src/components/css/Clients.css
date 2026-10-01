@@ -25,7 +25,7 @@
 .clients-eyebrow {
   margin-bottom: 0.65rem;
   color: var(--primary);
-  font-size: 0.78rem;
+  font-size: var(--fs-xs);
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -54,8 +54,8 @@
   align-items: center;
   justify-content: center;
   border: 1px solid var(--border);
-  border-radius: 16px;
-  background: #fff;
+  border-radius: var(--radius-lg);
+  background: var(--surface);
   box-shadow: var(--shadow-card);
   opacity: 0;
   transform: translateY(18px);

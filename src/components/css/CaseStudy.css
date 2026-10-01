@@ -16,7 +16,7 @@
 .case-client {
   color: var(--primary);
   font-weight: 600;
-  font-size: 1rem;
+  font-size: var(--fs-base);
   margin-bottom: 2.5rem;
 }
 
@@ -30,7 +30,7 @@
 .case-before,
 .case-after {
   border: 1px solid var(--border);
-  border-radius: 16px;
+  border-radius: var(--radius-lg);
   padding: 1.75rem;
 }
 
@@ -39,14 +39,14 @@
 }
 
 .case-after {
-  background: #fff;
+  background: var(--surface);
   border-color: var(--glass-border);
   box-shadow: var(--shadow-card);
 }
 
 .case-label {
   display: inline-block;
-  font-size: 0.75rem;
+  font-size: var(--fs-xs);
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -60,7 +60,7 @@
 
 .case-before p,
 .case-chain-note {
-  font-size: 0.9375rem;
+  font-size: var(--fs-md);
   line-height: 1.6;
   color: var(--text-muted);
   margin: 0;
@@ -77,9 +77,9 @@
 .case-node {
   background: var(--bg-secondary);
   border: 1px solid var(--border);
-  border-radius: 10px;
+  border-radius: var(--radius-md);
   padding: 0.5rem 0.85rem;
-  font-size: 0.875rem;
+  font-size: var(--fs-sm);
   font-weight: 500;
   color: var(--text);
 }
@@ -110,7 +110,7 @@
 }
 
 .case-metric-label {
-  font-size: 0.875rem;
+  font-size: var(--fs-sm);
   line-height: 1.5;
   color: var(--text-muted);
 }
@@ -123,6 +123,6 @@
 @media (max-width: 600px) {
   .case { padding: 3.5rem 1rem; }
   .case-before,
-  .case-after { padding: 1.35rem; border-radius: 14px; }
+  .case-after { padding: 1.35rem; border-radius: var(--radius-lg); }
   .case-client { margin-bottom: 2rem; }
 }

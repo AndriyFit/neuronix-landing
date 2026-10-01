@@ -9,7 +9,7 @@
   background: var(--bg);
   color: var(--text);
   border: 1px solid var(--border);
-  border-radius: 12px;
+  border-radius: var(--radius-md);
   box-shadow: var(--shadow-elevated);
   padding: 16px 24px;
   display: flex;
@@ -22,7 +22,7 @@
 }
 
 .cookie-text {
-  font-size: 0.875rem;
+  font-size: var(--fs-sm);
   line-height: 1.5;
   flex: 1;
   min-width: 0;
@@ -41,10 +41,10 @@
 
 .cookie-accept,
 .cookie-decline {
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
   padding: 8px 18px;
   font-family: var(--font-body);
-  font-size: 0.875rem;
+  font-size: var(--fs-sm);
   cursor: pointer;
   white-space: nowrap;
 }

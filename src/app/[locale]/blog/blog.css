@@ -18,7 +18,7 @@
 }
 
 .blog-index-subtitle {
-  font-size: 1.1rem;
+  font-size: var(--fs-lg);
   color: var(--text-muted);
   margin-bottom: 1.5rem;
   max-width: 640px;
@@ -34,11 +34,11 @@
 
 .blog-category-pill {
   padding: 0.35rem 0.9rem;
-  background: #EDE9FE;
+  background: var(--primary-soft);
   color: var(--primary);
-  font-size: 0.8rem;
+  font-size: var(--fs-xs);
   font-weight: 600;
-  border-radius: 20px;
+  border-radius: var(--radius-pill);
 }
 
 .blog-list {
@@ -50,9 +50,9 @@
 }
 
 .blog-card {
-  background: #fff;
+  background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 14px;
+  border-radius: var(--radius-lg);
   box-shadow: var(--shadow-card);
   transition: box-shadow 0.2s, transform 0.15s;
 }
@@ -74,35 +74,35 @@
   flex-wrap: wrap;
   gap: 0.5rem;
   align-items: center;
-  font-size: 0.8rem;
+  font-size: var(--fs-xs);
   color: var(--text-muted);
   margin-bottom: 0.5rem;
 }
 
 .blog-card-category {
   padding: 0.15rem 0.6rem;
-  background: #EDE9FE;
+  background: var(--primary-soft);
   color: var(--primary);
   font-weight: 600;
-  border-radius: 12px;
+  border-radius: var(--radius-md);
 }
 
 .blog-card-title {
-  font-size: 1.35rem;
+  font-size: var(--fs-xl);
   font-weight: 700;
   margin: 0.25rem 0 0.5rem;
   color: var(--text);
 }
 
 .blog-card-desc {
-  font-size: 0.95rem;
+  font-size: var(--fs-md);
   color: var(--text-muted);
   line-height: 1.55;
   margin-bottom: 0.75rem;
 }
 
 .blog-card-cta {
-  font-size: 0.9rem;
+  font-size: var(--fs-md);
   font-weight: 600;
   color: var(--primary);
 }
@@ -120,7 +120,7 @@
   flex-wrap: wrap;
   gap: 0.5rem;
   align-items: center;
-  font-size: 0.85rem;
+  font-size: var(--fs-sm);
   color: var(--text-muted);
   margin-bottom: 1.5rem;
 }
@@ -139,11 +139,11 @@
 .blog-post-category {
   display: inline-block;
   padding: 0.3rem 0.85rem;
-  background: #EDE9FE;
+  background: var(--primary-soft);
   color: var(--primary);
-  font-size: 0.8rem;
+  font-size: var(--fs-xs);
   font-weight: 600;
-  border-radius: 16px;
+  border-radius: var(--radius-lg);
   margin-bottom: 1rem;
 }
 
@@ -156,7 +156,7 @@
 }
 
 .blog-post-description {
-  font-size: 1.1rem;
+  font-size: var(--fs-lg);
   color: var(--text-muted);
   line-height: 1.55;
   margin-bottom: 1rem;
@@ -166,15 +166,15 @@
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-  font-size: 0.85rem;
+  font-size: var(--fs-sm);
   color: var(--text-muted);
 }
 
 .blog-tldr {
   padding: 1.25rem 1.5rem;
-  background: #F5F3FF;
+  background: var(--bg-tint);
   border-left: 3px solid var(--primary);
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
   margin: 2rem 0 2.5rem;
 }
 
@@ -182,26 +182,26 @@
   display: block;
   margin-bottom: 0.5rem;
   color: var(--primary);
-  font-size: 0.85rem;
+  font-size: var(--fs-sm);
   letter-spacing: 0.04em;
   text-transform: uppercase;
 }
 
 .blog-tldr p {
   margin: 0;
-  font-size: 0.95rem;
+  font-size: var(--fs-md);
   line-height: 1.6;
   color: var(--text);
 }
 
-.blog-content { font-size: 1.05rem; line-height: 1.75; color: var(--text); }
+.blog-content { font-size: var(--fs-base); line-height: 1.75; color: var(--text); }
 
 .blog-section {
   margin-bottom: 2.5rem;
 }
 
 .blog-section h2 {
-  font-size: 1.5rem;
+  font-size: var(--fs-2xl);
   font-weight: 700;
   margin: 0 0 1rem;
   color: var(--text);
@@ -227,12 +227,12 @@
 
 .blog-code {
   background: #0f0f13;
-  color: #e2e8f0;
+  color: var(--border);
   padding: 1rem 1.25rem;
-  border-radius: 10px;
+  border-radius: var(--radius-md);
   overflow-x: auto;
   font-family: 'JetBrains Mono', 'Fira Code', monospace;
-  font-size: 0.85rem;
+  font-size: var(--fs-sm);
   margin: 1.5rem 0;
 }
 
@@ -240,11 +240,11 @@
   margin: 3rem 0;
   padding: 2rem;
   background: var(--bg-secondary);
-  border-radius: 12px;
+  border-radius: var(--radius-md);
 }
 
 .blog-faq h2 {
-  font-size: 1.5rem;
+  font-size: var(--fs-2xl);
   font-weight: 700;
   margin-bottom: 1.5rem;
   color: var(--text);
@@ -270,27 +270,27 @@
   font-weight: 700;
   margin-bottom: 0.5rem;
   color: var(--text);
-  font-size: 1.05rem;
+  font-size: var(--fs-base);
 }
 
 .blog-faq dd {
   margin: 0;
   color: var(--text-muted);
   line-height: 1.65;
-  font-size: 0.95rem;
+  font-size: var(--fs-md);
 }
 
 .blog-cta {
   margin: 3rem 0;
   padding: 2rem;
-  background: linear-gradient(135deg, #7C3AED, #4F46E5);
-  border-radius: 16px;
+  background: var(--gradient-primary);
+  border-radius: var(--radius-lg);
   color: #fff;
   text-align: center;
 }
 
 .blog-cta h2 {
-  font-size: 1.5rem;
+  font-size: var(--fs-2xl);
   font-weight: 700;
   margin-bottom: 0.75rem;
   color: #fff;
@@ -301,7 +301,7 @@
    виходив сірий текст на фіолетовому з контрастом 1.2:1. Ставиш кольоровий фон
    під абзац будь-де — задавай color явно, інакше повториться. */
 .blog-cta p {
-  font-size: 1rem;
+  font-size: var(--fs-base);
   margin-bottom: 1.25rem;
   color: rgba(255, 255, 255, 0.94);
   line-height: 1.5;
@@ -312,10 +312,10 @@
   align-items: center;
   justify-content: center;
   padding: 0.95rem 2rem;
-  background: #fff;
+  background: var(--surface);
   color: var(--primary);
   font-weight: 700;
-  border-radius: 10px;
+  border-radius: var(--radius-md);
   text-decoration: none;
   transition: transform 0.15s;
   min-height: 48px;
@@ -330,7 +330,7 @@
 }
 
 .blog-related h2 {
-  font-size: 1.35rem;
+  font-size: var(--fs-xl);
   font-weight: 700;
   margin-bottom: 1rem;
   color: var(--text);
@@ -347,9 +347,9 @@
 .blog-related a {
   display: block;
   padding: 1rem 1.25rem;
-  background: #fff;
+  background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 10px;
+  border-radius: var(--radius-md);
   text-decoration: none;
   color: var(--text);
   transition: border-color 0.2s;
@@ -361,7 +361,7 @@
 
 .blog-related-category {
   display: block;
-  font-size: 0.75rem;
+  font-size: var(--fs-xs);
   color: var(--primary);
   font-weight: 600;
   text-transform: uppercase;
@@ -370,7 +370,7 @@
 }
 
 .blog-related-title {
-  font-size: 0.95rem;
+  font-size: var(--fs-md);
   font-weight: 600;
   color: var(--text);
 }

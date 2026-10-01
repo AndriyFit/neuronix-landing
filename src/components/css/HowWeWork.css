@@ -58,14 +58,14 @@
 }
 
 .step-title {
-  font-size: 1.1rem;
+  font-size: var(--fs-lg);
   font-weight: 700;
   color: var(--text);
   margin-bottom: 0.5rem;
 }
 
 .step-desc {
-  font-size: 0.875rem;
+  font-size: var(--fs-sm);
   color: var(--text-muted);
   line-height: 1.6;
 }

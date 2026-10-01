@@ -15,7 +15,7 @@
 
 .team-subtitle {
   color: var(--text-muted);
-  font-size: 1rem;
+  font-size: var(--fs-base);
   line-height: 1.6;
   max-width: 620px;
   margin: 0 0 3rem;
@@ -55,7 +55,7 @@
 /* Іконка посади замість ініціалів: імен у картках більше немає, тож літери
    були б від неіснуючих людей. Емодзі — та сама мова, що в services та ecosystem. */
 .team-position {
-  font-size: 1.0625rem;
+  font-size: var(--fs-base);
   font-weight: 700;
   color: var(--text);
   margin: 0 0 0.3rem;
@@ -64,14 +64,14 @@
 }
 
 .team-person {
-  font-size: 0.875rem;
+  font-size: var(--fs-sm);
   color: var(--primary);
   font-weight: 500;
   margin: 0;
 }
 
 .team-note {
-  font-size: 0.8125rem;
+  font-size: var(--fs-xs);
   line-height: 1.5;
   color: var(--text-muted);
   margin: 0.5rem auto 0;
@@ -80,8 +80,8 @@
 
 @media (max-width: 600px) {
   .team-avatar { width: 120px; height: 120px; margin-bottom: 1rem; }
-  .team-position { font-size: 0.9375rem; }
-  .team-note { font-size: 0.75rem; }
+  .team-position { font-size: var(--fs-md); }
+  .team-note { font-size: var(--fs-xs); }
 }
 
 /* Мобільний: та сама горизонтальна стрічка зі snap, що й у відгуках вище — інакше

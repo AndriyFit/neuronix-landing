@@ -49,7 +49,7 @@ body {
 input,
 textarea,
 select {
-  font-size: 16px;
+  font-size: var(--fs-base);
 }
 
 /* Minimum tap target for accessibility on mobile */
@@ -135,6 +135,15 @@ input, textarea {
   background: none;
 }
 
+/* Видимий фокус для клавіатури: вище кнопкам знято outline, без цього Tab нічого не показує */
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
 /* ===== Layout ===== */
 main {
   position: relative;
@@ -163,7 +172,7 @@ section .container {
   backdrop-filter: var(--glass-blur);
   -webkit-backdrop-filter: var(--glass-blur);
   border: 1px solid var(--glass-border);
-  border-radius: 16px;
+  border-radius: var(--radius-lg);
   box-shadow: var(--shadow-card);
 }
 
@@ -235,7 +244,7 @@ section .container {
 .gradient-border {
   position: relative;
   overflow: hidden;
-  border-radius: 16px;
+  border-radius: var(--radius-lg);
 }
 
 .gradient-border::before {
@@ -366,7 +375,7 @@ section .container {
 
 @media (max-width: 375px) {
   html {
-    font-size: 15px;
+    font-size: var(--fs-md);
   }
 
   h1 {
@@ -374,10 +383,10 @@ section .container {
   }
 
   h2 {
-    font-size: 1.5rem;
+    font-size: var(--fs-2xl);
   }
 
   h3 {
-    font-size: 1.1rem;
+    font-size: var(--fs-lg);
   }
 }

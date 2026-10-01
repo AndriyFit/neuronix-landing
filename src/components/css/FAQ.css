@@ -18,7 +18,7 @@
 .faq-item {
   background: var(--glass-bg);
   border: 1px solid var(--glass-border);
-  border-radius: 12px;
+  border-radius: var(--radius-md);
   padding: 1.25rem 1.5rem;
   backdrop-filter: var(--glass-blur);
   transition: border-color 0.3s;
@@ -32,7 +32,7 @@
   font-weight: 600;
   cursor: pointer;
   color: var(--text);
-  font-size: 1.05rem;
+  font-size: var(--fs-base);
   list-style: none;
 }
 
@@ -48,7 +48,7 @@
   color: var(--text-muted);
   margin-top: 0.75rem;
   line-height: 1.7;
-  font-size: 0.95rem;
+  font-size: var(--fs-md);
 }
 
 @media (max-width: 600px) {
@@ -57,15 +57,15 @@
   }
   .faq-item {
     padding: 1rem 1.1rem;
-    border-radius: 10px;
+    border-radius: var(--radius-md);
   }
   .faq-question {
-    font-size: 0.98rem;
+    font-size: var(--fs-base);
     line-height: 1.4;
     padding-right: 1.5rem;
     position: relative;
   }
   .faq-answer {
-    font-size: 0.9rem;
+    font-size: var(--fs-md);
   }
 }
