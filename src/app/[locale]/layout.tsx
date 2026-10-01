@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react'
 import type { Metadata, Viewport } from 'next'
-import { Manrope, Unbounded } from 'next/font/google'
+import { Manrope, Inter } from 'next/font/google'
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages, setRequestLocale } from 'next-intl/server'
 import { notFound } from 'next/navigation'
@@ -31,12 +31,11 @@ const manrope = Manrope({
   preload: true,
 })
 
-// Unbounded — лише заголовки (широкий геометричний, має кирилицю).
-const unbounded = Unbounded({
+// Брендбук Neuronix v1.0: заголовки — Manrope, основний текст — Inter. Обидва мають кирилицю.
+const inter = Inter({
   subsets: ['latin', 'cyrillic'],
-  weight: ['600', '700', '800'],
   display: 'swap',
-  variable: '--font-unbounded',
+  variable: '--font-inter',
   preload: true,
 })
 
@@ -94,7 +93,7 @@ export default async function LocaleLayout({
   ]
 
   return (
-    <html lang={locale} className={`${manrope.variable} ${unbounded.variable}`}>
+    <html lang={locale} className={`${manrope.variable} ${inter.variable}`}>
       <head>
         {gtmId && <script dangerouslySetInnerHTML={{ __html: CONSENT_DEFAULT_SNIPPET }} />}
         {/* Заздалегідь відкриваємо зʼєднання до аналітики: інакше кожен зі скриптів

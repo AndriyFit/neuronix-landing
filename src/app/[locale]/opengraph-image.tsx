@@ -1,4 +1,6 @@
 import { ImageResponse } from 'next/og'
+import { readFile } from 'node:fs/promises'
+import { join } from 'node:path'
 
 // Одна картинка на всі маршрути: Next автоматично підставляє її в og:image і
 // twitter:image. Раніше твітер-картка була оголошена як summary_large_image,
@@ -7,7 +9,12 @@ export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
 export const alt = 'Neuronix — розробка сайтів та автоматизація для бізнесу'
 
-export default function OpengraphImage() {
+export default async function OpengraphImage() {
+  // Офіційний логотип із брендбуку на білій плашці (на фіолетовому тлі темний текст
+  // логотипа не читається, а інверсна версія втрачає фіолетовий знак).
+  const logo = await readFile(join(process.cwd(), 'public/brand/logo.png'))
+  const logoSrc = `data:image/png;base64,${logo.toString('base64')}`
+
   return new ImageResponse(
     (
       <div
@@ -23,8 +30,19 @@ export default function OpengraphImage() {
           fontFamily: 'sans-serif',
         }}
       >
-        <div style={{ fontSize: 92, fontWeight: 800, letterSpacing: -2 }}>NEURONIX</div>
-        <div style={{ fontSize: 44, lineHeight: 1.25, marginTop: 24, opacity: 0.95 }}>
+        <div
+          style={{
+            display: 'flex',
+            alignSelf: 'flex-start',
+            background: '#ffffff',
+            borderRadius: 28,
+            padding: '30px 44px',
+          }}
+        >
+          {/* eslint-disable-next-line @next/next/no-img-element -- next/og рендерить звичайний img */}
+          <img src={logoSrc} width={460} height={98} alt="Neuronix" />
+        </div>
+        <div style={{ fontSize: 44, lineHeight: 1.25, marginTop: 48, opacity: 0.95 }}>
           Розробка сайтів, інтернет-магазинів
         </div>
         <div style={{ fontSize: 44, lineHeight: 1.25, opacity: 0.95 }}>

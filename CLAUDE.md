@@ -983,8 +983,8 @@ content, tool_name). Зберігаються **ВСІ діалоги**, не л
 `logo-inverse.webp` (футер, темний фон — інверсію зроблено перефарбуванням темних пікселів, бо
 офіційного файлу не було); мінімум 140px завширшки, без ефектів. Іконки (favicon.ico, icon-192/512,
 apple-touch) — зі знака; `favicon.svg` видалено (вектора немає), schema.org logo → `icon-512.png`.
-⚠️ Шрифти брендбука (Manrope заголовки / Inter текст) НЕ застосовано: сайт на Unbounded + Manrope.
-⚠️ `opengraph-image.tsx` досі малює текст «NEURONIX», а не логотип.
+Шрифти за брендбуком (з 2026-10-01): заголовки Manrope, текст Inter (`--font-display`/`--font-body`); Unbounded видалено.
+`opengraph-image.tsx` малює логотип (`public/brand/logo.png`) на білій плашці поверх фіолетового градієнта.
 
 ## Партнерство з Shop-Express (2026-10-01)
 
