@@ -16,11 +16,10 @@
   --glass-bg: rgba(255, 255, 255, 0.8);
   --glass-border: rgba(110, 54, 244, 0.15);
   --glass-blur: blur(20px);
-  /* Обидва шрифти мають кирилицю: Unbounded — заголовки, Manrope — увесь інший текст.
-     До 2026-10 body стояв на Syne без кирилиці, тож український текст малювався
-     системним шрифтом і на різних пристроях виглядав по-різному. */
-  --font-display: var(--font-unbounded), 'Unbounded', system-ui, sans-serif;
-  --font-body: var(--font-manrope), 'Manrope', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  /* Брендбук v1.0: заголовки — Manrope (600–700), текст — Inter. Обидва мають кирилицю.
+     До 2026-10 заголовки стояли на Unbounded: він широкий, і сайт виглядав чужим до брендбука. */
+  --font-display: var(--font-manrope), 'Manrope', system-ui, sans-serif;
+  --font-body: var(--font-inter), 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
 
   /* Шкала розмірів тексту — єдина для всіх секцій */
   --fs-xs: 0.8125rem;
