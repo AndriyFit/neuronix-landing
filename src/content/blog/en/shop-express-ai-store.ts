@@ -20,7 +20,7 @@ export const post: BlogPost = {
   updatedAt: '2026-10-01',
   readingTimeMin: 6,
   tldr:
-    'Shop-Express is a Ukrainian online store builder with a built-in system of AI agents. Catalog, cart, payments, delivery, CRM and SEO are already inside, and design ranges from a template to fully custom. We are a partner of the platform: we build stores from $300 and connect voice agents and chatbots.',
+    '[Shop-Express](https://shop-express.ua/ukr/?&utm_source=partner&utm_medium=site&utm_campaign=Neuronics.work) is a Ukrainian online store builder with a built-in system of AI agents. Catalog, cart, payments, delivery, CRM and SEO are already inside, and design ranges from a template to fully custom. We are a partner of the platform: we build stores from $300 and connect voice agents and chatbots.',
   sections: [
     {
       heading: 'Where the online store market is heading',
@@ -61,8 +61,8 @@ export const post: BlogPost = {
     {
       heading: 'How to start',
       paragraphs: [
-        'The platform subscription is paid separately at its own rates; current terms are on the Shop-Express website. We are a partner of the platform: we recommend it to our clients, and it recommends us to store owners.',
-        'Write to us and we will review your task for free: which design level you need, which systems to connect and where AI will bring the most value.',
+        'The platform subscription is paid separately at its own rates; current terms are on the [Shop-Express website](https://shop-express.ua/ukr/?&utm_source=partner&utm_medium=site&utm_campaign=Neuronics.work). We are a partner of the platform: we recommend it to our clients, and it recommends us to store owners.',
+        'You can register on the platform through [our partner link](https://shop-express.ua/ukr/?&utm_source=partner&utm_medium=site&utm_campaign=Neuronics.work). Write to us and we will review your task for free: which design level you need, which systems to connect and where AI will bring the most value.',
       ],
     },
   ],
