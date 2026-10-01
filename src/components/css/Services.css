@@ -52,6 +52,16 @@
   .services-grid:has(> :nth-child(6):last-child) {
     grid-template-columns: repeat(3, 1fr);
   }
+
+  /* Рівно п'ять карток: 3 + 2 по центру замість 4 + 1 сироти. */
+  .services-grid:has(> :nth-child(5):last-child) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .services-grid:has(> :nth-child(5):last-child) > .service-card {
+    flex: 0 1 calc((100% - 3rem) / 3);
+  }
 }
 
 .service-card {
