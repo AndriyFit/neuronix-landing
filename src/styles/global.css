@@ -144,6 +144,42 @@ summary:focus-visible {
   border-radius: var(--radius-sm);
 }
 
+/* ===== Шапка розділу — однакова для всіх секцій =====
+   До 2026-10 кожна секція мала свою: частина заголовків стояла по центру, частина
+   зліва, відступи під ними були від 12 до 48px, надзаголовків було два різні стилі.
+   `section` у селекторі підіймає специфічність над стилями компонентів, тож ці правила
+   перемагають, і нова секція отримує той самий вигляд, щойно її класи потраплять сюди. */
+section :is(.pains-title, .services-title, .how-we-work-title, .clients h2, .testimonials-title,
+  .team-title, .pricing-title, .faq-title, .contact-title, .case-title, .audit-title) {
+  display: block;
+  text-align: center;
+  margin: 0 auto 3rem;
+}
+
+section :is(.pains-title, .clients h2, .testimonials-title, .team-title, .contact-title, .audit-title):has(+ p) {
+  margin-bottom: 0.75rem;
+}
+
+section :is(.pains-subtitle, .clients h2 + p, .testimonials-subtitle, .team-subtitle,
+  .contact-subtitle, .audit-subtitle) {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: var(--fs-base);
+  line-height: 1.6;
+  max-width: 60ch;
+  margin: 0 auto 3rem;
+}
+
+section :is(.clients-eyebrow, .testimonials-eyebrow) {
+  text-align: center;
+  color: var(--primary);
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin: 0 0 0.75rem;
+}
+
 /* ===== Layout ===== */
 main {
   position: relative;
