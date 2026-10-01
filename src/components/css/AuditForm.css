@@ -6,9 +6,9 @@
 .audit-inner {
   max-width: 760px;
   margin: 0 auto;
-  background: #fff;
+  background: var(--surface);
   border: 1px solid var(--glass-border);
-  border-radius: 20px;
+  border-radius: var(--radius-lg);
   padding: 2.5rem;
   box-shadow: var(--shadow-elevated);
   text-align: center;
@@ -21,7 +21,7 @@
 
 .audit-subtitle {
   color: var(--text-muted);
-  font-size: 1rem;
+  font-size: var(--fs-base);
   line-height: 1.6;
   margin: 0 auto 1.75rem;
   max-width: 520px;
@@ -39,11 +39,11 @@
   width: 100%;
   padding: 0.85rem 1rem;
   font-family: inherit;
-  font-size: 0.9375rem;
+  font-size: var(--fs-md);
   color: var(--text);
   background: var(--bg-secondary);
   border: 1.5px solid var(--border);
-  border-radius: 10px;
+  border-radius: var(--radius-md);
   transition: border-color 0.2s;
 }
 
@@ -59,19 +59,19 @@
 .audit-submit {
   padding: 0.85rem 1.6rem;
   font-family: inherit;
-  font-size: 0.9375rem;
+  font-size: var(--fs-md);
   font-weight: 600;
   color: #fff;
   background: var(--primary);
   border: none;
-  border-radius: 10px;
+  border-radius: var(--radius-md);
   cursor: pointer;
   white-space: nowrap;
   transition: background 0.2s;
 }
 
 .audit-submit:hover:not(:disabled) {
-  background: #6D28D9;
+  background: var(--primary-hover);
 }
 
 .audit-submit:disabled {
@@ -82,8 +82,8 @@
 .audit-error {
   display: block;
   margin-top: 0.4rem;
-  font-size: 0.8125rem;
-  color: #DC2626;
+  font-size: var(--fs-xs);
+  color: var(--danger);
 }
 
 .audit-error-form {
@@ -92,21 +92,21 @@
 }
 
 .audit-success {
-  font-size: 1rem;
+  font-size: var(--fs-base);
   font-weight: 500;
   color: var(--primary);
   margin: 1.5rem 0;
 }
 
 .audit-note {
-  font-size: 0.8125rem;
+  font-size: var(--fs-xs);
   color: var(--text-muted);
   margin: 1.25rem 0 0;
 }
 
 @media (max-width: 720px) {
   .audit { padding: 3rem 1rem; }
-  .audit-inner { padding: 1.75rem 1.25rem; border-radius: 16px; }
+  .audit-inner { padding: 1.75rem 1.25rem; border-radius: var(--radius-lg); }
   .audit-form { grid-template-columns: 1fr; }
   .audit-submit { width: 100%; }
 }

@@ -44,22 +44,22 @@
   padding: 1rem 2rem;
   background: var(--primary);
   color: #fff;
-  font-size: 1rem;
+  font-size: var(--fs-base);
   font-weight: 600;
-  border-radius: 12px;
+  border-radius: var(--radius-md);
   text-decoration: none;
   transition: background 0.2s, transform 0.15s;
   min-height: 52px;
 }
 
 .contact-telegram-btn:hover {
-  background: #6D28D9;
+  background: var(--primary-hover);
   transform: translateY(-2px);
 }
 
 .contact-or {
   margin: 1.5rem 0;
-  font-size: 0.875rem;
+  font-size: var(--fs-sm);
   color: var(--text-muted);
   position: relative;
   opacity: 0;
@@ -97,12 +97,12 @@
 .contact-input {
   width: 100%;
   padding: 0.95rem 1rem;
-  font-size: 1rem;
+  font-size: var(--fs-base);
   font-family: var(--font-body);
   color: var(--text);
-  background: #fff;
+  background: var(--surface);
   border: 1.5px solid var(--border);
-  border-radius: 10px;
+  border-radius: var(--radius-md);
   outline: none;
   transition: border-color 0.2s;
   -webkit-appearance: none;
@@ -116,7 +116,7 @@
 .contact-textarea { resize: vertical; min-height: 100px; }
 
 .contact-error {
-  font-size: 0.8rem;
+  font-size: var(--fs-xs);
   color: #EF4444;
   margin-top: 2px;
 }
@@ -125,24 +125,24 @@
   padding: 0.95rem;
   background: var(--primary);
   color: #fff;
-  font-size: 1rem;
+  font-size: var(--fs-base);
   font-weight: 600;
   border: none;
-  border-radius: 10px;
+  border-radius: var(--radius-md);
   cursor: pointer;
   transition: background 0.2s;
   min-height: 48px;
 }
 
-.contact-submit:hover:not(:disabled) { background: #6D28D9; }
+.contact-submit:hover:not(:disabled) { background: var(--primary-hover); }
 .contact-submit:disabled { opacity: 0.6; cursor: not-allowed; }
 
 .contact-success {
   padding: 0.75rem 1rem;
   background: #F0FDF4;
-  color: #16A34A;
-  border-radius: 8px;
-  font-size: 0.9rem;
+  color: var(--success);
+  border-radius: var(--radius-sm);
+  font-size: var(--fs-md);
   text-align: center;
   border: 1px solid #BBF7D0;
 }
@@ -150,9 +150,9 @@
 .contact-error-msg {
   padding: 0.75rem 1rem;
   background: #FEF2F2;
-  color: #DC2626;
-  border-radius: 8px;
-  font-size: 0.9rem;
+  color: var(--danger);
+  border-radius: var(--radius-sm);
+  font-size: var(--fs-md);
   text-align: center;
   border: 1px solid #FECACA;
 }

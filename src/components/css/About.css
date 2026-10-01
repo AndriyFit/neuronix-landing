@@ -48,7 +48,7 @@
 
 .about-description {
   font-family: var(--font-body);
-  font-size: 1.15rem;
+  font-size: var(--fs-lg);
   color: var(--text-muted);
   max-width: 640px;
   margin: 0 auto 3.5rem;
@@ -71,7 +71,7 @@
   backdrop-filter: var(--glass-blur);
   -webkit-backdrop-filter: var(--glass-blur);
   border: 1px solid var(--glass-border);
-  border-radius: 16px;
+  border-radius: var(--radius-lg);
   padding: 32px;
   transition: all 0.3s ease;
 }
@@ -97,7 +97,7 @@
 
 .about-counter-label {
   font-family: var(--font-body);
-  font-size: 16px;
+  font-size: var(--fs-base);
   color: var(--text-muted);
   line-height: 1.4;
 }
@@ -113,7 +113,7 @@
   }
 
   .about-description {
-    font-size: 1rem;
+    font-size: var(--fs-base);
     margin-bottom: 2.5rem;
   }
 
@@ -130,7 +130,7 @@
   }
 
   .about-counter-label {
-    font-size: 14px;
+    font-size: var(--fs-sm);
   }
 }
 
@@ -141,7 +141,7 @@
   }
 
   .about-title {
-    font-size: 1.6rem;
+    font-size: var(--fs-2xl);
   }
 
   .about-counters {
@@ -160,6 +160,6 @@
   }
 
   .about-counter-label {
-    font-size: 15px;
+    font-size: var(--fs-md);
   }
 }

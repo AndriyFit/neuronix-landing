@@ -35,7 +35,7 @@
 }
 
 .trustbar-label {
-  font-size: 0.8125rem;
+  font-size: var(--fs-xs);
   color: var(--text-muted);
   line-height: 1.4;
 }
@@ -46,5 +46,5 @@
 
 @media (max-width: 600px) {
   .trustbar { padding: 2rem 1rem; }
-  .trustbar-label { font-size: 0.75rem; }
+  .trustbar-label { font-size: var(--fs-xs); }
 }

@@ -17,7 +17,7 @@
 }
 
 .testimonials-eyebrow {
-  font-size: 0.8125rem;
+  font-size: var(--fs-xs);
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -60,12 +60,12 @@
   padding: 1.5rem;
   background: var(--bg);
   border: 1px solid var(--border);
-  border-radius: 14px;
+  border-radius: var(--radius-lg);
 }
 
 .testimonial-quote {
   margin: 0 0 1rem;
-  font-size: 0.9375rem;
+  font-size: var(--fs-md);
   line-height: 1.65;
   color: var(--text);
 }
@@ -85,11 +85,11 @@
 .testimonial-name {
   font-weight: 600;
   color: var(--text);
-  font-size: 0.9375rem;
+  font-size: var(--fs-md);
 }
 
 .testimonial-role {
-  font-size: 0.8125rem;
+  font-size: var(--fs-xs);
   color: var(--text-muted);
 }
 

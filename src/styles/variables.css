@@ -3,6 +3,11 @@
   --bg-secondary: #f8f9fc;
   --bg-tint: #f5f3ff;
   --primary: #7C3AED;
+  --primary-hover: #6D28D9;
+  --primary-soft: #EDE9FE;
+  --surface: #ffffff;
+  --danger: #DC2626;
+  --success: #16A34A;
   --secondary: #0F172A;
   --accent: #7C3AED;
   --text: #0F172A;
@@ -11,11 +16,26 @@
   --glass-bg: rgba(255, 255, 255, 0.8);
   --glass-border: rgba(124, 58, 237, 0.15);
   --glass-blur: blur(20px);
-  /* Unbounded має кирилицю, Syne — ні (лише latin/latin-ext/greek). Syne лишається
-     в ланцюгу для латиниці; далі — названі системні шрифти, а не голий sans-serif,
-     щоб фолбек був передбачуваним, а не «що там у браузера за замовчуванням». */
-  --font-display: var(--font-unbounded), var(--font-syne), 'Unbounded', system-ui, sans-serif;
-  --font-body: var(--font-syne), 'Syne', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  /* Обидва шрифти мають кирилицю: Unbounded — заголовки, Manrope — увесь інший текст.
+     До 2026-10 body стояв на Syne без кирилиці, тож український текст малювався
+     системним шрифтом і на різних пристроях виглядав по-різному. */
+  --font-display: var(--font-unbounded), 'Unbounded', system-ui, sans-serif;
+  --font-body: var(--font-manrope), 'Manrope', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+
+  /* Шкала розмірів тексту — єдина для всіх секцій */
+  --fs-xs: 0.8125rem;
+  --fs-sm: 0.875rem;
+  --fs-md: 0.9375rem;
+  --fs-base: 1rem;
+  --fs-lg: 1.125rem;
+  --fs-xl: 1.25rem;
+  --fs-2xl: 1.5rem;
+
+  /* Заокруглення */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-pill: 999px;
 
   /* Shadows */
   --shadow-card: 0 2px 16px rgba(15, 23, 42, 0.08), 0 1px 4px rgba(15, 23, 42, 0.04);

@@ -20,8 +20,8 @@
 .pricing-title.visible { opacity: 1; transform: none; }
 
 .pricing-table {
-  background: #fff;
-  border-radius: 16px;
+  background: var(--surface);
+  border-radius: var(--radius-lg);
   border: 1px solid var(--border);
   box-shadow: var(--shadow-card);
   overflow: hidden;
@@ -46,12 +46,12 @@
 .pricing-row:hover { background: var(--bg-secondary); }
 
 .pricing-service {
-  font-size: 0.9rem;
+  font-size: var(--fs-md);
   color: var(--text);
 }
 
 .pricing-price {
-  font-size: 0.95rem;
+  font-size: var(--fs-md);
   font-weight: 700;
   color: var(--primary);
   white-space: nowrap;
@@ -60,7 +60,7 @@
 .pricing-note {
   text-align: center;
   margin-top: 1rem;
-  font-size: 0.8rem;
+  font-size: var(--fs-xs);
   color: var(--text-muted);
   opacity: 0;
   transition: opacity 0.5s 0.2s;
@@ -82,16 +82,16 @@
   padding: 0.875rem 2rem;
   background: var(--primary);
   color: #fff;
-  font-size: 1rem;
+  font-size: var(--fs-base);
   font-weight: 600;
   border: none;
-  border-radius: 10px;
+  border-radius: var(--radius-md);
   cursor: pointer;
   transition: background 0.2s, transform 0.15s;
 }
 
 .pricing-cta-btn:hover {
-  background: #6D28D9;
+  background: var(--primary-hover);
   transform: translateY(-2px);
 }
 
@@ -104,11 +104,11 @@
     gap: 0.75rem;
   }
   .pricing-service {
-    font-size: 0.875rem;
+    font-size: var(--fs-sm);
     line-height: 1.4;
   }
   .pricing-price {
-    font-size: 0.9rem;
+    font-size: var(--fs-md);
   }
   .pricing-cta-btn {
     width: 100%;
@@ -124,6 +124,6 @@
     gap: 0.25rem;
   }
   .pricing-price {
-    font-size: 0.95rem;
+    font-size: var(--fs-md);
   }
 }
