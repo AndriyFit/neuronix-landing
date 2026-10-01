@@ -52,6 +52,25 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 }
 
+// Абзаци статей — звичайний текст, але `[текст](url)` стає посиланням. Лише http(s) і
+// шляхи сайту; рендеримо вузлами React, а не HTML, тож вставка розмітки неможлива.
+function renderInline(text: string) {
+  return text.split(/(\[[^\]]+\]\((?:https?:\/\/|\/)[^)]+\))/g).map((part, i) => {
+    const m = part.match(/^\[([^\]]+)\]\(((?:https?:\/\/|\/)[^)]+)\)$/)
+    if (!m) return part
+    const external = m[2].startsWith('http')
+    return (
+      <a
+        key={i}
+        href={m[2]}
+        {...(external ? { target: '_blank', rel: 'noopener' } : {})}
+      >
+        {m[1]}
+      </a>
+    )
+  })
+}
+
 export default async function BlogPostPage({ params }: Props) {
   const { locale, slug } = await params
   setRequestLocale(locale)
@@ -146,7 +165,7 @@ export default async function BlogPostPage({ params }: Props) {
             <section key={idx} className="blog-section">
               <h2>{section.heading}</h2>
               {section.paragraphs.map((p, i) => (
-                <p key={i}>{p}</p>
+                <p key={i}>{renderInline(p)}</p>
               ))}
               {section.list && (
                 <ul>
