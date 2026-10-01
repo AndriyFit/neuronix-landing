@@ -89,6 +89,25 @@ export default async function PlatformPage({ params }: Props) {
 
   const faqSchema = getFAQSchema(messages.platforms[platform].faq.items)
 
+  // Партнерська сторінка платформи Shop-Express: пояснення переваг + наші послуги + FAQ.
+  // Без ecommStats/fullCycle/techChoice — вони про вибір рушія й процес запуску з нуля.
+  if (platform === 'shop-express') {
+    return (
+      <>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+        <AiHero namespace={`${ns}.hero`} />
+        <Pains namespace={`${ns}.pains`} />
+        <Services namespace={`${ns}.solutions`} />
+        <FAQ namespace={`${ns}.faq`} />
+        <Contact />
+        <Footer />
+      </>
+    )
+  }
+
   return (
     <>
       <script

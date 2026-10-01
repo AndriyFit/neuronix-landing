@@ -917,6 +917,104 @@
           }
         ]
       }
+    },
+    "shop-express": {
+      "metadata": {
+        "title": "Shop-Express online store with built-in AI agents — Neuronix",
+        "description": "We build online stores on Shop-Express: unique design, customizations, voice and chat bots connected to your CRM, AI content. Store from $300."
+      },
+      "hero": {
+        "titleStart": "An online store on ",
+        "titleHighlight": "Shop-Express",
+        "titleEnd": " with AI agents built in",
+        "subtitle": "Shop-Express is a Ukrainian online store builder with a built-in system of AI agents. We are the platform's partner: we build stores on it with unique design and customizations, connect voice and chat bots, and prepare the content.",
+        "ctaPrimary": "Discuss your store",
+        "trust": [
+          "Shop-Express partner",
+          "Store on the platform — from $300",
+          "Timeline and budget in the contract"
+        ]
+      },
+      "pains": {
+        "title": "The market is moving toward AI — are platforms?",
+        "subtitle": "What store owners face on ordinary SaaS platforms",
+        "items": [
+          "A ready-made builder does not bend: for a non-standard request you hear \"that is not possible\"",
+          "AI tools are separate paid services you have to stitch together by hand",
+          "Descriptions, meta tags and banners are still written by hand, product by product",
+          "Bots and voice assistants cannot see the store's orders, statuses and stock",
+          "The platform is not ready for where the market is heading: automated calls, AI assistants, AI search"
+        ],
+        "answerTitle": "What Shop-Express gives you",
+        "answers": [
+          "A store out of the box: catalog, cart, payments, delivery, CRM and SEO are built in",
+          "A built-in system of AI agents for marketing, sales, service and store security",
+          "AI tools for content and SEO meta tags right in the platform",
+          "Integrations with Ukrainian payment, delivery and CRM services — KeyCRM, SalesDrive and others",
+          "Three design levels: a ready template, brand adaptation, or fully custom",
+          "No setup fee and no commission on sales"
+        ]
+      },
+      "solutions": {
+        "title": "What we do on Shop-Express",
+        "extra": "Anything not on this list we discuss individually, after a free review of your task.",
+        "items": [
+          {
+            "title": "Turnkey store with unique design",
+            "description": "Your own design and customizations for your niche and requests: from catalog structure to non-standard pages. We set up payments, delivery and analytics.",
+            "price": "from $300"
+          },
+          {
+            "title": "Voice AI agents",
+            "description": "They call customers, confirm orders and remind about payment. They have access to your CRM and store systems, and update statuses and record data themselves.",
+            "price": "from $500",
+            "href": "/ai"
+          },
+          {
+            "title": "AI chatbots for the site and social media",
+            "description": "They know the catalog and availability, advise customers, place orders and hand complex questions to a manager.",
+            "price": "from $300",
+            "href": "/ai"
+          },
+          {
+            "title": "AI content for your store",
+            "description": "Unique product descriptions, SEO texts, banners and offers — made by models trained for e-commerce.",
+            "price": "UAH 15–20 per product"
+          },
+          {
+            "title": "Integrations and other tasks",
+            "description": "Connecting CRM, 1C, telephony and other systems, non-standard store requirements.",
+            "price": "individually"
+          },
+          {
+            "title": "Try Shop-Express",
+            "description": "Pick a plan on the platform's website. We are Shop-Express partners: we recommend the platform to our clients, and it recommends us.",
+            "price": "plans on their site",
+            "href": "https://shop-express.ua/ukr/?&utm_source=partner&utm_medium=site&utm_campaign=Neuronics.work"
+          }
+        ]
+      },
+      "faq": {
+        "title": "Questions about Shop-Express",
+        "items": [
+          {
+            "question": "How is Shop-Express different from ordinary store builders?",
+            "answer": "It is a platform with a built-in system of AI agents and AI tools for content and SEO, not just a set of templates. Design can be chosen at three levels — from a ready template to fully custom."
+          },
+          {
+            "question": "How much does a store on Shop-Express cost?",
+            "answer": "Our development starts at $300. You pay for the platform subscription separately at its own rates, which are current on the Shop-Express website."
+          },
+          {
+            "question": "Can a voice agent or chatbot be connected?",
+            "answer": "Yes. Voice agents start at $500, chatbots at $300. They work with store and CRM data: they check an order status, update it themselves and record the result of the conversation."
+          },
+          {
+            "question": "Are you a partner of the platform?",
+            "answer": "Yes, we are a Shop-Express partner. We recommend the platform to our clients, and it recommends us to store owners who need development and AI automation."
+          }
+        ]
+      }
     }
   },
   "blog": {

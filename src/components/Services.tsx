@@ -58,7 +58,16 @@ export default function Services({
               <p className="service-card-desc">{item.description}</p>
               <div className="service-card-footer">
                 <span className="service-price">{item.price}</span>
-                {item.href ? (
+                {item.href?.startsWith('http') ? (
+                  <a
+                    className="service-cta"
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    {tCta('more')}
+                  </a>
+                ) : item.href ? (
                   <Link className="service-cta" href={`/${locale}${item.href}`}>
                     {tCta('more')}
                   </Link>

@@ -27,6 +27,7 @@ export default function Footer() {
           <Link href={`/${locale}/opencart`}>OpenCart</Link>
           <Link href={`/${locale}/horoshop`}>Horoshop</Link>
           <Link href={`/${locale}/keycrm`}>KeyCRM</Link>
+          <Link href={`/${locale}/shop-express`}>Shop-Express</Link>
         </nav>
         <span className="footer-copy">{t('copy')}</span>
         <Link href={`/${locale}/privacy-policy`} className="footer-privacy">
