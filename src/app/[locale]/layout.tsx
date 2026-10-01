@@ -51,7 +51,7 @@ export const viewport: Viewport = {
   initialScale: 1,
   maximumScale: 5,
   viewportFit: 'cover',
-  themeColor: '#7C3AED',
+  themeColor: '#6E36F4',
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -106,7 +106,6 @@ export default async function LocaleLayout({
             404 — і Google малював сірий глобус замість знака. Тримаємо обидва плюс
             растрові розміри, кратні 48px, як радить довідка Google. */}
         <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         {schemas.map((schema, i) => (

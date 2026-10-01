@@ -12,7 +12,7 @@ interface Particle {
 }
 
 const SPEED = 0.28
-const RGB = '124, 58, 237' // #7C3AED
+const RGB = '110, 54, 244' // #6E36F4
 
 export default function AnimatedBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null)

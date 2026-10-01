@@ -126,7 +126,7 @@
 /* Magic UI «Animated Gradient Text» на ключовому слові в H1.               */
 
 .hero-title-highlight {
-  background: linear-gradient(100deg, #7C3AED, #4F46E5, #a78bfa, #7C3AED);
+  background: linear-gradient(100deg, #6E36F4, #4F46E5, #a78bfa, #6E36F4);
   background-size: 300% 100%;
   -webkit-background-clip: text;
   background-clip: text;

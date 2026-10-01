@@ -17,7 +17,7 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
-  -webkit-tap-highlight-color: rgba(124, 58, 237, 0.15);
+  -webkit-tap-highlight-color: rgba(110, 54, 244, 0.15);
   text-rendering: optimizeLegibility;
   height: 100%;
   overflow: hidden;
@@ -314,9 +314,9 @@ section .container {
 /* ===== Glow Text ===== */
 .glow-text {
   text-shadow:
-    0 0 10px rgba(124, 58, 237, 0.5),
-    0 0 30px rgba(124, 58, 237, 0.3),
-    0 0 60px rgba(124, 58, 237, 0.15);
+    0 0 10px rgba(110, 54, 244, 0.5),
+    0 0 30px rgba(110, 54, 244, 0.3),
+    0 0 60px rgba(110, 54, 244, 0.15);
 }
 
 /* ===== Mesh Background ===== */

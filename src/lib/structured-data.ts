@@ -6,7 +6,7 @@ export function getOrganizationSchema() {
     '@type': 'Organization',
     name: 'Neuronix',
     url: SITE_URL,
-    logo: `${SITE_URL}/favicon.svg`,
+    logo: `${SITE_URL}/icon-512.png`,
     contactPoint: {
       '@type': 'ContactPoint',
       contactType: 'sales',
@@ -25,7 +25,7 @@ export function getLocalBusinessSchema() {
     '@type': 'ProfessionalService',
     '@id': `${SITE_URL}#localbusiness`,
     name: 'Neuronix — розробка сайтів та автоматизація',
-    image: `${SITE_URL}/favicon.svg`,
+    image: `${SITE_URL}/icon-512.png`,
     url: SITE_URL,
     priceRange: '$$',
     telephone: '+380685026199',
@@ -79,7 +79,7 @@ export function getBlogPostingSchema(opts: {
     mainEntityOfPage: { '@type': 'WebPage', '@id': url },
     headline: opts.title,
     description: opts.description,
-    image: `${SITE_URL}/favicon.svg`,
+    image: `${SITE_URL}/icon-512.png`,
     keywords: opts.keywords.join(', '),
     datePublished: opts.publishedAt,
     dateModified: opts.updatedAt,
@@ -92,7 +92,7 @@ export function getBlogPostingSchema(opts: {
     publisher: {
       '@type': 'Organization',
       name: 'Neuronix',
-      logo: { '@type': 'ImageObject', url: `${SITE_URL}/favicon.svg` },
+      logo: { '@type': 'ImageObject', url: `${SITE_URL}/icon-512.png` },
     },
   }
 }

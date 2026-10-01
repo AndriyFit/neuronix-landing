@@ -19,10 +19,8 @@
 }
 
 .footer-logo {
-  font-weight: 800;
-  font-size: var(--fs-base);
-  color: #fff;
-  letter-spacing: 0.05em;
+  height: 30px;
+  width: auto;
 }
 
 .footer-copy {
