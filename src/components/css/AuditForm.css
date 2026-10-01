@@ -111,3 +111,6 @@
   .audit-form { grid-template-columns: 1fr; }
   .audit-submit { width: 100%; }
 }
+
+/* Текст згоди — окремим рядком на всю ширину форми, а не четвертою «коміркою» під полем */
+.audit-form > .form-consent { grid-column: 1 / -1; }

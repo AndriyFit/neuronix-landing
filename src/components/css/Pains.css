@@ -106,3 +106,21 @@
   .pain-card { padding: 1.25rem 1.25rem 1.25rem 1.5rem; }
   .pains-answer { padding: 1.5rem 1.25rem; margin-top: 2rem; border-radius: var(--radius-lg); }
 }
+
+/* Без «сиріт» в останньому ряду при будь-якій кількості карток.
+   Десктоп: сітка на 6 частин, картка займає 2 (тобто 3 в ряд). Якщо в останньому
+   ряду лишається 2 картки, вони беруть по 3 частини, а якщо 1, то дві останні
+   пари стають по 2 в ряд: 5 → 3+2, 6 → 3+3, 7 → 3+2+2, 4 → 2+2. Ряди завжди повні.
+   Планшет (2 колонки): непарна остання картка тягнеться на всю ширину. */
+@media (min-width: 901px) {
+  .pains-grid { grid-template-columns: repeat(6, 1fr); }
+  .pains-grid > * { grid-column: span 2; }
+  .pains-grid:has(> :first-child:nth-last-child(3n+2)) > :nth-last-child(-n+2),
+  .pains-grid:has(> :first-child:nth-last-child(3n+1)) > :nth-last-child(-n+4) { grid-column: span 3; }
+}
+@media (min-width: 601px) and (max-width: 900px) {
+  .pains-grid:has(> :first-child:nth-last-child(2n+1)) > :last-child { grid-column: 1 / -1; }
+}
+
+/* Непарний останній пункт списку — на всю ширину, щоб не лишався сам у половині ряду */
+.pains-answer-list > li:last-child:nth-child(odd) { grid-column: 1 / -1; }

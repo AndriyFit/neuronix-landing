@@ -92,7 +92,8 @@
 
 .case-metrics {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  /* auto-fit: 3 метрики → 3 колонки, 4 → 4, без самотньої картки в другому ряду */
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1.5rem;
 }
 
