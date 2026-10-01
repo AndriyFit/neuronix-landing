@@ -1015,6 +1015,11 @@
             "answer": "Yes, we are a Shop-Express partner. We recommend the platform to our clients, and it recommends us to store owners who need development and AI automation."
           }
         ]
+      },
+      "partner": {
+        "label": "Neuronix is an official Shop-Express partner: we build stores on the platform and connect AI agents.",
+        "alt": "Shop-Express partner",
+        "href": "https://shop-express.ua/ukr/?&utm_source=partner&utm_medium=site&utm_campaign=Neuronics.work"
       }
     }
   },

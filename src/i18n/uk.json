@@ -1016,6 +1016,11 @@
             "answer": "Так, ми партнери Shop-Express. Ми рекомендуємо платформу своїм клієнтам, а вона рекомендує нас власникам магазинів, яким потрібна розробка й AI-автоматизація."
           }
         ]
+      },
+      "partner": {
+        "label": "Neuronix — офіційний партнер Shop-Express: розробляємо магазини на платформі й підключаємо AI-агентів.",
+        "alt": "Партнер Shop-Express",
+        "href": "https://shop-express.ua/ukr/?&utm_source=partner&utm_medium=site&utm_campaign=Neuronics.work"
       }
     }
   },
