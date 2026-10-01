@@ -35,8 +35,14 @@ function collectAmounts(node: unknown, path = ''): Array<{ path: string; amount:
 for (const locale of LOCALES) {
   test(`${locale}: жодної суми поза pricing.items`, () => {
     const dict = load(locale) as Record<string, any>
+    // Партнерська сторінка Shop-Express має власний прайс (магазин від $300, боти) —
+    // його суми допустимі, але лише ті, що є в її ж картках, тож дрейф усередині
+    // сторінки тест усе одно ловить.
     const allowed = new Set(
-      collectAmounts(dict.pricing.items).map((a) => a.amount),
+      [
+        ...collectAmounts(dict.pricing.items),
+        ...collectAmounts(dict.platforms['shop-express'].solutions.items),
+      ].map((a) => a.amount),
     )
     assert.ok(allowed.size > 0, 'pricing.items не містить жодної суми — тест сліпий')
 
