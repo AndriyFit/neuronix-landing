@@ -1,7 +1,7 @@
 {
   "metadata": {
     "title": "Website & E-commerce Development — Neuronix",
-    "description": "Websites, online stores and business automation. Your store, CRM, accounting and marketplaces exchange data on their own. From $350, landing page in 5–10 days."
+    "description": "Websites, online stores and business automation. Your store, CRM, accounting and marketplaces exchange data on their own. From $200, landing page in 5–10 days."
   },
   "nav": {
     "services": "Services",
@@ -17,7 +17,7 @@
     "titleStart": "Websites and ",
     "titleHighlight": "online stores",
     "titleEnd": " built end to end",
-    "subtitle": "From $350, a landing page in 5–10 days. A site ready to take enquiries from day one.",
+    "subtitle": "From $200, a landing page in 5–10 days. A site ready to take enquiries from day one.",
     "ctaPrimary": "Get a quote",
     "trust": [
       "We reply during business hours",
@@ -76,7 +76,7 @@
       {
         "title": "Landing page",
         "description": "A single page for one service, a focused offer, or one to two products. The fastest way to validate demand and start taking enquiries.",
-        "price": "from $350",
+        "price": "from $200",
         "href": "/websites"
       },
       {
@@ -271,7 +271,11 @@
     "items": [
       {
         "service": "Landing page",
-        "price": "from $350"
+        "price": "from $200"
+      },
+      {
+        "service": "Shop-Express online store",
+        "price": "from $300"
       },
       {
         "service": "Horoshop online store",
@@ -438,7 +442,7 @@
         {
           "title": "AI-powered web development",
           "description": "We build websites and landing pages with AI several times faster than classic development: a landing page in 5 days — proven on a real project.",
-          "price": "from $350"
+          "price": "from $200"
         }
       ]
     },
@@ -718,7 +722,7 @@
     "websites": {
       "metadata": {
         "title": "What Is a Landing Page and What Does It Cost — Neuronix",
-        "description": "A landing page is a 1-2 page site for one offer: a pitch, a lead form, a Buy button. Built from $350, ready in 5-10 days. Free consultation."
+        "description": "A landing page is a 1-2 page site for one offer: a pitch, a lead form, a Buy button. Built from $200, ready in 5-10 days. Free consultation."
       },
       "hero": {
         "titleStart": "What Is a ",
@@ -728,7 +732,7 @@
         "ctaPrimary": "Get a Consultation",
         "trust": [
           "One or two pages built around a single offer",
-          "Ready in 5-10 days, from $350",
+          "Ready in 5-10 days, from $200",
           "Lead form goes straight to CRM and Telegram"
         ]
       }
@@ -814,7 +818,7 @@
           },
           {
             "question": "What's the difference between a store and a landing page with a cart?",
-            "answer": "A landing page is a single page with an order form, from $350. An online store is a catalog, cart, payment and delivery: from $500 on Horoshop, or from $1000 on OpenCart with accounting integrations."
+            "answer": "A landing page is a single page with an order form, from $200. An online store is a catalog, cart, payment and delivery: from $500 on Horoshop, or from $1000 on OpenCart with accounting integrations."
           },
           {
             "question": "What's included in the store price?",
@@ -844,7 +848,7 @@
         "titleStart": "How much does ",
         "titleHighlight": "website development",
         "titleEnd": " cost? See for yourself",
-        "subtitle": "Prices are on the site, not \"we'll call you back with a number.\" Landing page — from $350, a store on the ready-made Horoshop platform — from $500, a store with integrations on OpenCart — from $1000. The estimate is locked into the contract before work starts.",
+        "subtitle": "Prices are on the site, not \"we'll call you back with a number.\" Landing page — from $200, a store on the ready-made Horoshop platform — from $500, a store with integrations on OpenCart — from $1000. The estimate is locked into the contract before work starts.",
         "ctaPrimary": "Order website development",
         "trust": [
           "Prices published on the site, not \"on request\"",
@@ -878,7 +882,7 @@
           {
             "title": "Quick start",
             "description": "A landing page or one-pager: a single page, a clear call to action, ready in 5–10 days. Good for testing a niche or launching ads.",
-            "price": "from $350"
+            "price": "from $200"
           },
           {
             "title": "A site that grows",

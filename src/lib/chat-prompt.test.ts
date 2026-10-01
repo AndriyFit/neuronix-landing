@@ -3,7 +3,7 @@ import { test } from 'node:test'
 import { SYSTEM_INSTRUCTION, SUBMIT_LEAD_TOOL, parseLeadArgs } from './chat-prompt.ts'
 
 test('промпт містить актуальні факти й не містить вигаданих', () => {
-  for (const fact of ['від $350', 'від $1000', 'від $500', '12 місяц', 'neuronixjhbot', 'Андрій']) {
+  for (const fact of ['від $200', 'від $1000', 'від $500', '12 місяц', 'neuronixjhbot', 'Андрій']) {
     assert.ok(SYSTEM_INSTRUCTION.includes(fact), `бракує факту: ${fact}`)
   }
   for (const junk of ['Jetson', 'Edge AI', 'світлодіод', '$1350', '$550']) {
