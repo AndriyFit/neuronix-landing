@@ -976,6 +976,16 @@ content, tool_name). Зберігаються **ВСІ діалоги**, не л
 з боту (`Contact.tsx`, `AuditForm.tsx`). Окрему подію для чату свідомо не заводили: воронка
 в GA4/Ads і так одна на всі канали.
 
+## Брендбук Neuronix v1.0 (2026-10-01)
+
+Джерело: Drive «Neuronix — Брендбук.pdf». Кольори: Violet `#6E36F4` (`--primary`), Graphite `#191B21`
+(`--text`), Cloud `#F4F3FA` (`--bg-secondary`). Логотип: `public/brand/logo.webp` (шапка) і
+`logo-inverse.webp` (футер, темний фон — інверсію зроблено перефарбуванням темних пікселів, бо
+офіційного файлу не було); мінімум 140px завширшки, без ефектів. Іконки (favicon.ico, icon-192/512,
+apple-touch) — зі знака; `favicon.svg` видалено (вектора немає), schema.org logo → `icon-512.png`.
+⚠️ Шрифти брендбука (Manrope заголовки / Inter текст) НЕ застосовано: сайт на Unbounded + Manrope.
+⚠️ `opengraph-image.tsx` досі малює текст «NEURONIX», а не логотип.
+
 ## Партнерство з Shop-Express (2026-10-01)
 
 `/uk/shop-express` + стаття `blog/shop-express-ai-store` (обидві мови). Shop-Express — український

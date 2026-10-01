@@ -3,6 +3,7 @@
 import { useTranslations } from 'next-intl'
 import { useLocale } from 'next-intl'
 import Link from 'next/link'
+import Image from 'next/image'
 import { sendGTMEvent } from '@next/third-parties/google'
 import { track } from '@/lib/analytics'
 import './css/Footer.css'
@@ -14,7 +15,14 @@ export default function Footer() {
   return (
     <footer className="footer">
       <div className="footer-inner">
-        <span className="footer-logo">NEURONIX</span>
+        {/* Інверсна версія — для темного фону (брендбук, розділ «Версії логотипу»). */}
+        <Image
+          className="footer-logo"
+          src="/brand/logo-inverse.webp"
+          alt="Neuronix"
+          width={700}
+          height={149}
+        />
         <nav className="footer-services">
           {/* Порядок = що ми продаємо. До 06.09 перелік починався з AI і назв платформ,
               тобто з нашої кухні, а не з того, по що людина прийшла. Розробка сайтів

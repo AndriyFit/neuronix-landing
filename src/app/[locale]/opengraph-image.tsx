@@ -18,7 +18,7 @@ export default function OpengraphImage() {
           flexDirection: 'column',
           justifyContent: 'center',
           padding: '0 90px',
-          background: 'linear-gradient(135deg, #7C3AED 0%, #4F46E5 100%)',
+          background: 'linear-gradient(135deg, #6E36F4 0%, #4F46E5 100%)',
           color: '#ffffff',
           fontFamily: 'sans-serif',
         }}

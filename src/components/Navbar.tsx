@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback } from 'react'
 import { useTranslations, useLocale } from 'next-intl'
 import Link from 'next/link'
+import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import LanguageSwitcher from './LanguageSwitcher'
 import './css/Navbar.css'
@@ -74,11 +75,11 @@ export default function Navbar() {
             мову — шукав навігацію. Link ще й робить елемент доступним з клавіатури. */}
         {isHome ? (
           <div className="navbar-logo" onClick={scrollToTop}>
-            NEURONIX
+            <Image src="/brand/logo.webp" alt="Neuronix" width={700} height={149} priority />
           </div>
         ) : (
-          <Link href={`/${locale}`} className="navbar-logo">
-            NEURONIX
+          <Link href={`/${locale}`} className="navbar-logo" aria-label="Neuronix">
+            <Image src="/brand/logo.webp" alt="Neuronix" width={700} height={149} priority />
           </Link>
         )}
 

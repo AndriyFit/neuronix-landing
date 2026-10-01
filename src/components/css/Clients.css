@@ -69,7 +69,7 @@
 
 .client-logo:hover,
 .client-logo:focus-visible {
-  border-color: rgba(124, 58, 237, 0.45);
+  border-color: rgba(110, 54, 244, 0.45);
   box-shadow: var(--shadow-elevated);
   transform: translateY(-2px);
 }
@@ -85,7 +85,7 @@
 }
 
 .client-logo:focus-visible {
-  outline: 3px solid rgba(124, 58, 237, 0.2);
+  outline: 3px solid rgba(110, 54, 244, 0.2);
   outline-offset: 3px;
 }
 

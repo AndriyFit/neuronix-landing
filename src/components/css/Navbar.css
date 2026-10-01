@@ -45,17 +45,20 @@
 
 .navbar.scrolled {
   border-bottom-color: var(--border);
-  box-shadow: 0 2px 16px rgba(15, 23, 42, 0.06);
+  box-shadow: 0 2px 16px rgba(25, 27, 33, 0.06);
 }
 
+/* Логотип за брендбуком (v1.0): мінімум 140px завширшки на екрані, без ефектів. */
 .navbar-logo {
-  font-family: var(--font-display);
-  font-weight: 800;
-  font-size: var(--fs-xl);
-  color: var(--text);
+  display: flex;
+  align-items: center;
   cursor: pointer;
-  letter-spacing: 0.05em;
   flex-shrink: 0;
+}
+
+.navbar-logo img {
+  height: 34px;
+  width: auto;
 }
 
 .navbar-links {
@@ -202,5 +205,5 @@
 }
 
 @media (max-width: 380px) {
-  .navbar-logo { font-size: var(--fs-lg); }
+  .navbar-logo img { height: 30px; }
 }
