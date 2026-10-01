@@ -14,6 +14,7 @@ import { post as horoshopVsShopify } from './horoshop-vs-shopify'
 import { post as websiteLaunchChecklist } from './website-launch-checklist'
 import { post as websiteSpeedOptimization } from './website-speed-optimization'
 import { post as aiBusinessAdvantage } from './ai-business-advantage'
+import { post as shopExpressAiStore } from './shop-express-ai-store'
 
 export const allPostsEn: BlogPost[] = [
   opencartVsHoroshop,
@@ -31,4 +32,5 @@ export const allPostsEn: BlogPost[] = [
   websiteLaunchChecklist,
   websiteSpeedOptimization,
   aiBusinessAdvantage,
+  shopExpressAiStore,
 ]

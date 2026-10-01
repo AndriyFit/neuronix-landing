@@ -7,6 +7,7 @@ export const PLATFORMS = [
   'websites',
   'online-store',
   'price',
+  'shop-express',
 ] as const
 
 export type Platform = (typeof PLATFORMS)[number]

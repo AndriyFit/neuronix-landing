@@ -15,6 +15,7 @@ import { post as horoshopVsShopify } from './horoshop-vs-shopify'
 import { post as websiteLaunchChecklist } from './website-launch-checklist'
 import { post as websiteSpeedOptimization } from './website-speed-optimization'
 import { post as aiBusinessAdvantage } from './ai-business-advantage'
+import { post as shopExpressAiStore } from './shop-express-ai-store'
 
 export const allPosts: BlogPost[] = [
   opencartVsHoroshop,
@@ -32,6 +33,7 @@ export const allPosts: BlogPost[] = [
   websiteLaunchChecklist,
   websiteSpeedOptimization,
   aiBusinessAdvantage,
+  shopExpressAiStore,
 ]
 
 // Статті дзеркальні: однакові slug у обох мовах, тому hreflang uk↔en завжди валідний.
